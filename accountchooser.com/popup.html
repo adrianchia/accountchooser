@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+If your organization is willing to host a copy of the JS for free, contact the Account Chooser working group at http://goo.gl/jClJN
+-->
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Pragma" content="cache">
+  <meta http-equiv="Cache-control" content="public">
+  <meta http-equiv="X-FRAME-OPTIONS" content="DENY">
+  <title>Central Account Chooser</title>
+  <link rel="shortcut icon" href="cds.png" type="image/x-icon">
+  <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="https://ssl.gstatic.com/cds/8/bootstrap.js"></script>
+  <link type=text/css rel=stylesheet href="https://ssl.gstatic.com/cds/8/ac.css" />
+  <script type=text/javascript src="ac-config.js"></script>
+  <script type=text/javascript src="caja-support.js"></script>
+  <script type=text/javascript>
+    if (window.location.protocol != 'https:') {
+      window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    }
+
+    jQuery(function(){
+      var options = jQuery.extend({}, window.accountchooser.CDS_CONFIG, {
+        popupMode: true,
+        uiHandler: uiHandler
+      });
+      jQuery('#cds').cds(options);
+    });
+  </script>
+  <style type="text/css">
+    body {
+      background-color: #fff;
+      margin: 0;
+      font-family: arial,sans-serif;
+      font-size: 13px;
+    }
+    a, a:link {
+      color: #00c;
+    }
+    .cds-header {
+      border-bottom: 1px solid #DDDDDD;
+      padding: 0 20px 2px;
+      text-align: right;
+      vertical-align: top;
+      max-width: 600px;
+    }
+    .cds-header a {
+      font: 11px "Helvetica Neue",helvetica,arial,sans-serif;
+      padding: 0px 10px 5px 0px;
+    }
+    .cds-market-box {
+      color: #333333;
+      font: 13px "Helvetica Neue",helvetica,arial,sans-serif;
+      overflow: hidden;
+      padding:25px;
+      text-align: left;
+      vertical-align:top;
+      width: 300px;
+      z-index: 100;
+    }
+    .cds-footer {
+      font: 11px "Helvetica Neue",helvetica,arial,sans-serif;
+      margin-top: 10px;
+      text-align: center;
+      vertical-align: top;
+    }
+    .cds-footer-line {
+      color: #ddd;
+      margin-top: 20px;
+      max-width: 640px;
+    }
+    #cds {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<style>plaintext{display:none}</style>
+<script>
+(function(){
+try{
+    var win=this;
+    while("<plaintext>"){
+       if(win.parent==win)
+          break;
+       eval("win.frameElement.src").substr(0,1);
+       win=win.parent;
+    }
+    if(win.frameElement!=null)throw 'busted';
+    document.write("\x3Cxmp style\x3Ddisplay:none\x3E");
+}catch(e){
+    try{
+        if(!open(location,'_top'))
+           alert('this content cant be framed');
+   top.location=location;
+    }catch(e){}
+}
+})();
+</script>
+<!-- do not remove the plaintext nor xmp tags -->
+<plaintext/><xmp>.</xmp>
+<!-- framebuster code ends here -->
+<center>
+  <!-- HEADER -->
+  <p class="cds-header" id="cds-header" style="display:none">
+  </p>
+  <!-- BODY -->
+  <div id="cds" class="widget-panel-chooser" style="position: relative;"></div>
+  <table width="620" cellpadding="0" border=0 id="cds-main" style="display:none">
+    <tbody>
+      <tr valigin="top">
+        <td width="300" align="left" valign="top" style="padding-top: 0;" id="cds-container">
+        </td>
+        <td width="20">&nbsp;</td>
+        <td width="300" class="cds-market-box">
+          <div style="display: block; position: relative">
+            <div style="display: block; position: relative; overflow: hidden; margin: 0; padding: 0">
+              <div id="cds-market"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- FOOTER -->
+  <hr noshade size="1" class="cds-footer-line" id="cds-footer-line" style="display:none">
+  <p class="cds-footer" id="cds-footer" style="display:none">
+  </p>
+  <br>
+</center>
+</body>
+</html>

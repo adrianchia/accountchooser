@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name = "viewport" content = "user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="https://fonts.googleapis.com/css?family=Boogaloo|Droid+Sans:400,700" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://ssl.gstatic.com/cds/8/bootstrap.js"></script>
+    <link type=text/css rel=stylesheet href="https://ssl.gstatic.com/cds/8/ac.css" />
+    <link type=text/css rel=stylesheet href="https://ssl.gstatic.com/cds/8/learnmore.css" />
+    <script type="text/javascript">
+    if (window.location.protocol != 'https:') {
+      window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    }
+
+    function changeLang() {
+      var value = jQuery('#language').val();
+      window.location.href = window.location.protocol + '//' +
+        window.location.host + window.location.pathname + '?lang=' + value;
+    }
+    jQuery(function() {
+      var lang = window.accountchooser.util.parseUrlParams(window.location.href)['lang'] || 'en';
+      lang = lang.replace(/-/g, '_').toLowerCase();
+
+      var loader = new window.accountchooser.loader.JsLoader();
+      var uiJs = 'https://ssl.gstatic.com/cds/8/' + lang + '/ac-ui.js';
+      var uiDefaultJs = 'https://ssl.gstatic.com/cds/8/en/ac-ui.js';
+      loader.load(uiJs, uiDefaultJs, function() {
+        var learnMoreJs = 'https://ssl.gstatic.com/cds/8/' + lang + '/learn-more.js';
+        var learnMoreDefaultJs = 'https://ssl.gstatic.com/cds/8/en/learn-more.js';
+        loader.load(learnMoreJs, learnMoreDefaultJs, function() {
+          window.accountchooser.setWindowTitle();
+          window.accountchooser.showMessages('msg_');
+          window.accountchooser.showSelectAccountPage('page_signin');
+          window.accountchooser.showShareAccountPage('page_confirm');
+          jQuery('body').show();
+          jQuery(function() {
+            var option = jQuery('#language option[value="' + lang +'"]');
+            if (option.length == 0) {
+              option = jQuery('#language option[value="en"]');
+            }
+            option.attr('selected', true);
+          });
+        });
+      });
+    });
+    </script>
+  </head>
+  <body style="display:none">
+    <div id="container">
+      <div id="header">
+        <h1 id="logo"><span id="msg_header"></span></h1>
+      </div>
+      <div id="acpagecontent">
+        <div class="mainleft">
+          <p class="intro" id="msg_sec1Par1"></p>
+        </div>
+        <div class="colright">
+          <p id="msg_sec1Par2"></p>
+          <div class="ac">
+            <div id="page_signin" class="widget-panel-chooser" style="position:relative"></div>
+          </div>
+          <p id="msg_sec1Par3"></p>
+          <div class="ac">
+            <div id="page_confirm" class="widget-panel-chooser" style="position:relative"></div>
+          </div>
+        </div>
+        <div class="mainleft">
+          <h3 id="msg_subHeader1"></h3>
+          <p id="msg_sec2Par1"></p>
+          <ul>
+            <li id="msg_sec2Par1List1"></li>
+            <li id="msg_sec2Par1List2"></li>
+            <li id="msg_sec2Par1List3"></li>
+            <li id="msg_sec2Par1List4"></li>
+          </ul>
+          <p id="msg_sec2Par2"></p>
+          <h3 id="msg_subHeader2"></h3>
+          <p id="msg_sec3Par1"></p>
+          <ul>
+            <li id="msg_sec3Par1List1"></li>
+            <li id="msg_sec3Par1List2"></li>
+            <li id="msg_sec3Par1List3"></li>
+          </ul>
+          <p id="msg_deployButton"></p>
+        </div>
+      </div>
+      <div id="footer">
+        <div style="float:right">
+          <select id='language' onchange='changeLang();'>
+            <option value="bg">&#8234;&#1073;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;&#8236;</option>
+            <option value="ca">&#8234;catal&agrave;&#8236;</option>
+            <option value="cs">&#8234;&#269;e&scaron;tina&#8236;</option>
+            <option value="da">&#8234;dansk&#8236;</option>
+            <option value="de">&#8234;Deutsch&#8236;</option>
+            <option value="el">&#8234;&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940;&#8236;</option>
+            <option value="en">&#8234;English&#8236;</option>
+            <option value="en-GB">&#8234;English (UK)&#8236;</option>
+            <option value="es">&#8234;espa&ntilde;ol&#8236;</option>
+            <option value="fi">&#8234;suomi&#8236;</option>
+            <option value="fil">&#8234;Filipino&#8236;</option>
+            <option value="fr">&#8234;fran&ccedil;ais&#8236;</option>
+            <option value="hi">&#8234;&#2361;&#2367;&#2306;&#2342;&#2368;&#8236;</option>
+            <option value="hr">&#8234;hrvatski&#8236;</option>
+            <option value="hu">&#8234;magyar&#8236;</option>
+            <option value="id">&#8234;Bahasa Indonesia&#8236;</option>
+            <option value="it">&#8234;italiano&#8236;</option>
+            <option value="ja">&#8234;&#26085;&#26412;&#35486;&#8236;</option>
+            <option value="ko">&#8234;&#54620;&#44397;&#50612;&#8236;</option>
+            <option value="lt">&#8234;lietuvi&#371;&#8236;</option>
+            <option value="lv">&#8234;latvie&scaron;u&#8236;</option>
+            <option value="nl">&#8234;Nederlands&#8236;</option>
+            <option value="no">&#8234;norsk bokm&aring;l&#8236;</option>
+            <option value="pl">&#8234;polski&#8236;</option>
+            <option value="pt">&#8234;portugu&ecirc;s (Brasil)&#8236;</option>
+            <option value="pt-PT">&#8234;portugu&ecirc;s (Portugal)&#8236;</option>
+            <option value="ro">&#8234;rom&acirc;n&#259;&#8236;</option>
+            <option value="ru">&#8234;&#1088;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;&#8236;</option>
+            <option value="sk">&#8234;slovensk&yacute;&#8236;</option>
+            <option value="sl">&#8234;sloven&scaron;&#269;ina&#8236;</option>
+            <option value="sr">&#8234;&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;&#8236;</option>
+            <option value="sv">&#8234;svenska&#8236;</option>
+            <option value="th">&#8234;&#3652;&#3607;&#3618;&#8236;</option>
+            <option value="tr">&#8234;T&uuml;rk&ccedil;e&#8236;</option>
+            <option value="uk">&#8234;&#1091;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;&#8236;</option>
+            <option value="vi">&#8234;Ti&#7871;ng Vi&#7879;t&#8236;</option>
+            <option value="zh-CN">&#8234;&#31616;&#20307;&#20013;&#25991;&#8236;</option>
+            <option value="zh-TW">&#8234;&#32321;&#39636;&#20013;&#25991; (&#21488;&#28771;)&#8236;</option>
+          </select>
+        </div>
+        <p>Copyright 2012 OpenID Foundation.</p>
+      </div>
+    </div>
+  </body>
+</html>

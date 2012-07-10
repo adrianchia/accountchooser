@@ -1,0 +1,770 @@
+/**
+ * Account Chooser CSS
+ * Site: www.accountchooser.com
+ * Version: 1.0
+ * Date: 2011-09-12
+ */
+
+/**
+ * Reset HTML elements to ensure accurate rendering when embedded into sites
+ */
+
+.widget-panel-chooser p,
+.widget-panel-chooser h1,
+.widget-panel-chooser h2,
+.widget-panel-chooser ul,
+.widget-panel-chooser ol,
+.widget-panel-chooser li,
+.widget-panel-chooser div,
+.widget-panel-chooser form,
+.widget-panel-chooser input,
+.widget-panel-chooser label,
+.widget-panel-chooser span,
+.widget-panel-chooser strong,
+.widget-panel-chooser a,
+.widget-panel-chooser img {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.widget-panel-chooser p,
+.widget-panel-chooser li {
+  line-height: 18px;
+}
+
+.widget-panel-chooser img {
+  border: 0;
+}
+
+.widget-panel-chooser a {
+  color: #1979c4;
+  text-decoration: none;
+  font-weight: normal;
+  font-variant: normal;
+  cursor: pointer;
+}
+
+.widget-panel-chooser a:hover {
+  color: #3096e6;
+  text-decoration: underline;
+}
+
+.dark-screen {
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  opacity: .5;
+  -webkit-transition: all 0.218s;
+  -moz-transition: all 0.218s;
+  -o-transition: all 0.218s;
+  transition: all 0.218s;
+}
+
+.widget-panel-chooser {
+  font: 13px "Helvetica Neue", helvetica, arial, sans-serif;
+  overflow: hidden;
+  color: #333;
+  position: absolute;
+  z-index: 100;
+  background: #f6f6f6;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  width: 300px;
+  text-align: left;
+}
+
+#popin-box {
+  z-index: 1000;
+}
+
+/**
+ * Elements
+ *
+ */
+
+.widget-panel-chooser .widget-header {
+  position: relative;
+  width: 100%;
+  background: #ebebeb;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.widget-panel-chooser .widget-header h1 {
+  margin: 0 30px;
+  padding: 13px 0 0;
+  height: 36px;
+  font: 24px "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: 300;
+}
+
+.widget-panel-chooser .widget-header h3 {
+  margin: 0 30px;
+  height: 28px;
+  font: 14px "Helvetica Neue", helvetica, arial, sans-serif;
+}
+
+.widget-panel-chooser .widget-header .widget-close-icon {
+  display: inline-block;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  height: 15px;
+  width: 15px;
+  background: url(https://ssl.gstatic.com/cds/image/close-x.png) no-repeat;
+  opacity: .5;
+}
+
+.widget-panel-chooser .widget-header .widget-close-icon:hover {
+  opacity: .8;
+}
+
+.widget-panel-chooser .widget-main {
+  margin: 20px 30px 30px;
+}
+
+.widget-panel-chooser .widget-main .widget-error {
+  margin: -20px -30px 15px;
+  padding: 15px 30px;
+  border-bottom: 1px solid #ddd;
+  background: #f1f1f1;
+  color: #bd3224;
+}
+
+.widget-panel-chooser .widget-disabled h1 {
+  font-weight: 300;
+  color: #bd3224;
+  height: 36px;
+  font: 24px "Helvetica Neue", helvetica, arial, sans-serif;
+}
+
+.widget-panel-chooser .widget-main h2 {
+  font-size: 18px;
+  line-height: 1;
+  margin: 0 0 20px;
+  font-weight: 300;
+  color: #555;
+}
+
+.widget-panel-chooser .widget-footer {
+  clear: both;
+  font-size: 11px;
+  color: #999;
+  margin: 20px 30px;
+  line-height: 18px;
+}
+
+.widget-panel-chooser .widget-footer a {
+  line-height: 18px;
+}
+
+/**
+ * Form elements
+ *
+ */
+.widget-panel-chooser input[type=email],
+.widget-panel-chooser input[type=password],
+.widget-panel-chooser input[type=text] {
+  width: 100%;
+  display: inline-block;
+  height: 32px;
+  font-size: 15px;
+  margin: 0;
+  padding-left: 8px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* IE 8 */
+@media \0screen {
+  .widget-panel-chooser input[type=email],
+  .widget-panel-chooser input[type=password],
+  .widget-panel-chooser input[type=text] {
+    line-height: 17px;
+    padding-top: 6px;
+  }
+}
+
+.widget-panel-chooser input[type=email]:hover,
+.widget-panel-chooser input[type=password]:hover,
+.widget-panel-chooser input[type=text]:hover {
+  border: 1px solid #bbb;
+  border-top: 1px solid #9a9a9a;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-transition: all 0.218s;
+  -moz-transition: all 0.218s;
+  -ms-transition: all 0.218s;
+  -o-transition: all 0.218s;
+  transition: all 0.218s;
+}
+
+.widget-panel-chooser input[type=email]:focus,
+.widget-panel-chooser input[type=password]:focus,
+.widget-panel-chooser input[type=text]:focus {
+  outline: none;
+  border: 1px solid #bbb;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.widget-panel-chooser .widget-form-error input[type=email],
+.widget-panel-chooser .widget-form-error input[type=password],
+.widget-panel-chooser .widget-form-error input[type=text] {
+  border: 1px solid #bd3224;
+}
+
+.widget-panel-chooser .widget-form-error p {
+  display: block;
+  margin: 5px 0;
+  color: #bd3224;
+}
+
+/**
+ * IDP Selection
+ *
+ */
+.widget-panel-chooser.widget-panel-nascar {
+  width: 650px;
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-nascar-list,
+.widget-panel-chooser.widget-panel-nascar .widget-email-box {
+  width: 265px;
+  float: left;
+  margin: 0 0 20px;
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-nascar-list {
+  border-right: 1px solid #ddd;
+  padding-right: 30px;
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-email-box {
+  padding-left: 29px;
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-nascar-list ol {
+  list-style: none;
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-nascar-list ol li {
+  z-index: 110;
+  width: 100%;
+  height: 56px;
+  border: 1px solid #ddd;
+  position: relative;
+  margin: 0 0 15px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  background-color: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-nascar-list ol li:last-child {
+  margin-bottom: 0;
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-nascar-list ol li:hover {
+  border-color: #ccc;
+  -webkit-box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-nascar-list ol li:active {
+  border: 1px solid #bbb;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-nascar-list ol li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-nascar-list ol li a span {
+  display: none;
+}
+
+.widget-panel-chooser.widget-panel-nascar .widget-keyhole-button {
+  margin-top: 15px;
+}
+
+/**
+ * Account Selection
+ *
+ */
+.widget-panel-chooser .widget-accounts li a {
+  color: #333;
+}
+
+.widget-panel-chooser .widget-accounts ol {
+  list-style: none;
+  margin: -10px -8px 0;
+}
+
+.widget-panel-chooser .widget-accounts ol.widget-cds-accounts {
+  border-top: 1px solid #ddd;
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.widget-panel-chooser .widget-accounts li {
+  position: relative;
+  height: 62px;
+  border: 1px solid transparent;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.widget-panel-chooser .widget-accounts li:hover {
+  border-color: #c6c6c6;
+  background: #fff;
+  -webkit-box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+}
+.widget-panel-chooser .widget-accounts li:active {
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+
+.widget-panel-chooser .widget-accounts li .widget-account-remove {
+  display: none;
+  opacity: .3;
+}
+
+.widget-panel-chooser .widget-accounts li:hover .widget-account-remove {
+  z-index: 110;
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+.widget-panel-chooser .widget-accounts li:hover .widget-account-remove:hover {
+  opacity: .8;
+}
+
+.widget-panel-chooser .widget-accounts li p {
+  position: absolute;
+  overflow: hidden;
+  display: inline-block;
+  line-height: 0;
+  white-space: nowrap;
+  margin: 0;
+  height: 100%;
+  width: 95%;
+}
+
+.widget-panel-chooser .widget-accounts li .widget-account-name {
+  display: block;
+  margin: 16px 0 0 65px;
+}
+
+.widget-panel-chooser .widget-accounts li .widget-account-email {
+  display: block;
+  margin: 16px 100px 0 65px;
+  color: #666;
+}
+
+.widget-panel-chooser .widget-accounts li .widget-account-idp {
+  display: block;
+  margin: 16px 100px 0 65px;
+  color: #666;
+}
+
+.widget-panel-chooser .widget-accounts li .widget-email-only .widget-account-email {
+  margin-top: 28px;
+  font-weight: bold;
+  color: #222;
+}
+
+.widget-panel-chooser .widget-accounts li .widget-account-photo {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  height: 42px;
+  width: 42px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.widget-panel-chooser .widget-accounts .widget-add-account-box {
+  border-top: 1px solid #ddd;
+  margin: 10px 0 0;
+  padding: 20px 0 0;
+}
+
+.widget-panel-chooser .widget-accounts.widget-accounts-empty .widget-add-account-box {
+  border-top: none;
+}
+
+.widget-panel-chooser .widget-main .widget-confirm {
+  background: none repeat scroll 0 0 #F1F1F1;
+  border-bottom: 1px solid #DDDDDD;
+  margin: -20px -30px 15px;
+  padding: 10px 30px;
+}
+
+.widget-panel-chooser .widget-main .widget-confirm > p {
+  margin-bottom: 15px;
+  margin-left: -15px;
+}
+
+.widget-panel-chooser .widget-main .widget-confirm ol li{
+  border: 1px solid #DDDDDD;
+}
+
+.widget-panel-chooser .widget-main .widget-other-accounts > p{
+  margin: 0 0 20px -15px;
+ }
+
+.widget-panel-chooser .widget-main .widget-confirm .widget-confirm-small {
+  margin: 15px 0 15px 20px;
+}
+
+/**
+ * Loading message
+ *
+ */
+.widget-panel-chooser.widget-panel-loading {
+  width: 200px;
+}
+
+.widget-panel-chooser.widget-panel-loading .widget-main {
+  margin: 0;
+}
+
+.widget-panel-chooser.widget-panel-loading .widget-loading {
+  padding: 25px 30px 30px;
+  text-align: center;
+}
+
+.widget-panel-chooser.widget-panel-loading .widget-loading img {
+  margin: 15px 0;
+}
+
+.widget-panel-chooser.widget-panel-loading .widget-loading p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/**
+ * Standard sign in keyhole button
+ *
+ */
+.widget-panel-chooser .widget-keyhole-button {
+  font: 13px "Helvetica Neue", helvetica, arial, sans-serif !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  color: #f5f5f5 !important;
+  font-weight: bold !important;
+  line-height: 32px !important;
+  display: inline-block;
+  min-width: 54px;
+  height: 32px;
+  padding: 0 12px !important;
+  margin: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #dcdcdc;
+  border: 1px solid rgba(0,0,0,0.1);
+  background-color: #707070;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#707070),to(#555));
+  background-image: -webkit-linear-gradient(top,#707070,#555);
+  background-image: -moz-linear-gradient(top,#707070,#555);
+  background-image: -ms-linear-gradient(top,#707070,#555);
+  background-image: -o-linear-gradient(top,#707070,#555);
+  background-image: linear-gradient(top,#707070,#555);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+*+html .widget-panel-chooser .widget-keyhole-button {
+  min-width: 70px;
+}
+
+@media \0screen {
+  .widget-panel-chooser .widget-keyhole-button {
+    min-width: 70px;
+  }
+}
+
+.widget-panel-chooser button.widget-keyhole-button,
+.widget-panel-chooser input[type=submit].widget-keyhole-button {
+  height: 34px;
+  line-height: 34px;
+  vertical-align: bottom;
+  margin: 0;
+}
+
+*+html .widget-panel-chooser button.widget-keyhole-button,
+*+html .widget-panel-chooser input[type=submit].widget-keyhole-button {
+  overflow: visible;
+}
+
+@media \0screen {
+  .widget-panel-chooser button.widget-keyhole-button,
+  .widget-panel-chooser input[type=submit].widget-keyhole-button {
+    overflow: visible;
+  }
+}
+
+.widget-panel-chooser .widget-keyhole-button:hover {
+  color: #fff !important;
+  background-color: #6f6f6f;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#6f6f6f),to(#444));
+  background-image: -webkit-linear-gradient(top,#6f6f6f,#444);
+  background-image: -moz-linear-gradient(top,#6f6f6f,#444);
+  background-image: -ms-linear-gradient(top,#6f6f6f,#444);
+  background-image: -o-linear-gradient(top,#6f6f6f,#444);
+  background-image: linear-gradient(top,#6f6f6f,#444);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.widget-panel-chooser .widget-keyhole-button:active {
+  background-color: #5c5c5c;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#5c5c5c),to(#333));
+  background-image: -webkit-linear-gradient(top,#5c5c5c,#333);
+  background-image: -moz-linear-gradient(top,#5c5c5c,#333);
+  background-image: -ms-linear-gradient(top,#5c5c5c,#333);
+  background-image: -o-linear-gradient(top,#5c5c5c,#333);
+  background-image: linear-gradient(top,#5c5c5c,#333);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.widget-panel-chooser .widget-keyhole-button:visited {
+  color: #fff !important;
+}
+
+.widget-panel-chooser .widget-keyhole-button span {
+  line-height: 32px;
+  margin: 0 10px 0 5px;
+}
+
+.widget-panel-chooser .widget-keyhole-button img {
+  display: inline-block;
+  border: 0 !important;
+  margin: -4px 0 0 -3px !important;
+  opacity: .9;
+  vertical-align: middle;
+  height: 25px;
+}
+.widget-panel-chooser .widget-keyhole-button img.widget-navbar-arrow {
+  height: 4px;
+}
+
+*+html .widget-panel-chooser .widget-keyhole-button img {
+  margin: 0 0 0 -3px !important;
+}
+
+@media \0screen {
+  .widget-panel-chooser .widget-keyhole-button img {
+    margin: 0 0 0 -3px !important;
+  }
+}
+
+.widget-panel-chooser .widget-keyhole-button:hover img {
+  opacity: .9;
+}
+
+.widget-panel-chooser .widget-keyhole-button:active img {
+  opacity: 1;
+}
+
+/**
+ * Dropdown Menu
+ *
+ */
+.widget-panel-chooser.widget-panel-navbar {
+  float: right;
+  text-align: right;
+  overflow: visible;
+  width: auto;
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+  position: relative;
+  top: auto;
+  left: auto;
+}
+ 
+.widget-navbar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 0;
+  overflow: visible;
+  text-shadow: 0px 0px 0px rgba(0,0,0,0);
+}
+
+.widget-navbar-menu:hover {
+  overflow: visible;
+}
+
+.widget-navbar-menu:hover li {
+  -moz-box-shadow: 0px 0px 1px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 0px 0px 1px rgba(0,0,0,0.55);
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.55);
+}
+
+.widget-navbar-menu li {
+  background: #f3f3f3;
+  border-left: 1px solid #BEBEBE;
+  border-right: 1px solid #BEBEBE;
+  -moz-box-shadow: 0px 0px 1px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 0px 0px 1px rgba(0,0,0,0.55);
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.55);
+}
+
+.widget-navbar-menu li:hover {
+  background: #fafafa;
+}
+
+.widget-navbar-menu li a {
+  color: #000;
+  display: block;
+  font-size: 13px;
+  margin: 0 22px;
+  padding: 12px 0 10px 0;
+  line-height: 18px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.widget-navbar-menu li:first-child {
+  border-top: 1px solid #BEBEBE;
+}
+
+.widget-navbar-menu li:last-child {
+  -moz-border-radius: 0 0 3px 3px;
+  -webkit-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+  border-bottom: 1px solid #BEBEBE;
+}
+
+.widget-navbar-menu li:last-child a {
+  color: #656565;
+  padding: 10px 0 12px 0;
+}
+
+/**
+ * Legacy Account Password
+ *
+ */
+ .widget-panel-chooser.widget-panel-legacy .widget-main {
+    margin: 25px 30px 30px;
+}
+
+.widget-panel-chooser.widget-panel-legacy .widget-accounts li {
+  position: relative;
+  height: 62px;
+  border: 1px solid #c6c6c6;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  background: #fff;
+  -webkit-box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+}
+
+.widget-panel-chooser.widget-panel-legacy .widget-password-box {
+  margin: 10px 0 0 -8px;
+}
+
+.widget-panel-chooser.widget-panel-legacy .widget-main h2 {
+  margin: 0 0 10px;
+}
+
+.widget-panel-chooser.widget-panel-legacy .widget-keyhole-button {
+  margin: 10px 0 0;
+}
+
+/**
+ * Google Apps Domain
+ *
+ */
+ .widget-panel-chooser.widget-panel-apps .widget-main {
+    margin: 10px 30px 30px;
+}
+
+.widget-panel-chooser.widget-panel-apps .widget-domain-box {
+  margin: 0 0 0 -8px;
+}
+
+.widget-panel-chooser.widget-panel-apps .widget-main h2 {
+  margin: 0 0 10px;
+}
+
+.widget-panel-chooser.widget-panel-apps .widget-keyhole-button {
+  margin: 10px 0 0;
+}
+
+.widget-panel-chooser .widget-main.widget-empty-request div {
+  line-height: 16px;
+}
