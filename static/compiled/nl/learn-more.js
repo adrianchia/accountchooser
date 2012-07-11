@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Als u een website beheert, ",r='[id^="',s="id",t="kunt u hier leren hoe u een accountkiezer implementeert";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Meer informatie over de centrale accountkiezerservice - Werkgroep Accountkiezer",header:"Meer informatie over de centrale accountkiezerservice",deployReminder1:u(p,"</a>"),sec1Par1:'Op websites worden traditionele aanmeldingsvakken vervangen door een accountkiezer om die sites veiliger en gebruiksvriendelijker te maken (<a href="https://ac-cribwars.appspot.com">bekijk een voorbeeldsite</a>). Wanneer u probeert u aan te melden bij een dergelijke site, ziet u een pagina zoals deze met de lijst met accounts die u het vaakst gebruikt op deze computer:',
 sec1Par2:"Klik op het account dat uw wilt gebruiken. Als het account dat u wilt gebruiken, niet wordt weergegeven, klikt u op de knop onderaan om nog een account toe te voegen.",sec1Par3:"Zodra u zich aanmeldt bij het account, wordt een pagina zoals deze weergegeven waarop u wordt gevraagd te bevestigen dat u het account wilt toevoegen aan de lijst met accounts op deze computer.",subHeader1:"Geavanceerde onderwerpen",sec2Par1:"Als u een account wilt verwijderen, kunt u met uw muisaanwijzer over dat account bewegen en vervolgens de X-knop in de bovenhoek kiezen om het te verwijderen (of de knop 'Bewerken' in mobiele browsers). Als u echter gebruikmaakt van een openbare computer en u niet wilt dat de accountgegevens worden gecombineerd met die van andere mensen, moet u overwegen gebruik te maken van een benadering die uw browserinformatie gescheiden houdt. Bijvoorbeeld:",

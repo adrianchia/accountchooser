@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="N\u1ebfu b\u1ea1n qu\u1ea3n l\u00fd m\u1ed9t trang web, ",r='[id^="',s="id",t="t\u00ecm hi\u1ec3u c\u00e1ch b\u1ea1n c\u00f3 th\u1ec3 tri\u1ec3n khai m\u1ed9t tr\u00ecnh ch\u1ecdn t\u00e0i kho\u1ea3n";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"T\u00ecm hi\u1ec3u th\u00eam v\u1ec1 d\u1ecbch v\u1ee5 tr\u00ecnh ch\u1ecdn t\u00e0i kho\u1ea3n trung t\u00e2m - nh\u00f3m l\u00e0m vi\u1ec7c Tr\u00ecnh ch\u1ecdn t\u00e0i kho\u1ea3n",header:"T\u00ecm hi\u1ec3u th\u00eam v\u1ec1 d\u1ecbch v\u1ee5 tr\u00ecnh ch\u1ecdn t\u00e0i kho\u1ea3n trung t\u00e2m",deployReminder1:u(p,"</a>"),sec1Par1:'C\u00e1c trang web \u0111ang thay th\u1ebf h\u1ed9p \u0111\u0103ng nh\u1eadp th\u00f4ng th\u01b0\u1eddng b\u1eb1ng m\u1ed9t tr\u00ecnh ch\u1ecdn t\u00e0i kho\u1ea3n \u0111\u1ec3 l\u00e0m cho nh\u1eefng trang web \u0111\u00f3 an to\u00e0n h\u01a1n v\u00e0 d\u1ec5 s\u1eed d\u1ee5ng h\u01a1n (<a href="https://ac-cribwars.appspot.com">kh\u00e1m ph\u00e1 m\u1ed9t trang web m\u1eabu</a>). Khi b\u1ea1n c\u1ed1 \u0111\u0103ng nh\u1eadp v\u00e0o m\u1ed9t trang nh\u01b0 v\u1eady, b\u1ea1n s\u1ebd nh\u00ecn th\u1ea5y m\u1ed9t trang gi\u1ed1ng nh\u01b0 trang n\u00e0y v\u1edbi danh s\u00e1ch c\u00e1c t\u00e0i kho\u1ea3n m\u00e0 b\u1ea1n s\u1eed d\u1ee5ng th\u01b0\u1eddng xuy\u00ean nh\u1ea5t tr\u00ean m\u00e1y t\u00ednh n\u00e0y:',
 sec1Par2:"Ch\u1ec9 c\u1ea7n nh\u1ea5p v\u00e0o t\u00e0i kho\u1ea3n m\u00e0 b\u1ea1n mu\u1ed1n s\u1eed d\u1ee5ng. N\u1ebfu b\u1ea1n kh\u00f4ng th\u1ea5y m\u1ee5c nh\u1eadp cho t\u00e0i kho\u1ea3n b\u1ea1n mu\u1ed1n s\u1eed d\u1ee5ng, ch\u1ec9 c\u1ea7n nh\u1ea5p v\u00e0o n\u00fat \u1edf cu\u1ed1i \u0111\u1ec3 th\u00eam t\u00e0i kho\u1ea3n kh\u00e1c.",sec1Par3:"Khi \u0111\u0103ng nh\u1eadp v\u00e0o t\u00e0i kho\u1ea3n, b\u1ea1n s\u1ebd th\u1ea5y m\u1ed9t trang gi\u1ed1ng trang n\u00e0y y\u00eau c\u1ea7u b\u1ea1n x\u00e1c nh\u1eadn r\u1eb1ng b\u1ea1n mu\u1ed1n th\u00eam t\u00e0i kho\u1ea3n v\u00e0o danh s\u00e1ch t\u00e0i kho\u1ea3n tr\u00ean m\u00e1y t\u00ednh n\u00e0y.",

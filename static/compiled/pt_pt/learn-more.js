@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Se gerir um Web site, ",r='[id^="',s="id",t="saiba como pode implementar um selecionador de contas";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Saiba mais sobre o servi\u00e7o de selecionador de contas central \u2013 grupo de trabalho Selecionador de Contas",header:"Saiba mais sobre o servi\u00e7o de selecionador de contas central",deployReminder1:u(p,"</a>"),sec1Par1:'Os websites est\u00e3o a substituir as tradicionais caixas de in\u00edcio de sess\u00e3o por um selecionador de contas, tornando esses websites mais seguros e f\u00e1ceis de utilizar(<a href="https://ac-cribwars.appspot.com">explorar um website de exemplo</a>). Quando tenta iniciar sess\u00e3o num desses websites, \u00e9 apresentada uma p\u00e1gina como esta com a lista de contas que utiliza frequentemente neste computador:',
 sec1Par2:"Basta clicar na conta que pretende utilizar. Se n\u00e3o conseguir ver uma entrada para a conta pretendida, basta clicar no bot\u00e3o na parte inferior para adicionar outra conta.",sec1Par3:"Assim que iniciar sess\u00e3o na conta, ser-lhe-\u00e1 apresentada uma p\u00e1gina como esta a solicitar-lhe que confirme que pretende adicion\u00e1-la \u00e0 lista de contas neste computador.",subHeader1:"T\u00f3picos Avan\u00e7ados",sec2Par1:"Se pretender remover uma conta, pode utilizar o rato para pairar sobre essa entrada de conta e, em seguida, escolha o bot\u00e3o X no canto superior para elimin\u00e1-la (ou, nos navegadores para telem\u00f3veis, clique no bot\u00e3o Editar). No entanto, se estiver a utilizar um computador partilhado e n\u00e3o pretender misturar as entradas de conta com outras pessoas, dever\u00e1 considerar a utiliza\u00e7\u00e3o de uma abordagem que mantenha as informa\u00e7\u00f5es do navegador separadas. Por exemplo:",

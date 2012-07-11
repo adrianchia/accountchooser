@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Jika Anda mengelola sebuah situs web, ",r='[id^="',s="id",t="pelajari cara menggunakan pemilih akun";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Pelajari lebih lanjut tentang layanan pemilih akun pusat - Grup kerja Pemilih Akun",header:"Pelajari lebih lanjut tentang layanan pemilih akun pusat",deployReminder1:u(p,"</a>"),sec1Par1:'Situs web sedang mengganti kotak masuk tradisional dengan pemilih akun untuk membuat situs tersebut lebih aman dan mudah untuk digunakan (<a href="https://ac-cribwars.appspot.com">jelajahi situs contoh</a>). Saat mencoba masuk ke situs tersebut, Anda akan melihat laman seperti ini dengan daftar akun yang paling sering Anda gunakan di komputer ini:',
 sec1Par2:"Cukup klik akun yang ingin Anda gunakan. Jika Anda tidak melihat entri untuk akun yang ingin Anda gunakan, maka cukup klik tombol di bagian bawah untuk menambahkan akun lainnya.",sec1Par3:"Setelah masuk ke akun, sebuah laman seperti ini akan ditunjukkan kepada Anda dan meminta Anda mengonfirmasi bahwa Anda ingin menambahkan akun tersebut ke daftar akun di komputer ini.",subHeader1:"Topik Lanjutan",sec2Par1:"Jika ingin menghapus akun, Anda dapat menggunakan mouse untuk mengarahkan ke entri akun tersebut, kemudian pilih tombol X di pojok atas untuk menghapusnya (atau klik tombol Edit di browser seluler). Namun, jika Anda menggunakan komputer bersama dan tidak ingin mencampur entri akun dengan orang lain, Anda perlu mempertimbangkan untuk menggunakan pendekatan yang menjaga agar informasi browser tetap terpisah. Misalnya:",

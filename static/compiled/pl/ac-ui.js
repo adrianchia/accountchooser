@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 (function(){var a=!0,f=!1,g=window,i=jQuery;function j(b,c){return b.execute=c}function k(b,c){return b.language=c}
 var m="attr",n="html",o="close",p="hide",q="empty",aa="label",r="images",ba="show",s="addClass",u="page",v="click",w="param",x="length",y="title",ca="language",A="prototype",B="labels",C="call",D="appendTo",E="append",da="",ea=" (",fa='")',ga="&lang=",ha="', ignored!",F=")",ja=".widget-account a",ka=".widget-account-add",la=".widget-close-icon",ma=".widget-confirm-small a",G=".widget-error",na=".widget-error p",H="/learnmore.html",J="<a>",oa="<br>",pa="<center>",K="<div>",qa="<h1>",ra="<h2>",sa="<h3>",
 L="<img>",ta="<input type=",ua="<input type=button>",va="<input type=checkbox>",wa="<label>",M="<li>",xa="<nobr>",N="<ol>",P="<p>",Q="<span>",za="<strong>",Aa="<table>",Ba="<td>",Ca="<tr>",Da=">",Ea="?",Fa="?lang=",Ga="Empty request received, ignored.",Ha="Error request type: expect type is {",Ia="Invalid Request",Ja="Konto zosta\u0142o usuni\u0119te. Na niekt\u00f3rych stronach mo\u017cesz by\u0107 wci\u0105\u017c zalogowany na to konto lub mog\u0105 one jeszcze pami\u0119ta\u0107, \u017ce to konto by\u0142o u\u017cywane.",

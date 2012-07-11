@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Si vous g\u00e9rez un site Web, ",r='[id^="',s="d\u00e9couvrez comment d\u00e9ployer un s\u00e9lecteur de compte",t="id";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(s+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"En savoir plus sur le s\u00e9lecteur de compte central \u2013 Groupe de travail d\u00e9di\u00e9 au s\u00e9lecteur de compte",header:"En savoir plus sur le s\u00e9lecteur de compte central",deployReminder1:u(p,"</a>"),sec1Par1:"Les zones de connexion standards des sites Web sont progressivement remplac\u00e9es par un s\u00e9lecteur de compte, afin de renforcer la s\u00e9curit\u00e9 des sites concern\u00e9s et d'en faciliter l'utilisation (<a href=\"https://ac-cribwars.appspot.com\">d\u00e9couvrir un exemple de site</a>). Lorsque vous tentez de vous connecter sur un tel site, une page contenant la liste des comptes que vous utilisez le plus fr\u00e9quemment sur votre ordinateur, similaire \u00e0 celle-ci, s'affiche\u00a0:",
 sec1Par2:"Il vous suffit de cliquer sur le compte que vous souhaitez utiliser. Si celui-ci ne figure pas dans la liste, cliquez sur le bouton situ\u00e9 en bas pour ajouter un compte.",sec1Par3:"Une fois que vous \u00eates connect\u00e9 au compte en question, une page similaire \u00e0 celle-ci vous invite \u00e0 confirmer que vous souhaitez l'ajouter \u00e0 la liste des comptes utilis\u00e9s sur cet ordinateur.",subHeader1:"Informations suppl\u00e9mentaires",sec2Par1:"Si vous souhaitez supprimer un compte, passez la souris sur le compte en question, puis cliquez sur la croix (X) dans l'angle sup\u00e9rieur droit (ou appuyez sur le bouton \"Modifier\" dans les navigateurs pour mobile). Toutefois, si vous partagez votre ordinateur avec d'autres personnes et si vous ne souhaitez pas que vos comptes s'affichent sur la m\u00eame page que ceux d'autres utilisateurs, nous vous conseillons d'adopter une m\u00e9thode permettant de s\u00e9parer les informations du navigateur. Par exemple\u00a0:",

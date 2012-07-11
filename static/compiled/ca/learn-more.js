@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Si gestioneu un lloc web, obteniu ",r='[id^="',s="id",t="m\u00e9s informaci\u00f3 sobre com podeu implementar un selector de comptes";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"M\u00e9s informaci\u00f3 sobre el servei de selector de comptes central: grup de treball del selector de comptes",header:"M\u00e9s informaci\u00f3 sobre el servei de selector de comptes central",deployReminder1:u(p,"</a>"),sec1Par1:"S'estan substituint els tradicionals quadres d'inici de sessi\u00f3 dels llocs webs per un selector de comptes perqu\u00e8 els llocs siguin m\u00e9s segurs i m\u00e9s f\u00e0cils d'utilitzar (<a href=\"https://ac-cribwars.appspot.com\">exploreu un lloc de mostra</a>). Quan proveu d'iniciar la sessi\u00f3 en un d'aquests llocs, veureu una p\u00e0gina com aquesta amb un llistat dels comptes que feu servir amb m\u00e9s freq\u00fc\u00e8ncia per a aquest equip.",
 sec1Par2:"Nom\u00e9s cal que feu clic al compte que vulgueu fer servir. Si no veieu una entrada per al compte que voleu utilitzar, nom\u00e9s cal que feu clic al bot\u00f3 que hi ha al capdavall per afegir un altre compte.",sec1Par3:"Quan h\u00e0giu iniciat la sessi\u00f3 al compte, us apareixer\u00e0 una p\u00e0gina com aquesta on se us sol\u00b7licitar\u00e0 que confirmeu que voleu afegir-lo a la llista de comptes d'aquest equip.",subHeader1:"Temes avan\u00e7ats",sec2Par1:"Si voleu eliminar un compte, podeu fer servir el ratol\u00ed per passar el cursor per sobre de l'entrada del compte i, a continuaci\u00f3, triar el bot\u00f3 amb una X a l'extrem superior per suprimir-lo (en dispositius m\u00f2bils, cal fer clic al bot\u00f3 Edita). Tanmateix, si feu servir un equip compartit i no voleu barrejar les entrades del compte amb altres persones, us recomanem que busqueu una manera de mantenir la informaci\u00f3 del navegador en privat. Per exemple:",

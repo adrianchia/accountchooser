@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=null,f=window,h=document;function j(b,c){return b.href=c}
 var k="replace",l="trim",n="createElement",o="setAttribute",p="documentElement",q="split",r="location",s="localStorage",t="isArray",u="slice",v="indexOf",w="param",x="length",y="prototype",z="clientWidth",A="document",B="body",C="call",D="clientHeight",E="",F="#",G="&",H="', ignored!",I="':",J="(^|;) ?",K="/",L="//",M=":443",N=":80",aa="; Path=/; expires=",O="=",ba="=([^;]*)(;|$)",ca="=; Path=/; expires=",P="?",da="Failed to clear from cookie: ",ea="Failed to clear from localStorage: ",fa="Failed to read from cookie: ",
 ga="Failed to read from localStorage: ",ha="Failed to write to cookie: ",ia="Failed to write to localStorage: ",ja="Ignore unrecognized value for '",Q="MSIE",ka="POST",la="Parameter %%param%% cannot be an empty array.",R="Parameter %%param%% cannot be empty.",ma="Parameter %%param%% cannot be null.",na="Parameter %%param%% is not a function.",oa="Parameter %%param%% is not an array.",pa="Unrecognized CDS helper mode :",qa="Unrecognized config parameter '",ra="[object Array]",sa="[object Function]",

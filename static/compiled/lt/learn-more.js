@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Jei tvarkote svetain\u0119, ",r='[id^="',s="id",t="su\u017einokite, kaip galite naudoti paskyros parinkikl\u012f";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Su\u017einokite daugiau apie pagrindin\u0117s paskyros parinkikl\u012f paskyros parinkiklio darbo grup\u0117je",header:"Su\u017einokite daugiau apie pagrindin\u0117s paskyros parinkikl\u012f",deployReminder1:u(p,"</a>"),sec1Par1:'Svetain\u0117se \u012fprasti prisijungimo laukeliai kei\u010diami paskyros parinkikliu, kad \u0161ias svetaines b\u016bt\u0173 galima saugiau ir lengviau naudoti (<a href="https://ac-cribwars.appspot.com">nar\u0161ykite pavyzdin\u0119 svetain\u0119</a>). Kai bandysite prisijungti prie tokios svetain\u0117s, bus pateiktas toks kaip \u0161is puslapis su paskyr\u0173, kurias da\u017eniausiai naudojate \u0161iuo kompiuteriu, s\u0105ra\u0161u:',
 sec1Par2:"Tiesiog spustel\u0117kite norim\u0105 naudoti paskyr\u0105. Jei nematote norimos naudoti paskyros \u012fra\u0161o, tiesiog spustel\u0117kite mygtuk\u0105 apa\u010dioje, kad prid\u0117tum\u0117te kit\u0105 paskyr\u0105.",sec1Par3:"Kai prisijungsite prie paskyros, bus parodytas \u012f \u0161\u012f pana\u0161us puslapis, kuriame bus pra\u0161oma patvirtinti, kad norite j\u0105 prid\u0117ti prie paskyr\u0173 s\u0105ra\u0161o \u0161iame kompiuteryje.",subHeader1:"I\u0161pl\u0117stin\u0117s temos",

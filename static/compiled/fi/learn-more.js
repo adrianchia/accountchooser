@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j=" .",k='"]',l="#",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Jos hallinnoit verkkosivustoa, ",r='[id^="',s="id",t="katso, miten voit ottaa tilinvalinnan k\u00e4ytt\u00f6\u00f6n";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+j)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Lue lis\u00e4tietoja keskitetyst\u00e4 tilinvalintapalvelusta \u2013 Tilinvalinta-ty\u00f6ryhm\u00e4",header:"Lis\u00e4tietoja keskitetyst\u00e4 tilinvalintapalvelusta",deployReminder1:u(p,"</a>"),sec1Par1:'Verkkosivustot ovat korvaamassa perinteisi\u00e4 kirjautumiskentti\u00e4 tilinvalitsimella. T\u00e4m\u00e4n ominaisuuden avulla sivustoista tulee turvallisempia ja helpompia k\u00e4ytt\u00e4\u00e4. <a href="https://ac-cribwars.appspot.com">Tutustu esimerkkisivustoon</a>. Kun yrit\u00e4t kirjautua tilinvalitsinta k\u00e4ytt\u00e4v\u00e4\u00e4n sivustoon, n\u00e4et t\u00e4m\u00e4n kaltaisen sivun, jossa n\u00e4kyv\u00e4t useimmiten t\u00e4ll\u00e4 tietokoneella k\u00e4ytt\u00e4m\u00e4si tilit.',
 sec1Par2:"Klikkaa tili\u00e4, jota haluat k\u00e4ytt\u00e4\u00e4. Jos et n\u00e4e haluamaasi tili\u00e4, lis\u00e4\u00e4 tili klikkaamalla alareunassa olevaa painiketta.",sec1Par3:"Kirjauduttuasi tiliin n\u00e4et t\u00e4m\u00e4nkaltaisen sivun, jolla sinua pyydet\u00e4\u00e4n vahvistamaan tilin lis\u00e4\u00e4minen tietokoneeseen.",subHeader1:"Muut aiheet",sec2Par1:"Jos haluat poistaa tilin, vie hiiri tilin kohdalle ja poista se klikkaamalla yl\u00e4kulmassa n\u00e4kyv\u00e4\u00e4 X-painiketta (jos k\u00e4yt\u00e4t mobiiliselainta, klikkaa Muokkaa-painiketta). Jos k\u00e4yt\u00e4t jaettua tietokonetta etk\u00e4 halua yhdist\u00e4\u00e4 tilej\u00e4 toisten k\u00e4ytt\u00e4jien tilien kanssa, suosittelemme k\u00e4ytt\u00e4m\u00e4\u00e4n tapaa, joka pit\u00e4\u00e4 selaimen tiedot erillisin\u00e4. Esimerkki:",

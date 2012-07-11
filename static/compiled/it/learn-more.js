@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Se gestisci un sito web, ",r='[id^="',s="id",t="scopri come puoi implementare un Selettore account";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Ulteriori informazioni sul servizio Selettore account centrale - Gruppo di lavoro Selettore account",header:"Ulteriori informazioni sul servizio Selettore account centrale",deployReminder1:u(p,"</a>"),sec1Par1:"I siti web stanno sostituendo le tradizionali caselle di accesso con un selettore account per aumentare la sicurezza e la facilit\u00e0 d'uso (<a href=\"https://ac-cribwars.appspot.com\">esplora un sito di esempio</a>). Quando tenti di accedere a un sito di questo tipo, verr\u00e0 visualizzata una pagina come questa con l'elenco degli account che utilizzi pi\u00f9 spesso su questo computer:",
 sec1Par2:"Fai clic sull'account che desideri utilizzare. Se non \u00e8 visibile una voce relativa all'account che desideri utilizzare, fai clic sul pulsante in basso per aggiungere un altro account.",sec1Par3:"Dopo l'accesso all'account, ti verr\u00e0 mostrata una pagina come questa che ti chiede di confermare se desideri aggiungerla all'elenco degli account su questo computer.",subHeader1:"Argomenti avanzati",sec2Par1:"Se desideri rimuovere un account puoi utilizzare il mouse per scorrere sulla relativa voce e quindi fare clic sul pulsante X nell'angolo superiore per eliminare l'account (oppure tocca il pulsante Modifica nei browser per cellulari). Tuttavia, se stai utilizzando un computer condiviso e non vuoi condividere le voci degli account con altre persone, dovresti considerare l'utilizzo di un approccio che mantenga separate le informazioni del browser. Ad esempio:",

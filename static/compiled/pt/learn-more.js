@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Se voc\u00ea gerencia um website, ",r='[id^="',s="id",t="saiba mais sobre como pode implementar um seletor de conta";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Saiba mais sobre o servi\u00e7o central de seletor de conta - grupo de trabalho do Seletor de conta",header:"Saiba mais sobre o servi\u00e7o central de seletor de conta",deployReminder1:u(p,"</a>"),sec1Par1:'Os websites est\u00e3o substituindo as caixas de login tradicionais por um seletor de conta, para se tornarem mais seguros e f\u00e1ceis de usar (<a href="https://ac-cribwars.appspot.com">veja um exemplo aqui</a>). Quando voc\u00ea tentar fazer login em um site como esse, ver\u00e1 uma p\u00e1gina como esta, com a lista de contas que voc\u00ea utiliza com mais frequ\u00eancia neste computador:',
 sec1Par2:"Basta clicar na conta que voc\u00ea deseja usar. Se a conta que voc\u00ea deseja usar n\u00e3o constar na lista, basta clicar no bot\u00e3o na parte inferior para adicionar outra conta.",sec1Par3:"Assim que voc\u00ea acessar a conta, aparecer\u00e1 uma p\u00e1gina como esta solicitando que voc\u00ea confirme que deseja adicion\u00e1-la \u00e0 lista de contas do computador.",subHeader1:"T\u00f3picos avan\u00e7ados",sec2Par1:"Se voc\u00ea deseja remover uma conta, passe o mouse sobre a entrada da conta e depois selecione o bot\u00e3o X no canto superior para exclu\u00ed-la (ou, nos navegadores m\u00f3veis, clique no bot\u00e3o Editar). No entanto, se estiver usando um computador compartilhado e n\u00e3o quiser misturar as entradas de contas com outras pessoas, ent\u00e3o deve considerar o uso de um m\u00e9todo que mantenha suas informa\u00e7\u00f5es de navega\u00e7\u00e3o separadas. Por exemplo:",

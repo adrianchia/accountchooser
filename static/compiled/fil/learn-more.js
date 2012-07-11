@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Kung namamahala ka ng website, ",r='[id^="',s="id",t="matutunan kung paano magtalaga ng tagapili ng account";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Matuto nang higit pa tungkol sa sentrong serbisyo ng tagapili ng account - Nagtatrabahong pangkat ng Tagapili ng Account",header:"Matuto nang higit pa tungkol sa sentrong serbisyo ng tagapili ng account",deployReminder1:u(p,"</a>"),sec1Par1:'Pinapalitan ng mga website ang mga tradisyunal na box para sa pag-log in na may tagapili ng account upang gawing higit na secure at madaling gamitin ang mga site na iyon (<a href="https://ac-cribwars.appspot.com">maggalugad ng halimbawang site</a>). Kapag sinubukan mong mag-sign in sa isang naturang site, makakakita ka ng pahina tulad nito na may listahan ng mga account na pinakamadalas mong ginagamit sa computer na ito:',
 sec1Par2:"I-click lang ang account na nais mong gamitin. Kung wala kang nakikitang entry para sa account na nais mong gamitin, i-click lang ang button sa ibaba upang magdagdag ng isa pang account.",sec1Par3:"Sa sandaling naka-log in ka na sa account, ipapakita sa iyo ang pahinang katulad nito na hinihiling sa iyong kumpirmahin na nais mo itong idagdag sa listahan ng mga account sa computer na ito.",subHeader1:"Mga Advanced na Paksa",sec2Par1:"Kung nais mong mag-alis ng account, magagamit mo ang iyong mouse upang mag-hover sa entry ng account na iyon at pagkatapos ay mapipili ang button na X sa tuktok na sulok upang tanggalin ito (o sa mga mobile browser, i-click ang button na I-edit).  Gayunpaman, kung gumagamit ka ng nakabahaging computer at hindi mo nais na humalo ang mga entry ng account sa iba pang mga tao, dapat mong isaalang-alang ang paggamit ng diskarteng nagpapanatiling nakahiwalay sa impormasyon ng iyong browser.  Halimbawa:",

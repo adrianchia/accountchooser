@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 (function(){var a=void 0,g=!0,h=null,i=!1,j=window,l=document,n=JSON;function o(b,c){return b.toJSON=c}
 var p="origin",q="replace",r="data",s="trim",t="setAttribute",u="attachEvent",v="getTime",w="documentElement",x="toString",y="toJSON",z="split",A="localStorage",B="parent",C="removeItem",D="displayName",E="isArray",F="postMessage",G="push",H="Request",I="stringify",J="indexOf",K="param",L="parse",M="length",N="prototype",O="clientWidth",P="document",Q="body",R="call",S="clientHeight",T="toLowerCase",U="",aa=" from ",ba='" is invalid.',ca="&",da="(^|;) ?",ea="*",fa="2.0",ga="; Path=/; expires=",V=
 "=",ha="=([^;]*)(;|$)",ia="=; Path=/; expires=",W="?",ja="@",ka="Clear CDS browser config.",la="Error request format: ",ma="Failed to clear from cookie: ",na="Failed to clear from localStorage: ",oa="Failed to parse request: ",pa="Failed to read from cookie: ",qa="Failed to read from localStorage: ",ra="Failed to write to cookie: ",sa="Failed to write to localStorage: ",ta="Get CDS browser config: ",ua="Ignore expired JSON-RPC object: [",va="Ignore invalid JSON-RPC object: [",wa="Invalid JSON-RPC object: not a JSON object.",

@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Si eres administrador de un sitio web, puedes obtener informaci\u00f3n sobre c\u00f3mo implementar un selector de cuentas en ",r='[id^="',s="esta p\u00e1gina",t="id";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(s+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"M\u00e1s informaci\u00f3n sobre el servicio central de selector de cuentas - Grupo de trabajo del selector de cuentas",header:"M\u00e1s informaci\u00f3n sobre el servicio central de selector de cuentas",deployReminder1:u(p,"</a>"),sec1Par1:'Se est\u00e1n sustituyendo los tradicionales cuadros de acceso de los sitios web por un selector de cuentas para que los sitios sean m\u00e1s seguros y m\u00e1s f\u00e1ciles de usar (<a href="https://ac-cribwars.appspot.com">explora un sitio de ejemplo</a>). Al intentar iniciar sesi\u00f3n en dicho sitio, ver\u00e1s una p\u00e1gina como esta con la lista de cuentas m\u00e1s utilizadas en este ordenador:',
 sec1Par2:"Solo tienes que hacer clic en la cuenta que quieras utilizar. Si no ves una entrada para dicha cuenta, haz clic en el bot\u00f3n de abajo para a\u00f1adir otra cuenta.",sec1Par3:"Cuando inicies sesi\u00f3n en la cuenta, aparecer\u00e1 una p\u00e1gina como esta solicitando tu confirmaci\u00f3n para a\u00f1adirla a la lista de cuentas de este ordenador.",subHeader1:"Temas avanzados",sec2Par1:'Si quieres eliminar una cuenta, coloca el cursor del rat\u00f3n sobre la entrada correspondiente y selecciona la X que aparece en la esquina superior de la misma para eliminarla o haz clic en el bot\u00f3n "Editar" si utilizas un navegador m\u00f3vil. No obstante, si utilizas un ordenador compartido y no quieres que se mezclen las entradas de las cuentas de distintos usuarios, te recomendamos que busques una forma de mantener separada tu informaci\u00f3n de navegaci\u00f3n. Por ejemplo:',

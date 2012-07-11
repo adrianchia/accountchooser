@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 (function(){var a=!0,f=!1,g=window,i=jQuery;function j(b,c){return b.execute=c}function k(b,c){return b.language=c}
 var m="attr",n="html",o="close",p="hide",q="empty",aa="label",r="images",ba="show",s="addClass",u="page",v="click",w="param",x="length",y="title",ca="language",A="prototype",B="labels",C="call",D="appendTo",E="append",da="",ea=" (",fa='")',ga="&lang=",ha="', ignored!",F=")",ja=".widget-account a",ka=".widget-account-add",la=".widget-close-icon",ma=".widget-confirm-small a",G=".widget-error",na=".widget-error p",H="/learnmore.html",J="<a>",oa="<br>",pa="<center>",K="<div>",qa="<h1>",ra="<h2>",sa="<h3>",
 L="<img>",ta="<input type=",ua="<input type=button>",va="<input type=checkbox>",wa="<label>",xa="<li>",za="<nobr>",M="<ol>",N="<p>",P="<span>",Aa="<strong>",Ba="<table>",Ca="<td>",Da="<tr>",Ea=">",Fa="?",Ga="?lang=",Ha="A fi\u00f3k elt\u00e1vol\u00edt\u00e1sa megt\u00f6rt\u00e9nt. Lehet, hogy egyes webhelyeken m\u00e9g mindig be van jelentkezve ebbe a fi\u00f3kba, vagy ezen webhelyek m\u00e9g eml\u00e9kezhetnek arra, hogy \u00d6n ezt a fi\u00f3kot haszn\u00e1lta.",Ia="Az e-mail nem lehet \u00fcres.",

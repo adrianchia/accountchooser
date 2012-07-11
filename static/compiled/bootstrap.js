@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 (function(){var a=void 0,g=!0,h=null,i=!1,k=window,m=document,n=JSON,o=jQuery,aa=navigator;function ba(b,c){return b.onload=c}function ca(b,c){return b.toJSON=c}function da(b,c){return b.onreadystatechange=c}
 var p="origin",q="exec",r="replace",s="data",ea="extend",t="trim",u="createElement",v="setAttribute",fa="attachEvent",w="getTime",x="documentElement",y="toString",ga="toJSON",z="queue",A="setTimeout",B="split",C="inArray",D="location",E="localStorage",ha="removeItem",F="options",G="displayName",H="isArray",ia="postMessage",I="push",J="Request",K="stringify",L="indexOf",M="readyState",N="param",ja="name",ka="parse",O="length",P="language",Q="prototype",la="clientWidth",R="document",S="body",T="call",
 ma="clientHeight",U="toLowerCase",W="",na=" from ",oa='", must be under domain "',pa='".',qa="\"]', not exist.",ra="\"]'.",sa="#",ta="&",ua="'",va="' found!",wa="' has't initialized yet.",xa="', uuid='",ya="'.",za="': no valid iframeUrl.",Aa="(^|;) ?",Ba="*",Ca="-9999px",Da=".",Ea="1px",Fa="2.0",X=":",Ga="; Path=/; expires=",Ha="<iframe />",Ia="=",Ja="=([^;]*)(;|$)",Ka="=; Path=/; expires=",La="?",Ma="@",Na="Caja process stoped due to timeout.",Oa="CallClient failed: cannot find client window.",Pa=

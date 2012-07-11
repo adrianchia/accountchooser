@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Ja p\u0101rvald\u0101t vietni, ",r='[id^="',s="id",t="uzziniet, k\u0101 varat izvietot kontu atlasi";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Pla\u0161\u0101ka inform\u0101cija par galveno kontu atlases pakalpojumu\u00a0\u2014 Account Chooser darba grupa",header:"Pla\u0161\u0101ka inform\u0101cija par galveno kontu atlases pakalpojumu",deployReminder1:u(p,"</a>"),sec1Par1:'Tradicion\u0101lie pieteik\u0161an\u0101s lodzi\u0146i vietn\u0113s tiek aizst\u0101ti ar konta izv\u0113les r\u012bku, lai padar\u012btu \u0161\u012bs vietnes dro\u0161\u0101kas un \u0113rt\u0101kas (<a href="https://ac-cribwars.appspot.com">p\u0101rl\u016bkojiet vietnes paraugu</a>). M\u0113\u0123inot pierakst\u012bties \u0161\u0101d\u0101 vietn\u0113, b\u016bs redzama t\u0101l\u0101k att\u0113lotajai lapai l\u012bdz\u012bga lapa ar to kontu sarakstu, kurus visbie\u017e\u0101k lietojat \u0161aj\u0101 dator\u0101.',
 sec1Par2:"Vienk\u0101r\u0161i noklik\u0161\u0137iniet uz konta, kuru v\u0113laties izmantot. Ja neredzat v\u0113lam\u0101 konta ierakstu, noklik\u0161\u0137iniet uz lejasda\u013c\u0101 eso\u0161\u0101s pogas, lai pievienotu citu kontu.",sec1Par3:"P\u0113c pieteik\u0161an\u0101s kont\u0101 jums tiks par\u0101d\u012bta lapa, kas ir l\u012bdz\u012bga \u0161ai lapai, un aicin\u0101jums apstiprin\u0101t, vai v\u0113laties attiec\u012bgo kontu pievienot kontu sarakstam \u0161aj\u0101 dator\u0101.",subHeader1:"T\u0113mas ekspertiem",

@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Hvis du administrerer et website, ",r='[id^="',s="id",t="kan du her f\u00e5 oplysninger om, hvordan du kan inds\u00e6tte en kontov\u00e6lger";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"L\u00e6s mere om den centrale kontov\u00e6lgertjeneste \u2013 Account Chooser-arbejdsgruppe",header:"L\u00e6s mere om den centrale kontov\u00e6lgertjeneste",deployReminder1:u(p,"</a>"),sec1Par1:'Websites erstatter traditionelle loginfelter med en kontov\u00e6lger for at g\u00f8re disse websites mere sikre og nemmere at bruge (<a href="https://ac-cribwars.appspot.com">f\u00e5 vist et websiteeksempel</a>). N\u00e5r du fors\u00f8ger at logge ind p\u00e5 et s\u00e5dant website, vil du f\u00e5 vist en side som denne med en liste over de konti, som du oftest bruger p\u00e5 denne computer:',
 sec1Par2:"Du skal blot klikke p\u00e5 den konto, du vil bruge. Hvis du ikke kan se den konto, du vil bruge, skal du blot klikke p\u00e5 knappen forneden for at tilf\u00f8je en konto.",sec1Par3:"N\u00e5r du logger ind p\u00e5 kontoen, f\u00e5r du vist en en side som denne, hvor du bliver bedt om at bekr\u00e6fte, at du vil f\u00f8je den til listen over konti p\u00e5 denne computer.",subHeader1:"Avancerede emner",sec2Par1:"Hvis du vil fjerne en konto, kan du holde musen over den p\u00e5g\u00e6ldende konto og trykke p\u00e5 X-knappen i hj\u00f8rnet for oven for at slette den (eller klikke p\u00e5 knappen Rediger i mobilbrowsere). Hvis du bruger en delt computer og ikke \u00f8nsker, at dine konti skal blandes sammen med andres, b\u00f8r du overveje at bruge en tilgangsvinkel, hvor browseroplysningerne holdes separate. For eksempel:",

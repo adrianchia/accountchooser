@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Hvis du administrerer et nettsted, kan du ",r='[id^="',s="finne ut hvordan du legger til en kontovelger",t="id";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(s+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Finn ut mer om den sentrale kontovelgertjenesten \u2013 Kontovelger-arbeidsgruppe",header:"Finn ut mer om den sentrale kontovelgertjenesten",deployReminder1:u(p,"</a>"),sec1Par1:'Nettsteder erstatter n\u00e5 de tradisjonelle p\u00e5loggingsboksene med en kontovelger som gj\u00f8r nettstedene sikrere og enklere \u00e5 bruke (<a href="https://ac-cribwars.appspot.com">se et eksempelnettsted</a>). N\u00e5r du pr\u00f8ver \u00e5 logge deg p\u00e5 en slik side blir du vist en liste med kontoene du vanligvis bruker p\u00e5 denne datamaskinen:',
 sec1Par2:"Klikk p\u00e5 kontoen du vil bruke. Hvis du ikke kan se noen oppf\u00f8ring for kontoen du vil bruke, klikker du p\u00e5 knappen nederst for \u00e5 legge til en annen konto.",sec1Par3:"N\u00e5r du f\u00f8rst har logget deg p\u00e5 kontoen, f\u00e5r du se en side som denne, der du blir bedt om \u00e5 bekrefte at du vil legge den til i kontolisten p\u00e5 denne datamaskinen.",subHeader1:"Avanserte emner",sec2Par1:"Hvis du vil slette en konto, kan du holde musepekeren over kontooppf\u00f8ringen og klikke p\u00e5 X-knappen i det \u00f8verste hj\u00f8rnet for \u00e5 slette den (eller trykke p\u00e5 Rediger-knappen i mobile nettlesere). Dersom du bruker en delt datamaskin og ikke vil blande kontooppf\u00f8ringer med andre, kan du bruke en fremgangsm\u00e5te som holder nettleserinformasjonen separat. Du kan for eksempel:",

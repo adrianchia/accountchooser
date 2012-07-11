@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".widget-footer",o='<a href="http://accountchooser.net/owners">',p="Erfahren Sie mehr \u00fcber die Verwendung der Kontoauswahl.",q="Verwalten Sie eine Website? ",r='[id^="',s="id";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function t(b,d){return q+(b+(p+d))}
 a.accountchooser.cdsLearnMorePageMessages={title:'Weitere Informationen \u00fcber die zentrale Kontoauswahl - Arbeitsgruppe "Kontoauswahl"',header:"Weitere Informationen \u00fcber die zentrale Kontoauswahl",deployReminder1:t(o,"</a>"),sec1Par1:'Auf immer mehr Websites werden die herk\u00f6mmlichen Anmeldefelder durch eine Kontoauswahl ersetzt, um die entsprechenden Websites sicherer und benutzerfreundlicher zu machen (<a href="https://ac-cribwars.appspot.com">Beispiel-Website ansehen</a>). Wenn Sie sich auf einer solchen Website anmelden, wird eine Seite wie diese eingeblendet, die eine Liste der von Ihnen auf diesem Computer am h\u00e4ufigsten verwendeten Konten enth\u00e4lt.',
 sec1Par2:"Klicken Sie einfach auf das Konto, das Sie verwenden m\u00f6chten. Ist kein Eintrag f\u00fcr das gew\u00fcnschte Konto vorhanden, klicken Sie einfach auf die Schaltfl\u00e4che unten, um ein weiteres Konto hinzuzuf\u00fcgen.",sec1Par3:"Sobald Sie sich in dem Konto anmelden, erscheint eine solche Seite, auf der Sie gebeten werden zu best\u00e4tigen, dass Sie das Konto zu der Liste der Konten auf diesem Computer hinzuf\u00fcgen m\u00f6chten.",subHeader1:"Weiterf\u00fchrende Informationen",

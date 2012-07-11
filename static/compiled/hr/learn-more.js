@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Ako upravljate web-lokacijom, ",r='[id^="',s="id",t="saznajte kako mo\u017eete primijeniti bira\u010d ra\u010duna";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Saznajte vi\u0161e o usluzi bira\u010da sredi\u0161njeg ra\u010duna \u2013 radna grupa Bira\u010da ra\u010duna",header:"Saznajte vi\u0161e o usluzi bira\u010da sredi\u0161njeg ra\u010duna",deployReminder1:u(p,"</a>"),sec1Par1:'Web-lokacije zamjenjuju tradicionalne okvire za prijavu bira\u010dima ra\u010duna radi ve\u0107e sigurnosti i jednostavnosti upotrebe (<a href="https://ac-cribwars.appspot.com">istra\u017eite primjer web-lokacije</a>). Kada se poku\u0161ate prijaviti na takvu web-lokaciju, vidjet \u0107ete stranicu poput ove s popisom ra\u010duna koje naj\u010de\u0161\u0107e upotrebljavate na tom ra\u010dunalu:',
 sec1Par2:"Jednostavno pritisnite ra\u010dun koji \u017eelite upotrebljavati. Ako ne vidite unos za ra\u010dun koji \u017eelite upotrebljavati, kliknite gumb na dnu da biste dodali drugi ra\u010dun.",sec1Par3:"Nakon prijave na ra\u010dun prikazat \u0107e vam se stranica kao \u0161to je ova s upitom da potvrdite kako \u017eelite dodati ra\u010dun na popis ra\u010duna na ovom ra\u010dunalu.",subHeader1:"Napredne teme",sec2Par1:"Ako \u017eelite ukloniti neki ra\u010dun, prelazite mi\u0161em preko unosa tog ra\u010duna i zatim odaberite gumb X u gornjem kutu da biste ga izbrisali (na mobilnim preglednicima kliknite gumb Uredi). Me\u0111utim, ako upotrebljavate dijeljeno ra\u010dunalo i ne \u017eelite mije\u0161ati unose ra\u010duna s drugim osobama, razmislite o pristupu koji \u0107e va\u0161e informacije o pregledniku dr\u017eati zasebno. Na primjer:",

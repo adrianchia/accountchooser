@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Ha \u00d6n webhelykezel\u0151, ",r='[id^="',s="id",t="ismerje meg, hogyan vezetheti be a fi\u00f3kv\u00e1laszt\u00f3 haszn\u00e1lat\u00e1t";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Tudjon meg t\u00f6bbet a k\u00f6zponti fi\u00f3kv\u00e1laszt\u00f3 szolg\u00e1ltat\u00e1sr\u00f3l -- Fi\u00f3kv\u00e1laszt\u00f3 munkacsoport",header:"Tudjon meg t\u00f6bbet a k\u00f6zponti fi\u00f3kv\u00e1laszt\u00f3 szolg\u00e1ltat\u00e1sr\u00f3l",deployReminder1:u(p,"</a>"),sec1Par1:'A webhelyek a hagyom\u00e1nyos bejelentkez\u00e9si mez\u0151t fi\u00f3kv\u00e1laszt\u00f3ra cser\u00e9lik, hogy az oldalak sokkal biztons\u00e1gosabbak \u00e9s k\u00f6nnyebben kezelhet\u0151k legyenek (<a href="https://ac-cribwars.appspot.com">barangol\u00e1s egy mintawebhelyen</a>). Amikor megpr\u00f3b\u00e1l bejelentkezni egy ilyen webhelyre, megjelenik egy ehhez hasonl\u00f3 oldal, azoknak a fi\u00f3koknak a list\u00e1j\u00e1val, amelyeket a leggyakrabban haszn\u00e1l ezen a sz\u00e1m\u00edt\u00f3g\u00e9pen:',
 sec1Par2:"Egyszer\u0171en kattintson a haszn\u00e1lni k\u00edv\u00e1nt fi\u00f3kra. Ha nem l\u00e1tja a fi\u00f3kot, akkor csak kattintson a lenti gombra egy m\u00e1sik hozz\u00e1ad\u00e1s\u00e1hoz.",sec1Par3:"Miut\u00e1n bejelentkezik a fi\u00f3kba, egy ehhez hasonl\u00f3 oldalt fog l\u00e1tni, amely meger\u0151s\u00edt\u00e9st k\u00e9r majd \u00d6nt\u0151l, hogy val\u00f3ban hozz\u00e1 akarja-e adni a fi\u00f3kot a sz\u00e1m\u00edt\u00f3g\u00e9pen l\u00e9v\u0151 fi\u00f3klist\u00e1hoz.",subHeader1:"T\u00e9mak\u00f6r\u00f6k halad\u00f3knak",

@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 (function(){var b=null,g=!1,h=window,j=document,k=JSON,l="trim",n="setAttribute",o="documentElement",p="localStorage",q="displayName",r="isArray",s="stringify",t="indexOf",u="param",v="length",w="prototype",x="clientWidth",y="document",z="body",A="call",B="clientHeight",C="",D="&",E="(^|;) ?",F="; Path=/; expires=",G="=",H="=([^;]*)(;|$)",I="=; Path=/; expires=",J="?",K="Clear CDS browser config.",L="Failed to clear from cookie: ",M="Failed to clear from localStorage: ",N="Failed to read from cookie: ",O="Failed to read from localStorage: ",
 P="Failed to write to cookie: ",Q="Failed to write to localStorage: ",aa="Get CDS browser config: ",R="MSIE",ba="Parameter %%param%% cannot be an empty array.",S="Parameter %%param%% cannot be empty.",ca="Parameter %%param%% cannot be null.",da="Parameter %%param%% is not a function.",ea="Parameter %%param%% is not an array.",fa="Read saved accounts from storage: ",ga="Save accounts to storage: ",ha="Set CDS browser config: ",ia="[object Array]",ja="[object Function]",T="chooserAccounts",U="cookieName",
 V="disabled",ka="form",la="hidden",ma="input",na="localStorage",W="localStorageKey",oa="name",X="object",pa="opt_cookieName",qa="opt_localStorageKey || opt_cookieName",ra="parentClass",sa="post",ta="type",Y="value",Z;h.accountchooser=h.accountchooser||{};h.cds=h.accountchooser;h.accountchooser.util=h.accountchooser.util||{};h.accountchooser.util.log=function(a){try{h.console&&h.console.log&&h.console.log(a)}catch(c){}};h.accountchooser.util.uuidCounter_=(new Date).getTime();

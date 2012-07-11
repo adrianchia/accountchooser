@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Je\u015bli zarz\u0105dzasz witryn\u0105, ",r='[id^="',s="dowiedzie\u0107 si\u0119, w jaki spos\u00f3b mo\u017cesz wdro\u017cy\u0107 us\u0142ug\u0119 wybierania konta",t="id";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(s+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Wi\u0119cej informacji o us\u0142udze wybierania konta \u2013 grupa robocza \u201eAccount Chooser\u201d",header:"Wi\u0119cej informacji o us\u0142udze wybierania konta",deployReminder1:u(p,"</a>"),sec1Par1:'W witrynach tradycyjne pola logowania mo\u017cna zast\u0105pi\u0107 funkcj\u0105 wyboru konta, co zwi\u0119ksza bezpiecze\u0144stwo i u\u0142atwia logowanie (<a href="https://ac-cribwars.appspot.com">zobacz przyk\u0142adow\u0105 witryn\u0119</a>). Gdy zechcesz zalogowa\u0107 si\u0119 do takiej witryny, zobaczysz stron\u0119 z list\u0105 kont, kt\u00f3rych najcz\u0119\u015bciej u\u017cywasz na danym komputerze, podobn\u0105 do tej:',
 sec1Par2:"Po prostu kliknij konto, kt\u00f3rego chcesz u\u017cy\u0107. Je\u015bli nie widzisz konta, kt\u00f3rego chcesz u\u017cy\u0107, kliknij przycisk na dole, aby doda\u0107 inne konto.",sec1Par3:"Po zalogowaniu si\u0119 na konto zobaczysz stron\u0119 podobn\u0105 do tej. Nale\u017cy na niej potwierdzi\u0107, \u017ce chcesz doda\u0107 to konto do listy kont na tym komputerze.",subHeader1:"Opcje zaawansowane",sec2Par1:"Je\u015bli chcesz usun\u0105\u0107 konto, umie\u015b\u0107 wska\u017anik myszy nad nazw\u0105 wybranego konta i kliknij przycisk X w g\u00f3rnym rogu (w przegl\u0105darkach mobilnych kliknij przycisk edycji). Je\u015bli u\u017cywasz komputera, z kt\u00f3rego korzystaj\u0105 r\u00f3wnie\u017c inne osoby, i nie chcesz, by na li\u015bcie znajdowa\u0142y si\u0119 konta Twoje i innych u\u017cytkownik\u00f3w, rozwa\u017c takie rozwi\u0105zania jak:",

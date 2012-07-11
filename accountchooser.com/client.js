@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 (function(){var a=void 0,f=!0,g=null,h=!1,i=window,k=document;function l(b,c){return b.toJSON=c}
 var m="requestId",p="extend",q="addResponseListener",r="match",s="setAttribute",t="attachEvent",u="documentElement",v="toJSON",w="split",x="location",y="isArray",z="push",A="Request",B="indexOf",C="domain",D="param",E="addEventListener",F="length",G="prototype",H="clientWidth",I="document",J="body",K="call",L="clientHeight",M="toLowerCase",N="",aa=" from ",ba="#",O="&",ca="*",da=",height=",ea=",left=",fa=",status=1,location=1,resizable=yes,menubar=no,toolbar=no,titlebar=no,channelmode=no,directories=no,fullscreen=no",ga=
 ",top=",ha=".",ia="10.1",ja="10.5.6",P="2.0",Q="3.0",ka="4.0",la="4.7",R="6.0",S="7.0",ma="8.0",T="=",U="?",na="Android",oa="Failed to add iframe onload event.",pa="Ingore message from unrecognized domain: ",qa="Invalid JSON-RPC notification: no 'params.requestId' field found.",ra="Invalid JSON-RPC object: 'jsonrpc' field should be '2.0'.",sa="Invalid JSON-RPC object: no 'id' or 'method' field found.",ta="Invalid JSON-RPC object: not a JSON object.",ua="Invalid JSON-RPC response: invalid 'id' field.",

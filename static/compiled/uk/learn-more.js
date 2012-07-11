@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q='[id^="',r="id",s="\u042f\u043a\u0449\u043e \u0432\u0438 \u043a\u0435\u0440\u0443\u0454\u0442\u0435 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u043e\u043c, ",t="\u0434\u0456\u0437\u043d\u0430\u0439\u0442\u0435\u0441\u044f, \u044f\u043a \u0437\u0430\u0441\u0442\u043e\u0441\u043e\u0432\u0443\u0432\u0430\u0442\u0438 \u0456\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 \u0432\u0438\u0431\u043e\u0440\u0443 \u043e\u0431\u043b\u0456\u043a\u043e\u0432\u043e\u0433\u043e \u0437\u0430\u043f\u0438\u0441\u0443";
 a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return s+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"\u0414\u043e\u043a\u043b\u0430\u0434\u043d\u0456\u0448\u0435 \u043f\u0440\u043e \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u0456\u0437\u043e\u0432\u0430\u043d\u0443 \u043f\u043e\u0441\u043b\u0443\u0433\u0443 \u0432\u0438\u0431\u043e\u0440\u0443 \u043e\u0431\u043b\u0456\u043a\u043e\u0432\u043e\u0433\u043e \u0437\u0430\u043f\u0438\u0441\u0443 \u2013 \u0440\u043e\u0431\u043e\u0447\u0430 \u0433\u0440\u0443\u043f\u0430 \u0406\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u0430 \u0432\u0438\u0431\u043e\u0440\u0443 \u043e\u0431\u043b\u0456\u043a\u043e\u0432\u043e\u0433\u043e \u0437\u0430\u043f\u0438\u0441\u0443",header:"\u0414\u043e\u043a\u043b\u0430\u0434\u043d\u0456\u0448\u0435 \u043f\u0440\u043e \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u0456\u0437\u043e\u0432\u0430\u043d\u0443 \u043f\u043e\u0441\u043b\u0443\u0433\u0443 \u0432\u0438\u0431\u043e\u0440\u0443 \u043e\u0431\u043b\u0456\u043a\u043e\u0432\u043e\u0433\u043e \u0437\u0430\u043f\u0438\u0441\u0443",

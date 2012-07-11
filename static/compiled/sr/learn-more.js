@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q='[id^="',r="id",s="\u0410\u043a\u043e \u0443\u043f\u0440\u0430\u0432\u0459\u0430\u0442\u0435 \u0432\u0435\u0431 \u0441\u0430\u0458\u0442\u043e\u043c, ",t="\u0441\u0430\u0437\u043d\u0430\u0458\u0442\u0435 \u043a\u0430\u043a\u043e \u043c\u043e\u0436\u0435\u0442\u0435 \u0434\u0430 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u0435 \u0431\u0438\u0440\u0430\u0447 \u043d\u0430\u043b\u043e\u0433\u0430";
 a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return s+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"\u0421\u0430\u0437\u043d\u0430\u0458\u0442\u0435 \u0432\u0438\u0448\u0435 \u043e \u0443\u0441\u043b\u0443\u0437\u0438 \u0431\u0438\u0440\u0430\u0447\u0430 \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u043d\u043e\u0433 \u043d\u0430\u043b\u043e\u0433\u0430 \u2013 \u0440\u0430\u0434\u043d\u0430 \u0433\u0440\u0443\u043f\u0430 \u0411\u0438\u0440\u0430\u0447\u0430 \u043d\u0430\u043b\u043e\u0433\u0430",header:"\u0421\u0430\u0437\u043d\u0430\u0458\u0442\u0435 \u0432\u0438\u0448\u0435 \u043e \u0443\u0441\u043b\u0443\u0437\u0438 \u0431\u0438\u0440\u0430\u0447\u0430 \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u043d\u043e\u0433 \u043d\u0430\u043b\u043e\u0433\u0430",

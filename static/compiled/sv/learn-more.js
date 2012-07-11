@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Om du \u00e4r ansvarig f\u00f6r en webbplats ",r='[id^="',s="id",t="kan du l\u00e4sa mer om hur du kan anv\u00e4nda kontovalsfunktionen";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"L\u00e4s mer om den centrala kontovalstj\u00e4nsten \u2013 arbetsgruppen f\u00f6r kontovalsfunktionen",header:"L\u00e4s mer om den centrala kontovalstj\u00e4nsten",deployReminder1:u(p,"</a>"),sec1Par1:'En del webbplatser ers\u00e4tter traditionella inloggningsrutor med kontov\u00e4ljare f\u00f6r att det ska bli enklare att logga in och f\u00f6r att g\u00f6ra webbplatserna s\u00e4krare. (<a href="https://ac-cribwars.appspot.com">ta en titt p\u00e5 en s\u00e5dan webbplats</a>). N\u00e4r du loggar in p\u00e5 en s\u00e5dan webbplats visas en sida med en lista \u00f6ver de konton som du anv\u00e4nder oftast p\u00e5 datorn:',
 sec1Par2:"Klicka bara p\u00e5 kontot som du vill anv\u00e4nda. Om kontot inte visas klickar du p\u00e5 knappen l\u00e4ngst ned och l\u00e4gger till det.",sec1Par3:"N\u00e4r du har loggat in p\u00e5 kontot visas en sida som ser ut ungef\u00e4r som den h\u00e4r. D\u00e4r bekr\u00e4ftar du att du vill l\u00e4gga till kontot i listan f\u00f6r den h\u00e4r datorn.",subHeader1:"Avancerade \u00e4mnen",sec2Par1:"Om du vill ta bort ett konto h\u00e5ller du muspekaren \u00f6ver det aktuella kontot i listan och klickar p\u00e5 knappen X i det \u00f6vre h\u00f6rnet (i mobila webbl\u00e4sare klickar du p\u00e5 knappen Redigera). Om du anv\u00e4nder en delad dator och inte vill att andra personer ska komma \u00e5t de konton du anv\u00e4nder kan du h\u00e5lla uppgifterna i webbl\u00e4saren \u00e5tskilda p\u00e5 olika s\u00e4tt. Du kan till exempel:",

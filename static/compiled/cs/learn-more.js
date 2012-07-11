@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Jste-li spr\u00e1vcem webov\u00fdch str\u00e1nek, ",r='[id^="',s="id",t="zde naleznete informace o mo\u017enostech implementace funkce volby \u00fa\u010dtu";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Dal\u0161\u00ed informace o slu\u017eb\u011b pro volbu centr\u00e1ln\u00edho \u00fa\u010dtu \u2013 pracovn\u00ed skupina Account Chooser",header:"Dal\u0161\u00ed informace o slu\u017eb\u011b pro volbu centr\u00e1ln\u00edho \u00fa\u010dtu",deployReminder1:u(p,"</a>"),sec1Par1:'Webov\u00e9 str\u00e1nky nahrazuj\u00ed tradi\u010dn\u00ed p\u0159ihla\u0161ovac\u00ed pole n\u00e1strojem pro v\u00fdb\u011br \u00fa\u010dtu, d\u00edky kter\u00e9mu jsou str\u00e1nky bezpe\u010dn\u011bj\u0161\u00ed a snadn\u011bji se pou\u017e\u00edvaj\u00ed (<a href="https://ac-cribwars.appspot.com">prozkoumejte vzorovou str\u00e1nku</a>). Pokud se na takov\u00fd web pokus\u00edte p\u0159ihl\u00e1sit, zobraz\u00ed se str\u00e1nka podobn\u00e1 t\u00e9to, se seznamem \u00fa\u010dt\u016f, kter\u00e9 v tomto po\u010d\u00edta\u010di pou\u017e\u00edv\u00e1te nej\u010dast\u011bji.',
 sec1Par2:"Sta\u010d\u00ed kliknout na \u00fa\u010det, kter\u00fd chcete pou\u017e\u00edt. Pokud \u00fa\u010det, kter\u00fd chcete pou\u017e\u00edt, nen\u00ed na seznamu, p\u0159idejte dal\u0161\u00ed \u00fa\u010det kliknut\u00edm na tla\u010d\u00edtko ve spodn\u00ed \u010d\u00e1sti.",sec1Par3:"Po p\u0159ihl\u00e1\u0161en\u00ed do \u00fa\u010dtu se v\u00e1m zobraz\u00ed str\u00e1nka podobn\u00e1 t\u00e9to, kde budete vyzv\u00e1ni, abyste potvrdili, \u017ee chcete \u00fa\u010det p\u0159idat do seznamu \u00fa\u010dt\u016f v tomto po\u010d\u00edta\u010di.",

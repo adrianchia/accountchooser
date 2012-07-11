@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q='[id^="',r="id",s="\u091c\u093e\u0928\u0947\u0902 \u0915\u093f \u0906\u092a \u0916\u093e\u0924\u093e \u091a\u092f\u0928\u0915\u0930\u094d\u0924\u093e \u0915\u094b \u0915\u0948\u0938\u0947 \u092a\u0930\u093f\u0928\u093f\u092f\u094b\u091c\u093f\u0924 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902",t="\u092f\u0926\u093f \u0906\u092a \u0915\u094b\u0908 \u0935\u0947\u092c\u0938\u093e\u0907\u091f \u092a\u094d\u0930\u092c\u0902\u0927\u093f\u0924 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b ";
 a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return t+(b+(s+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"\u0915\u0947\u0902\u0926\u094d\u0930\u0940\u092f \u0916\u093e\u0924\u093e \u091a\u092f\u0928\u0915\u0930\u094d\u0924\u093e \u0938\u0947\u0935\u093e \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u0905\u0927\u093f\u0915 \u091c\u093e\u0928\u0947\u0902 - \u0916\u093e\u0924\u093e \u091a\u092f\u0928\u0915\u0930\u094d\u0924\u093e \u0915\u093e\u0930\u094d\u092f\u0930\u0924 \u0938\u092e\u0942\u0939",header:"\u0915\u0947\u0902\u0926\u094d\u0930\u0940\u092f \u0916\u093e\u0924\u093e \u091a\u092f\u0928\u0915\u0930\u094d\u0924\u093e \u0938\u0947\u0935\u093e \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u0905\u0927\u093f\u0915 \u091c\u093e\u0928\u0947\u0902",

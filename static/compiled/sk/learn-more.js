@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Ak ste spr\u00e1vcom webov\u00fdch str\u00e1nok, ",r='[id^="',s="id",t="z\u00edskajte inform\u00e1cie o mo\u017enostiach implement\u00e1cie funkcie vo\u013eby \u00fa\u010dtu";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Viac inform\u00e1ci\u00ed o slu\u017ebe centr\u00e1lnej vo\u013eby \u00fa\u010dtu \u2013 pracovn\u00e1 skupina Account Chooser",header:"Viac inform\u00e1ci\u00ed o slu\u017ebe centr\u00e1lnej vo\u013eby \u00fa\u010dtu",deployReminder1:u(p,"</a>"),sec1Par1:'Webov\u00e9 str\u00e1nky nahr\u00e1dzaj\u00fa tradi\u010dn\u00e9 prihlasovacie polia n\u00e1strojom na vo\u013ebu \u00fa\u010dtu, v\u010faka ktor\u00e9mu s\u00fa str\u00e1nky zabezpe\u010denej\u0161ie a \u013eah\u0161ie sa pou\u017e\u00edvaj\u00fa (<a href="https://ac-cribwars.appspot.com">presk\u00famajte vzorov\u00e9 str\u00e1nky</a>). Ak sa pok\u00fasite prihl\u00e1si\u0165 na tak\u00e9to str\u00e1nky, zobraz\u00ed sa str\u00e1nka podobn\u00e1 tejto, so zoznamom \u00fa\u010dtov, ktor\u00e9 v tomto po\u010d\u00edta\u010di pou\u017e\u00edvate naj\u010dastej\u0161ie:',
 sec1Par2:"Sta\u010d\u00ed klikn\u00fa\u0165 na \u00fa\u010det, ktor\u00fd chcete pou\u017ei\u0165. Ak \u00fa\u010det, ktor\u00fd chcete pou\u017ei\u0165, nie je na zozname, pridajte \u010fal\u0161\u00ed \u00fa\u010det kliknut\u00edm na tla\u010didlo v dolnej \u010dasti.",sec1Par3:"Po prihl\u00e1sen\u00ed do \u00fa\u010dtu sa v\u00e1m zobraz\u00ed str\u00e1nka podobn\u00e1 tejto, kde v\u00e1s syst\u00e9m vyzve, aby ste potvrdili, \u017ee chcete \u00fa\u010det prida\u0165 do zoznamu \u00fa\u010dtov v tomto po\u010d\u00edta\u010di.",

@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q='[id^="',r="id",s="\uacc4\uc815 \uc120\ud0dd\uae30\ub97c \ubc30\ud3ec\ud558\ub294 \ubc29\ubc95\uc744 \uc54c\uc544\ubcf4\uc138\uc694",t="\uc6f9\uc0ac\uc774\ud2b8\ub97c \uad00\ub9ac\ud558\ub294 \uacbd\uc6b0 ";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return t+(b+(s+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"\uc911\uc559 \uacc4\uc815 \uc120\ud0dd\uae30 \uc11c\ube44\uc2a4\uc5d0 \ub300\ud574 \uc790\uc138\ud788 \uc54c\uc544\ubcf4\uae30 - \uacc4\uc815 \uc120\ud0dd\uae30 \uc791\uc5c5 \uadf8\ub8f9",header:"\uc911\uc559 \uacc4\uc815 \uc120\ud0dd\uae30 \uc11c\ube44\uc2a4\uc5d0 \ub300\ud574 \uc790\uc138\ud788 \uc54c\uc544\ubcf4\uae30",deployReminder1:u(p,"</a>"),sec1Par1:'\uc6f9\uc0ac\uc774\ud2b8\ub294 \uae30\uc874\uc758 \ub85c\uadf8\uc778 \uc0c1\uc790\ub97c \ub354 \uc548\uc804\ud558\uace0 \uac04\ud3b8\ud55c \uacc4\uc815 \uc120\ud0dd\uae30\ub85c \ub300\uccb4\ud558\uace0 \uc788\uc2b5\ub2c8\ub2e4(<a href="https://ac-cribwars.appspot.com">\uc0d8\ud50c \uc0ac\uc774\ud2b8 \ud0d0\uc0c9</a>). \ud574\ub2f9 \uc0ac\uc774\ud2b8\uc5d0 \ub85c\uadf8\uc778\ud560 \ub54c \ucef4\ud4e8\ud130\uc5d0\uc11c \uc790\uc8fc \uc0ac\uc6a9\ub418\ub294 \uacc4\uc815 \ubaa9\ub85d\uc774 \ud3ec\ud568\ub41c \ud398\uc774\uc9c0\uac00 \ud45c\uc2dc\ub429\ub2c8\ub2e4.',
 sec1Par2:"\uc0ac\uc6a9\ud558\ub824\ub294 \uacc4\uc815\uc744 \ud074\ub9ad\ud558\uc138\uc694. \uc0ac\uc6a9\ud558\ub824\ub294 \uacc4\uc815 \ud56d\ubaa9\uc774 \ud45c\uc2dc\ub418\uc9c0 \uc54a\uc73c\uba74 \uc544\ub798\uc5d0 \uc788\ub294 \ubc84\ud2bc\uc744 \ud074\ub9ad\ud558\uc5ec \ub2e4\ub978 \uacc4\uc815\uc744 \ucd94\uac00\ud569\ub2c8\ub2e4.",sec1Par3:"\uacc4\uc815\uc5d0 \ub85c\uadf8\uc778\ud558\uba74 \ub2e4\uc74c\uacfc \uac19\uc774 \ucef4\ud4e8\ud130\uc758 \uacc4\uc815 \ubaa9\ub85d\uc5d0 \uacc4\uc815 \ucd94\uac00\ub97c \uc6d0\ud558\ub294\uc9c0 \ud655\uc778\ud558\ub77c\ub294 \ud398\uc774\uc9c0\uac00 \ud45c\uc2dc\ub429\ub2c8\ub2e4.",

@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q='[id^="',r="id",s="se nau\u010dite, kako lahko uvedete izbirnik ra\u010duna",t="\u010ce upravljate spletno mesto, ";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return t+(b+(s+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Ve\u010d o osrednji storitvi izbirnika ra\u010duna \u2013 delovna skupina izbirnika ra\u010duna",header:"Ve\u010d o osrednji storitvi izbirnika ra\u010duna",deployReminder1:u(p,"</a>"),sec1Par1:'Zaradi varnej\u0161e in prijaznej\u0161e uporabo spletna mesta zamenjujejo obi\u010dajna polja za prijavo z izbirnikom ra\u010dunov (<a href="https://ac-cribwars.appspot.com">oglejte si vzor\u010dno stran </a>). Ko se boste sku\u0161ali prijaviti na tak\u0161nem spletnem mestu, boste videli stran, kakr\u0161na je ta, s seznamom ra\u010dunov, ki jih najpogosteje uporabljate v tem ra\u010dunalniku:',
 sec1Par2:"Kliknite ra\u010dun, ki ga \u017eelite uporabiti. \u010ce \u017eelenega ra\u010duna ni na seznamu vnosov, kliknite gumb na dnu, da ga dodate.",sec1Par3:"Ko se prijavite v ra\u010dun, se prika\u017ee stran, kot je ta. Potrditi boste morali, da \u017eelite ra\u010dun dodati na seznam ra\u010dunov v tem ra\u010dunalniku.",subHeader1:"Napredne teme",sec2Par1:"\u010ce \u017eelite odstraniti ra\u010dun, se lahko s kazalcem mi\u0161ke pomaknete na vnos ra\u010duna in ga izbri\u0161ete tako, da v zgornjem kotu izberete gumb \u00bbX\u00ab (v brskalnikih za mobilne naprave kliknite gumb \u00bbUredi\u00ab). \u010ce uporabljate ra\u010dunalnik v skupni rabi in ne \u017eelite, da se vnosi ra\u010dunov pome\u0161ajo z drugimi ljudmi, uporabite pristop, ki omogo\u010da lo\u010deno shranjevanje podatkov brskalnika. Na primer:",

@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="If you manage a website, ",r='[id^="',s="id",t="learn how you can deploy an account chooser";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(t+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Learn more about the central account chooser service - Account Chooser working group",header:"Learn more about the central account chooser service",deployReminder1:u(p,"</a>"),sec1Par1:'Websites are replacing traditional login boxes with an account chooser to make those sites more secure and easier to use (<a href="https://ac-cribwars.appspot.com">explore a sample site</a>). When you try to sign in to such a site, you will see a page like this one with the list of accounts you most frequently use on this computer:',
 sec1Par2:"Simply click the account that you want to use. If you do not see an entry for the account you want to use, then simply click the button at the bottom to add another account.",sec1Par3:"Once you log into the account, you will be shown a page like this one asking you to confirm that you want to add it to the list of accounts on this computer.",subHeader1:"Advanced Topics",sec2Par1:"If you want to remove an account, you can use your mouse to hover over that account entry and then choose the X button in the top corner to delete it (or on mobile browsers click the Edit button).  However, if you are using a shared computer and you don't want to mix the account entries with other people, then you should consider using an approach that keeps your browser information separate.  For example:",

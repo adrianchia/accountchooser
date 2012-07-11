@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Bir Web sayfas\u0131 y\u00f6netiyorsan\u0131z, ",r='[id^="',s="hesap se\u00e7iciyi nas\u0131l kullan\u0131ma sunaca\u011f\u0131n\u0131z\u0131 \u00f6\u011frenin",t="id";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(s+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Merkezi hesap se\u00e7ici hizmeti hakk\u0131nda bilgi edinin - Hesap Se\u00e7ici \u00e7al\u0131\u015fma grubu",header:"Merkezi hesap se\u00e7ici hizmeti hakk\u0131nda daha fazla bilgi edinin",deployReminder1:u(p,"</a>"),sec1Par1:'Web siteleri g\u00fcvenli\u011fi art\u0131r\u0131p kullan\u0131m\u0131 kolayla\u015ft\u0131rmak amac\u0131yla geleneksel giri\u015f kutular\u0131 yerine hesap se\u00e7ici kullanmaya ba\u015fl\u0131yor (<a href="https://ac-cribwars.appspot.com">\u00f6rnek bir siteye bak\u0131n</a>). B\u00f6yle bir sitede oturum a\u00e7maya \u00e7al\u0131\u015ft\u0131\u011f\u0131n\u0131zda, bilgisayar\u0131n\u0131zda en s\u0131k kulland\u0131\u011f\u0131n\u0131z hesaplar\u0131n listesini i\u00e7eren \u015f\u00f6yle bir sayfa g\u00f6r\u00fcrs\u00fcn\u00fcz:',
 sec1Par2:"Kullanmak istedi\u011finiz hesab\u0131 t\u0131klaman\u0131z yeterlidir. Kullanmak istedi\u011finiz hesap i\u00e7in bir giri\u015f g\u00f6rm\u00fcyorsan\u0131z ba\u015fka hesap eklemek \u00fczere alttaki d\u00fc\u011fmeyi t\u0131klayabilirsiniz.",sec1Par3:"Hesaba giri\u015f yapt\u0131\u011f\u0131n\u0131zda, hesab\u0131 bilgisayar\u0131n\u0131zdaki hesap listesine eklemek isteyip istemedi\u011finizi soran buna benzer bir sayfa g\u00f6receksiniz.",subHeader1:"\u0130leri D\u00fczey Konular",

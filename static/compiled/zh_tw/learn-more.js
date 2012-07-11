@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".widget-footer",o='<a href="http://accountchooser.net/owners">',p='[id^="',q="id",r="\u3002",s="\u5982\u679c\u60a8\u662f\u7db2\u7ad9\u7ba1\u7406\u4eba\u54e1\uff0c\u4e0d\u59a8",t="\u77ad\u89e3\u5982\u4f55\u90e8\u7f72\u5e33\u6236\u9078\u64c7\u5de5\u5177";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return s+(b+(t+(d+r)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"\u9032\u4e00\u6b65\u77ad\u89e3\u96c6\u4e2d\u5f0f\u5e33\u6236\u9078\u64c7\u5de5\u5177\u670d\u52d9 - \u5e33\u6236\u9078\u64c7\u5de5\u5177\u5de5\u4f5c\u5c0f\u7d44",header:"\u9032\u4e00\u6b65\u77ad\u89e3\u96c6\u4e2d\u5f0f\u5e33\u6236\u9078\u64c7\u5de5\u5177\u670d\u52d9",deployReminder1:u(o,"</a>"),sec1Par1:'\u8d8a\u4f86\u8d8a\u591a\u7684\u7db2\u7ad9\u90fd\u5df2\u6539\u7528\u5e33\u6236\u9078\u64c7\u5de5\u5177\u53d6\u4ee3\u50b3\u7d71\u7684\u767b\u5165\u65b9\u584a\uff0c\u70ba\u7684\u662f\u8b93\u7db2\u7ad9\u66f4\u5b89\u5168\u4e14\u66f4\u5bb9\u6613\u4f7f\u7528 (<a href="https://ac-cribwars.appspot.com">\u700f\u89bd\u7bc4\u4f8b\u7db2\u7ad9</a>)\u3002\u7576\u60a8\u5617\u8a66\u767b\u5165\u9019\u985e\u7db2\u7ad9\u6642\uff0c\u6703\u770b\u5230\u4e0b\u65b9\u9019\u6a23\u7684\u7db2\u9801\uff0c\u7576\u4e2d\u5217\u51fa\u4e86\u60a8\u5728\u9019\u90e8\u96fb\u8166\u4e0a\u6700\u5e38\u4f7f\u7528\u7684\u5e33\u6236\uff1a',
 sec1Par2:"\u53ea\u9700\u6309\u4e00\u4e0b\u60f3\u8981\u4f7f\u7528\u7684\u5e33\u6236\u5373\u53ef\uff1b\u8981\u662f\u60a8\u6c92\u770b\u5230\u60f3\u4f7f\u7528\u7684\u5e33\u6236\uff0c\u53ea\u8981\u6309\u4e00\u4e0b\u5e95\u4e0b\u7684\u6309\u9215\u5373\u53ef\u65b0\u589e\u5176\u4ed6\u5e33\u6236\u3002",sec1Par3:"\u767b\u5165\u5e33\u6236\u4e4b\u5f8c\uff0c\u60a8\u6703\u770b\u5230\u50cf\u9019\u6a23\u7684\u756b\u9762\uff0c\u8981\u6c42\u60a8\u78ba\u8a8d\u662f\u5426\u8981\u5728\u9019\u53f0\u96fb\u8166\u4e0a\u628a\u5e33\u6236\u52a0\u5165\u5e33\u6236\u6e05\u55ae\u3002",

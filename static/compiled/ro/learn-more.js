@@ -1,3 +1,18 @@
+/* Copyright 2012 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var a=window,f=jQuery,g="length",i="",j='"]',k="#",l=".",o=".widget-footer",p='<a href="http://accountchooser.net/owners">',q="Dac\u0103 gestiona\u0163i un site web, ",r='[id^="',s="afla\u0163i cum pute\u0163i implementa un selector de conturi",t="id";a.accountchooser=a.accountchooser||{};a.cds=a.accountchooser;function u(b,d){return q+(b+(s+(d+l)))}
 a.accountchooser.cdsLearnMorePageMessages={title:"Afla\u0163i mai multe despre Centrul serviciului de selector de conturi - Grupul de lucru pentru selectorul de conturi",header:"Afla\u0163i mai multe despre Centrul serviciului de selector de conturi",deployReminder1:u(p,"</a>"),sec1Par1:'Site-urile web \u00eenlocuiesc casetele tradi\u0163ionale de conectare cu un selector de conturi, care are rolul de a le face mai sigure \u015fi mai u\u015for de utilizat (<a href="https://ac-cribwars.appspot.com">explora\u0163i un exemplu de site</a>). C\u00e2nd \u00eencerca\u0163i s\u0103 v\u0103 conecta\u0163i la un astfel de site, ve\u0163i vedea o pagin\u0103 ca aceasta, cu lista conturilor pe care le utiliza\u0163i cel mai frecvent pe acest computer:',
 sec1Par2:"Pur \u015fi simplu face\u0163i clic pe contul pe care dori\u0163i s\u0103 \u00eel utiliza\u0163i. Dac\u0103 nu g\u0103si\u0163i o intrare pentru contul pe care dori\u0163i s\u0103 \u00eel utiliza\u0163i, este suficient s\u0103 face\u0163i clic pe butonul din partea de jos pentru a ad\u0103uga alt cont.",sec1Par3:"Dup\u0103 ce v\u0103 conecta\u0163i la cont, se va afi\u015fa o pagin\u0103 ca aceasta, care v\u0103 solicit\u0103 s\u0103 confirma\u0163i c\u0103 dori\u0163i s\u0103 ad\u0103uga\u0163i contul \u00een lista de conturi de pe acest computer.",
