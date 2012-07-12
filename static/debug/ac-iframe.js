@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-//java/com/google/apps/easyconnect/easyrp/widget/javascript/cds/iframe-source.js
 window.accountchooser = window.accountchooser || {};
 // Copyright 2012 Google Inc. All Rights Reserved.
 
