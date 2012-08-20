@@ -13,15 +13,11 @@ If your organization is willing to host a copy of the JS for free, contact the A
   <link rel="shortcut icon" href="cds.png" type="image/x-icon">
   <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="https://ssl.gstatic.com/cds/8/bootstrap.js"></script>
-  <link type=text/css rel=stylesheet href="https://ssl.gstatic.com/cds/8/ac.css" />
+  <script type="text/javascript" src="static/0/bootstrap.js"></script>
+  <link type=text/css rel=stylesheet href="static/0/ac.css" />
   <script type=text/javascript src="ac-config.js"></script>
   <script type=text/javascript src="caja-support.js"></script>
   <script type=text/javascript>
-    if (window.location.protocol != 'https:') {
-      window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-    }
-
     jQuery(function(){
       var options = jQuery.extend({}, window.accountchooser.CDS_CONFIG, {
         popupMode: true,

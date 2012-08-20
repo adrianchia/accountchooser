@@ -18,7 +18,7 @@
  */
 window.accountchooser.CDS_CONFIG = {
   Uiloader: new window.accountchooser.UrlTemplateUiLoader(
-  'https://ssl.gstatic.com/cds/8/{language}/{baseFilename}.js'),
+  'static/0/{language}/{baseFilename}.js'),
   services: {
     web: {
       store: {baseFilename: 'ac-ui',

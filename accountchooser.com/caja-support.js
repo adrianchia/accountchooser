@@ -25,7 +25,7 @@
  * 3) No hash part.
  */
 var VALID_URL_REGEX =
-    /^http(s)?:\/\/([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+(\:\d+)?(\/([^?#]*))?(\?([^#]*))?$/i;
+    /^http(s)?:\/\/(localhost|([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+)(\:\d+)?(\/([^?#]*))?(\?([^#]*))?$/i;
 
 /**
  * Displays the hidden elements on the page after successfully loading

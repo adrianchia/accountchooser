@@ -7,21 +7,14 @@
   <meta http-equiv="Cache-control" content="public">
   <title>Central Account Chooser</title>
   <link rel="shortcut icon" href="cds.png" type="image/x-icon">
-  <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script type="text/javascript" src="https://ssl.gstatic.com/cds/8/ac-util.js"></script>
+  <script type="text/javascript" src="static/0/ac-util.js"></script>
   <script type=text/javascript>
-    if (window.location.protocol != 'https:') {
-      window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    var disabled = window.accountchooser.util.browserconfig.isDisabled();
+    window.accountchooser.util.browserconfig.setDisabled(!disabled);
+    if (!disabled) {
+      window.accountchooser.util.accountstorage.clearAccounts();
     }
-
-    jQuery(function() {
-      var disabled = window.accountchooser.util.browserconfig.isDisabled();
-      window.accountchooser.util.browserconfig.setDisabled(!disabled);
-      if (!disabled) {
-        window.accountchooser.util.accountstorage.clearAccounts();
-      }
-      window.location.href = '/';
-    });
+    window.location.href = 'index.html';
   </script>
 </head>
 <body>
