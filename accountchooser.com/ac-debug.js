@@ -35,12 +35,15 @@ window.accountchooser.config =
  * Enums for CDS helper modes.
  * @enum {string}
  */
-window.accountchooser.config.cdsHelperModes = {
+window.accountchooser.config.CdsHelperModes = {
   LOGIN: 'login',
   SIGNUP: 'signup'
 };
 
-/** Default IDs for UI elements. */
+/**
+ * Default IDs for UI elements.
+ * @type {Object.<string>}
+ */
 window.accountchooser.config.uiElementIds = {
   email: 'email',
   password: 'password',
@@ -48,751 +51,29 @@ window.accountchooser.config.uiElementIds = {
   photo: 'photoUrl'
 };
 
-/** Default login URL. */
+/**
+ * Default login URL.
+ * @type {string}
+ */
 window.accountchooser.config.loginUrl = 'account-login';
 
-/** Default sign up URL. */
+/**
+ * Default sign up URL.
+ * @type {string}
+ */
 window.accountchooser.config.signupUrl = 'account-create';
 
-/** Default user status URL. */
+/**
+ * Default user status URL.
+ * @type {string}
+ */
 window.accountchooser.config.userStatusUrl = 'account-status';
 
-/** Default home URL. */
+/**
+ * Default home URL.
+ * @type {string}
+ */
 window.accountchooser.config.loginOkUrl = '/';
-
-
-/**
- * This method is the entry point to change the configuration parameters of a
- * widget.
- * <p>This method lists all supported parameter names, which are
- * case-insensitive. The default behavior when changing a config is to write a
- * log to the browser console. (With the exception 'developerKey', 'returnToUrl'
- * , and 'companyName', which will do the real work here.)
- * <p>A widget should override some of the methods that starts with 'setWidget'
- * to actually support these configuration parameters.
- * @param {Object} config The configuration parameter key-value pairs.
- */
-window.accountchooser.config.setConfig = function(config) {
-  if (config) {
-    for (var key in config) {
-      var value = config[key];
-      // Uses lower case for error-tolerance
-      var lowerCaseKey = key.toLowerCase();
-      switch (lowerCaseKey) {
-        case 'gitclient': {
-          window.accountchooser.config.setWidgetGitClient_(value,
-              key);
-          break;
-        }
-        case 'apiversion': {
-          window.accountchooser.config.setApiVersion_(value,
-              key);
-          break;
-        }
-        case 'developerkey': {
-          window.accountchooser.config.setDeveloperKey_(value,
-              key);
-          break;
-        }
-        case 'supportlegacyusername': {
-          window.accountchooser.config.setSupportLegacyUsername_(
-              value, key);
-          break;
-        }
-        case 'checkusernameformat': {
-          window.accountchooser.config.setCheckUsernameFormat_(
-              value, key);
-          break;
-        }
-        case 'usernameregex': {
-          window.accountchooser.config.setUsernameRegex_(value,
-              key);
-          break;
-        }
-        case 'usecontextparam': {
-          window.accountchooser.config.setUseContextParam_(value,
-              key);
-          break;
-        }
-        case 'language': {
-          window.accountchooser.config.setLanguage_(value, key);
-          break;
-        }
-        //TODO(guibinkong): remove returntourl when docs changed.
-        case 'returntourl':
-        case 'callbackurl': {
-          window.accountchooser.config.setCallbackUrl_(value,
-              key);
-          break;
-        }
-        case 'realm': {
-          window.accountchooser.config.setRealm_(value,
-              key);
-          break;
-        }
-        case 'companyname': {
-          window.accountchooser.config.setCompanyName_(value,
-              key);
-          break;
-        }
-        case 'width': {
-          window.accountchooser.config.setWidgetWidth(value,
-              key);
-          break;
-        }
-        case 'loginurl': {
-          window.accountchooser.config.setWidgetLoginUrl(value,
-              key);
-          break;
-        }
-        case 'userstatusurl': {
-          window.accountchooser.config.setWidgetUserStatusUrl(
-              value, key);
-          break;
-        }
-        case 'signupurl': {
-          window.accountchooser.config.setWidgetSignupUrl(value,
-              key);
-          break;
-        }
-        case 'federatedsignupurl': {
-          window.accountchooser.config.
-              setWidgetFederatedSignupUrl(value, key);
-          break;
-        }
-        case 'homeurl': {
-          window.accountchooser.config.setWidgetHomeUrl(value,
-              key);
-          break;
-        }
-        case 'forgoturl': {
-          window.accountchooser.config.setWidgetForgotUrl(value,
-              key);
-          break;
-        }
-        case 'accountchooserpageurl': {
-          window.accountchooser.config.
-              setWidgetAccountChooserPageUrl(value, key);
-          break;
-        }
-        case 'logouturl': {
-          window.accountchooser.config.setWidgetLogoutUrl(value,
-              key);
-          break;
-        }
-        case 'logouthandler': {
-          window.accountchooser.config.setWidgetLogoutHandler(
-              value, key);
-          break;
-        }
-        case 'idps': {
-          window.accountchooser.config.setWidgetIdps(value,
-              key);
-          break;
-        }
-        // Set the properties for exited IDPs or add new IDP. For new IDPs,
-        // lable, image and domain are required fields. For existed IDPs, the
-        // fields provided will be merged with the pre-defined ones.
-        // window.accountchooser.setConfig({
-        //   ...
-        //   idpConfig: {
-        //     MockIdp: {         // Add a new IDP called 'MockIdp'
-        //       label: '',
-        //       image: '',
-        //       domain: ''
-        //     },
-        //     Gmail: {           // Set the OAuth scopes for existed IDP.
-        //       scopes: []
-        //     },
-        //     Yahoo: {
-        //       consumerKey: ''  // Set the OAuth consumer key for existed IDP.
-        //     }
-        //     ...
-        //   },
-        //   ...
-        // });
-        case 'idpconfig': {
-          window.accountchooser.config.setWidgetIdpConfig(value,
-              key);
-          break;
-        }
-        case 'localtabheader': {
-          window.accountchooser.config.setWidgetLocalTabHeader(
-              value, key);
-          break;
-        }
-        case 'anytabheader': {
-          window.accountchooser.config.setWidgetAnyTabHeader(
-              value, key);
-          break;
-        }
-        case 'tryfederatedfirst': {
-          window.accountchooser.config.
-              setWidgetTryFederatedFirst(value, key);
-          break;
-        }
-        case 'usecacheduserstatus': {
-          window.accountchooser.config.
-              setWidgetUseCachedUserStatus(value, key);
-          break;
-        }
-        case 'showaccountsmenu': {
-          window.accountchooser.config.
-              setWidgetShowAccountsMenu(value, key);
-          break;
-        }
-        case 'dropdownmenu': {
-          window.accountchooser.config.
-              setWidgetDrowdownMenu(value, key);
-          break;
-        }
-        case 'sitelogourl': {
-          window.accountchooser.config.
-              setWidgetSiteLogoUrl(value, key);
-          break;
-        }
-        case 'usefullpageredirect': {
-          window.accountchooser.config.
-              setWidgetUseFullPageRedirect(value, key);
-          break;
-        }
-        case 'usecds': {
-          window.accountchooser.config.setWidgetUseCds(value,
-              key);
-          break;
-        }
-        case 'cdsemptyresponsehandler': {
-          window.accountchooser.config.
-              setCdsEmptyResponseHandler(value, key);
-          break;
-        }
-        case 'cdsclientcallbackurl': {
-          window.accountchooser.config.setCdsClientCallbackUrl(
-              value, key);
-          break;
-        }
-        case 'cdsuiconfig': {
-          window.accountchooser.config.setCdsUiConfig(value,
-              key);
-          break;
-        }
-        case 'siteemailid': {
-          window.accountchooser.config.setSiteEmailId(value,
-              key);
-          break;
-        }
-        case 'sitepasswordid': {
-          window.accountchooser.config.setSitePasswordId(value,
-              key);
-          break;
-        }
-        case 'sitedisplaynameid': {
-          window.accountchooser.config.setSiteDisplayNameId(
-              value, key);
-          break;
-        }
-        case 'sitephotourlid': {
-          window.accountchooser.config.setSitePhotoUrlId(value,
-              key);
-          break;
-        }
-        case 'mode': {
-          window.accountchooser.config.setMode(value, key);
-          break;
-        }
-        case 'storeaccount': {
-          window.accountchooser.config.setStoredAccount(value,
-              key);
-          break;
-        }
-        default: {
-          window.accountchooser.config.logUnrecognizedConfig_(
-              key);
-          break;
-        }
-      }
-    }
-  }
-};
-
-/**
- * Writes a log to browser console for a unrecognized configuration parameter.
- * @param {string} key The name of the configuration parameter.
- * @private
- */
-window.accountchooser.config.logUnrecognizedConfig_ = function(
-    key) {
-  if (window.accountchooser.util &&
-      window.accountchooser.util.log) {
-    var msg = 'Unrecognized config parameter \'' + key + '\', ignored!';
-    window.accountchooser.util.log(msg);
-  }
-};
-
-/**
- * Sets configuration parameter: api version.
- * @param {string} value the parameter value.
- * @param {string} key The name of the configuration parameter.
- * @private
- */
-window.accountchooser.config.setApiVersion_ = function(value,
-    key) {
-  if (window.gapi && window.gapi.client) {
-    // Using new gapi client library.
-    window.accountchooser.param.notEmpty(value, key);
-    window.accountchooser.config.apiVersion = value;
-  } else if (window.googleapis) {
-    // Using old-fashion googleapis library.
-    window.accountchooser.param.notEmpty(value, key);
-    window.accountchooser.config.apiVersion = value;
-    window.googleapis.setVersions({
-      'identitytoolkit': value
-    });
-  } else {
-    window.accountchooser.config.logUnrecognizedConfig_(key);
-  }
-};
-
-/**
- * Sets configuration parameter: developer key.
- * @param {string} value the parameter value.
- * @param {string} key The name of the configuration parameter.
- * @private
- */
-window.accountchooser.config.setDeveloperKey_ = function(value,
-    key) {
-  // Note that plusone.js just introduces the window.gapi.client namespace but
-  // doesn't really include the client.js library. Since we give the workaround
-  // that replacing "googleapis.js" with "plusone.js" to the developers, we must
-  // make sure when we push the new version using "client.js", we don't break
-  // them. In the case that sites only include "plusone.js", we still use
-  // old-fashion googleapis library, which is included by "plusone.js".
-  if (window.gapi && window.gapi.client && window.gapi.client.setApiKey) {
-    // Using new gapi client library.
-    window.accountchooser.param.notEmpty(value, key);
-    window.gapi.client.setApiKey(value);
-  } else if (window.googleapis) {
-    // Using old-fashion googleapis library.
-    window.accountchooser.param.notEmpty(value, key);
-    window.googleapis.setDeveloperKey(value);
-  } else {
-    window.accountchooser.config.logUnrecognizedConfig_(key);
-  }
-};
-
-/**
- * Sets configuration parameter: whether treat username as legacy account.
- * @param {string} value the parameter value.
- * @private
- */
-window.accountchooser.config.setSupportLegacyUsername_ =
-    function(value) {
-  window.accountchooser.config.supportLegacyUsername = !!value;
-};
-
-/**
- * Sets configuration parameter: strict user name format checking.
- * @param {string} value the parameter value.
- * @private
- */
-window.accountchooser.config.setCheckUsernameFormat_ =
-    function(value) {
-  window.accountchooser.config.disableUsernameFormatCheck =
-      !value;
-};
-
-/**
- * Sets configuration parameter: the Regex for user name.
- * @param {string} value the Regex for user name.
- * @private
- */
-window.accountchooser.config.setUsernameRegex_ =
-    function(value) {
-  window.accountchooser.config.usernameRegex = value;
-};
-
-/**
- * Sets configuration parameter: whether appending extra parameters to the
- * callback URL or putting them into context parameter of the creatAuthUrl API.
- * @param {string} value the parameter value.
- * @private
- */
-window.accountchooser.config.setUseContextParam_ = function(
-    value) {
-  window.accountchooser.config.useContextParam = !!value;
-};
-
-/**
- * Sets configuration parameter: the language of the messages.
- * @param {string} value the parameter value.
- * @param {string} key The name of the configuration parameter.
- * @private
- */
-window.accountchooser.config.setLanguage_ = function(value,
-    key) {
-  window.accountchooser.config.language = value;
-};
-
-/**
- * Sets configuration parameter: return to URL
- * @param {string} value the parameter value.
- * @param {string} key The name of the configuration parameter.
- * @private
- */
-window.accountchooser.config.setCallbackUrl_ = function(value,
-    key) {
-  window.accountchooser.param.notEmpty(value, key);
-  window.accountchooser.config.continueUrl = value;
-};
-
-/**
- * Sets configuration parameter: realm
- * @param {string} value the parameter value.
- * @private
- */
-window.accountchooser.config.setRealm_ = function(value) {
-  window.accountchooser.config.realm = value;
-};
-
-/**
- * Sets configuration parameter: company name.
- * @param {string} value the parameter value.
- * @private
- */
-window.accountchooser.config.setCompanyName_ = function(value) {
-  if (window.accountchooser.labels) {
-    window.accountchooser.config.replaceCompanyName_(
-        window.accountchooser.labels, value);
-  }
-};
-
-/**
- * Replaces all the place holder '' to company name.
- * @param {Object} res The resource object.
- * @param {string} companyNameValue The value of the company name.
- * @private
- */
-window.accountchooser.config.replaceCompanyName_ = function(res,
-    companyNameValue) {
-  for (var key in res) {
-    var value = res[key];
-    if (typeof(value) == 'string') {
-      res[key] = value.replace(/\%\%companyName\%\%/g, companyNameValue);
-    } else if (typeof(value) == 'object') {
-      window.accountchooser.config.replaceCompanyName_(value,
-          companyNameValue);
-    }
-  }
-};
-
-/**
- * Sets configuration parameter: Git Client.
- * @param {string} value the parameter value.
- * @param {string} key The name of the configuration parameter.
- * @private
- */
-window.accountchooser.config.setWidgetGitClient_ = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: widget width.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetWidth = function(value,
-    key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: login URL.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetLoginUrl = function(value,
-    key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: sign up URL.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetSignupUrl = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: federated sign up URL.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetFederatedSignupUrl =
-    function(value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: user status URL.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetUserStatusUrl = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: sign up URL.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetForgotUrl = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: sign up URL.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetHomeUrl = function(value,
-    key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: nascar IDPs.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetIdps = function(value,
-    key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: IDP configurations.
- * @param {Object} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetIdpConfig = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: any tab header.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetLocalTabHeader = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: any tab header.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetAnyTabHeader = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: tryFederatedFirst.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetTryFederatedFirst =
-    function(value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: useCachedUserStatus.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetUseCachedUserStatus =
-    function(value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: showAccountsMenu.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetShowAccountsMenu =
-    function(value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: log out URL.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetLogoutUrl = function(value,
-    key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: log out handler.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetLogoutHandler = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: dropdown menu array.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetDrowdownMenu = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: the URL for the logo of the site.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetSiteLogoUrl = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: the redirect mode.
- * @param {boolean} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetUseFullPageRedirect =
-    function(value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: Whether to use the CDS.
- * @param {boolean} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setWidgetUseCds = function(value,
-    key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: hanlder for CDS empty response.
- * @param {function()} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setCdsEmptyResponseHandler =
-    function(value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: callback url for CDS client.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setCdsClientCallbackUrl = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: ui configuration for CDS.
- * @param {Object} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setCdsUiConfig = function(value,
-    key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: UI element id for email input field.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setSiteEmailId = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: UI element id for password input field.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setSitePasswordId = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: UI element id for display name input field.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setSiteDisplayNameId = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: UI element id for photo URL input field.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setSitePhotoUrlId = function(
-    value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: mode for the widget.
- * @param {string} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setMode = function(value, key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Sets configuration parameter: account to be stored.
- * @param {Object} value the parameter value.
- * @param {string} key the parameter name.
- */
-window.accountchooser.config.setStoredAccount = function(value,
-    key) {
-  window.accountchooser.config.logUnrecognizedConfig_(key);
-};
-
-/**
- * Shortcut method for
- * {@code window.accountchooser.config.setConfig}
- * @param {Object} config The configuration parameter key-value pairs.
- */
-window.accountchooser.setConfig = function(config) {
-  window.accountchooser.config.setConfig(config);
-};
 
 
 /**
@@ -957,6 +238,64 @@ window.accountchooser.util.makeUrl = function(url, params) {
     query.push(params[i] ? i + '=' + params[i] : i);
   }
   return url + '?' + query.join('&');
+};
+
+/**
+ * Enums for valid property keys of an account.
+ * @enum {string}
+ */
+window.accountchooser.util.AccountPropertyKey = {
+  EMAIL: 'email',
+  DISPLAY_NAME: 'displayName',
+  PHOTO_URL: 'photoUrl',
+  PROVIDER_ID: 'providerId'
+};
+
+/**
+ * Sanitizes account info so that only the valid key/value pairs are kept.
+ * @param {Object} account The account to be sanitized.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Object} The sanitized account.
+ */
+window.accountchooser.util.sanitizeAccount = function(account,
+    opt_silent) {
+  var result = {};
+  var AccountPropertyKey =
+      window.accountchooser.util.AccountPropertyKey;
+  for (var key in account) {
+    switch (key) {
+      case AccountPropertyKey.EMAIL:
+      case AccountPropertyKey.DISPLAY_NAME:
+      case AccountPropertyKey.PHOTO_URL:
+      case AccountPropertyKey.PROVIDER_ID:
+        result[key] = account[key];
+        break;
+      default:
+        if (!opt_silent) {
+          throw 'Unrecognized key "' + key + '" for account';
+        }
+    }
+  }
+  return result;
+};
+
+/**
+ * Sanitizes a list of accounts.
+ * @param {Array.<Object>} accounts The accounts to be sanitized.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Array.<Object>} The sanitized accounts.
+ */
+window.accountchooser.util.sanitizeAccounts = function(accounts,
+    opt_silent) {
+  var result = [];
+  for (var i = 0, length = accounts.length; i < length; i++) {
+    var account =
+        window.accountchooser.util.sanitizeAccount(accounts[i]);
+    result.push(account);
+  }
+  return result;
 };
 
 // Utility functions which are to substitute for jQuery ones.
@@ -1612,7 +951,7 @@ window.accountchooser.loader.Loader.prototype.load = function(
   var onError = function() {
     if (opt_defaultResourceUri) {
       self.load_(opt_defaultResourceUri, opt_onSuccess, opt_onError);
-    } else {
+    } else if (opt_onError) {
       opt_onError();
     }
   };
@@ -1633,11 +972,12 @@ window.accountchooser.loader.Loader.prototype.load_ = function(
   var head = document.getElementsByTagName('head')[0] ||
       document.documentElement;
   var element = this.createResourceElement(resourceUri);
-  var finished = false;
+  this.finished_ = false;
+  var self = this;
   element.onload = element.onreadystatechange = function() {
-    if (!finished && (!this.readyState ||
+    if (!self.finished_ && (!this.readyState ||
         this.readyState === 'loaded' || this.readyState === 'complete')) {
-      finished = true;
+      self.finished_ = true;
       element.onload = element.onreadystatechange = null;
       if (opt_onSuccess) {
         opt_onSuccess();
@@ -1645,6 +985,7 @@ window.accountchooser.loader.Loader.prototype.load_ = function(
     }
   };
   element.onerror = function() {
+    self.finished_ = true;
     head.removeChild(element);
     if (opt_onError) {
       opt_onError();
@@ -1701,100 +1042,24 @@ window.accountchooser.cdshelper =
 window.accountchooser.cdshelper.USER_STATUS_TIMEOUT_ = 1000;
 
 /**
- * CDS client object.
- * @private
- */
-window.accountchooser.cdshelper.cdsClient_ = null;
-
-/**
- * Holder for DOM elements of website's login/sign up input fields.
- * @private
- */
-window.accountchooser.cdshelper.uiElements_ = {
-  email: null,
-  password: null,
-  name: null,
-  photo: null
-};
-
-/**
- * Checks whether the mode is login.
- * @return {boolean} {@code true} if current mode is login mode.
- * @private
- */
-window.accountchooser.cdshelper.isLoginMode_ = function() {
-  return window.accountchooser.config.cdsHelperMode ==
-      window.accountchooser.config.cdsHelperModes.LOGIN;
-};
-
-/**
- * Checks whether the mode is signup.
- * @return {boolean} {@code true} if current mode is signup mode.
- * @private
- */
-window.accountchooser.cdshelper.isSignupMode_ = function() {
-  return window.accountchooser.config.cdsHelperMode ==
-      window.accountchooser.config.cdsHelperModes.SIGNUP;
-};
-
-/**
- * Storage for keeping account information when redirecting between login and
- * signup page.
- * @private
- */
-window.accountchooser.cdshelper.storage_ =
-    new window.accountchooser.util.Storage('storedAccount', null,
-        true);
-
-/**
- * Gets the stored account information from underlying storage.
- * @return {Object|undefined} the stored account.
- * @private
- */
-window.accountchooser.cdshelper.getStoredAccount_ = function() {
-  var account = window.accountchooser.cdshelper.storage_.read();
-  window.accountchooser.cdshelper.storage_.clear();
-  return account;
-};
-
-/**
- * Saves the account information into underlying storage.
- * @param {Object} account the account to be stored.
- * @private
- */
-window.accountchooser.cdshelper.storeAccount_ = function(
-    account) {
-  window.accountchooser.cdshelper.storage_.write(account);
-};
-
-/**
- * Finds the login/sign up input fields on current page.
- * @private
- */
-window.accountchooser.cdshelper.findUiElements_ = function() {
-  for (var e in window.accountchooser.cdshelper.uiElements_) {
-    var id = window.accountchooser.config.uiElementIds[e];
-    if (id) {
-      window.accountchooser.cdshelper.uiElements_[e] =
-          jQuery('#' + id);
-    }
-  }
-};
-
-/**
- * Creates an absolute URL from the given URL.
+ * Represents an absolute URL.
  * @param {string} url the destination url, which could be an absolute URL,
  *     an absolute path or a relative path.
  * @param {string=} opt_baseUrl the base url used to construct the destination
  *     url. If omitted, window.location.href is used.
- * @return {string} the absolute URL constructed from the given URL.
- * @private
+ * @constructor
  */
-window.accountchooser.cdshelper.createAbsoluteUrl_ =
-    function(url, opt_baseUrl) {
+window.accountchooser.cdshelper.AbsoluteUrl = function(url,
+    opt_baseUrl) {
   var baseUrl = opt_baseUrl || window.location.href;
+  /**
+   * The normalized absolute URL.
+   * @type {string}
+   * @private
+   */
+  this.url_ = baseUrl;
   if (!url) {
-    return baseUrl;
+    return;
   }
   // Extract protocol/host/path of the base url.
   var a = document.createElement('a');
@@ -1818,41 +1083,144 @@ window.accountchooser.cdshelper.createAbsoluteUrl_ =
   }
   if (/https?:\/\//.test(url)) {
     // Absolute URL.
-    return url;
+    this.url_ = url;
   } else if (url[0] == '/') {
     // Absolute path.
-    return protocol + '//' + host + url;
+    this.url_ = protocol + '//' + host + url;
   } else {
     // Relative path.
     var components = path.split('/');
     components[components.length - 1] = url;
-    return protocol + '//' + host + components.join('/');
+    this.url_ = protocol + '//' + host + components.join('/');
   }
 };
 
 /**
  * Checks whether two URLs are matched or not. The search and hash parts are
  *     removed when comparing.
- * @param {string} url1 the first URL, which could be an absolute URL, an
- *     absolute path, or a relative path.
- * @param {string} url2 the second URL, which could be an absolute URL, an
- *     absolute path, or a relative path.
- * @param {string=} opt_baseUrl the base URL for both url1 and url2.
+ * @param {window.accountchooser.cdshelper.AbsoluteUrl} other
+ *     The other URL to be matched.
  * @return {boolean} {@code true} if the two URLs match.
- * @private
  */
-window.accountchooser.cdshelper.matchUrl_ =
-    function(url1, url2, opt_baseUrl) {
-  // Normalize to absolute URLs.
-  url1 = window.accountchooser.cdshelper.createAbsoluteUrl_(
-      url1, opt_baseUrl);
-  url2 = window.accountchooser.cdshelper.createAbsoluteUrl_(
-      url2, opt_baseUrl);
+window.accountchooser.cdshelper.AbsoluteUrl.prototype.matches =
+    function(other) {
+  if (!other) {
+    return false;
+  }
   // Remove search and hash parts. If two URLs are equal except the search and
   // hash parts, they are considered as matched.
-  url1 = url1.split(/\?|#/)[0];
-  url2 = url2.split(/\?|#/)[0];
+  var url1 = this.url_.split(/\?|#/)[0];
+  var url2 = other.url_.split(/\?|#/)[0];
   return url1 == url2;
+};
+
+/**
+ * @return {string} the string format of the absolute URL.
+ */
+window.accountchooser.cdshelper.AbsoluteUrl.prototype.get =
+    function() {
+  return this.url_;
+};
+
+/**
+ * Class wrapping the CDS client library to help sites to easily use CDS.
+ * @constructor
+ */
+window.accountchooser.cdshelper.CdsHelper = function() {
+  /**
+   * CDS client object.
+   * @type {!window.accountchooser.CdsClient}
+   * @private
+   */
+  this.cdsClient_ = window.accountchooser.CdsClient.init({
+      // Don't need callback for store/update currently.
+      callbacks: {
+        select: jQuery.proxy(this.selectCallback_, this),
+        store: jQuery.proxy(this.defaultCallback_, this),
+        update: jQuery.proxy(this.defaultCallback_, this),
+        empty: jQuery.proxy(this.emptyCallback_, this)
+      }
+  });
+  /**
+   * The underlying storage object for temporary account storing.
+   * @type {!window.accountchooser.util.Storage}
+   * @private
+   */
+  this.storage_ = new window.accountchooser.util.Storage(
+      'storeAccount', undefined, true);
+  /**
+   * Holder for DOM elements of website's login/sign up input fields.
+   * @type {!Object.<jQueryObject>}
+   * @private
+   */
+  this.uiElements_ = {
+    email: null,
+    password: null,
+    name: null,
+    photo: null
+  };
+  // Find UI elements.
+  this.findUiElements_();
+  // Detect the CDS helper mode from URL path or hash part if it exists.
+  this.detectCdsHelperMode_();
+};
+
+/**
+ * Gets the stored account information from underlying storage.
+ * @return {Object|undefined} the stored account.
+ * @private
+ */
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    getStoredAccount_ = function() {
+  var account = this.storage_.read();
+  this.storage_.clear();
+  return account;
+};
+
+/**
+ * Saves the account information into underlying storage.
+ * @param {!Object} account the account to be stored.
+ * @private
+ */
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    storeAccount_ = function(account) {
+  this.storage_.write(account);
+};
+
+/**
+ * Finds the login/sign up input fields on current page.
+ * @private
+ */
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    findUiElements_ = function() {
+  for (var e in this.uiElements_) {
+    var id = window.accountchooser.config.uiElementIds[e];
+    if (id) {
+      this.uiElements_[e] = jQuery('#' + id);
+    }
+  }
+};
+
+/**
+ * Checks whether the mode is login.
+ * @return {boolean} {@code true} if current mode is login mode.
+ * @private
+ */
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    isLoginMode_ = function() {
+  return window.accountchooser.config.cdsHelperMode ==
+      window.accountchooser.config.CdsHelperModes.LOGIN;
+};
+
+/**
+ * Checks whether the mode is signup.
+ * @return {boolean} {@code true} if current mode is signup mode.
+ * @private
+ */
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    isSignupMode_ = function() {
+  return window.accountchooser.config.cdsHelperMode ==
+      window.accountchooser.config.CdsHelperModes.SIGNUP;
 };
 
 /**
@@ -1860,10 +1228,13 @@ window.accountchooser.cdshelper.matchUrl_ =
  * @return {boolean} {@code true} if the current page is the login page.
  * @private
  */
-window.accountchooser.cdshelper.isLoginPage_ = function() {
-  return window.accountchooser.cdshelper.matchUrl_(
-      window.location.href,
-      window.accountchooser.config.loginUrl);
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    isLoginPage_ = function() {
+  var currentUrl = new window.accountchooser.cdshelper.
+      AbsoluteUrl(window.location.href);
+  var loginUrl = new window.accountchooser.cdshelper.
+      AbsoluteUrl(window.accountchooser.config.loginUrl);
+  return currentUrl.matches(loginUrl);
 };
 
 /**
@@ -1871,26 +1242,30 @@ window.accountchooser.cdshelper.isLoginPage_ = function() {
  * @return {boolean} {@code true} if the current page is the sign up page.
  * @private
  */
-window.accountchooser.cdshelper.isSignupPage_ = function() {
-  return window.accountchooser.cdshelper.matchUrl_(
-      window.location.href,
-      window.accountchooser.config.signupUrl);
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    isSignupPage_ = function() {
+  var currentUrl = new window.accountchooser.cdshelper.
+      AbsoluteUrl(window.location.href);
+  var signupUrl = new window.accountchooser.cdshelper.
+      AbsoluteUrl(window.accountchooser.config.signupUrl);
+  return currentUrl.matches(signupUrl);
 };
 
 /**
  * Detects and sets the CDS helper mode from the URL path or URL hash parameter.
  * @private
  */
-window.accountchooser.cdshelper.detectCdsHelperMode_ =
-    function() {
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    detectCdsHelperMode_ = function() {
   // If explicitly set, use the value.
   if (window.accountchooser.config.cdsHelperMode) {
     return;
   }
-  var Modes = window.accountchooser.config.cdsHelperModes;
-  if (window.accountchooser.cdshelper.isLoginPage_()) {
+  // Alias for CdsHelperModes enum.
+  var Modes = window.accountchooser.config.CdsHelperModes;
+  if (this.isLoginPage_()) {
     window.accountchooser.config.cdsHelperMode = Modes.LOGIN;
-  } else if (window.accountchooser.cdshelper.isSignupPage_()) {
+  } else if (this.isSignupPage_()) {
     window.accountchooser.config.cdsHelperMode = Modes.SIGNUP;
   } else if (window.location.hash) {
     var hash = window.location.hash;
@@ -1911,18 +1286,28 @@ window.accountchooser.cdshelper.detectCdsHelperMode_ =
 /**
  * Checks the status of the account. If any error or timeout occurs, treat the
  * account as registered.
- * @param {Object} account the account to be checked.
- * @param {function(Object)} callback the callback function to be called when
+ * @param {!Object} account the account to be checked.
+ * @param {function(!Object)} callback the callback function to be called when
  *     response is returned.
  * @private
  */
-window.accountchooser.cdshelper.checkUserStatus_ =
-    function(account, callback) {
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    checkUserStatus_ = function(account, callback) {
+  var data = {email: account.email};
+  if (account.displayName) {
+    data.displayName = account.displayName;
+  }
+  if (account.photoUrl) {
+    data.photoUrl = account.photoUrl;
+  }
+  if (account.providerId) {
+    data.providerId = account.providerId;
+  }
   jQuery.ajax({
       type: 'POST',
       cache: false,
       url: window.accountchooser.config.userStatusUrl,
-      data: account,
+      data: data,
       dataType: 'json',
       timeout:
           window.accountchooser.cdshelper.USER_STATUS_TIMEOUT_,
@@ -1937,42 +1322,42 @@ window.accountchooser.cdshelper.checkUserStatus_ =
 
 /**
  * Prefills input fields with the account's information.
- * @param {Object} account the account returned from the CDS.
+ * @param {!Object} account the account returned from the CDS.
  * @private
  */
-window.accountchooser.cdshelper.prefill_ = function(account) {
-  window.accountchooser.cdshelper.uiElements_.email.val(
-      account.email);
-  if (window.accountchooser.cdshelper.uiElements_.name) {
-    window.accountchooser.cdshelper.uiElements_.name.val(
-        account.displayName);
+window.accountchooser.cdshelper.CdsHelper.prototype.prefill_ =
+    function(account) {
+  if (this.uiElements_.email) {
+    this.uiElements_.email.val(account.email);
   }
-  if (window.accountchooser.cdshelper.uiElements_.photo) {
-    window.accountchooser.cdshelper.uiElements_.photo.val(
-        account.photoUrl);
+  if (this.uiElements_.name) {
+    this.uiElements_.name.val(account.displayName);
   }
-  if (window.accountchooser.cdshelper.uiElements_.password) {
-    window.accountchooser.cdshelper.uiElements_.password.focus();
+  if (this.uiElements_.photo) {
+    this.uiElements_.photo.val(account.photoUrl);
+  }
+  if (this.uiElements_.password) {
+    this.uiElements_.password.focus();
   }
 };
 
 /**
  * Redirects to the correct page with the account information returned from the
  * CDS.
- * @param {Object} account the account returned from the CDS.
- * @param {window.accountchooser.config.cdsHelperModes} mode the
+ * @param {!Object} account the account returned from the CDS.
+ * @param {window.accountchooser.config.CdsHelperModes} mode the
  *     mode of the target page.
  * @private
  */
-window.accountchooser.cdshelper.redirect_ = function(account,
-    mode) {
-  window.accountchooser.cdshelper.storeAccount_(account);
+window.accountchooser.cdshelper.CdsHelper.prototype.redirect_ =
+    function(account, mode) {
+  this.storeAccount_(account);
   switch (mode) {
-    case window.accountchooser.config.cdsHelperModes.LOGIN:
+    case window.accountchooser.config.CdsHelperModes.LOGIN:
       window.location.href =
           window.accountchooser.config.loginUrl;
       break;
-    case window.accountchooser.config.cdsHelperModes.SIGNUP:
+    case window.accountchooser.config.CdsHelperModes.SIGNUP:
       window.location.href =
           window.accountchooser.config.signupUrl;
       break;
@@ -1985,16 +1370,16 @@ window.accountchooser.cdshelper.redirect_ = function(account,
 
 /**
  * Handles the result returned from the CDS select service.
- * @param {Object|undefined} result the result returned from the CDS.
- * @param {Object|undefined} error the error object returned from the CDS.
+ * @param {Object=} opt_result the result returned from the CDS.
+ * @param {Object=} opt_error the error object returned from the CDS.
  * @private
  */
-window.accountchooser.cdshelper.selectCallback_ = function(
-    result, error) {
-  var account = result && result.account;
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    selectCallback_ = function(opt_result, opt_error) {
+  var account = opt_result && opt_result.account;
   if (account && account.email) {
-    window.accountchooser.cdshelper.checkUserStatus_(account,
-        function(userStatus) {
+    var self = this;
+    this.checkUserStatus_(account, function(userStatus) {
       if (userStatus.authUri) {
         // Redirect to the auth endpoint.
         if (userStatus.authUri.length < 2048) {
@@ -2005,42 +1390,41 @@ window.accountchooser.cdshelper.selectCallback_ = function(
         }
       } else {
         var mode = userStatus.registered ?
-            window.accountchooser.config.cdsHelperModes.LOGIN :
-            window.accountchooser.config.cdsHelperModes.SIGNUP;
+            window.accountchooser.config.CdsHelperModes.LOGIN :
+            window.accountchooser.config.CdsHelperModes.SIGNUP;
         // If the account is registered and current mode is login, or it is not
         // registered and current mode is signup, stay in the page and prefill
         // the fields. Otherwise, redirect to correct page.
         if (mode == window.accountchooser.config.cdsHelperMode) {
-          window.accountchooser.cdshelper.prefill_(account);
+          self.prefill_(account);
         } else {
-          window.accountchooser.cdshelper.redirect_(account,
-              mode);
+          self.redirect_(account, mode);
         }
       }
     });
   } else {
     // The user clicks 'sign into another account' or an error occurs. No
     // account is returned, just focus on the username input field.
-    window.accountchooser.cdshelper.uiElements_.email.focus();
+    this.uiElements_.email.focus();
   }
 };
 
 /**
  * Handles the result returned from the CDS store/update service.
- * @param {Object|undefined} result the result returned from the CDS.
- * @param {Object|undefined} error the error object returned from the CDS.
+ * @param {Object=} opt_result the result returned from the CDS.
+ * @param {Object=} opt_error the error object returned from the CDS.
  * @private
  */
-window.accountchooser.cdshelper.defaultCallback_ = function(
-    result, error) {
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    defaultCallback_ = function(opt_result, opt_error) {
   // For login mode, it need to auto redirect to the CDS selecting page (if
   // there's any account in the CDS). This is done by the empty response
   // callback. However, there may be leftover result from store/update service,
   // which causes store/update callback instead of empty response callback is
   // called. In this case, just eat the store/update result and call the empty
   // response callback directly.
-  if (window.accountchooser.cdshelper.isLoginMode_()) {
-    window.accountchooser.cdshelper.emptyCallback_();
+  if (this.isLoginMode_()) {
+    this.emptyCallback_();
   }
 };
 
@@ -2048,130 +1432,219 @@ window.accountchooser.cdshelper.defaultCallback_ = function(
  * Handles empty response notification.
  * @private
  */
-window.accountchooser.cdshelper.emptyCallback_ = function() {
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    emptyCallback_ = function() {
   // Store account to CDS if there's any.
   if (window.accountchooser.config.storedAccount) {
-    window.accountchooser.storeAccountToCds(
+    this.storeAccountToCds(
         window.accountchooser.config.storedAccount);
     window.accountchooser.config.storedAccount = undefined;
   }
   // If not login or signup mode, no need to prefill or auto select account.
-  if (!window.accountchooser.cdshelper.isLoginMode_() &&
-      !window.accountchooser.cdshelper.isSignupMode_()) {
+  if (!this.isLoginMode_() && !this.isSignupMode_()) {
     return;
   }
   // Get the stored account.
-  var account =
-      window.accountchooser.cdshelper.getStoredAccount_();
+  var account = this.getStoredAccount_();
   if (account) {
     // If stored account exists, prefill all fields with the stored account
     // information.
-    window.accountchooser.cdshelper.prefill_(account);
-  } else if (window.accountchooser.cdshelper.isLoginMode_()) {
+    this.prefill_(account);
+  } else if (this.isLoginMode_()) {
     // If no stored account and the mode is login, automatically redirect to CDS
     // selecting page.
-    window.accountchooser.selectAccountFromCds();
+    this.selectAccountFromCds();
   }
-};
-
-/**
- * Initializes the CDS helper.
- */
-window.accountchooser.initCdsHelper = function() {
-  // Initialize CDS client.
-  var client = window.cds.CdsClient.init({
-      // Don't need callback for store/update currently.
-      callbacks: {
-        select: window.accountchooser.cdshelper.selectCallback_,
-        store: window.accountchooser.cdshelper.defaultCallback_,
-        update: window.accountchooser.cdshelper.defaultCallback_,
-        empty: window.accountchooser.cdshelper.emptyCallback_
-      }
-  });
-  window.accountchooser.cdshelper.cdsClient_ = client;
-  // Find UI elements.
-  window.accountchooser.cdshelper.findUiElements_();
-  // Detect the CDS helper mode from URL path or hash part if it exists.
-  window.accountchooser.cdshelper.detectCdsHelperMode_();
 };
 
 /**
  * Selects an account from the CDS.
  */
-window.accountchooser.selectAccountFromCds = function() {
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    selectAccountFromCds = function() {
+  var self = this;
   var cb = function(empty, error) {
-    if (!error && !empty) {
+    if (!empty || error) {
       // The CDS is not empty, redirect user to select an account.
+      // If an error occurs, it's maybe due to popup mode, so we still need to
+      // perform the action.
       var cdsOptions = {
         ui: window.accountchooser.config.cdsUiConfig,
         language: window.accountchooser.config.language
       };
-      window.accountchooser.cdshelper.cdsClient_.select(null,
-          cdsOptions);
+      self.cdsClient_.select(null, cdsOptions);
     } else {
       // No account selected.
-      window.accountchooser.cdshelper.selectCallback_();
+      self.selectCallback_();
     }
   }
-  window.accountchooser.cdshelper.cdsClient_.checkCdsEmpty(cb);
+  this.cdsClient_.checkCdsEmpty(cb);
 };
 
 /**
  * Stores an account into the CDS.
- * @param {Object} account the account to be stored.
+ * @param {!Object} account the account to be stored.
  */
-window.accountchooser.storeAccountToCds = function(account) {
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    storeAccountToCds = function(account) {
   var clientCallbackUrl =
-      window.accountchooser.cdshelper.createAbsoluteUrl_(
+      new window.accountchooser.cdshelper.AbsoluteUrl(
           window.accountchooser.config.loginOkUrl);
+  var self = this;
   var cb = function(exist, error) {
-    if (!error && !exist) {
+    if (!exist || error) {
       // Account doesn't exist in the CDS, redirect user to store the account.
+      // If an error occurs, it's maybe due to popup mode, so we still need to
+      // perform the action.
       var cdsOptions = {
-        clientCallbackUrl: clientCallbackUrl,
+        clientCallbackUrl: clientCallbackUrl.get(),
         language: window.accountchooser.config.language
       };
-      window.accountchooser.cdshelper.cdsClient_.store(account,
-          null, cdsOptions);
+      self.cdsClient_.store([account], cdsOptions);
     } else {
-      window.location.href = clientCallbackUrl;
+      window.location.href = clientCallbackUrl.get();
     }
   };
-  window.accountchooser.cdshelper.cdsClient_.checkAccountExist(
-      account, cb);
+  this.cdsClient_.checkAccountExist(account, cb);
 };
 
 /**
  * Updates an account which is in the CDS.
- * @param {Object} account the new account which is used to update the old one.
+ * @param {!Object} account the new account which is used to update the old one.
  */
-window.accountchooser.updateAccountToCds = function(account) {
+window.accountchooser.cdshelper.CdsHelper.prototype.
+    updateAccountToCds = function(account) {
   var clientCallbackUrl =
-      window.accountchooser.cdshelper.createAbsoluteUrl_(
+      new window.accountchooser.cdshelper.AbsoluteUrl(
           window.accountchooser.config.loginOkUrl);
+  var self = this;
   var cb = function(exist, error) {
-    if (!error && exist) {
+    if (exist || error) {
       // Account exists in the CDS, redirect user to update the account.
+      // If an error occurs, it's maybe due to popup mode, so we still need to
+      // perform the action.
       var cdsOptions = {
-        clientCallbackUrl: clientCallbackUrl,
+        clientCallbackUrl: clientCallbackUrl.get(),
         language: window.accountchooser.config.language
       };
-      window.accountchooser.cdshelper.cdsClient_.update(account,
-          null, cdsOptions);
+      self.cdsClient_.update(account, cdsOptions);
     } else {
-      window.location.href = clientCallbackUrl;
+      window.location.href = clientCallbackUrl.get();
     }
   };
-  window.accountchooser.cdshelper.cdsClient_.checkAccountExist(
-      account, cb);
+  this.cdsClient_.checkAccountExist(account, cb);
 };
 
+/**
+ * CdsHelper singleton instance.
+ * @type {window.accountchooser.cdshelper.CdsHelper}
+ * @private
+ */
+window.accountchooser.cdshelper.INSTANCE_;
+
+/**
+ * Initializes the CDS helper. This is a static function which creates an
+ * CdsHelper singleton in the first time. After that, each call will return the
+ * single instance.
+ * @param {Object=} opt_config The configuration object. Only the first
+ *     invocation of this function uses it to do the initialization. The
+ *     following invocations will ignore it.
+ * @return {window.accountchooser.cdshelper.CdsHelper} The
+ *     CdsHelper singleton instance.
+ */
+window.accountchooser.initAccountChooser = function(opt_config) {
+  if (!window.accountchooser.cdshelper.INSTANCE_) {
+    window.accountchooser.setConfig(opt_config || {});
+    window.accountchooser.cdshelper.INSTANCE_ =
+        new window.accountchooser.cdshelper.CdsHelper();
+  }
+  return window.accountchooser.cdshelper.INSTANCE_;
+};
+
+
+/**
+ * Sets the configurtion for cds helper.
+ * <p>This method lists all supported parameter names, which are
+ * case-insensitive.
+ * @param {Object.<string, *>} config The configuration parameter key-value
+ *     pairs.
+ */
+window.accountchooser.config.setConfig = function(config) {
+  if (config) {
+    for (var key in config) {
+      var value = config[key];
+      var lowerCasekey = key.toLowerCase();
+      switch (lowerCasekey) {
+        case 'homeurl':
+          window.accountchooser.config.setWidgetHomeUrl(
+              /** @type {string} */ (value), key);
+          break;
+        case 'loginurl':
+          window.accountchooser.config.setWidgetLoginUrl(
+              /** @type {string} */ (value), key);
+          break;
+        case 'signupurl':
+          window.accountchooser.config.setWidgetSignupUrl(
+              /** @type {string} */ (value), key);
+          break;
+        case 'userstatusurl':
+          window.accountchooser.config.setWidgetUserStatusUrl(
+              /** @type {string} */ (value), key);
+          break;
+        case 'uiconfig':
+          window.accountchooser.config.setCdsUiConfig(
+              /** @type {Object} */ (value), key);
+          break;
+        case 'siteemailid':
+          window.accountchooser.config.setSiteEmailId(
+              /** @type {string} */ (value), key);
+          break;
+        case 'sitepasswordid':
+          window.accountchooser.config.setSitePasswordId(
+              /** @type {string} */ (value), key);
+          break;
+        case 'sitedisplaynameid':
+          window.accountchooser.config.setSiteDisplayNameId(
+              /** @type {string} */ (value), key);
+          break;
+        case 'sitephotourlid':
+          window.accountchooser.config.setSitePhotoUrlId(
+              /** @type {string} */ (value), key);
+          break;
+        case 'mode':
+          window.accountchooser.config.setMode(
+              /** @type {string} */ (value), key);
+          break;
+        case 'storeaccount':
+          window.accountchooser.config.setStoredAccount(
+              /** @type {Object} */ (value), key);
+          break;
+        default:
+          window.accountchooser.config.logUnrecognizedConfig_(
+              key);
+      }
+    }
+  }
+};
+
+/**
+ * Writes a log to browser console for a unrecognized configuration parameter.
+ * @param {string} key The name of the configuration parameter.
+ * @private
+ */
+window.accountchooser.config.logUnrecognizedConfig_ = function(
+    key) {
+  if (window.accountchooser.util &&
+      window.accountchooser.util.log) {
+    var msg = 'Unrecognized config parameter \'' + key + '\', ignored!';
+    window.accountchooser.util.log(msg);
+  }
+};
 
 /**
  * Sets configuration parameter: sign up URL.
  * @param {string} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setWidgetHomeUrl = function(
     value, key) {
@@ -2183,7 +1656,6 @@ window.accountchooser.config.setWidgetHomeUrl = function(
  * Sets configuration parameter: login URL.
  * @param {string} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setWidgetLoginUrl = function(
     value, key) {
@@ -2195,7 +1667,6 @@ window.accountchooser.config.setWidgetLoginUrl = function(
  * Sets configuration parameter: sign up URL.
  * @param {string} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setWidgetSignupUrl = function(
     value, key) {
@@ -2206,7 +1677,6 @@ window.accountchooser.config.setWidgetSignupUrl = function(
  * Sets configuration parameter: user status URL.
  * @param {string} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setWidgetUserStatusUrl = function(
     value, key) {
@@ -2217,7 +1687,6 @@ window.accountchooser.config.setWidgetUserStatusUrl = function(
  * Sets configuration parameter: ui configuration for CDS.
  * @param {Object} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setCdsUiConfig = function(value,
     key) {
@@ -2228,7 +1697,6 @@ window.accountchooser.config.setCdsUiConfig = function(value,
  * Sets configuration parameter: UI element id for email input field.
  * @param {string} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setSiteEmailId = function(
     value, key) {
@@ -2240,7 +1708,6 @@ window.accountchooser.config.setSiteEmailId = function(
  * Sets configuration parameter: UI element id for password input field.
  * @param {string} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setSitePasswordId = function(
     value, key) {
@@ -2251,7 +1718,6 @@ window.accountchooser.config.setSitePasswordId = function(
  * Sets configuration parameter: UI element id for display name input field.
  * @param {string} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setSiteDisplayNameId = function(
     value, key) {
@@ -2262,7 +1728,6 @@ window.accountchooser.config.setSiteDisplayNameId = function(
  * Sets configuration parameter: UI element id for photo URL input field.
  * @param {string} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setSitePhotoUrlId = function(
     value, key) {
@@ -2273,10 +1738,10 @@ window.accountchooser.config.setSitePhotoUrlId = function(
  * Sets configuration parameter: mode for CDS helper, either signup or login.
  * @param {string} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setMode = function(value, key) {
-  var Modes = window.accountchooser.config.cdsHelperModes;
+  // Alias for CdsHelperModes enum.
+  var Modes = window.accountchooser.config.CdsHelperModes;
   for (var m in Modes) {
     if (Modes[m] == String(value).toLowerCase()) {
       window.accountchooser.config.cdsHelperMode = Modes[m];
@@ -2291,20 +1756,34 @@ window.accountchooser.config.setMode = function(value, key) {
  * Sets configuration parameter: account to be stored.
  * @param {Object} value the parameter value.
  * @param {string} key the parameter name.
- * @suppress {duplicate}
  */
 window.accountchooser.config.setStoredAccount = function(value,
     key) {
   window.accountchooser.config.storedAccount = value;
 };
 
+/**
+ * Shortcut method for
+ * {@code window.accountchooser.config.setConfig}
+ * @param {Object} config The configuration parameter key-value pairs.
+ */
+window.accountchooser.setConfig = function(config) {
+  window.accountchooser.config.setConfig(config);
+};
 
+
+/**
+ * @define {string} The jquery library URL.
+ */
+var JQUERY_SRC =
+  'https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js';
 
 /**
  * @define {string} The accountchooser client library URL.
  */
 var ACCOUNTCHOOSER_CLIENT_SRC =
     'https://www.accountchooser.com/client-debug.js';
+
 /**
  * Template for generating CDS helper initialization script.
  * @private
@@ -2314,10 +1793,11 @@ window.accountchooser.cdshelper.initTemplate_ =
   '(function() {\n' +
   'var loader = new window.accountchooser.loader.JsLoader();\n' +
   'function onAllLoaded() {\n' +
-  '  window.accountchooser.setConfig({\n' +
-  '    %%CONFIG%%\n' +
+  '  jQuery(function() {\n' +
+  '    window.accountchooser.initAccountChooser({\n' +
+  '      %%CONFIG%%\n' +
+  '    });\n' +
   '  });\n' +
-  '  window.accountchooser.initCdsHelper();\n' +
   '}\n' +
   'function loadCdsClient() {\n' +
   '  if (window.accountchooser.CdsClient) {\n' +
@@ -2328,51 +1808,34 @@ window.accountchooser.cdshelper.initTemplate_ =
   '  loader.load(url, undefined, onAllLoaded);\n' +
   '}\n' +
   'function loadJQuery() {\n' +
-  '  if (window.jQuery) {\n' +
+  '  if (typeof jQuery !== "undefined") {\n' +
   '    loadCdsClient();\n' +
   '    return;\n' +
   '  }\n' +
-  '  var url =\n' +
-  '    "https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js";\n' +
+  '  var url = "' + JQUERY_SRC + '";\n' +
   '  loader.load(url, undefined, loadCdsClient);\n' +
   '}\n' +
   'loadJQuery();\n' +
   '})();\n' +
   '</script>\n';
 
-/**
- * DOM ID of the script tag loading the library.
- * @private
- * @const
- */
-window.accountchooser.cdshelper.SCRIPT_ID_ = 'ac_script';
-
-/**
- * Regex for matching the src fo the script tag loading the library.
- * @private
- * @const
- */
-window.accountchooser.cdshelper.SCRIPT_SRC_REGEX_ =
-    /www\.accountchooser\.com\/client\.js/;
-
 (function() {
-  // Get the current script, if the library is static loaded, the configuration
-  // is in the current script.
+  // Get the current script node.
+  var node = window.accountchooser.util.getCurrentScript();
+
+  // Check whether to auto initialize.
+  var src = node.getAttribute('src');
+  var index = src.indexOf('#');
+  if (index > -1) {
+    var hash = src.substring(index + 1);
+    if (/(^|&)no-auto-init(&|$)/.test(hash)) {
+      return;
+    }
+  }
+
+  // Get the configuration from current script content.
   var content =
-    window.accountchooser.util.getCurrentScriptContent();
-  // Get the script whose id is 'ac_script'. Script with this id is suppose to
-  // contain the configuration.
-  if (!content) {
-    content = window.accountchooser.util.getScriptContentById(
-        window.accountchooser.cdshelper.SCRIPT_ID_);
-  }
-  // Get the script whose src matches the accountchooser.com URL pattern. This
-  // is the last try to find out the script containing the configuration.
-  if (!content) {
-    content = window.accountchooser.util.getScriptContentBySrc(
-        window.accountchooser.cdshelper.SCRIPT_SRC_REGEX_);
-  }
-  // Generate initialization script.
+      window.accountchooser.util.getCleanScriptContent(node);
   var configStr = content || '';
   var script =
     window.accountchooser.cdshelper.initTemplate_.replace(

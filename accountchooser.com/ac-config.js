@@ -17,18 +17,21 @@
  * The configuration of the CDS.
  */
 window.accountchooser.CDS_CONFIG = {
-  Uiloader: new window.accountchooser.UrlTemplateUiLoader(
-  'static/0/{language}/{baseFilename}.js'),
+  uiLoader: new window.accountchooser.UrlTemplateUiLoader(
+      'static/0/{language}/{baseFilename}.js',
+      'static/0/{baseFilename}.css'),
   services: {
     web: {
-      store: {baseFilename: 'ac-ui',
+      store: {baseFilename: 'ac-ui', cssBaseFilename: 'ac',
           name: 'window.accountchooser.StoreService'},
-      select: {baseFilename: 'ac-ui',
+      select: {baseFilename: 'ac-ui', cssBaseFilename: 'ac',
           name: 'window.accountchooser.SelectService'},
-      update: {baseFilename: 'ac-ui',
+      update: {baseFilename: 'ac-ui', cssBaseFilename: 'ac',
           name: 'window.accountchooser.UpdateService'},
-      manage: {baseFilename: 'ac-ui',
-          name: 'window.accountchooser.ManageService'}
+      manage: {baseFilename: 'ac-ui', cssBaseFilename: 'ac',
+          name: 'window.accountchooser.ManageService'},
+      about: {baseFilename: 'ac-ui', cssBaseFilename: 'ac',
+          name: 'window.accountchooser.AboutService'}
     }
   }
 };

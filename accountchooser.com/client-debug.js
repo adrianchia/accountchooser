@@ -188,6 +188,64 @@ window.accountchooser.util.makeUrl = function(url, params) {
   return url + '?' + query.join('&');
 };
 
+/**
+ * Enums for valid property keys of an account.
+ * @enum {string}
+ */
+window.accountchooser.util.AccountPropertyKey = {
+  EMAIL: 'email',
+  DISPLAY_NAME: 'displayName',
+  PHOTO_URL: 'photoUrl',
+  PROVIDER_ID: 'providerId'
+};
+
+/**
+ * Sanitizes account info so that only the valid key/value pairs are kept.
+ * @param {Object} account The account to be sanitized.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Object} The sanitized account.
+ */
+window.accountchooser.util.sanitizeAccount = function(account,
+    opt_silent) {
+  var result = {};
+  var AccountPropertyKey =
+      window.accountchooser.util.AccountPropertyKey;
+  for (var key in account) {
+    switch (key) {
+      case AccountPropertyKey.EMAIL:
+      case AccountPropertyKey.DISPLAY_NAME:
+      case AccountPropertyKey.PHOTO_URL:
+      case AccountPropertyKey.PROVIDER_ID:
+        result[key] = account[key];
+        break;
+      default:
+        if (!opt_silent) {
+          throw 'Unrecognized key "' + key + '" for account';
+        }
+    }
+  }
+  return result;
+};
+
+/**
+ * Sanitizes a list of accounts.
+ * @param {Array.<Object>} accounts The accounts to be sanitized.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Array.<Object>} The sanitized accounts.
+ */
+window.accountchooser.util.sanitizeAccounts = function(accounts,
+    opt_silent) {
+  var result = [];
+  for (var i = 0, length = accounts.length; i < length; i++) {
+    var account =
+        window.accountchooser.util.sanitizeAccount(accounts[i]);
+    result.push(account);
+  }
+  return result;
+};
+
 // Utility functions which are to substitute for jQuery ones.
 /**
  * Checks whether the value is an array or not. Try to use jQuery.isArray if
@@ -1124,20 +1182,22 @@ window.accountchooser.rpc.EmptyResponseNotification.METHOD =
 /**
  * @class Defines the StoreRequest class.
  * @param {string} id the id of the Request.
- * @param {Object} account the account to be stored to CDS.
- * @param {Array.<Object>} localAccounts the list of local account to be
- *     shown in the CDS.
+ * @param {Array.<Object>} accounts the list of accounta to be stored to CDS.
  * @param {Object} clientConfig the configuration parameters of current client.
  * @constructor
  */
-window.accountchooser.rpc.StoreRequest = function(id, account,
-    localAccounts, clientConfig) {
+window.accountchooser.rpc.StoreRequest = function(id, accounts,
+    clientConfig) {
   window.accountchooser.param.notEmpty(id, 'id');
-  window.accountchooser.param.notEmpty(account, 'account');
+  window.accountchooser.param.notEmptyArray (accounts,
+      'accounts');
+  if (accounts) {
+    accounts = window.accountchooser.util.sanitizeAccounts(
+        accounts);
+  }
   this.method_ = window.accountchooser.rpc.StoreRequest.METHOD;
   this.params_ = {
-    account: account,
-    localAccounts: localAccounts,
+    accounts: accounts,
     clientConfig: clientConfig
   };
   this.id_ = id;
@@ -1159,6 +1219,10 @@ window.accountchooser.rpc.StoreRequest.METHOD = 'store';
 window.accountchooser.rpc.SelectRequest = function(id,
     localAccounts, clientConfig) {
   window.accountchooser.param.notEmpty(id, 'id');
+  if (localAccounts) {
+    localAccounts = window.accountchooser.util.sanitizeAccounts(
+        localAccounts);
+  }
   this.method_ = window.accountchooser.rpc.SelectRequest.METHOD;
   this.params_ = {
     localAccounts: localAccounts,
@@ -1183,6 +1247,10 @@ window.accountchooser.rpc.UpdateRequest = function(id, account,
     clientConfig) {
   window.accountchooser.param.notEmpty(id, 'id');
   window.accountchooser.param.notEmpty(account, 'account');
+  if (account) {
+    account = window.accountchooser.util.sanitizeAccount(
+        account);
+  }
   this.method_ = window.accountchooser.rpc.UpdateRequest.METHOD;
   this.params_ = {
     account: account,
@@ -1218,6 +1286,27 @@ window.accountchooser.rpc.ManageRequest.inheritsFrom(
 window.accountchooser.rpc.ManageRequest.METHOD = 'manage';
 
 /**
+ * @class Defines the AboutRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.AboutRequest = function(id,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  this.method_ = window.accountchooser.rpc.AboutRequest.METHOD;
+  this.params_ = {
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.AboutRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the AboutRequest */
+window.accountchooser.rpc.AboutRequest.METHOD = 'about';
+
+/**
  * @class Defines the QueryRequest class.
  * @param {string} id the id of the Request.
  * @param {string} query the inquiry from the client.
@@ -1229,6 +1318,10 @@ window.accountchooser.rpc.QueryRequest = function(id, query,
     account, clientConfig) {
   window.accountchooser.param.notEmpty(id, 'id');
   window.accountchooser.param.notEmpty(query, 'query');
+  if (account) {
+    account = window.accountchooser.util.sanitizeAccount(
+        account);
+  }
   this.method_ = window.accountchooser.rpc.QueryRequest.METHOD;
   this.params_ = {
     query: query,
@@ -1774,9 +1867,20 @@ window.accountchooser.CdsClient = function(config) {
   window.accountchooser.util.checkSNISupported();
   window.accountchooser.param.notEmpty(config, 'config');
   // Merge customized client configuration with the default.
+  var defaultConfig = {
+    cdsServer: {
+      domain: window.accountchooser.rpc.DEFAULT_CDS_DOMAIN,
+      iframe: window.accountchooser.rpc.DEFAULT_CDS_IFRAME_PATH,
+      popup: window.accountchooser.rpc.DEFAULT_CDS_POPUP_PATH,
+      redirect:
+          window.accountchooser.rpc.DEFAULT_CDS_REDIRECT_PATH
+    },
+    popupWidth: window.accountchooser.rpc.DEFAULT_POPUP_WIDTH,
+    popupHeight: window.accountchooser.rpc.DEFAULT_POPUP_HEIGHT,
+    clientCallbackUrl: window.location.href
+  };
   config = window.accountchooser.util.extend(true, {},
-      window.accountchooser.CdsClient.DEFAULT_CDS_CLIENT_CONFIG_,
-      config);
+      defaultConfig, config);
   // Build the absolute URLs for CDS server.
   var cdsServer = config.cdsServer;
   cdsServer.iframe = cdsServer.domain + cdsServer.iframe;
@@ -1793,22 +1897,6 @@ window.accountchooser.CdsClient = function(config) {
     language: this.config_.language,
     ui: this.config_.ui
   };
-};
-
-/**
- * Default CDS configuration
- * @private
- */
-window.accountchooser.CdsClient.DEFAULT_CDS_CLIENT_CONFIG_ = {
-  cdsServer: {
-    domain: window.accountchooser.rpc.DEFAULT_CDS_DOMAIN,
-    iframe: window.accountchooser.rpc.DEFAULT_CDS_IFRAME_PATH,
-    popup: window.accountchooser.rpc.DEFAULT_CDS_POPUP_PATH,
-    redirect: window.accountchooser.rpc.DEFAULT_CDS_REDIRECT_PATH
-  },
-  popupWidth: window.accountchooser.rpc.DEFAULT_POPUP_WIDTH,
-  popupHeight: window.accountchooser.rpc.DEFAULT_POPUP_HEIGHT,
-  clientCallbackUrl: window.location.href
 };
 
 /**
@@ -1847,13 +1935,7 @@ window.accountchooser.CdsClient.DEFAULT_CDS_CLIENT_CONFIG_ = {
  *   ui: {                   // Customized UI settings.
  *     favicon: '',          // URL of the favicon.
  *     title: '',            // The window title.
- *     header: '',           // URL of the header HTML.
- *     main: {
- *       url: '',            // URL of the main HTML.
- *       method: 'cajole'/'sanitize'  // Methods to process the main HTML.
- *       enableOnMobile: true/false // Shows the main part on mobile device.
- *     },
- *     footer: ''            // URL of the footer HTML.
+ *     branding: ''         // URL of the branding content.
  *   }
  * }
  * ...
@@ -2088,8 +2170,7 @@ window.accountchooser.CdsClient.prototype.callCds_ = function(
 
 /**
  * Starts the store service on CDS.
- * @param {Object} account The account to store.
- * @param {Array.<Object>} localAccounts The local accounts list, which can be
+ * @param {Array.<Object>} accounts The local accounts list, which can be
  *     shown to end user for selection.
  * @param {Object=} opt_cdsOptions Optional options for CDS. These options will
  *     be merged with global ones (set by CdsClient.init(config)) and passed to
@@ -2108,8 +2189,8 @@ window.accountchooser.CdsClient.prototype.callCds_ = function(
  * </pre>
  */
 window.accountchooser.CdsClient.prototype.store = function(
-    account, localAccounts, opt_cdsOptions) {
-  window.accountchooser.param.notEmpty(account, 'account');
+    accounts, opt_cdsOptions) {
+  window.accountchooser.param.notEmpty(accounts, 'accounts');
 
   var service = 'store';
   var options = opt_cdsOptions ?
@@ -2117,7 +2198,7 @@ window.accountchooser.CdsClient.prototype.store = function(
           this.cdsOptions_, opt_cdsOptions) :
       this.cdsOptions_;
   var store = new window.accountchooser.rpc.StoreRequest(
-      service, account, localAccounts, options);
+      service, accounts, options);
   this.callCds_(store);
 };
 
@@ -2192,15 +2273,7 @@ window.accountchooser.CdsClient.prototype.update = function(
  *     The callback function which is called to pass the result response.
  * @param {Object=} opt_cdsOptions Optional options for CDS. These options will
  *     be merged with global ones (set by CdsClient.init(config)) and passed to
- *     CDS. These are one-time and won't change global options. Options
- *     supported are listed as below:
- * <pre>
- * {
- *   showAll: true/false,    // Whether to show accounts without an email.
- *   idpFilter: [],          // IDPs list.
- * }
- * ...
- * </pre>
+ *     CDS. These are one-time and won't change global options.
  * @private
  */
 window.accountchooser.CdsClient.prototype.query_ = function(
@@ -2247,22 +2320,11 @@ window.accountchooser.CdsClient.prototype.checkCdsDisabled =
  * @param {function(boolean, Object)} callback The callback function which is
  *     called to pass the result or error. The first parameter is the checking
  *     result and the second is the error if it occurs.
- * @param {Object=} opt_cdsOptions Optional options for CDS. These options will
- *     be merged with global ones (set by CdsClient.init(config)) and passed to
- *     CDS. These are one-time and won't change global options. Options
- *     supported are listed as below:
- * <pre>
- * {
- *   showAll: true/false,    // Whether to show accounts without an email.
- *   idpFilter: [],          // IDPs list.
- * }
- * ...
- * </pre>
  */
 window.accountchooser.CdsClient.prototype.checkCdsEmpty =
-    function(callback, opt_cdsOptions) {
+    function(callback) {
   this.query_(window.accountchooser.rpc.Queries.CDS_EMPTY, null,
-      callback, opt_cdsOptions);
+      callback);
 };
 
 /**
@@ -2271,21 +2333,10 @@ window.accountchooser.CdsClient.prototype.checkCdsEmpty =
  * @param {function(boolean, Object)} callback The callback function which is
  *     called to pass the result or error. The first parameter is the checking
  *     result and the second is the error if it occurs.
- * @param {Object=} opt_cdsOptions Optional options for CDS. These options will
- *     be merged with global ones (set by CdsClient.init(config)) and passed to
- *     CDS. These are one-time and won't change global options. Options
- *     supported are listed as below:
- * <pre>
- * {
- *   showAll: true/false,    // Whether to show accounts without an email.
- *   idpFilter: [],          // IDPs list.
- * }
- * ...
- * </pre>
  */
 window.accountchooser.CdsClient.prototype.checkAccountExist =
-    function(account, callback, opt_cdsOptions) {
+    function(account, callback) {
   this.query_(window.accountchooser.rpc.Queries.ACCOUNT_EXIST,
-      account, callback, opt_cdsOptions);
+      account, callback);
 };
 
