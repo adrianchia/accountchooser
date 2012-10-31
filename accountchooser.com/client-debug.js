@@ -188,64 +188,6 @@ window.accountchooser.util.makeUrl = function(url, params) {
   return url + '?' + query.join('&');
 };
 
-/**
- * Enums for valid property keys of an account.
- * @enum {string}
- */
-window.accountchooser.util.AccountPropertyKey = {
-  EMAIL: 'email',
-  DISPLAY_NAME: 'displayName',
-  PHOTO_URL: 'photoUrl',
-  PROVIDER_ID: 'providerId'
-};
-
-/**
- * Sanitizes account info so that only the valid key/value pairs are kept.
- * @param {Object} account The account to be sanitized.
- * @param {boolean=} opt_silent Whether silently discard invalid key/values or
- *     throw an error.
- * @return {Object} The sanitized account.
- */
-window.accountchooser.util.sanitizeAccount = function(account,
-    opt_silent) {
-  var result = {};
-  var AccountPropertyKey =
-      window.accountchooser.util.AccountPropertyKey;
-  for (var key in account) {
-    switch (key) {
-      case AccountPropertyKey.EMAIL:
-      case AccountPropertyKey.DISPLAY_NAME:
-      case AccountPropertyKey.PHOTO_URL:
-      case AccountPropertyKey.PROVIDER_ID:
-        result[key] = account[key];
-        break;
-      default:
-        if (!opt_silent) {
-          throw 'Unrecognized key "' + key + '" for account';
-        }
-    }
-  }
-  return result;
-};
-
-/**
- * Sanitizes a list of accounts.
- * @param {Array.<Object>} accounts The accounts to be sanitized.
- * @param {boolean=} opt_silent Whether silently discard invalid key/values or
- *     throw an error.
- * @return {Array.<Object>} The sanitized accounts.
- */
-window.accountchooser.util.sanitizeAccounts = function(accounts,
-    opt_silent) {
-  var result = [];
-  for (var i = 0, length = accounts.length; i < length; i++) {
-    var account =
-        window.accountchooser.util.sanitizeAccount(accounts[i]);
-    result.push(account);
-  }
-  return result;
-};
-
 // Utility functions which are to substitute for jQuery ones.
 /**
  * Checks whether the value is an array or not. Try to use jQuery.isArray if
@@ -787,6 +729,99 @@ window.accountchooser.util.checkSNISupported = function(
   if (!window.accountchooser.util.isSNISupported(
       opt_userAgent)) {
     throw window.accountchooser.util.SNI_NOT_SUPPORT_ERROR;
+  }
+};
+
+/**
+ * Enums for valid property keys of an account.
+ * @enum {string}
+ */
+window.accountchooser.util.AccountPropertyKey = {
+  EMAIL: 'email',
+  DISPLAY_NAME: 'displayName',
+  PHOTO_URL: 'photoUrl',
+  PROVIDER_ID: 'providerId'
+};
+
+/**
+ * Sanitizes account info so that only the valid key/value pairs are kept. If
+ * the sanitizer is not provided, this function only checks the account property
+ * keys so that it can fail fast if the sanitizer is not available.
+ * @param {Object} account The account to be sanitized..
+ * @param {function(string, string): string=} opt_sanitizer The sanitizer.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Object} The sanitized account.
+ */
+window.accountchooser.util.sanitizeAccount = function(account,
+    opt_sanitizer, opt_silent) {
+  var result = {};
+  var AccountPropertyKey =
+      window.accountchooser.util.AccountPropertyKey;
+  for (var key in account) {
+    var value = account[key];
+    switch (key) {
+      case AccountPropertyKey.EMAIL:
+      case AccountPropertyKey.DISPLAY_NAME:
+      case AccountPropertyKey.PHOTO_URL:
+      case AccountPropertyKey.PROVIDER_ID:
+        value = opt_sanitizer ? opt_sanitizer(key, value) : value;
+        if (value) {
+          result[key] = value;
+        }
+        break;
+      default:
+        if (!opt_silent) {
+          throw 'Unrecognized key "' + key + '" for account';
+        }
+    }
+  }
+  if (!result[AccountPropertyKey.EMAIL]) {
+    throw 'No valid email field for the account';
+  }
+  return result;
+};
+
+/**
+ * Sanitizes a list of accounts. If the sanitizer is not provided, this function
+ * only checks the account property keys so that it can fail fast if the
+ * sanitizer is not available.
+ * @param {Array.<Object>} accounts The accounts to be sanitized..
+ * @param {function(string, string): string=} opt_sanitizer The sanitizer.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Array.<Object>} The sanitized accounts.
+ */
+window.accountchooser.util.sanitizeAccounts = function(accounts,
+    opt_sanitizer, opt_silent) {
+  var result = [];
+  for (var i = 0, length = accounts.length; i < length; i++) {
+    var account = window.accountchooser.util.sanitizeAccount(
+        accounts[i], opt_sanitizer, opt_silent);
+    result.push(account);
+  }
+  return result;
+};
+
+/**
+ * Default sanitize function for account sanitizing. It uses caja
+ * html-css-sanitizer to sanitize email/providerId/displayName fields and
+ * rejects any photoUrl whose scheme is not http or https.
+ * @param {string} key the key of the property to be sanitized.
+ * @param {string} value the value of the property ot be sanitized.
+ * @return {string|undefined} the sanitized value.
+ */
+window.accountchooser.util.accountSanitizer = function(
+    key, value) {
+  if (key ==
+      window.accountchooser.util.AccountPropertyKey.PHOTO_URL) {
+    if (/https?:\/\//i.test(value)) {
+      return value;
+    }
+  } else {
+    // Use caja html-css-sanitizer to sanitize the value. All HTML tags are
+    // removed.
+    return html.sanitizeWithPolicy(value, function() {});
   }
 };
 

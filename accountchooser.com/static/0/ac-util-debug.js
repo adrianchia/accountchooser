@@ -188,64 +188,6 @@ window.accountchooser.util.makeUrl = function(url, params) {
   return url + '?' + query.join('&');
 };
 
-/**
- * Enums for valid property keys of an account.
- * @enum {string}
- */
-window.accountchooser.util.AccountPropertyKey = {
-  EMAIL: 'email',
-  DISPLAY_NAME: 'displayName',
-  PHOTO_URL: 'photoUrl',
-  PROVIDER_ID: 'providerId'
-};
-
-/**
- * Sanitizes account info so that only the valid key/value pairs are kept.
- * @param {Object} account The account to be sanitized.
- * @param {boolean=} opt_silent Whether silently discard invalid key/values or
- *     throw an error.
- * @return {Object} The sanitized account.
- */
-window.accountchooser.util.sanitizeAccount = function(account,
-    opt_silent) {
-  var result = {};
-  var AccountPropertyKey =
-      window.accountchooser.util.AccountPropertyKey;
-  for (var key in account) {
-    switch (key) {
-      case AccountPropertyKey.EMAIL:
-      case AccountPropertyKey.DISPLAY_NAME:
-      case AccountPropertyKey.PHOTO_URL:
-      case AccountPropertyKey.PROVIDER_ID:
-        result[key] = account[key];
-        break;
-      default:
-        if (!opt_silent) {
-          throw 'Unrecognized key "' + key + '" for account';
-        }
-    }
-  }
-  return result;
-};
-
-/**
- * Sanitizes a list of accounts.
- * @param {Array.<Object>} accounts The accounts to be sanitized.
- * @param {boolean=} opt_silent Whether silently discard invalid key/values or
- *     throw an error.
- * @return {Array.<Object>} The sanitized accounts.
- */
-window.accountchooser.util.sanitizeAccounts = function(accounts,
-    opt_silent) {
-  var result = [];
-  for (var i = 0, length = accounts.length; i < length; i++) {
-    var account =
-        window.accountchooser.util.sanitizeAccount(accounts[i]);
-    result.push(account);
-  }
-  return result;
-};
-
 // Utility functions which are to substitute for jQuery ones.
 /**
  * Checks whether the value is an array or not. Try to use jQuery.isArray if

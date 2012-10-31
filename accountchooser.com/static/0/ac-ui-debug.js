@@ -1948,7 +1948,11 @@ window.accountchooser.Page.prototype.createAccountBox_ =
     title += ' (' + account.providerId + ')';
   }
   var li = jQuery('<li>').attr('title', title);
-  var img = jQuery('<img>').attr('src', account.photoUrl || defaultPhotoUrl).
+  var photoUrl;
+  if (/^https?:\/\//i.test(account.photoUrl)) {
+    photoUrl = account.photoUrl;
+  }
+  var img = jQuery('<img>').attr('src', photoUrl || defaultPhotoUrl).
       addClass('widget-account-photo').appendTo(li);
   img.error(function() {
     img.attr('src', defaultPhotoUrl);
@@ -1957,22 +1961,22 @@ window.accountchooser.Page.prototype.createAccountBox_ =
   var accountInfo = jQuery('<p>').appendTo(li);
   if (account.displayName) {
     accountInfo.append(jQuery('<strong>').addClass('widget-account-name').
-        html(account.displayName));
+        text(account.displayName));
   } else {
     accountInfo.addClass('widget-email-only');
   }
-  accountInfo.append(jQuery('<span>').addClass('widget-account-email').
-      html(account.email));
+  var emailLine = jQuery('<span>').addClass('widget-account-email').
+      text(account.email).appendTo(accountInfo);
   if (account.providerId) {
     var idpLine = jQuery('<span>').addClass('widget-account-idp').
-        html(account.providerId).appendTo(accountInfo);
+        text(account.providerId).appendTo(accountInfo);
     var faviconUrl = 'http://' + account.providerId + '/favicon.ico';
     var favicon = jQuery('<img>').attr('src', faviconUrl).
-        attr('title', account.providerId);
+        attr('title', account.providerId).attr('alt', account.providerId);
     // Favicon is available
     favicon.load(function() {
-      idpLine.empty();
-      favicon.appendTo(idpLine);
+      idpLine.hide();
+      emailLine.prepend(favicon);
     });
   }
 
@@ -2971,9 +2975,13 @@ window.accountchooser.StoreService.prototype.execute =
   }
   var cdsAccounts = window.accountchooser.util.
       accountstorage.readAccounts();
+  // Sanitize the accounts passed by the site.
+  var accounts = window.accountchooser.util.sanitizeAccounts(
+      this.request_.params_.accounts || [],
+      window.accountchooser.util.accountSanitizer);
   this.accounts_ = [];
-  for (var i = 0; i < this.request_.params_.accounts.length; i++) {
-    var account = this.request_.params_.accounts[i];
+  for (var i = 0, length = accounts.length; i < length; i++) {
+    var account = accounts[i];
     var stored = false;
     for (var j = 0; j < cdsAccounts.length; j++) {
       if (window.accountchooser.util.accountstorage.
@@ -3048,9 +3056,13 @@ window.accountchooser.SelectService.prototype.execute =
 
   var cdsAccounts = window.accountchooser.util.accountstorage.
       readAccounts(this.filter) || [];
+  // Sanitize the accounts passed by the site.
+  var localAccounts =
+      window.accountchooser.util.sanitizeAccounts(
+          this.request_.params_.localAccounts || [],
+          window.accountchooser.util.accountSanitizer);
   // Avoid duplication of accounts.
-  var localAccounts = this.removeDuplicatedAccounts_(
-      this.request_.params_.localAccounts, cdsAccounts);
+  localAccounts = this.removeDuplicatedAccounts_(localAccounts, cdsAccounts);
 
   if (!localAccounts.length && !cdsAccounts.length) {
     this.sendAddAccountResponse();
@@ -3194,7 +3206,10 @@ window.accountchooser.UpdateService.prototype.execute =
       window.accountchooser.rpc.UpdateRequest)) {
     return;
   }
-  var account = this.request_.params_.account;
+  // Sanitize the account passed by the site.
+  var account = window.accountchooser.util.sanitizeAccount(
+      this.request_.params_.account,
+      window.accountchooser.util.accountSanitizer);
   var cdsAccounts = window.accountchooser.util.
       accountstorage.readAccounts() || [];
   var found = false;

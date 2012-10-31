@@ -432,6 +432,16 @@ a:hover {
   margin: 16px 65px 0 100px;
 }
 
+.widget-panel-chooser .widget-accounts li .widget-account-email img {
+  height: 16px;
+  margin: -6px 5px 0 0;
+  vertical-align: middle;
+}
+
+.rtl .widget-panel-chooser .widget-accounts li .widget-account-email img {
+  margin: -6px 0 0 5px;
+}
+
 .widget-panel-chooser .widget-accounts li .widget-account-idp {
   display: block;
   margin: 16px 100px 0 65px;
@@ -440,11 +450,6 @@ a:hover {
 
 .rtl .widget-panel-chooser .widget-accounts li .widget-account-idp {
   margin: 16px 65px 0 100px;
-}
-
-.widget-panel-chooser .widget-accounts li .widget-account-idp img {
-  margin-top: -8px;
-  height: 16px;
 }
 
 .widget-panel-chooser .widget-accounts li .widget-email-only .widget-account-email {
@@ -840,6 +845,16 @@ a:hover {
   margin: 12px 50px 0 77px;
 }
 
+.widget-sample-chooser .widget-accounts li .widget-account-email img {
+  height: 12px;
+  margin: -5px 4px 0 0;
+  vertical-align: middle;
+}
+
+.rtl .widget-sample-chooser .widget-accounts li .widget-account-email img {
+  margin: -5px 0 0 4px;
+}
+
 .widget-sample-chooser .widget-accounts li .widget-email-only .widget-account-email {
   margin-top: 22px;
   font-weight: bold;
@@ -854,11 +869,6 @@ a:hover {
 
 .rtl .widget-sample-chooser .widget-accounts li .widget-account-idp {
   margin: 12px 50px 0 77px;
-}
-
-.widget-sample-chooser .widget-accounts li .widget-account-idp img {
-  margin-top: -6px;
-  height: 12px;
 }
 
 .widget-sample-chooser .widget-accounts li .widget-account-photo {
