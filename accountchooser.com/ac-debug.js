@@ -970,19 +970,6 @@ window.accountchooser.loader.JsLoader.prototype.
   return element;
 };
 
-
-/** Namespace for CDS helper. */
-window.accountchooser.cdshelper =
-    window.accountchooser.cdshelper || {};
-
-/**
- * Timeout (in milliseconds) for inquirying user status API.
- * @type {number}
- * @const
- * @private
- */
-window.accountchooser.cdshelper.USER_STATUS_TIMEOUT_ = 1000;
-
 /**
  * Represents an absolute URL.
  * @param {string} url the destination url, which could be an absolute URL,
@@ -991,7 +978,7 @@ window.accountchooser.cdshelper.USER_STATUS_TIMEOUT_ = 1000;
  *     url. If omitted, window.location.href is used.
  * @constructor
  */
-window.accountchooser.cdshelper.AbsoluteUrl = function(url,
+window.accountchooser.util.AbsoluteUrl = function(url,
     opt_baseUrl) {
   var baseUrl = opt_baseUrl || window.location.href;
   /**
@@ -1023,7 +1010,7 @@ window.accountchooser.cdshelper.AbsoluteUrl = function(url,
   if (path.length > 0 && path[0] != '/') {
     path = '/' + path;
   }
-  if (/https?:\/\//.test(url)) {
+  if (/^https?:\/\//.test(url)) {
     // Absolute URL.
     this.url_ = url;
   } else if (url[0] == '/') {
@@ -1044,7 +1031,7 @@ window.accountchooser.cdshelper.AbsoluteUrl = function(url,
  *     The other URL to be matched.
  * @return {boolean} {@code true} if the two URLs match.
  */
-window.accountchooser.cdshelper.AbsoluteUrl.prototype.matches =
+window.accountchooser.util.AbsoluteUrl.prototype.matches =
     function(other) {
   if (!other) {
     return false;
@@ -1059,10 +1046,24 @@ window.accountchooser.cdshelper.AbsoluteUrl.prototype.matches =
 /**
  * @return {string} the string format of the absolute URL.
  */
-window.accountchooser.cdshelper.AbsoluteUrl.prototype.get =
+window.accountchooser.util.AbsoluteUrl.prototype.get =
     function() {
   return this.url_;
 };
+
+
+
+/** Namespace for CDS helper. */
+window.accountchooser.cdshelper =
+    window.accountchooser.cdshelper || {};
+
+/**
+ * Timeout (in milliseconds) for inquirying user status API.
+ * @type {number}
+ * @const
+ * @private
+ */
+window.accountchooser.cdshelper.USER_STATUS_TIMEOUT_ = 1000;
 
 /**
  * Class wrapping the CDS client library to help sites to easily use CDS.
@@ -1172,10 +1173,10 @@ window.accountchooser.cdshelper.CdsHelper.prototype.
  */
 window.accountchooser.cdshelper.CdsHelper.prototype.
     isLoginPage_ = function() {
-  var currentUrl = new window.accountchooser.cdshelper.
-      AbsoluteUrl(window.location.href);
-  var loginUrl = new window.accountchooser.cdshelper.
-      AbsoluteUrl(window.accountchooser.config.loginUrl);
+  var currentUrl = new window.accountchooser.util.AbsoluteUrl(
+      window.location.href);
+  var loginUrl = new window.accountchooser.util.AbsoluteUrl(
+      window.accountchooser.config.loginUrl);
   return currentUrl.matches(loginUrl);
 };
 
@@ -1186,10 +1187,10 @@ window.accountchooser.cdshelper.CdsHelper.prototype.
  */
 window.accountchooser.cdshelper.CdsHelper.prototype.
     isSignupPage_ = function() {
-  var currentUrl = new window.accountchooser.cdshelper.
-      AbsoluteUrl(window.location.href);
-  var signupUrl = new window.accountchooser.cdshelper.
-      AbsoluteUrl(window.accountchooser.config.signupUrl);
+  var currentUrl = new window.accountchooser.util.AbsoluteUrl(
+      window.location.href);
+  var signupUrl = new window.accountchooser.util.AbsoluteUrl(
+      window.accountchooser.config.signupUrl);
   return currentUrl.matches(signupUrl);
 };
 
@@ -1430,7 +1431,7 @@ window.accountchooser.cdshelper.CdsHelper.prototype.
 window.accountchooser.cdshelper.CdsHelper.prototype.
     storeAccountToCds = function(account) {
   var clientCallbackUrl =
-      new window.accountchooser.cdshelper.AbsoluteUrl(
+      new window.accountchooser.util.AbsoluteUrl(
           window.accountchooser.config.loginOkUrl);
   var self = this;
   var cb = function(exist, error) {
@@ -1444,7 +1445,8 @@ window.accountchooser.cdshelper.CdsHelper.prototype.
       };
       self.cdsClient_.store([account], cdsOptions);
     } else {
-      window.location.href = clientCallbackUrl.get();
+      // Account exists, try to update it.
+      self.updateAccountToCds(account);
     }
   };
   this.cdsClient_.checkAccountExist(account, cb);
@@ -1457,14 +1459,13 @@ window.accountchooser.cdshelper.CdsHelper.prototype.
 window.accountchooser.cdshelper.CdsHelper.prototype.
     updateAccountToCds = function(account) {
   var clientCallbackUrl =
-      new window.accountchooser.cdshelper.AbsoluteUrl(
+      new window.accountchooser.util.AbsoluteUrl(
           window.accountchooser.config.loginOkUrl);
   var self = this;
-  var cb = function(exist, error) {
-    if (exist || error) {
-      // Account exists in the CDS, redirect user to update the account.
-      // If an error occurs, it's maybe due to popup mode, so we still need to
-      // perform the action.
+  var cb = function(shouldUpdate, error) {
+    if (shouldUpdate || error) {
+      // Should update the account. If an error occurs, it's maybe due to popup
+      // mode, so we still need to perform the action.
       var cdsOptions = {
         clientCallbackUrl: clientCallbackUrl.get(),
         language: window.accountchooser.config.language
@@ -1474,7 +1475,7 @@ window.accountchooser.cdshelper.CdsHelper.prototype.
       window.location.href = clientCallbackUrl.get();
     }
   };
-  this.cdsClient_.checkAccountExist(account, cb);
+  this.cdsClient_.checkShouldUpdate(account, cb);
 };
 
 /**

@@ -815,7 +815,7 @@ window.accountchooser.util.accountSanitizer = function(
     key, value) {
   if (key ==
       window.accountchooser.util.AccountPropertyKey.PHOTO_URL) {
-    if (/https?:\/\//i.test(value)) {
+    if (/^https?:\/\//i.test(value)) {
       return value;
     }
   } else {
@@ -1378,7 +1378,8 @@ window.accountchooser.rpc.QueryRequest.METHOD = 'query';
 window.accountchooser.rpc.Queries = {
   CDS_DISABLED: 'cdsDisabled',
   CDS_EMPTY: 'cdsEmpty',
-  ACCOUNT_EXIST: 'accountExist'
+  ACCOUNT_EXIST: 'accountExist',
+  SHOULD_UPDATE: 'shouldUpdate'
 };
 
 
@@ -2340,7 +2341,7 @@ window.accountchooser.CdsClient.prototype.query_ = function(
 
 /**
  * Checks whether the CDS is disabled or not.
- * @param {function(boolean, Object)} callback The callback function which is
+ * @param {function(boolean, Object=)} callback The callback function which is
  *     called to pass the result or error. The first parameter is the checking
  *     result and the second is the error if it occurs.
  */
@@ -2352,7 +2353,7 @@ window.accountchooser.CdsClient.prototype.checkCdsDisabled =
 
 /**
  * Checks whether the CDS is empty.
- * @param {function(boolean, Object)} callback The callback function which is
+ * @param {function(boolean, Object=)} callback The callback function which is
  *     called to pass the result or error. The first parameter is the checking
  *     result and the second is the error if it occurs.
  */
@@ -2365,13 +2366,27 @@ window.accountchooser.CdsClient.prototype.checkCdsEmpty =
 /**
  * Checks whether the CDS has this account in its storage.
  * @param {Object} account the account associated with this query.
- * @param {function(boolean, Object)} callback The callback function which is
+ * @param {function(boolean, Object=)} callback The callback function which is
  *     called to pass the result or error. The first parameter is the checking
  *     result and the second is the error if it occurs.
  */
 window.accountchooser.CdsClient.prototype.checkAccountExist =
     function(account, callback) {
   this.query_(window.accountchooser.rpc.Queries.ACCOUNT_EXIST,
+      account, callback);
+};
+
+/**
+ * Checks whether the account is in CDS and should be updated. This is only a
+ * hint, site can still call update service if this checking says no.
+ * @param {Object} account the account associated with this query.
+ * @param {function(boolean, Object=)} callback The callback function which is
+ *     called to pass the result or error. The first parameter is the checking
+ *     result and the second is the error if it occurs.
+ */
+window.accountchooser.CdsClient.prototype.checkShouldUpdate =
+    function(account, callback) {
+  this.query_(window.accountchooser.rpc.Queries.SHOULD_UPDATE,
       account, callback);
 };
 

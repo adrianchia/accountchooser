@@ -938,6 +938,43 @@ window.accountchooser.util.accountstorage.matchAccount_ =
 };
 
 /**
+ * Checkes whether two accounts match each other.
+ * @param {Object} account1 The first account.
+ * @param {Object} account2 The second account.
+ * @return {boolean} {@code true} if they match.
+ */
+window.accountchooser.util.accountstorage.matchAccount =
+    function(account1, account2) {
+  return window.accountchooser.util.accountstorage.matchAccount_(
+      account1, account2.email, account2.providerId);
+};
+
+/**
+ * Checks whether two accounts are compatible. If two accounts are compatible,
+ * they have the same email and providerId. Also their displayNames and
+ * photoUrls don't conflict.
+ * @param {Object} account1 The first account.
+ * @param {Object} account2 The second account.
+ * @return {boolean} {@code true} if they are compatible.
+ */
+window.accountchooser.util.accountstorage.checkCompatible =
+    function(account1, account2) {
+  if (!window.accountchooser.util.accountstorage.matchAccount(
+      account1, account2)) {
+    return false;
+  }
+  var merged = {
+    displayName: account1.displayName || account2.displayName,
+    photoUrl: account1.photoUrl || account2.photoUrl
+  };
+  return (
+      (!account1.displayName || account1.displayName == merged.displayName) &&
+      (!account1.photoUrl || account1.photoUrl == merged.photoUrl) &&
+      (!account2.displayName || account2.displayName == merged.displayName) &&
+      (!account2.photoUrl || account2.photoUrl == merged.photoUrl));
+};
+
+/**
  * Updates an account entry in underling storage. This method will find the
  * account entry, then triggers the callback function if found, then save the
  * updated entry.

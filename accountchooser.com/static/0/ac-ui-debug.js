@@ -2984,8 +2984,8 @@ window.accountchooser.StoreService.prototype.execute =
     var account = accounts[i];
     var stored = false;
     for (var j = 0; j < cdsAccounts.length; j++) {
-      if (window.accountchooser.util.accountstorage.
-          matchAccount_(cdsAccounts[j], account.email, account.providerId)) {
+      if (window.accountchooser.util.accountstorage.matchAccount(
+          cdsAccounts[j], account)) {
         stored = true;
         break;
       }
@@ -3147,8 +3147,8 @@ window.accountchooser.SelectService.prototype.
 window.accountchooser.SelectService.prototype.
     removeAccountFromList_ = function(account, accountList) {
   for (var i = 0; i < accountList.length; i++) {
-    if (window.accountchooser.util.accountstorage.
-        matchAccount_(accountList[i], account.email, account.providerId)) {
+    if (window.accountchooser.util.accountstorage.matchAccount(
+        accountList[i], account)) {
       accountList.splice(i, 1);
       break;
     }
@@ -3173,7 +3173,7 @@ window.accountchooser.SelectService.prototype.
       var found = false;
       for (var j = 0; j < cdsAccounts.length; j++) {
         if (window.accountchooser.util.accountstorage.
-            matchAccount_(cdsAccounts[j], account.email, account.providerId)) {
+            matchAccount(cdsAccounts[j], account)) {
           found = true;
           break;
         }
@@ -3214,8 +3214,15 @@ window.accountchooser.UpdateService.prototype.execute =
       accountstorage.readAccounts() || [];
   var found = false;
   for (var i = 0; i < cdsAccounts.length; i++) {
-    if (window.accountchooser.util.accountstorage.
-        matchAccount_(cdsAccounts[i], account.email, account.providerId)) {
+    var other = cdsAccounts[i];
+    if (window.accountchooser.util.accountstorage.matchAccount(
+        account, other)) {
+      // If the accounts are compatible, show the merged account info.
+      if (window.accountchooser.util.accountstorage.
+          checkCompatible(account, other)) {
+        account.displayName = account.displayName || other.displayName;
+        account.photoUrl = account.photoUrl || other.photoUrl;
+      }
       found = true;
       break;
     }

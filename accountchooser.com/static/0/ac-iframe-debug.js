@@ -1018,6 +1018,43 @@ window.accountchooser.util.accountstorage.matchAccount_ =
 };
 
 /**
+ * Checkes whether two accounts match each other.
+ * @param {Object} account1 The first account.
+ * @param {Object} account2 The second account.
+ * @return {boolean} {@code true} if they match.
+ */
+window.accountchooser.util.accountstorage.matchAccount =
+    function(account1, account2) {
+  return window.accountchooser.util.accountstorage.matchAccount_(
+      account1, account2.email, account2.providerId);
+};
+
+/**
+ * Checks whether two accounts are compatible. If two accounts are compatible,
+ * they have the same email and providerId. Also their displayNames and
+ * photoUrls don't conflict.
+ * @param {Object} account1 The first account.
+ * @param {Object} account2 The second account.
+ * @return {boolean} {@code true} if they are compatible.
+ */
+window.accountchooser.util.accountstorage.checkCompatible =
+    function(account1, account2) {
+  if (!window.accountchooser.util.accountstorage.matchAccount(
+      account1, account2)) {
+    return false;
+  }
+  var merged = {
+    displayName: account1.displayName || account2.displayName,
+    photoUrl: account1.photoUrl || account2.photoUrl
+  };
+  return (
+      (!account1.displayName || account1.displayName == merged.displayName) &&
+      (!account1.photoUrl || account1.photoUrl == merged.photoUrl) &&
+      (!account2.displayName || account2.displayName == merged.displayName) &&
+      (!account2.photoUrl || account2.photoUrl == merged.photoUrl));
+};
+
+/**
  * Updates an account entry in underling storage. This method will find the
  * account entry, then triggers the callback function if found, then save the
  * updated entry.
@@ -1349,7 +1386,7 @@ window.accountchooser.util.accountSanitizer = function(
     key, value) {
   if (key ==
       window.accountchooser.util.AccountPropertyKey.PHOTO_URL) {
-    if (/https?:\/\//i.test(value)) {
+    if (/^https?:\/\//i.test(value)) {
       return value;
     }
   } else {
@@ -1880,7 +1917,8 @@ window.accountchooser.rpc.QueryRequest.METHOD = 'query';
 window.accountchooser.rpc.Queries = {
   CDS_DISABLED: 'cdsDisabled',
   CDS_EMPTY: 'cdsEmpty',
-  ACCOUNT_EXIST: 'accountExist'
+  ACCOUNT_EXIST: 'accountExist',
+  SHOULD_UPDATE: 'shouldUpdate'
 };
 
 
@@ -2178,12 +2216,15 @@ window.accountchooser.rpc.handleQuery_ = function(request,
       result = window.accountchooser.rpc.checkCdsDisabled_();
       break;
     case window.accountchooser.rpc.Queries.CDS_EMPTY:
-      result = window.accountchooser.rpc.checkCdsEmpty_(
-          request.params_.clientConfig);
+      result = window.accountchooser.rpc.checkCdsEmpty_();
       break;
     case window.accountchooser.rpc.Queries.ACCOUNT_EXIST:
       result = window.accountchooser.rpc.checkAccountExist_(
-          request.params_.account, request.params_.clientConfig);
+          request.params_.account);
+      break;
+    case window.accountchooser.rpc.Queries.SHOULD_UPDATE:
+      result = window.accountchooser.rpc.checkShouldUpdate_(
+          request.params_.account);
       break;
     default:
       window.accountchooser.rpc.sendInvalidQueryResponse_(
@@ -2225,10 +2266,10 @@ window.accountchooser.rpc.checkAccountExist_ = function(
     account) {
   var accounts = window.accountchooser.util.accountstorage.
       readAccounts();
-  for (var i = 0; i < accounts.length; ++i) {
+  for (var i = 0, length = accounts.length; i < length; i++) {
     var other = accounts[i];
-    if (window.accountchooser.util.accountstorage.matchAccount_(
-        account, other.email, other.providerId)) {
+    if (window.accountchooser.util.accountstorage.matchAccount(
+        account, other)) {
       return true;
     }
   }
@@ -2236,19 +2277,26 @@ window.accountchooser.rpc.checkAccountExist_ = function(
 };
 
 /**
- * Gets all accounts stored in the CDS according to the client's filter config.
- * @param {Object=} opt_clientConfig The configuration parameters of the client.
- * @return {Array.<Object>} accounts which match the config.
+ * Checks if the account should be updated. If it has displayName/photoUrl and
+ * the stored one has no displayName/photoUrl, then it should be updated.
+ * @param {Object} account The account to be inquiried.
+ * @return {boolean} {@code true} if the account should be updated.
  * @private
  */
-window.accountchooser.rpc.getAllAccountsByClientConfig_ =
-    function(opt_clientConfig) {
-  var filter = {
-    withEmail: opt_clientConfig && !opt_clientConfig.showAll,
-    idpList: opt_clientConfig && opt_clientConfig.idpFilter
-  };
-  return window.accountchooser.util.accountstorage.
-      readAccounts(filter);
+window.accountchooser.rpc.checkShouldUpdate_ = function(
+    account) {
+  var accounts = window.accountchooser.util.accountstorage.
+      readAccounts();
+  for (var i = 0, length = accounts.length; i < length; i++) {
+    var other = accounts[i];
+    if (window.accountchooser.util.accountstorage.
+        checkCompatible(account, other) &&
+        ((account.displayName && account.displayName != other.displayName) ||
+         (account.photoUrl && account.photoUrl != other.photoUrl))) {
+      return true;
+    }
+  }
+  return false;
 };
 
 /**
