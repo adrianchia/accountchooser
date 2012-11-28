@@ -13,70 +13,2381 @@
  * limitations under the License.
  */
 
-(function(){var a=void 0,f=!0,g=null,j=!1,k=window,m=document;function p(b,c){return b.toJSON=c}
-var q="requestId",r="extend",s="addResponseListener",t="match",u="setAttribute",v="attachEvent",w="documentElement",x="toJSON",y="split",z="location",A="isArray",B="push",C="Request",D="indexOf",E="domain",F="addEventListener",G="param",H="length",I="prototype",J="clientWidth",K="document",L="body",M="call",N="clientHeight",O="toLowerCase",P="",aa=" from ",ba="#",Q="&",ca="*",da=",height=",ea=",left=",fa=",status=1,location=1,resizable=yes,menubar=no,toolbar=no,titlebar=no,channelmode=no,directories=no,fullscreen=no",ga=
-",top=",ha=".",ia="10.1",ja="10.5.6",R="2.0",S="3.0",ka="4.0",la="4.7",T="6.0",U="7.0",ma="8.0",na="=",V="?",oa="Android",pa="Failed to add iframe onload event.",qa="Ingore message from unrecognized domain: ",ra="Invalid JSON-RPC notification: no 'params.requestId' field found.",sa="Invalid JSON-RPC object: 'jsonrpc' field should be '2.0'.",ta="Invalid JSON-RPC object: no 'id' or 'method' field found.",ua="Invalid JSON-RPC object: not a JSON object.",va="Invalid JSON-RPC response: invalid 'id' field.",
-wa="MSIE",xa="Method not found",ya="Opera Mini",za="Opera Mobi",Aa="Parameter %%param%% cannot be an empty array.",W="Parameter %%param%% cannot be empty.",Ba="Parameter %%param%% cannot be null.",Ca="Parameter %%param%% is not a function.",Da="Parameter %%param%% is not an array.",Ea="Query request is not supported in popup mode.",Fa="Received message: ",Ga="Register handler for postMessage failed.",Ha="Send message: ",Ia="Unrecognized event type: ",Ja="Unrecognized rpc received: ",Ka="[object Array]",
-La="[object Function]",X="_",Ma="about:blank",Na="account",Oa="accountchooser-iframe",Pa="accounts",Qa="callback",Ra="callbacks.",Sa="config",Ta="form",Ua="function",Va="handler",Wa="hidden",Y="id",Xa="iframe",Ya="input",Za="load",$a="message",ab="name",bb="object",cb="oneTimeCallbacks.",db="onload",eb="onmessage",fb="parentClass",gb="popin-box",hb="position: absolute; width: 1px; height: 1px; left: -9999px;",ib="post",jb="query",kb="query_",lb="requestId",mb="select",nb="serviceName",ob="src",pb=
-"store",qb="style",rb="targetWindow",sb="type",tb="update",ub="value",vb="version",wb="width=",Z;k.accountchooser=k.accountchooser||{};k.cds=k.accountchooser;k.accountchooser.util=k.accountchooser.util||{};k.accountchooser.util.log=function(b){try{k.console&&k.console.log&&k.console.log(b)}catch(c){}};k.accountchooser.util.uuidCounter_=(new Date).getTime();k.accountchooser.util.generateUuid=function(b){return b&&b.uuid?b.uuid:++k.accountchooser.util.uuidCounter_};
-k.accountchooser.util.createForm_=function(b,c,d){if(!b)throw"The targetUrl cannot be null.";var e=k[K].createElement(Ta);e.method=ib;e.action=b;if(c)for(var h in c)b=k[K].createElement(Ya),b[u](sb,Wa),b[u](ab,h),c[h]===g||c[h]===a?b[u](ub,P):b[u](ub,c[h]),e.appendChild(b);d&&(e.target=d);k[K][L].appendChild(e);return e};k.accountchooser.util.postTo=function(b,c,d){b=k.accountchooser.util.createForm_(b,c,d);b.submit();k[K][L].removeChild(b)};
-k.accountchooser.util.parseUrlParams=function(b){var c={};b=b.slice(b[D](V)+1)[y](Q);for(var d=0;d<b[H];d++){var e=b[d][y](na);c[e[0]]=2==e[H]?decodeURIComponent(e[1]):a}return c};k.accountchooser.util.formRedirect=function(b,c){var d=b.substring(0,b[D](V)),e=k.accountchooser.util.parseUrlParams(b);k.accountchooser.util.postTo(d,e,c)};k.accountchooser.util.isBrowserSupported=function(){var b=999;-1!=navigator.appVersion[D](wa)&&(b=parseFloat(navigator.appVersion[y](wa)[1]));return 7<b};
-k.accountchooser.util.makeUrl=function(b,c){var d=[],e;for(e in c)d[B](c[e]?e+na+c[e]:e);return b+V+d.join(Q)};k.accountchooser.util.isArray=function(b){return"undefined"!==typeof jQuery?jQuery[A](b):Object[I].toString[M](b)===Ka};k.accountchooser.util.isFunction=function(b){return"undefined"!==typeof jQuery?jQuery.isFunction(b):Object[I].toString[M](b)===La};
-k.accountchooser.util.indexOf=function(b,c){if(c){if("undefined"!==typeof jQuery)return jQuery.inArray(b,c);if(c[D])return c[D](b);for(var d=c[H],e=0;e<d;e++)if(e in c&&c[e]===b)return e}return-1};k.accountchooser.util.windowWidth=function(b){if("undefined"!==typeof jQuery)return jQuery(b).width();var c=0;b.innerWidth?c=b.innerWidth:b[K]&&b[K][w]&&b[K][w][J]?c=b[K][w][J]:b[K]&&(b[K][L]&&b[K][L][J])&&(c=b[K][L][J]);return c};
-k.accountchooser.util.windowHeight=function(b){if("undefined"!==typeof jQuery)return jQuery(b).height();var c=0;b.innerHeight?c=b.innerHeight:b[K]&&b[K][w]&&b[K][w][N]?c=b[K][w][N]:b[K]&&(b[K][L]&&b[K][L][N])&&(c=b[K][L][N]);return c};k.accountchooser.util.trim=function(b){return"undefined"!==typeof jQuery?jQuery.trim(b):b==g?P:String[I].trim?String[I].trim[M](b):b.replace(/^[\s\xa0]+/,P).replace(/[\s\xa0]+$/,P)};
-k.accountchooser.util.extend=function(b,c,d){if(3>arguments[H])return c||{};if("undefined"!==typeof jQuery){var e=Array[I].slice[M](arguments,b?0:1);return jQuery[r].apply(jQuery,e)}if(typeof c!==bb||c==g)c={};for(var e=2,h=arguments[H];e<h;e++){var l=arguments[e];if(l!=g)for(var n in l)l[n]===a||c===l[n]||(b&&typeof l[n]==bb?(k.accountchooser.util[A](l[n])&&!k.accountchooser.util[A](c[n])&&(c[n]=[]),c[n]=k.accountchooser.util[r](f,c[n],l[n])):c[n]=l[n])}return c};k.accountchooser.param={};
-k.accountchooser[G].notNull=function(b,c){(b===a||b===g)&&k.accountchooser[G].throwError_(Ba,c)};k.accountchooser[G].notEmpty=function(b,c){b||k.accountchooser[G].throwError_(W,c)};k.accountchooser[G].notEmptyArray=function(b,c){b||k.accountchooser[G].throwError_(W,c);k.accountchooser.util[A](b)||k.accountchooser[G].throwError_(Da,c);b[H]||k.accountchooser[G].throwError_(Aa,c)};
-k.accountchooser[G].notEmptyFunction=function(b,c){b||k.accountchooser[G].throwError_(W,c);k.accountchooser.util.isFunction(b)||k.accountchooser[G].throwError_(Ca,c)};k.accountchooser[G].throwError_=function(b,c){try{console&&console.trace&&console.trace()}catch(d){}throw b.replace(/\%\%param\%\%/g,c?" '"+c+"'":P);};Function[I].inheritsFrom=function(b){k.accountchooser[G].notEmptyFunction(b,fb);this.prototype=new b;this[I].constructor=this;this[I].parentClass=b[I]};
-k.accountchooser.util.DEFAULT_POPUP_NAME="OpenIdPopup";k.accountchooser.util.showPopup=function(b,c,d,e){var h=(k.accountchooser.util.windowHeight(k)-c)/2,l=(k.accountchooser.util.windowWidth(k)-b)/2;e=e||k.accountchooser.util.DEFAULT_POPUP_NAME;if(b=k.open(d||Ma,e,wb+b+da+c+ea+(0<l?l:0)+ga+(0<h?h:0)+fa))!m.getElementById(gb)&&k.accountchooser.util.showDarkScreen&&k.accountchooser.util.showDarkScreen(b),k.accountchooser.util.popup_=b,k.accountchooser.util.popupName_=e,b.focus();return b};
-k.accountchooser.util.REGEX_MSIE_UA_=/MSIE ([\d.]+).*Windows NT ([\d.]+)/;k.accountchooser.util.REGEX_FIREFOX_UA_=/Firefox\/([\d.]+)/;k.accountchooser.util.REGEX_OPERA_UA_=/Opera[ \/]([\d.]+)(.*Version\/([\d.]+))?/;k.accountchooser.util.REGEX_CHROME_UA_=/Chrome\/([\d.]+)/;k.accountchooser.util.REGEX_SAFARI_UA_=/((Windows NT ([\d.]+))|(Mac OS X ([\d_]+))).*Version\/([\d.]+).*Safari/;k.accountchooser.util.REGEX_ANDROID_UA_=/Android ([\d.]+).*Safari/;k.accountchooser.util.REGEX_MOBILE_SAFARI_UA_=/OS ([\d_]+) like Mac OS X.*Mobile.*Safari/;
-k.accountchooser.util.REGEX_KONQUEROR_UA_=/Konqueror\/([\d.]+)/;k.accountchooser.util.REGEX_MOBILE_MSIE_UA_=/MSIE ([\d.]+).*Windows Phone OS ([\d.]+)/;k.accountchooser.util.Version=function(b,c){k.accountchooser[G].notEmpty(b,vb);this.version_=b;this.components_=b[y](c||ha);for(var d=0;d<this.components_[H];++d)this.components_[d]=parseInt(this.components_[d])};
-k.accountchooser.util.Version[I].compare=function(b){b instanceof k.accountchooser.util.Version||(b=new k.accountchooser.util.Version(b));for(var c=Math.max(this.components_[H],b.components_[H]),d=0;d<c;++d){var e=this.components_[d],h=b.components_[d];if(e!==a&&h!==a&&e!==h)return e-h;if(e===a)return-1;if(h===a)return 1}return 0};k.accountchooser.util.Version[I].ge=function(b){return 0<=this.compare(b)};
-k.accountchooser.util.isSNISupported=function(b){var c=b||k.navigator&&k.navigator.userAgent,d;if(c){if(d=c[t](k.accountchooser.util.REGEX_OPERA_UA_))return b=new k.accountchooser.util.Version(d[3]||d[1]),0<=c[D](ya)?j:0<=c[D](za)?0<=c[D](oa)&&b.ge(ia):b.ge(ma);if(d=c[t](k.accountchooser.util.REGEX_FIREFOX_UA_))return b=new k.accountchooser.util.Version(d[1]),b.ge(R);if(d=c[t](k.accountchooser.util.REGEX_CHROME_UA_))return b=new k.accountchooser.util.Version(d[1]),b.ge(T);if(d=c[t](k.accountchooser.util.REGEX_SAFARI_UA_))return b=
-new k.accountchooser.util.Version(d[6]),c=d[3]&&new k.accountchooser.util.Version(d[3]),d=d[5]&&new k.accountchooser.util.Version(d[5],X),(!(!c||!c.ge(T))||!(!d||!d.ge(ja)))&&b.ge(S);if(d=c[t](k.accountchooser.util.REGEX_ANDROID_UA_))return b=new k.accountchooser.util.Version(d[1]),b.ge(S);if(d=c[t](k.accountchooser.util.REGEX_MOBILE_SAFARI_UA_))return(new k.accountchooser.util.Version(d[1],X)).ge(ka);if(d=c[t](k.accountchooser.util.REGEX_KONQUEROR_UA_))return b=new k.accountchooser.util.Version(d[1]),
-b.ge(la);if(d=c[t](k.accountchooser.util.REGEX_MOBILE_MSIE_UA_))return b=new k.accountchooser.util.Version(d[1]),c=new k.accountchooser.util.Version(d[2]),b.ge(U)&&c.ge(U);if(d=c[t](k.accountchooser.util.REGEX_MSIE_UA_))return b=new k.accountchooser.util.Version(d[1]),c=new k.accountchooser.util.Version(d[2]),b.ge(U)&&c.ge(T)}return j};k.accountchooser.util.SNI_NOT_SUPPORT_ERROR={error:"SNI is not supported."};
-k.accountchooser.util.checkSNISupported=function(b){if(!k.accountchooser.util.isSNISupported(b))throw k.accountchooser.util.SNI_NOT_SUPPORT_ERROR;};k.accountchooser.util.AccountPropertyKey={EMAIL:"email",DISPLAY_NAME:"displayName",PHOTO_URL:"photoUrl",PROVIDER_ID:"providerId"};
-k.accountchooser.util.sanitizeAccount=function(b,c,d){var e={},h=k.accountchooser.util.AccountPropertyKey,l;for(l in b){var n=b[l];switch(l){case h.EMAIL:case h.DISPLAY_NAME:case h.PHOTO_URL:case h.PROVIDER_ID:(n=c?c(l,n):n)&&(e[l]=n);break;default:if(!d)throw'Unrecognized key "'+l+'" for account';}}if(!e[h.EMAIL])throw"No valid email field for the account";return e};
-k.accountchooser.util.sanitizeAccounts=function(b,c,d){for(var e=[],h=0,l=b[H];h<l;h++){var n=k.accountchooser.util.sanitizeAccount(b[h],c,d);e[B](n)}return e};k.accountchooser.util.accountSanitizer=function(b,c){if(b==k.accountchooser.util.AccountPropertyKey.PHOTO_URL){if(/^https?:\/\//i.test(c))return c}else return html.sanitizeWithPolicy(c,function(){})};k.accountchooser.rpc=k.accountchooser.rpc||{};k.accountchooser.rpc.RpcObject=function(){};
-k.accountchooser.rpc.RpcObject[I].setTimestamp=function(b){this.timestamp_=b||(new Date).getTime()};p(k.accountchooser.rpc.RpcObject[I],function(){var b={jsonrpc:R};this.timestamp_!=g&&(b.timestamp=this.timestamp_);return b});k.accountchooser.rpc.RpcObject[I].toString=function(){return JSON.stringify(this[x]())};k.accountchooser.rpc.AbstractRequest=function(b,c){this.method_=b;this.params_=c};k.accountchooser.rpc.AbstractRequest.inheritsFrom(k.accountchooser.rpc.RpcObject);Z=k.accountchooser.rpc.AbstractRequest[I];
-Z.setMethod=function(b){this.method_=b};Z.getMethod=function(){return this.method_};Z.setParameters=function(b){this.params_=b};Z.getParameters=function(){return this.params_};p(Z,function(){var b=k.accountchooser.rpc.RpcObject[I][x][M](this);this.method_!=g&&(b.method=this.method_);this.params_!=g&&(b.params=this.params_);return b});k.accountchooser.rpc.Notification=function(b,c){this.method_=b;this.params_=c};k.accountchooser.rpc.Notification.inheritsFrom(k.accountchooser.rpc.AbstractRequest);
-k.accountchooser.rpc.Request=function(b,c,d){this.method_=b;this.params_=c;this.id_=d};k.accountchooser.rpc[C].inheritsFrom(k.accountchooser.rpc.AbstractRequest);k.accountchooser.rpc[C][I].setId=function(b){this.id_=b};k.accountchooser.rpc[C][I].getId=function(){return this.id_};p(k.accountchooser.rpc[C][I],function(){var b=k.accountchooser.rpc.AbstractRequest[I][x][M](this);this.id_!=g&&(b.id=this.id_);return b});
-k.accountchooser.rpc.Response=function(b,c,d){k.accountchooser[G].notEmpty(b,Y);this.id_=b;this.result_=c;this.error_=d};k.accountchooser.rpc.Response.inheritsFrom(k.accountchooser.rpc.RpcObject);Z=k.accountchooser.rpc.Response[I];Z.getResult=function(){return this.result_};Z.setResult=function(b){this.result_=b};Z.getError=function(){return this.error_};Z.setError=function(b){this.error_=b};Z.setId=function(b){this.id_=b};Z.getId=function(){return this.id_};
-p(Z,function(){var b=k.accountchooser.rpc.RpcObject[I][x][M](this);b.id=this.id_;this.result_!=g?b.result=this.result_:this.error_!=g&&(b.error=this.error_);return b});k.accountchooser.rpc.DEFAULT_CDS_DOMAIN="https://www.accountchooser.com";k.accountchooser.rpc.DEFAULT_CDS_IFRAME_PATH="/iframe.html";k.accountchooser.rpc.DEFAULT_CDS_POPUP_PATH="/popup.html";k.accountchooser.rpc.DEFAULT_CDS_REDIRECT_PATH="/redirect.html";k.accountchooser.rpc.DEFAULT_POPUP_WIDTH=520;
-k.accountchooser.rpc.DEFAULT_POPUP_HEIGHT=550;k.accountchooser.rpc.EMPTY_RESPONSE_CALLBACK="empty";k.accountchooser.rpc.IDP_TIMEOUT=3E3;k.accountchooser.rpc.RPC_TIMEOUT=3E5;k.accountchooser.rpc.RequestAckNotification=function(b){k.accountchooser[G].notEmpty(b,lb);this.method_=k.accountchooser.rpc.RequestAckNotification.METHOD;this.params_={requestId:b}};k.accountchooser.rpc.RequestAckNotification.inheritsFrom(k.accountchooser.rpc.Notification);k.accountchooser.rpc.RequestAckNotification.METHOD="requestAckNotification";
-k.accountchooser.rpc.RequestAckNotification[I].setRequestId=function(b){this.params_.requestId=b};k.accountchooser.rpc.RequestAckNotification[I].getRequestId=function(){return this.params_[q]};k.accountchooser.rpc.CdsReadyNotification=function(){this.method_=k.accountchooser.rpc.CdsReadyNotification.METHOD};k.accountchooser.rpc.CdsReadyNotification.inheritsFrom(k.accountchooser.rpc.Notification);k.accountchooser.rpc.CdsReadyNotification.METHOD="cdsReadyNotification";
-k.accountchooser.rpc.ClientReadyNotification=function(){this.method_=k.accountchooser.rpc.ClientReadyNotification.METHOD};k.accountchooser.rpc.ClientReadyNotification.inheritsFrom(k.accountchooser.rpc.Notification);k.accountchooser.rpc.ClientReadyNotification.METHOD="clientReadyNotification";k.accountchooser.rpc.EmptyResponseNotification=function(){this.method_=k.accountchooser.rpc.EmptyResponseNotification.METHOD};k.accountchooser.rpc.EmptyResponseNotification.inheritsFrom(k.accountchooser.rpc.Notification);
-k.accountchooser.rpc.EmptyResponseNotification.METHOD="emptyResponseNotification";k.accountchooser.rpc.StoreRequest=function(b,c,d){k.accountchooser[G].notEmpty(b,Y);k.accountchooser[G].notEmptyArray(c,Pa);c&&(c=k.accountchooser.util.sanitizeAccounts(c));this.method_=k.accountchooser.rpc.StoreRequest.METHOD;this.params_={accounts:c,clientConfig:d};this.id_=b};k.accountchooser.rpc.StoreRequest.inheritsFrom(k.accountchooser.rpc[C]);k.accountchooser.rpc.StoreRequest.METHOD=pb;
-k.accountchooser.rpc.SelectRequest=function(b,c,d){k.accountchooser[G].notEmpty(b,Y);c&&(c=k.accountchooser.util.sanitizeAccounts(c));this.method_=k.accountchooser.rpc.SelectRequest.METHOD;this.params_={localAccounts:c,clientConfig:d};this.id_=b};k.accountchooser.rpc.SelectRequest.inheritsFrom(k.accountchooser.rpc[C]);k.accountchooser.rpc.SelectRequest.METHOD=mb;
-k.accountchooser.rpc.UpdateRequest=function(b,c,d){k.accountchooser[G].notEmpty(b,Y);k.accountchooser[G].notEmpty(c,Na);c&&(c=k.accountchooser.util.sanitizeAccount(c));this.method_=k.accountchooser.rpc.UpdateRequest.METHOD;this.params_={account:c,clientConfig:d};this.id_=b};k.accountchooser.rpc.UpdateRequest.inheritsFrom(k.accountchooser.rpc[C]);k.accountchooser.rpc.UpdateRequest.METHOD=tb;
-k.accountchooser.rpc.ManageRequest=function(b,c){k.accountchooser[G].notEmpty(b,Y);this.method_=k.accountchooser.rpc.ManageRequest.METHOD;this.params_={clientConfig:c};this.id_=b};k.accountchooser.rpc.ManageRequest.inheritsFrom(k.accountchooser.rpc[C]);k.accountchooser.rpc.ManageRequest.METHOD="manage";k.accountchooser.rpc.AboutRequest=function(b,c){k.accountchooser[G].notEmpty(b,Y);this.method_=k.accountchooser.rpc.AboutRequest.METHOD;this.params_={clientConfig:c};this.id_=b};k.accountchooser.rpc.AboutRequest.inheritsFrom(k.accountchooser.rpc[C]);
-k.accountchooser.rpc.AboutRequest.METHOD="about";k.accountchooser.rpc.QueryRequest=function(b,c,d,e){k.accountchooser[G].notEmpty(b,Y);k.accountchooser[G].notEmpty(c,jb);d&&(d=k.accountchooser.util.sanitizeAccount(d));this.method_=k.accountchooser.rpc.QueryRequest.METHOD;this.params_={query:c,account:d,clientConfig:e};this.id_=b};k.accountchooser.rpc.QueryRequest.inheritsFrom(k.accountchooser.rpc[C]);k.accountchooser.rpc.QueryRequest.METHOD=jb;
-k.accountchooser.rpc.Queries={CDS_DISABLED:"cdsDisabled",CDS_EMPTY:"cdsEmpty",ACCOUNT_EXIST:"accountExist",SHOULD_UPDATE:"shouldUpdate"};
-k.accountchooser.rpc.parseRpcObject=function(b){var c=g;if(b){try{var d=JSON.parse(b)}catch(e){return k.accountchooser.util.log(ua),c}!d||d.jsonrpc!=R?k.accountchooser.util.log(sa):!d.id&&!d.method?k.accountchooser.util.log(ta):d.method?(b=d.method[O](),b==k.accountchooser.rpc.RequestAckNotification.METHOD[O]()?d.params&&d.params[q]?c=new k.accountchooser.rpc.RequestAckNotification(d.params[q]):k.accountchooser.util.log(ra):b==k.accountchooser.rpc.CdsReadyNotification.METHOD[O]()?c=new k.accountchooser.rpc.CdsReadyNotification:
-b==k.accountchooser.rpc.EmptyResponseNotification.METHOD[O]()?c=new k.accountchooser.rpc.EmptyResponseNotification:k.accountchooser.util.log(va)):c=new k.accountchooser.rpc.Response(d.id,d.result,d.error)}return c};k.accountchooser.rpc.services_={};k.accountchooser.rpc.register=function(b,c){k.accountchooser[G].notEmpty(b,nb);k.accountchooser[G].notNull(c,Va);k.accountchooser.rpc.services_[b]=c};
-k.accountchooser.rpc.call=function(b,c,d){k.accountchooser[G].notEmpty(b,rb);c=c.toString();k.accountchooser.util.log(Ha+c);b.postMessage(c,d||ca)};k.accountchooser.rpc.init_=function(b){k[F]?k[F]($a,b,j):k[v]?k[v](eb,b):k[K][v]?k[K][v](eb,b):k.accountchooser.util.log(Ga)};k.accountchooser.rpc.client_={popupMode:j,popupWindow:g,domain:k[z].host,cdsDomain:g,iframe:g,iframeLoaded:j,cdsReady:j,queue:[]};k.accountchooser.rpc.setPopupMode=function(b){k.accountchooser.rpc.client_.popupMode=b};
-k.accountchooser.rpc.getPopupMode=function(){return k.accountchooser.rpc.client_.popupMode};k.accountchooser.rpc.setPopupWindow=function(b){k.accountchooser.rpc.client_.popupWindow=b};k.accountchooser.rpc.getPopupWindow=function(){return k.accountchooser.rpc.client_.popupWindow};k.accountchooser.rpc.getCurrentDomain_=function(){return k.accountchooser.rpc.client_[E]};
-k.accountchooser.rpc.process_=function(b){k.accountchooser.util.log(Fa+b.data+aa+b.origin);if(b.origin!==k.accountchooser.rpc.client_.cdsDomain)k.accountchooser.util.log(qa+b.origin);else{var c=k.accountchooser.rpc.parseRpcObject(b.data);c?k.accountchooser.rpc.fireResponseEvent(c):k.accountchooser.util.log(Ja+b.data)}};
-k.accountchooser.rpc.sendRpcInQueue_=function(b){var c=k.accountchooser.rpc.client_.queue;if(c&&c[H]){for(var d=0;d<c[H];d++)k.accountchooser.rpc[M](b,c[d]);k.accountchooser.rpc.client_.queue=[]}};
-k.accountchooser.rpc.initIFrame_=function(b){if(!k.accountchooser.rpc.client_.iframe){var c=m.createElement(Xa);c[u](qb,hb);c[u](Y,Oa);m[L].appendChild(c);k.accountchooser.rpc.client_.iframe=c;k[F]?c[F](Za,k.accountchooser.rpc.iframeOnLoad_,j):k[v]?c[v](db,k.accountchooser.rpc.iframeOnLoad_,j):k.accountchooser.util.log(pa);c[u](ob,b)}};
-k.accountchooser.rpc.iframeOnLoad_=function(){k.accountchooser.rpc.client_.iframeLoaded=f;if(!k.accountchooser.rpc.client_.popupMode){var b=k.accountchooser.rpc.client_.iframe.contentWindow;k.accountchooser.rpc[M](b,new k.accountchooser.rpc.ClientReadyNotification);k.accountchooser.rpc.sendRpcInQueue_(b)}};k.accountchooser.rpc.onCdsReady_=function(){k.accountchooser.rpc.client_.cdsReady=f;k.accountchooser.rpc.client_.popupMode&&k.accountchooser.rpc.sendRpcInQueue_(k.accountchooser.rpc.client_.popupWindow)};
-k.accountchooser.rpc.initClient=function(b){b.popupMode&&k.accountchooser.rpc.setPopupMode(b.popupMode);b.popupWindow&&k.accountchooser.rpc.setPopupWindow(b.popupWindow);k.accountchooser.rpc.init_(k.accountchooser.rpc.process_);k.accountchooser.rpc.client_.popupMode||k.accountchooser.rpc.initIFrame_(b.iframeUrl);k.accountchooser.rpc.client_.cdsDomain=b.cdsDomain};
-k.accountchooser.rpc.callCds=function(b){if(k.accountchooser.rpc.client_.popupMode)if(k.accountchooser.rpc.client_.cdsReady)c=k.accountchooser.rpc.client_.popupWindow,k.accountchooser.rpc[M](c,b);else k.accountchooser.rpc.client_.queue[B](b);else if(k.accountchooser.rpc.client_.iframeLoaded){var c=k.accountchooser.rpc.client_.iframe.contentWindow;k.accountchooser.rpc[M](c,b)}else k.accountchooser.rpc.client_.queue[B](b)};k.accountchooser.rpc.EVENT_ACK="ack";k.accountchooser.rpc.EVENT_DONE="done";
-k.accountchooser.rpc.EVENT_CDS_READY="cdsReady";k.accountchooser.rpc.EVENT_EMPTY_RESPONSE="emptyResponse";k.accountchooser.rpc.ALL_EVENTS=[k.accountchooser.rpc.EVENT_ACK,k.accountchooser.rpc.EVENT_DONE,k.accountchooser.rpc.EVENT_CDS_READY,k.accountchooser.rpc.EVENT_EMPTY_RESPONSE];k.accountchooser.rpc.DONE_AND_ACK=[k.accountchooser.rpc.EVENT_ACK,k.accountchooser.rpc.EVENT_DONE];k.accountchooser.rpc.listeners_=[];
-k.accountchooser.rpc.makeEventArray_=function(b){var c=[];if(b)if(k.accountchooser.util[A](b))for(var d=0;d<b[H];d++)-1<k.accountchooser.util[D](b[d],k.accountchooser.rpc.ALL_EVENTS)?c[B](b[d]):k.accountchooser.util.log(Ia+b[d]);else-1<k.accountchooser.util[D](b,k.accountchooser.rpc.ALL_EVENTS)?c[B](b):k.accountchooser.util.log(Ia+b);else c=k.accountchooser.rpc.ALL_EVENTS.slice(0);return c};
-k.accountchooser.rpc.getEventType_=function(b){var c=g;b instanceof k.accountchooser.rpc.RequestAckNotification?c=k.accountchooser.rpc.EVENT_ACK:b instanceof k.accountchooser.rpc.CdsReadyNotification?c=k.accountchooser.rpc.EVENT_CDS_READY:b instanceof k.accountchooser.rpc.Response?c=k.accountchooser.rpc.EVENT_DONE:b instanceof k.accountchooser.rpc.EmptyResponseNotification&&(c=k.accountchooser.rpc.EVENT_EMPTY_RESPONSE);return c};
-k.accountchooser.rpc.addResponseListener=function(b,c,d,e){c=k.accountchooser.rpc.makeEventArray_(c);k.accountchooser.rpc.listeners_[B]({listener:b,events:c,oneTime:!!d,service:e})};k.accountchooser.rpc.removeResponseListener=function(b){for(var c=0;c<k.accountchooser.rpc.listeners_[H];)k.accountchooser.rpc.listeners_[c].listener==b?k.accountchooser.rpc.listeners_.splice(c,1):c++};k.accountchooser.rpc.clearResponseListeners=function(){k.accountchooser.rpc.listeners_=[]};
-k.accountchooser.rpc.fireResponseEvent=function(b){var c=k.accountchooser.rpc.getEventType_(b);if(c)for(var d=0;d<k.accountchooser.rpc.listeners_[H];){var e=k.accountchooser.rpc.listeners_[d];if(0>k.accountchooser.util[D](c,e.events))d++;else{if(e.service)if(b instanceof k.accountchooser.rpc.RequestAckNotification&&b.params_[q]!=e.service){d++;continue}else if(b instanceof k.accountchooser.rpc.Response&&b.id_!=e.service){d++;continue}e.listener(b);e.oneTime?k.accountchooser.rpc.listeners_.splice(d,
-1):d++}}};
-k.accountchooser.CdsClient=function(b){k.accountchooser.util.checkSNISupported();k.accountchooser[G].notEmpty(b,Sa);b=k.accountchooser.util[r](f,{},{cdsServer:{domain:k.accountchooser.rpc.DEFAULT_CDS_DOMAIN,iframe:k.accountchooser.rpc.DEFAULT_CDS_IFRAME_PATH,popup:k.accountchooser.rpc.DEFAULT_CDS_POPUP_PATH,redirect:k.accountchooser.rpc.DEFAULT_CDS_REDIRECT_PATH},popupWidth:k.accountchooser.rpc.DEFAULT_POPUP_WIDTH,popupHeight:k.accountchooser.rpc.DEFAULT_POPUP_HEIGHT,clientCallbackUrl:k[z].href},b);
-var c=b.cdsServer;c.iframe=c[E]+c.iframe;c.popup=c[E]+c.popup;c.redirect=c[E]+c.redirect;this.config_=b;this.cdsOptions_={clientCallbackUrl:this.config_.clientCallbackUrl,positiveCallbackUrl:this.config_.positiveCallbackUrl,negativeCallbackUrl:this.config_.negativeCallbackUrl,keepPopup:!!this.config_.keepPopup,showAll:!!this.config_.showAll,idpFilter:this.config_.idpFilter,language:this.config_.language,ui:this.config_.ui}};
-k.accountchooser.CdsClient.init=function(b){b=new k.accountchooser.CdsClient(b);b.init();return b};Z=k.accountchooser.CdsClient[I];
-Z.init=function(){this.config_.popupMode&&k.accountchooser.rpc[s](k.accountchooser.rpc.onCdsReady_,k.accountchooser.rpc.EVENT_CDS_READY);this.registerListeners_(this.config_.oneTimeCallbacks,f);this.registerListeners_(this.config_.callbacks,j);k.accountchooser.rpc.initClient({popupMode:this.config_.popupMode,popupWindow:this.config_.popupWindow,iframeUrl:this.config_.cdsServer.iframe,cdsDomain:this.config_.cdsServer[E]});return this};Z.setPopupWindow=function(b){k.accountchooser.rpc.setPopupWindow(b)};
-Z.getPopupWindow=function(){return k.accountchooser.rpc.getPopupWindow()};Z.closePopupWindow=function(){this.config_.popupWindow=g;k.accountchooser.rpc.client_.popupWindow&&(k.accountchooser.rpc.client_.popupWindow.closed||k.accountchooser.rpc.client_.popupWindow.close(),k.accountchooser.rpc.client_.popupWindow=g)};
-Z.changePopupModeTo=function(b){if(this.config_.popupMode!=b){var c=this.config_.popupMode;this.config_.popupMode=b;c?k.accountchooser.rpc.removeResponseListener(k.accountchooser.rpc.onCdsReady_):k.accountchooser.rpc[s](k.accountchooser.rpc.onCdsReady_,k.accountchooser.rpc.EVENT_CDS_READY);k.accountchooser.rpc.setPopupMode(b)}};
-Z.registerListeners_=function(b,c){if(b)for(var d in b){var e=b[d];if(e){k.accountchooser[G].notEmptyFunction(e,(c?cb:Ra)+d);var h;h=d==k.accountchooser.rpc.EMPTY_RESPONSE_CALLBACK?k.accountchooser.rpc.EVENT_EMPTY_RESPONSE:k.accountchooser.rpc.EVENT_DONE;e=this.wrapCallback_(e);k.accountchooser.rpc[s](e,h,c,d)}}};
-Z.openPopupWindow_=function(){k.accountchooser.rpc.client_.cdsReady=j;var b=k.accountchooser.rpc.client_.popupWindow;!b||b.closed?b=k.accountchooser.util.showPopup(this.config_.popupWidth,this.config_.popupHeight,this.config_.cdsServer.popup):(b.focus(),b.window[z].href=this.config_.cdsServer.popup);return k.accountchooser.rpc.client_.popupWindow=b};
-Z.prepareCall_=function(b){if(this.config_.popupMode)this.openPopupWindow_();else{var c=this.config_.cdsServer.redirect,c=c+(ba+k.accountchooser.rpc.getCurrentDomain_());k.accountchooser.rpc[s](function(){k[z].href=c},k.accountchooser.rpc.EVENT_ACK,f,b)}};Z.wrapCallback_=function(b){return function(c){c instanceof k.accountchooser.rpc.Response?b(c.result_,c.getError()):b()}};
-Z.createLookAheadQueryCallback_=function(b,c,d){var e=this;return function(h,l){var n=typeof c===Ua?c(h):!!c;!l&&n?k.accountchooser.rpc.fireResponseEvent(new k.accountchooser.rpc.Response(b.id_,d)):e.callCds_(b)}};Z.callCds_=function(b){this.prepareCall_(b.id_);k.accountchooser.rpc.callCds(b)};Z.store=function(b,c){k.accountchooser[G].notEmpty(b,Pa);var d=c?k.accountchooser.util[r](j,{},this.cdsOptions_,c):this.cdsOptions_,d=new k.accountchooser.rpc.StoreRequest(pb,b,d);this.callCds_(d)};
-Z.select=function(b,c){var d=c?k.accountchooser.util[r](j,{},this.cdsOptions_,c):this.cdsOptions_,d=new k.accountchooser.rpc.SelectRequest(mb,b,d);this.callCds_(d)};Z.update=function(b,c){k.accountchooser[G].notEmpty(b,Na);var d=c?k.accountchooser.util[r](j,{},this.cdsOptions_,c):this.cdsOptions_,d=new k.accountchooser.rpc.UpdateRequest(tb,b,d);this.callCds_(d)};
-Z.query_=function(b,c,d,e){k.accountchooser[G].notEmptyFunction(d,Qa);if(this.config_.popupMode)d(a,{code:-32601,message:xa,data:Ea});else{var h=kb+b+X+(new Date).getTime();d=this.wrapCallback_(d);k.accountchooser.rpc[s](d,k.accountchooser.rpc.EVENT_DONE,f,h);e=e?k.accountchooser.util[r](j,{},this.cdsOptions_,e):this.cdsOptions_;b=new k.accountchooser.rpc.QueryRequest(h,b,c,e);k.accountchooser.rpc.callCds(b)}};
-Z.checkCdsDisabled=function(b){this.query_(k.accountchooser.rpc.Queries.CDS_DISABLED,g,b)};Z.checkCdsEmpty=function(b){this.query_(k.accountchooser.rpc.Queries.CDS_EMPTY,g,b)};Z.checkAccountExist=function(b,c){this.query_(k.accountchooser.rpc.Queries.ACCOUNT_EXIST,b,c)};Z.checkShouldUpdate=function(b,c){this.query_(k.accountchooser.rpc.Queries.SHOULD_UPDATE,b,c)};})()
+window.accountchooser = window.accountchooser || {};
+
+
+/**
+ * Namespace alias for CDS.
+ * @deprecated This namespace alias is for backward compatability only. It'll be
+ * removed in the future. Do not use it.
+ */
+window.cds = window.accountchooser;
+
+
+/**
+ * Namespace for utility functions.
+ */
+window.accountchooser.util =
+    window.accountchooser.util || {};
+
+/**
+ * Logs a message to the console of the browser for debugging.
+ * @param {string} message The message to log.
+ */
+window.accountchooser.util.log = function(message) {
+  try {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  } catch (ex) {
+    // Ignore if cannot log to console.
+  }
+};
+
+/**
+ * UUID allows multiple instances on the same page.
+ * @type {number}
+ * @private
+ */
+window.accountchooser.util.uuidCounter_ = new Date().getTime();
+
+/**
+ * Computes a UUID for this widget. If a UUID is set on the options, use it.
+ * Otherwise generates one.
+ * @param {Object} options The options object of this widget.
+ * @return {number | string} The uuid of this widget.
+ */
+window.accountchooser.util.generateUuid = function(options) {
+  var newUuid;
+  if (options && options.uuid) {
+    newUuid = options.uuid;
+  } else {
+    newUuid = ++window.accountchooser.util.uuidCounter_;
+  }
+  return newUuid;
+};
+
+/**
+ * Creates a form to submit the {@code parameters} to the {@code targetUrl}.
+ * @param {string} targetUrl The URL to which the form will submit.
+ * @param {{key1: value1, key2: value2, ...}} parameters The parameters in the
+ *     form.
+ * @param {string=} opt_targetWinName The name of the target window which the
+ *     form is submitted to. If targetWinName is an empty string or not
+ *     present, the current window is used.
+ * @return {Element} The created DOM element.
+ * @private
+ */
+window.accountchooser.util.createForm_ = function(targetUrl,
+    parameters, opt_targetWinName) {
+  if (!targetUrl) {
+    throw 'The targetUrl cannot be null.';
+  }
+  var myForm = window.document.createElement('form');
+  myForm.method = 'post';
+  myForm.action = targetUrl;
+  if (parameters) {
+    for (var k in parameters) {
+      var myInput = window.document.createElement('input');
+      myInput.setAttribute('type', 'hidden');
+      myInput.setAttribute('name', k);
+      if (parameters[k] === null || parameters[k] === undefined) {
+        myInput.setAttribute('value', '');
+      } else {
+        myInput.setAttribute('value', parameters[k]);
+      }
+      myForm.appendChild(myInput);
+    }
+  }
+  if (opt_targetWinName) {
+    myForm.target = opt_targetWinName;
+  }
+  window.document.body.appendChild(myForm);
+  return myForm;
+};
+
+/**
+ * Creates a form with {@code parameters} and submit it to {@code targetUrl}.
+ * @param {string} targetUrl The URL to which the form will submit.
+ * @param {{key1: value1, key2: value2, ...}} parameters The parameters in the
+ *     form.
+ * @param {string=} opt_targetWinName The name of the target window which the
+ *     form is submitted to. If targetWinName is an empty string or not
+ *     present, the current window is used.
+ */
+window.accountchooser.util.postTo = function(targetUrl,
+    parameters, opt_targetWinName) {
+  var myForm = window.accountchooser.util.createForm_(targetUrl,
+      parameters, opt_targetWinName);
+  myForm.submit();
+  window.document.body.removeChild(myForm);
+};
+
+/**
+ * Returns the URL params. e.g. To get the value of the "foo" param in the
+ * URL the code can be: var foo = parseUrlParams()['foo'];
+ * @param {string} url The URL to parse.
+ * @return {Object} The URL params array.
+ */
+window.accountchooser.util.parseUrlParams = function(url) {
+  var params = {};
+  var segments = url.slice(url.indexOf('?') + 1).split('&');
+  for (var i = 0; i < segments.length; i++) {
+    var pair = segments[i].split('=');
+    if (pair.length == 2) {
+      params[pair[0]] = decodeURIComponent(pair[1]);
+    } else {
+      params[pair[0]] = undefined;
+    }
+  }
+  return params;
+};
+
+/**
+ * Sends the request to the given URL with POST method instead of GET method.
+ * A hidden form is used to post the request.
+ * @param {string} targetUrl The URL to post.
+ * @param {string=} opt_targetWinName The name of the target window which the
+ *     form is submitted to. If targetWinName is an empty string or not
+ *     present, the current window is used.
+ */
+window.accountchooser.util.formRedirect = function(targetUrl,
+    opt_targetWinName) {
+  var url = targetUrl.substring(0, targetUrl.indexOf('?'));
+  var params =
+      window.accountchooser.util.parseUrlParams(targetUrl);
+  window.accountchooser.util.postTo(url, params,
+      opt_targetWinName);
+};
+
+/**
+ * Checks whether the user's browser is supported.
+ * @return {boolean} {@code true} if the browser is supported.
+ */
+window.accountchooser.util.isBrowserSupported = function() {
+  var version = 999;
+  if (navigator.appVersion.indexOf('MSIE') != -1) {
+    version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+  }
+  return version > 7;
+};
+
+/**
+ * Makes a URL from the base URL and the parameters
+ * @param {string} url The base URL.
+ * @param {Object.<string, number|string|boolean>} params The URL parameters. The
+ *     name of the parameter should be a string and the value should be a
+ *     number, string or boolean.
+ * @return {string} The new URI with the parameters.
+ */
+window.accountchooser.util.makeUrl = function(url, params) {
+  var query = [];
+  for (var i in params) {
+    query.push(params[i] ? i + '=' + params[i] : i);
+  }
+  return url + '?' + query.join('&');
+};
+
+// Utility functions which are to substitute for jQuery ones.
+/**
+ * Checks whether the value is an array or not. Try to use jQuery.isArray if
+ * possible.
+ * @param {*} value The value to be checked.
+ * @return {boolean} True if it's an array, false otherwise.
+ */
+window.accountchooser.util.isArray = function(value) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery.isArray(value);
+  } else {
+    return Object.prototype.toString.call(value) === '[object Array]';
+  }
+};
+
+/**
+ * Checks whether the value is a function or not. Try to use jQuery.isFunction
+ * if possible.
+ * @param {*} value The value to be checked.
+ * @return {boolean} True if it's a function, false otherwise.
+ */
+window.accountchooser.util.isFunction = function(value) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery.isFunction(value);
+  } else {
+    return Object.prototype.toString.call(value) === '[object Function]';
+  }
+};
+
+/**
+ * Checks whether the elements is in the array/array-like object and returns the
+ * index of it. Try to use jQuery.inArray if possible.
+ * @param {*} element The element to be checked.
+ * @param {Array.<*>|{length: number}} array The array to be searched.
+ * @return {number} The index of the element in the array. If the element is not
+ *     in the array, -1 is returned.
+ */
+window.accountchooser.util.indexOf = function(element, array) {
+  if (array) {
+    if (typeof jQuery !== 'undefined') {
+      return jQuery.inArray(element, array);
+    }
+    if (array.indexOf) {
+      return array.indexOf(element);
+    }
+    var length = array.length;
+    for (var i = 0; i < length; i++) {
+      if (i in array && array[i] === element) {
+        return i;
+      }
+    }
+  }
+  return -1;
+};
+
+/**
+ * Gets the width of the window.
+ * @param {Element} window The window element.
+ * @return {number} The width of the window.
+ */
+window.accountchooser.util.windowWidth = function(window) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery(window).width();
+  }
+  var width = 0;
+  if (window.innerWidth) {
+    width = window.innerWidth;
+  } else if (window.document && window.document.documentElement &&
+      window.document.documentElement.clientWidth) {
+    width = window.document.documentElement.clientWidth;
+  } else if (window.document && window.document.body &&
+      window.document.body.clientWidth) {
+    width = window.document.body.clientWidth;
+  }
+  return width;
+};
+
+/**
+ * Gets the height of the window.
+ * @param {Element} window The window element.
+ * @return {number} The height of the window.
+ */
+window.accountchooser.util.windowHeight = function(window) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery(window).height();
+  }
+  var height = 0;
+  if (window.innerHeight) {
+    height = window.innerHeight;
+  } else if (window.document && window.document.documentElement &&
+      window.document.documentElement.clientHeight) {
+    height = window.document.documentElement.clientHeight;
+  } else if (window.document && window.document.body &&
+      window.document.body.clientHeight) {
+    height = window.document.body.clientHeight;
+  }
+  return height;
+};
+
+/**
+ * Trims the leading and trailing space characters. Try to use jQuery.trim if
+ * possible.
+ * @param {string} str The string to be trimmed.
+ * @return {string} The trimmed string.
+ */
+window.accountchooser.util.trim = function(str) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery.trim(str);
+  }
+  if (str == null) {
+    return '';
+  } else if (String.prototype.trim) {
+    return String.prototype.trim.call(str);
+  } else {
+    return str.replace(/^[\s\xa0]+/, '').replace(/[\s\xa0]+$/, '');
+  }
+};
+
+/**
+ * Merges several objects into the first object. Try to use jQuery.extend if
+ * possible.
+ * @param {boolean} deep Whether to performe deep copy or not.
+ * @param {Object} target The object to receive the properties from other ones.
+ * @param {...Object} var_objects A set of objects to merge in.
+ * @return {Object} The merged object.
+ */
+window.accountchooser.util.extend = function(deep, target,
+    var_objects) {
+  // If no target provided, return {}. If no other objects to merge in, return
+  // target unmodifed..
+  if (arguments.length < 3) {
+    return target || {};
+  }
+  if (typeof jQuery !== 'undefined') {
+    // If deep == false, don't pass it to jQuery.extend since it'll be treated
+    // as the target.
+    var args = Array.prototype.slice.call(arguments, deep ? 0 : 1);
+    return jQuery.extend.apply(jQuery, args);
+  }
+  if (typeof target !== 'object' || target == null) {
+    target = {};
+  }
+  for (var i = 2, num = arguments.length; i < num; i++) {
+    var obj = arguments[i];
+    if (obj == null) {
+      continue;
+    }
+    for (var name in obj) {
+      // Skip undefined properties and itself.
+      if (obj[name] === undefined || target === obj[name]) {
+        continue;
+      }
+      if (deep && typeof obj[name] == 'object') {
+        // Make sure target property is array if the source property is array.
+        if (window.accountchooser.util.isArray(obj[name]) &&
+            !window.accountchooser.util.isArray(target[name])) {
+          target[name] = [];
+        }
+        target[name] = window.accountchooser.util.extend(true,
+            target[name], obj[name]);
+      } else {
+        target[name] = obj[name];
+      }
+    }
+  }
+  return target;
+};
+
+
+/**
+ * @namespcae Parameter validators.
+ */
+window.accountchooser.param = {};
+
+/**
+ * Checks a parameter value is not null or undefined.
+ * @param {*} value The value of a parameter.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ */
+window.accountchooser.param.notNull = function(value,
+    opt_paramName) {
+  if (value === undefined || value === null) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be null.', opt_paramName);
+  }
+};
+
+/**
+ * Checks a parameter value is not empty. That is, the value must evaluate to
+ * true.
+ * @param {*} value The value of a parameter.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ */
+window.accountchooser.param.notEmpty = function(value,
+    opt_paramName) {
+  if (!value) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be empty.', opt_paramName);
+  }
+};
+
+/**
+ * Checks a parameter value must be a non-empty array.
+ * @param {*} value The value of a parameter.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ */
+window.accountchooser.param.notEmptyArray = function(value,
+    opt_paramName) {
+  if (!value) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be empty.', opt_paramName);
+  }
+  if (!window.accountchooser.util.isArray(value)) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% is not an array.', opt_paramName);
+  }
+  if (!value.length) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be an empty array.', opt_paramName);
+  }
+};
+
+/**
+ * Checks a parameter value must be a non-empty array.
+ * @param {*} value The value of a parameter.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ */
+window.accountchooser.param.notEmptyFunction = function(value,
+    opt_paramName) {
+  if (!value) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be empty.', opt_paramName);
+  }
+  if (!window.accountchooser.util.isFunction(value)) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% is not a function.', opt_paramName);
+  }
+};
+
+/**
+ * Throws an error to indicate a failed parameter validation.
+ * @param {string} message The error message.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ * @private
+ */
+window.accountchooser.param.throwError_ = function(message,
+    opt_paramName) {
+  try {
+    if (console && console.trace) {
+      console.trace();
+    }
+  } catch (e) {
+  }
+  var param = opt_paramName ? ' \'' + opt_paramName + '\'' : '';
+  throw message.replace(/\%\%param\%\%/g, param);
+};
+
+
+/**
+ * A class can extends parent class.
+ * @param {Function} parentClass The parent class to be extended.
+ */
+Function.prototype.inheritsFrom = function(parentClass) {
+  window.accountchooser.param.notEmptyFunction(parentClass,
+      'parentClass');
+
+  this.prototype = new parentClass;
+  this.prototype.constructor = this;
+  this.prototype.parentClass = parentClass.prototype;
+};
+
+
+/**
+ * Default name for popup window.
+ */
+window.accountchooser.util.DEFAULT_POPUP_NAME = 'OpenIdPopup';
+
+/**
+ * Opens a new window.
+ * @param {number} width The width of the window.
+ * @param {number} height The height of the window.
+ * @param {string=} opt_url The URL for the new window. If missing or set to
+ *     null, 'about:blank' will be used.
+ * @param {string=} opt_name The name for the new window. If missing, use the
+ *     default name.
+ * @return {Window} the opened window object.
+ */
+window.accountchooser.util.showPopup = function(width, height,
+    opt_url, opt_name) {
+  var top = (window.accountchooser.util.windowHeight(window) -
+      height) / 2;
+  var left = (window.accountchooser.util.windowWidth(window) -
+      width) / 2;
+  top = top > 0 ? top : 0;
+  left = left > 0 ? left : 0;
+  var options = 'width=' + width + ',height=' + height + ',left=' + left +
+      ',top=' + top + ',status=1,location=1,resizable=yes,menubar=no,' +
+      'toolbar=no,titlebar=no,channelmode=no,directories=no,fullscreen=no';
+  var url = opt_url || 'about:blank';
+  var popupName = opt_name ||
+      window.accountchooser.util.DEFAULT_POPUP_NAME;
+  var popup = window.open(url, popupName, options);
+  if (popup) {
+    if (!document.getElementById('popin-box') &&
+        window.accountchooser.util.showDarkScreen) {
+      window.accountchooser.util.showDarkScreen(popup);
+    }
+    window.accountchooser.util.popup_ = popup;
+    window.accountchooser.util.popupName_ = popupName;
+    popup.focus();
+  }
+  return popup;
+};
+
+
+/**
+ * RE for matching MSIE's user agent.
+ * @private
+ */
+window.accountchooser.util.REGEX_MSIE_UA_ =
+    /MSIE ([\d.]+).*Windows NT ([\d.]+)/;
+
+/**
+ * RE for matching Firefox's user agent.
+ * @private
+ */
+window.accountchooser.util.REGEX_FIREFOX_UA_ =
+    /Firefox\/([\d.]+)/;
+
+/**
+ * RE for matching Opera's user agent.
+ * @private
+ */
+window.accountchooser.util.REGEX_OPERA_UA_ =
+    /Opera[ \/]([\d.]+)(.*Version\/([\d.]+))?/;
+
+/**
+ * RE for matching Chrome's user agent.
+ * @private
+ */
+window.accountchooser.util.REGEX_CHROME_UA_ =
+    /Chrome\/([\d.]+)/;
+
+/**
+ * RE for matching Safari's user agent.
+ * @private
+ */
+window.accountchooser.util.REGEX_SAFARI_UA_ =
+    /((Windows NT ([\d.]+))|(Mac OS X ([\d_]+))).*Version\/([\d.]+).*Safari/;
+
+/**
+ * RE for matching Android default browser's user agent.
+ * @private
+ */
+window.accountchooser.util.REGEX_ANDROID_UA_ =
+    /Android ([\d.]+).*Safari/;
+
+/**
+ * RE for matching Mobile Safari's user agent.
+ * @private
+ */
+window.accountchooser.util.REGEX_MOBILE_SAFARI_UA_ =
+    /OS ([\d_]+) like Mac OS X.*Mobile.*Safari/;
+
+/**
+ * RE for matching Konqueror's user agent.
+ * @private
+ */
+window.accountchooser.util.REGEX_KONQUEROR_UA_ =
+    /Konqueror\/([\d.]+)/;
+
+/**
+ * RE for matching Mobile MSIE's user agent.
+ * @private
+ */
+window.accountchooser.util.REGEX_MOBILE_MSIE_UA_ =
+    /MSIE ([\d.]+).*Windows Phone OS ([\d.]+)/;
+
+/**
+ * @class Class for representing versions.
+ * @param {string} version The version string.
+ * @param {string=} opt_delimiter The delimiter which separates each components
+ * of the version. Default is a dot '.'.
+ * @constructor
+ */
+window.accountchooser.util.Version = function(version,
+    opt_delimiter) {
+  window.accountchooser.param.notEmpty(version, 'version');
+
+  this.version_ = version;
+  this.components_ = version.split(opt_delimiter || '.');
+  for (var i = 0; i < this.components_.length; ++i) {
+    this.components_[i] = parseInt(this.components_[i]);
+  }
+};
+
+/**
+ * Compares the version with another one.
+ * @param {window.accountchooser.util.Version|string} version
+ *     The version to be compared.
+ * @return {number} -1, 0 or 1 if it's less than, equal to or greater than the
+ *     other.
+ */
+window.accountchooser.util.Version.prototype.compare = function(
+    version) {
+  if (!(version instanceof window.accountchooser.util.Version)) {
+    version = new window.accountchooser.util.Version(version);
+  }
+  var maxLength = Math.max(this.components_.length, version.components_.length);
+  for (var i = 0; i < maxLength; ++i) {
+    var num1 = this.components_[i];
+    var num2 = version.components_[i];
+    if (num1 !== undefined && num2 !== undefined && num1 !== num2) {
+      return num1 - num2;
+    } else if (num1 === undefined) {
+      return -1;
+    } else if (num2 === undefined) {
+      return 1;
+    }
+  }
+  return 0;
+};
+
+/**
+ * Checks the version is equal to or greater than another one.
+ * @param {window.accountchooser.util.Version|string} version
+ *     The version to be compared.
+ * @return {boolean} {@code true} if it's equal to or greater than the other.
+ */
+window.accountchooser.util.Version.prototype.ge = function(
+    version) {
+  return this.compare(version) >= 0;
+};
+
+/**
+ * Checks whether the browser supports SNI (Server Name Indicator).
+ * @param {string=} opt_userAgent The user agent string of the browser. If
+ *     omitted, get it from window.navigator.userAgent.
+ * @return {boolean} {@code true} if the browser supports SNI.
+ */
+window.accountchooser.util.isSNISupported = function(
+    opt_userAgent) {
+  var ua = opt_userAgent || (window.navigator && window.navigator.userAgent);
+  var result;
+  if (!ua) {
+    return false;
+  } else if (result = ua.match(
+      window.accountchooser.util.REGEX_OPERA_UA_)) {
+    var version = new window.accountchooser.util.Version(
+        result[3] || result[1]);
+    // Opera Mini, No.
+    if (ua.indexOf('Opera Mini') >= 0) {
+      return false;
+    }
+    // Opera Mobile 10.1 or later on Android supports SNI.
+    if (ua.indexOf('Opera Mobi') >= 0) {
+      return ua.indexOf('Android') >= 0 && version.ge('10.1');
+    }
+    // Desktop Opera 8.0 or later suppports SNI.
+    return version.ge('8.0');
+  } else if (result = ua.match(
+      window.accountchooser.util.REGEX_FIREFOX_UA_)) {
+    // Firefox 2.0 or later supports SNI.
+    var version =
+        new window.accountchooser.util.Version(result[1]);
+    return version.ge('2.0');
+  } else if (result = ua.match(
+      window.accountchooser.util.REGEX_CHROME_UA_)) {
+    // Chrome 6.0 or later supports SNI.
+    var version =
+        new window.accountchooser.util.Version(result[1]);
+    return version.ge('6.0');
+  } else if (result = ua.match(
+      window.accountchooser.util.REGEX_SAFARI_UA_)) {
+    // Safari 2.1 or later on OS X 10.5.6 or higher and Windows Vista or higher
+    // supports SNI.
+    var version =
+        new window.accountchooser.util.Version(result[6]);
+    var winVersion = result[3] &&
+        new window.accountchooser.util.Version(result[3]);
+    var osxVersion = result[5] &&
+        new window.accountchooser.util.Version(result[5], '_');
+    var platSupport = !!(winVersion && winVersion.ge('6.0')) ||
+        !!(osxVersion && osxVersion.ge('10.5.6'));
+    return platSupport && version.ge('3.0');
+  } else if (result = ua.match(
+      window.accountchooser.util.REGEX_ANDROID_UA_)) {
+    // Android default browser on Android OS 3.0 or higher supports SNI.
+    var version =
+        new window.accountchooser.util.Version(result[1]);
+    return version.ge('3.0');
+  } else if (result = ua.match(
+      window.accountchooser.util.REGEX_MOBILE_SAFARI_UA_)) {
+    // Mobile Safari on iOS 4.0 or higher supports SNI.
+    var iosVersion =
+        new window.accountchooser.util.Version(result[1], '_');
+    return iosVersion.ge('4.0');
+  } else if (result = ua.match(
+      window.accountchooser.util.REGEX_KONQUEROR_UA_)) {
+    // Konqueror 4.7 or later supports SNI.
+    var version =
+        new window.accountchooser.util.Version(result[1]);
+    return version.ge('4.7');
+  } else if (result = ua.match(
+      window.accountchooser.util.REGEX_MOBILE_MSIE_UA_)) {
+    // Mobile IE on WP7 supports SNI.
+    var version =
+        new window.accountchooser.util.Version(result[1]);
+    var winVersion =
+        new window.accountchooser.util.Version(result[2]);
+    return version.ge('7.0') && winVersion.ge('7.0');
+  } else if (result = ua.match(
+      window.accountchooser.util.REGEX_MSIE_UA_)) {
+    // Only IE7 or later on Windows Vista or higher supports SNI.
+    var version =
+        new window.accountchooser.util.Version(result[1]);
+    var winVersion =
+        new window.accountchooser.util.Version(result[2]);
+    return version.ge('7.0') && winVersion.ge('6.0');
+  }
+  return false;
+};
+
+/**
+ * Error thrown when detecting the browser doesn't support SNI.
+ */
+window.accountchooser.util.SNI_NOT_SUPPORT_ERROR = {
+  error: 'SNI is not supported.'
+};
+
+/**
+ * Checks whether the browser supports SNI (Server Name Indicator). If not,
+ * throw an error.
+ * @param {string=} opt_userAgent The user agent string of the browser. If
+ *     omitted, get it from window.navigator.userAgent.
+ */
+window.accountchooser.util.checkSNISupported = function(
+    opt_userAgent) {
+  if (!window.accountchooser.util.isSNISupported(
+      opt_userAgent)) {
+    throw window.accountchooser.util.SNI_NOT_SUPPORT_ERROR;
+  }
+};
+
+/**
+ * Enums for valid property keys of an account.
+ * @enum {string}
+ */
+window.accountchooser.util.AccountPropertyKey = {
+  EMAIL: 'email',
+  DISPLAY_NAME: 'displayName',
+  PHOTO_URL: 'photoUrl',
+  PROVIDER_ID: 'providerId'
+};
+
+/**
+ * Sanitizes account info so that only the valid key/value pairs are kept. If
+ * the sanitizer is not provided, this function only checks the account property
+ * keys so that it can fail fast if the sanitizer is not available.
+ * @param {Object} account The account to be sanitized..
+ * @param {function(string, string): string=} opt_sanitizer The sanitizer.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Object} The sanitized account.
+ */
+window.accountchooser.util.sanitizeAccount = function(account,
+    opt_sanitizer, opt_silent) {
+  var result = {};
+  var AccountPropertyKey =
+      window.accountchooser.util.AccountPropertyKey;
+  for (var key in account) {
+    var value = account[key];
+    switch (key) {
+      case AccountPropertyKey.EMAIL:
+      case AccountPropertyKey.DISPLAY_NAME:
+      case AccountPropertyKey.PHOTO_URL:
+      case AccountPropertyKey.PROVIDER_ID:
+        value = opt_sanitizer ? opt_sanitizer(key, value) : value;
+        if (value) {
+          result[key] = value;
+        }
+        break;
+      default:
+        if (!opt_silent) {
+          throw 'Unrecognized key "' + key + '" for account';
+        }
+    }
+  }
+  if (!result[AccountPropertyKey.EMAIL]) {
+    throw 'No valid email field for the account';
+  }
+  return result;
+};
+
+/**
+ * Sanitizes a list of accounts. If the sanitizer is not provided, this function
+ * only checks the account property keys so that it can fail fast if the
+ * sanitizer is not available.
+ * @param {Array.<Object>} accounts The accounts to be sanitized..
+ * @param {function(string, string): string=} opt_sanitizer The sanitizer.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Array.<Object>} The sanitized accounts.
+ */
+window.accountchooser.util.sanitizeAccounts = function(accounts,
+    opt_sanitizer, opt_silent) {
+  var result = [];
+  for (var i = 0, length = accounts.length; i < length; i++) {
+    var account = window.accountchooser.util.sanitizeAccount(
+        accounts[i], opt_sanitizer, opt_silent);
+    result.push(account);
+  }
+  return result;
+};
+
+/**
+ * Default sanitize function for account sanitizing. It uses caja
+ * html-css-sanitizer to sanitize email/providerId/displayName fields and
+ * rejects any photoUrl whose scheme is not http or https.
+ * @param {string} key the key of the property to be sanitized.
+ * @param {string} value the value of the property ot be sanitized.
+ * @return {string|undefined} the sanitized value.
+ */
+window.accountchooser.util.accountSanitizer = function(
+    key, value) {
+  if (key ==
+      window.accountchooser.util.AccountPropertyKey.PHOTO_URL) {
+    if (/^https?:\/\//i.test(value)) {
+      return value;
+    }
+  } else {
+    // Use caja html-css-sanitizer to sanitize the value. All HTML tags are
+    // removed.
+    return html.sanitizeWithPolicy(value, function() {});
+  }
+};
+
+
+/**
+ * Name space for AJAX CDS RPC.
+ */
+window.accountchooser.rpc =
+    window.accountchooser.rpc || {};
+
+/**
+ * @class Base class for all RPC objects (Request, Response, and Notification).
+ * @constructor
+ */
+window.accountchooser.rpc.RpcObject = function() {};
+
+/**
+ * Sets the timestamp for the RpcObject. If the timestamp is not provided, the
+ * current time is used.
+ * @param {number} opt_timestamp The timestamp for this RpcObject.
+ */
+window.accountchooser.rpc.RpcObject.prototype.setTimestamp =
+    function(opt_timestamp) {
+  this.timestamp_ = opt_timestamp || new Date().getTime();
+};
+
+/**
+ * Transfers the RPC object to a normal object and sets the storage timestamp.
+ * @return {string} The normal object represents the RPC object.
+ */
+window.accountchooser.rpc.RpcObject.prototype.toJSON =
+    function() {
+  var json = {jsonrpc: '2.0'};
+  if (this.timestamp_ != null) {
+    json.timestamp = this.timestamp_;
+  }
+  return json;
+};
+
+/**
+ * Returns the JSON String format of the RPC object.
+ * @return {string} The JSON String format.
+ */
+window.accountchooser.rpc.RpcObject.prototype.toString =
+    function() {
+  return JSON.stringify(this.toJSON());
+};
+
+/**
+ * @class Base class for Request and Notification.
+ * @param {string} method The name of the method to be invoked.
+ * @param {object} params The parameter values to be used during the invocation
+ *     of the method.
+ * @constructor
+ */
+window.accountchooser.rpc.AbstractRequest = function(method,
+    params) {
+  this.method_ = method;
+  this.params_ = params;
+};
+window.accountchooser.rpc.AbstractRequest.inheritsFrom(
+    window.accountchooser.rpc.RpcObject);
+
+/**
+ * Sets the name of the method to be invoked.
+ * @param {string} method The name of the method to be invoked.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.setMethod =
+    function(method) {
+  this.method_ = method;
+};
+
+/**
+ * Returns the name of the method to be invoked.
+ * @return {string} The name of the method to be invoked.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.getMethod =
+    function() {
+  return this.method_;
+};
+
+/**
+ * Sets the parameter values to be used during the invocation of the method.
+ * @param {object} params The parameter values to be used during the invocation
+ *     of the method.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.
+    setParameters = function(params) {
+  this.params_ = params;
+};
+
+/**
+ * Returns the parameter values to be used during the invocation of the method.
+ * @return {object} The parameter values to be used during the invocation of
+ *     the method.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.
+    getParameters = function() {
+  return this.params_;
+};
+
+/**
+ * Transfers the RPC object to a normal object.
+ * @return {string} The normal object represents the RPC object.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.toJSON =
+    function() {
+  var json = window.accountchooser.rpc.RpcObject.prototype.
+      toJSON.call(this);
+  if (this.method_ != null) {
+    json.method = this.method_;
+  }
+  if (this.params_ != null) {
+    json.params = this.params_;
+  }
+  return json;
+};
+
+/**
+ * @class Defines the Notification class. Notification is a request that
+ * without response returned.
+ * @param {string} method The name of the method to be invoked.
+ * @param {object} params The parameter values to be used during the invocation
+ *     of the method.
+ * @constructor
+ */
+window.accountchooser.rpc.Notification = function(method,
+    params) {
+  this.method_ = method;
+  this.params_ = params;
+};
+window.accountchooser.rpc.Notification.inheritsFrom(
+    window.accountchooser.rpc.AbstractRequest);
+
+/**
+ * @class Defines the Request class. Request is a wrapper for a RPC request.
+ * There must be a Response returned from the Server after handling the Request.
+ * @param {string} method The name of the method to be invoked.
+ * @param {object} params The parameter values to be used during the invocation
+ *     of the method.
+ * @param {string} id The id of the request.
+ * @constructor
+ */
+window.accountchooser.rpc.Request = function(method, params,
+    id) {
+  this.method_ = method;
+  this.params_ = params;
+  this.id_ = id;
+};
+window.accountchooser.rpc.Request.inheritsFrom(
+    window.accountchooser.rpc.AbstractRequest);
+
+/**
+ * Sets the request id.
+ * @param {string} id the id of the request.
+ */
+window.accountchooser.rpc.Request.prototype.setId = function(
+    id) {
+  this.id_ = id;
+};
+
+/**
+ * Returns the request id.
+ * @return {string} the id of the request.
+ */
+window.accountchooser.rpc.Request.prototype.getId = function() {
+  return this.id_;
+};
+
+/**
+ * Transfers the RPC object to a normal object.
+ * @return {string} The normal object represents the RPC object.
+ */
+window.accountchooser.rpc.Request.prototype.toJSON = function() {
+  var json = window.accountchooser.rpc.AbstractRequest.prototype.
+      toJSON.call(this);
+  if (this.id_ != null) {
+    json.id = this.id_;
+  }
+  return json;
+};
+
+/**
+ * @class Defines the Response class. After a Request is processed by the
+ * server, a Response is returned as the result. The parameters opt_result and
+ * opt_error cannot exist together, and exact one parameter should be provided.
+ * @param {string} id The id of the request object.
+ * @param {object|string|boolean|number} opt_result The result of the RPC
+ *     request. Its value is determined by the method invoked on the Server.
+ * @param {object} opt_error the error information.
+ * @constructor
+ */
+window.accountchooser.rpc.Response = function(id, opt_result,
+    opt_error) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  this.id_ = id;
+  this.result_ = opt_result;
+  this.error_ = opt_error;
+};
+window.accountchooser.rpc.Response.inheritsFrom(
+    window.accountchooser.rpc.RpcObject);
+
+/**
+ * Returns the result of the Response.
+ * @return {object|string|Boolean|number} the result of the Response.
+ */
+window.accountchooser.rpc.Response.prototype.getResult =
+    function() {
+  return this.result_;
+};
+
+/**
+ * Sets the result of the Response.
+ * @param {object|string|Boolean|number} result the result of the Response.
+ */
+window.accountchooser.rpc.Response.prototype.setResult =
+    function(result) {
+  this.result_ = result;
+};
+
+/**
+ * Returns the error of the Response.
+ * @return {object} the error of the Response.
+ */
+window.accountchooser.rpc.Response.prototype.getError =
+    function() {
+  return this.error_;
+};
+
+/**
+ * Sets the error of the Response.
+ * @param {object} error the error of the Response.
+ */
+window.accountchooser.rpc.Response.prototype.setError =
+    function(error) {
+  this.error_ = error;
+};
+
+/**
+ * Sets the request id.
+ * @param {string} id the id of the request.
+ */
+window.accountchooser.rpc.Response.prototype.setId =
+    function(id) {
+  this.id_ = id;
+};
+
+/**
+ * Returns the request id.
+ * @return {string} the id of the request.
+ */
+window.accountchooser.rpc.Response.prototype.getId = function() {
+  return this.id_;
+};
+
+/**
+ * Transfers the RPC object to a normal object.
+ * @return {string} The normal object represents the RPC object.
+ */
+window.accountchooser.rpc.Response.prototype.toJSON =
+    function() {
+  var json = window.accountchooser.rpc.RpcObject.prototype.
+      toJSON.call(this);
+  json.id = this.id_;
+  if (this.result_ != null) {
+    json.result = this.result_;
+  } else if (this.error_ != null) {
+    json.error = this.error_;
+  }
+  return json;
+};
+
+
+/** default CDS domain  */
+window.accountchooser.rpc.DEFAULT_CDS_DOMAIN =
+    'https://www.accountchooser.com';
+
+/** default CDS iframe URL  */
+window.accountchooser.rpc.DEFAULT_CDS_IFRAME_PATH =
+    '/iframe.html';
+
+/** default CDS popup URL  */
+window.accountchooser.rpc.DEFAULT_CDS_POPUP_PATH = '/popup.html';
+
+/** default CDS redirect URL  */
+window.accountchooser.rpc.DEFAULT_CDS_REDIRECT_PATH =
+    '/redirect.html';
+
+/** default popup width  */
+window.accountchooser.rpc.DEFAULT_POPUP_WIDTH = 520;
+
+/** default popup height  */
+window.accountchooser.rpc.DEFAULT_POPUP_HEIGHT = 550;
+
+/** callback name for empty response */
+window.accountchooser.rpc.EMPTY_RESPONSE_CALLBACK = 'empty';
+
+/** Timeout for IDP assertion, in milliseconds. Default to 3 seconds  */
+window.accountchooser.rpc.IDP_TIMEOUT = 3000;
+
+/** The life time of an RPC object, in milliseconds. Default to 5 minutes. */
+window.accountchooser.rpc.RPC_TIMEOUT = 5 * 60 * 1000;
+
+
+
+/**
+ * @class Defines the RequestAckNotification class. RequestAckNotification is a
+ * Notification to indicate that a Request is received by CDS.
+ * @param {string} requestId The id of the Request.
+ * @constructor
+ */
+window.accountchooser.rpc.RequestAckNotification = function(
+    requestId) {
+  window.accountchooser.param.notEmpty(requestId, 'requestId');
+  this.method_ =
+      window.accountchooser.rpc.RequestAckNotification.METHOD;
+  this.params_ = {requestId: requestId};
+};
+window.accountchooser.rpc.RequestAckNotification.inheritsFrom(
+   window.accountchooser.rpc.Notification);
+
+/** The method name of the RequestAckNotification */
+window.accountchooser.rpc.RequestAckNotification.METHOD =
+    'requestAckNotification';
+
+/**
+ * Sets the id of the Request to be acknowledged.
+ * @param {string} requestId The id of the Requestto be acknowledged.
+ */
+window.accountchooser.rpc.RequestAckNotification.prototype.
+    setRequestId = function(requestId) {
+  this.params_.requestId = requestId;
+};
+
+/**
+ * Returns the id of the Request to be acknowledged.
+ * @return {string} The id of the Request to be acknowledged.
+ */
+window.accountchooser.rpc.RequestAckNotification.prototype.
+    getRequestId = function() {
+  return this.params_.requestId;
+};
+
+/**
+ * @class Defines the CdsReadyNotification class. CdsReadyNotification is a
+ * Notification to indicate that CDS page is loaded and initialized.
+ * @constructor
+ */
+window.accountchooser.rpc.CdsReadyNotification = function() {
+  this.method_ =
+      window.accountchooser.rpc.CdsReadyNotification.METHOD;
+};
+window.accountchooser.rpc.CdsReadyNotification.inheritsFrom(
+   window.accountchooser.rpc.Notification);
+
+/** The method name of the CdsReadyNotification */
+window.accountchooser.rpc.CdsReadyNotification.METHOD =
+    'cdsReadyNotification';
+
+/**
+ * @class Defines the ClientReadyNotification class. ClientReadyNotification is
+ * a Notification to indicate that CDS Client page is loaded and initialized.
+ * @constructor
+ */
+window.accountchooser.rpc.ClientReadyNotification = function() {
+  this.method_ =
+      window.accountchooser.rpc.ClientReadyNotification.METHOD;
+};
+window.accountchooser.rpc.ClientReadyNotification.inheritsFrom(
+   window.accountchooser.rpc.Notification);
+
+/** The method name of the ClientReadyNotification */
+window.accountchooser.rpc.ClientReadyNotification.METHOD =
+    'clientReadyNotification';
+
+/**
+ * @class Defines the EmptyResponseNotification class. EmptyResponseNotification
+ * is a Notification to indicate that there's no saved Response for the Client.
+ * @constructor
+ */
+window.accountchooser.rpc.EmptyResponseNotification =
+    function() {
+  this.method_ =
+      window.accountchooser.rpc.EmptyResponseNotification.METHOD;
+};
+window.accountchooser.rpc.EmptyResponseNotification.inheritsFrom(
+    window.accountchooser.rpc.Notification);
+
+/** The method name of the EmptyResponseNotification */
+window.accountchooser.rpc.EmptyResponseNotification.METHOD =
+    'emptyResponseNotification';
+
+/**
+ * @class Defines the StoreRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Array.<Object>} accounts the list of accounta to be stored to CDS.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.StoreRequest = function(id, accounts,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  window.accountchooser.param.notEmptyArray (accounts,
+      'accounts');
+  if (accounts) {
+    accounts = window.accountchooser.util.sanitizeAccounts(
+        accounts);
+  }
+  this.method_ = window.accountchooser.rpc.StoreRequest.METHOD;
+  this.params_ = {
+    accounts: accounts,
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.StoreRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the StoreRequest */
+window.accountchooser.rpc.StoreRequest.METHOD = 'store';
+
+/**
+ * @class Defines the SelectRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Array.<Object>} localAccounts the list of local account to be
+ *     shown in the CDS.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.SelectRequest = function(id,
+    localAccounts, clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  if (localAccounts) {
+    localAccounts = window.accountchooser.util.sanitizeAccounts(
+        localAccounts);
+  }
+  this.method_ = window.accountchooser.rpc.SelectRequest.METHOD;
+  this.params_ = {
+    localAccounts: localAccounts,
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.SelectRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the SelectRequest */
+window.accountchooser.rpc.SelectRequest.METHOD = 'select';
+
+/**
+ * @class Defines the UpdateRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Object} account the account to be updated in CDS.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.UpdateRequest = function(id, account,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  window.accountchooser.param.notEmpty(account, 'account');
+  if (account) {
+    account = window.accountchooser.util.sanitizeAccount(
+        account);
+  }
+  this.method_ = window.accountchooser.rpc.UpdateRequest.METHOD;
+  this.params_ = {
+    account: account,
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.UpdateRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the UpdateRequest */
+window.accountchooser.rpc.UpdateRequest.METHOD = 'update';
+
+/**
+ * @class Defines the ManageRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.ManageRequest = function(id,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  this.method_ = window.accountchooser.rpc.ManageRequest.METHOD;
+  this.params_ = {
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.ManageRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the ManageRequest */
+window.accountchooser.rpc.ManageRequest.METHOD = 'manage';
+
+/**
+ * @class Defines the AboutRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.AboutRequest = function(id,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  this.method_ = window.accountchooser.rpc.AboutRequest.METHOD;
+  this.params_ = {
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.AboutRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the AboutRequest */
+window.accountchooser.rpc.AboutRequest.METHOD = 'about';
+
+/**
+ * @class Defines the QueryRequest class.
+ * @param {string} id the id of the Request.
+ * @param {string} query the inquiry from the client.
+ * @param {Object} account the account associated with this query.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.QueryRequest = function(id, query,
+    account, clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  window.accountchooser.param.notEmpty(query, 'query');
+  if (account) {
+    account = window.accountchooser.util.sanitizeAccount(
+        account);
+  }
+  this.method_ = window.accountchooser.rpc.QueryRequest.METHOD;
+  this.params_ = {
+    query: query,
+    account: account,
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.QueryRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the UpdateRequest */
+window.accountchooser.rpc.QueryRequest.METHOD = 'query';
+
+/**
+ * Enums for CDS queries.
+ * @enum {string}
+ */
+window.accountchooser.rpc.Queries = {
+  CDS_DISABLED: 'cdsDisabled',
+  CDS_EMPTY: 'cdsEmpty',
+  ACCOUNT_EXIST: 'accountExist',
+  SHOULD_UPDATE: 'shouldUpdate'
+};
+
+
+/**
+ * Parses JSON-RPC Object on CDS client side.
+ * <br>Possible RpcObject for CDS client: Response, RequestAckNotification,
+ * or CdsReadyNotification.
+ * @param {string} json A JSON format string.
+ * @return {RpcObject} A valid RpcObject, of null otherwise.
+ */
+window.accountchooser.rpc.parseRpcObject = function(json) {
+  var result = null;
+  if (json) {
+    try {
+      var rpcObject = JSON.parse(json);
+    } catch (e) {
+      window.accountchooser.util.log(
+          'Invalid JSON-RPC object: not a JSON object.');
+      return result;
+    }
+    if (!rpcObject || rpcObject.jsonrpc != '2.0') {
+      window.accountchooser.util.log(
+          'Invalid JSON-RPC object: \'jsonrpc\' field should be \'2.0\'.');
+    } else if (!rpcObject.id && !rpcObject.method) {
+      window.accountchooser.util.log(
+          'Invalid JSON-RPC object: no \'id\' or \'method\' field found.');
+    } else if (rpcObject.method) {
+      var method = rpcObject.method.toLowerCase();
+      if (method == window.accountchooser.rpc.
+          RequestAckNotification.METHOD.toLowerCase()) {
+        if (rpcObject.params && rpcObject.params.requestId) {
+          var requestId = rpcObject.params.requestId;
+          result = new window.accountchooser.rpc.
+              RequestAckNotification(requestId);
+        } else {
+          window.accountchooser.util.log('Invalid JSON-RPC' +
+              ' notification: no \'params.requestId\' field found.');
+        }
+      } else if (method == window.accountchooser.rpc.
+          CdsReadyNotification.METHOD.toLowerCase()) {
+        result = new window.accountchooser.rpc.
+            CdsReadyNotification();
+      } else if (method == window.accountchooser.rpc.
+          EmptyResponseNotification.METHOD.toLowerCase()) {
+        result = new window.accountchooser.rpc.
+            EmptyResponseNotification();
+      } else {
+        window.accountchooser.util.log(
+            'Invalid JSON-RPC response: invalid \'id\' field.');
+      }
+    } else {
+      result = new window.accountchooser.rpc.Response(
+          rpcObject.id, rpcObject.result, rpcObject.error);
+    }
+  }
+  return result;
+};
+
+
+/**
+ * The services registered on this page.
+ * @private
+ */
+window.accountchooser.rpc.services_ = {};
+
+/**
+ * Registers an RPC service.
+ * @param {string} serviceName The name of the service.
+ * @param {funtion} handler The handler function when the RPC is called.
+ */
+window.accountchooser.rpc.register = function(serviceName,
+    handler) {
+  window.accountchooser.param.notEmpty(serviceName,
+      'serviceName');
+  window.accountchooser.param.notNull(handler, 'handler');
+  window.accountchooser.rpc.services_[serviceName] = handler;
+};
+
+/**
+ * Calls an RPC service registered in another window.
+ * @param {Window} targetWindow The target window object.
+ * @param {window.accountchooser.rpc.Request} request
+ *     The request to send. When target window receive the request, it will
+ *     invoke the service whose name is same as the method name of the request.
+ * @param {string} opt_domain The domain of the target window.
+ */
+window.accountchooser.rpc.call = function(targetWindow,
+    request, opt_domain) {
+  window.accountchooser.param.notEmpty(targetWindow,
+      'targetWindow');
+  var json = request.toString();
+  window.accountchooser.util.log('Send message: ' + json);
+  targetWindow.postMessage(json, opt_domain || '*');
+};
+
+/**
+ * Initialize the message handler for postMessage, on which RPC services are
+ * based.
+ * @param {function} messageHandler The message handler for postMessage.
+ * @private
+ */
+window.accountchooser.rpc.init_ = function(messageHandler) {
+  if (window.addEventListener) {
+    window.addEventListener('message', messageHandler, false);
+  } else if (window.attachEvent) {
+    window.attachEvent('onmessage', messageHandler);
+  } else if (window.document.attachEvent) {
+    window.document.attachEvent('onmessage', messageHandler);
+  } else {
+    window.accountchooser.util.log(
+        'Register handler for postMessage failed.');
+  }
+};
+
+
+/**
+ * The status of the CDS client.
+ * @private
+ */
+window.accountchooser.rpc.client_ = {
+  popupMode: false,
+  popupWindow: null,
+  domain: window.location.host,
+  cdsDomain: null,
+  iframe: null,
+  iframeLoaded: false,
+  cdsReady: false,
+  queue: []
+};
+
+/**
+ * Sets the popup mode.
+ * @param {boolean} popupMode The value for popup mode.
+ */
+window.accountchooser.rpc.setPopupMode = function(popupMode) {
+  window.accountchooser.rpc.client_.popupMode = popupMode;
+};
+
+/**
+ * Gets the popup mode.
+ * @return {boolean} The value for popup mode.
+ */
+window.accountchooser.rpc.getPopupMode = function() {
+  return window.accountchooser.rpc.client_.popupMode;
+};
+
+/**
+ * Sets the popup window.
+ * @param {Window} popupWindow The value for popup window.
+ */
+window.accountchooser.rpc.setPopupWindow =
+    function(popupWindow) {
+  window.accountchooser.rpc.client_.popupWindow = popupWindow;
+};
+
+/**
+ * Gets the popup window.
+ * @return {Window} The value for popup window.
+ */
+window.accountchooser.rpc.getPopupWindow = function() {
+  return window.accountchooser.rpc.client_.popupWindow;
+};
+
+/**
+ * Gets the host (domain:port) string for current client.
+ * @return {string} the domain as a string.
+ * @private
+ */
+window.accountchooser.rpc.getCurrentDomain_ = function() {
+  return window.accountchooser.rpc.client_.domain;
+};
+
+/**
+ * Handler for postMessage event.
+ * @param {EventObject} e the message event object.
+ * @private
+ */
+window.accountchooser.rpc.process_ = function(e) {
+  window.accountchooser.util.log('Received message: ' + e.data +
+      ' from ' + e.origin);
+  if (e.origin !== window.accountchooser.rpc.client_.cdsDomain) {
+    window.accountchooser.util.log(
+        'Ingore message from unrecognized domain: ' + e.origin);
+    return;
+  }
+  var rpcObject =
+      window.accountchooser.rpc.parseRpcObject(e.data);
+  if (!rpcObject) {
+    window.accountchooser.util.log(
+        'Unrecognized rpc received: ' + e.data);
+    return;
+  }
+  window.accountchooser.rpc.fireResponseEvent(rpcObject);
+};
+
+/**
+ * Sends the RPC objects in the waiting queue. It is called when the CDS IFrame
+ * is loaded (in redirect mode), or when the CdsReadyNotification is received
+ * (in popup mode).
+ * @param {window} targetWindow The target window to send RPC.
+ * @private
+ */
+window.accountchooser.rpc.sendRpcInQueue_ = function(
+    targetWindow) {
+  var queue = window.accountchooser.rpc.client_.queue;
+  if (queue && queue.length) {
+    for (var i = 0; i < queue.length; i++) {
+      window.accountchooser.rpc.call(targetWindow, queue[i]);
+    }
+    window.accountchooser.rpc.client_.queue = [];
+  }
+};
+
+/**
+ * Initializes the CDS IFrame.
+ * @param {string} iframeUrl The URL of the CDS IFrame.
+ * @private
+ */
+window.accountchooser.rpc.initIFrame_ = function(iframeUrl) {
+  if (!window.accountchooser.rpc.client_.iframe) {
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('style', 'position: absolute; width: 1px; ' +
+        'height: 1px; left: -9999px;');
+    iframe.setAttribute('id', 'accountchooser-iframe');
+    document.body.appendChild(iframe);
+    window.accountchooser.rpc.client_.iframe = iframe;
+    if (window.addEventListener) {
+      iframe.addEventListener('load', window.accountchooser.
+          rpc.iframeOnLoad_, false);
+    } else if (window.attachEvent) {
+      iframe.attachEvent('onload', window.accountchooser.rpc.
+          iframeOnLoad_, false);
+    } else {
+      window.accountchooser.util.log(
+          'Failed to add iframe onload event.');
+    }
+    iframe.setAttribute('src', iframeUrl);
+  }
+};
+
+/**
+ * OnLoad handler for CDS IFrame.
+ * @private
+ */
+window.accountchooser.rpc.iframeOnLoad_ = function() {
+  window.accountchooser.rpc.client_.iframeLoaded = true;
+  if (!window.accountchooser.rpc.client_.popupMode) {
+    //Sends notification to CDS IFrame to trigger saved RPCs.
+    var w = window.accountchooser.rpc.client_.iframe.
+        contentWindow;
+    window.accountchooser.rpc.call(w,
+        new window.accountchooser.rpc.ClientReadyNotification());
+    window.accountchooser.rpc.sendRpcInQueue_(w);
+  }
+};
+
+/**
+ * Handler for CdsReadyNotification.
+ * @private
+ */
+window.accountchooser.rpc.onCdsReady_ = function() {
+  window.accountchooser.rpc.client_.cdsReady = true;
+  if (window.accountchooser.rpc.client_.popupMode) {
+    window.accountchooser.rpc.sendRpcInQueue_(
+        window.accountchooser.rpc.client_.popupWindow);
+  }
+};
+
+/**
+ * Initializes the CDS client with given configuration parameters. See
+ * below sample for options:
+ * <pre>
+ * {
+ *   popupMode: true/false,  //default is false, that is, redirect mode.
+ *   popupWindow: popup,     // popup window object. Used in popup mode.
+ *   iframeUrl:  '',         // Used in redirect mode.
+ *   cdsDomain:  ''          // The domain of CDS.
+ * }
+ * </pre>
+ * @param {Object} options configuration parameters of the CDS client.
+ */
+window.accountchooser.rpc.initClient = function(options) {
+  if (options.popupMode) {
+    window.accountchooser.rpc.setPopupMode(options.popupMode);
+  }
+  if (options.popupWindow) {
+    window.accountchooser.rpc.setPopupWindow(
+        options.popupWindow);
+  }
+  window.accountchooser.rpc.init_(
+      window.accountchooser.rpc.process_);
+  if (!window.accountchooser.rpc.client_.popupMode) {
+    window.accountchooser.rpc.initIFrame_(options.iframeUrl);
+  }
+  window.accountchooser.rpc.client_.cdsDomain =
+      options.cdsDomain;
+};
+
+/**
+ * Sends an RPC object to CDS server.
+ * @param {Request} request The RPC request object.
+ */
+window.accountchooser.rpc.callCds = function(request) {
+  if (!window.accountchooser.rpc.client_.popupMode) {
+    if (!window.accountchooser.rpc.client_.iframeLoaded) {
+      window.accountchooser.rpc.client_.queue.push(request);
+    } else {
+      var targetWindow = window.accountchooser.rpc.client_.
+          iframe.contentWindow;
+      window.accountchooser.rpc.call(targetWindow, request);
+    }
+  } else {
+    if (!window.accountchooser.rpc.client_.cdsReady) {
+      window.accountchooser.rpc.client_.queue.push(request);
+    } else {
+      var targetWindow = window.accountchooser.rpc.client_.
+          popupWindow;
+      window.accountchooser.rpc.call(targetWindow, request);
+    }
+  }
+};
+
+
+/** Acknowledgment event: a request is received. */
+window.accountchooser.rpc.EVENT_ACK = 'ack';
+
+/** Done event: the response is returned. */
+window.accountchooser.rpc.EVENT_DONE = 'done';
+
+/** CDS Ready event */
+window.accountchooser.rpc.EVENT_CDS_READY = 'cdsReady';
+
+/** Empty response event */
+window.accountchooser.rpc.EVENT_EMPTY_RESPONSE = 'emptyResponse';
+
+/**
+ * Event arrays constants for easy use.
+ */
+window.accountchooser.rpc.ALL_EVENTS = [
+  window.accountchooser.rpc.EVENT_ACK,
+  window.accountchooser.rpc.EVENT_DONE,
+  window.accountchooser.rpc.EVENT_CDS_READY,
+  window.accountchooser.rpc.EVENT_EMPTY_RESPONSE
+];
+
+/**
+ * Event arrays constants for easy use.
+ */
+window.accountchooser.rpc.DONE_AND_ACK = [
+  window.accountchooser.rpc.EVENT_ACK,
+  window.accountchooser.rpc.EVENT_DONE
+];
+
+/**
+ * All the listeners
+ * @type {Array.<
+ *     {listener: function, events: {Array.<string>},
+ *     oneTime: {boolean}, service: {string}}
+ *     >}
+ * @private
+ */
+window.accountchooser.rpc.listeners_ = [];
+
+/**
+ * Creates suitable events array for the event filter. Listen to all events,
+ * if a listener doesn't have the event filter. if a string, only allow that
+ * type of event; if an string array, allow all events in the array.
+ * @param {string|Array.<string>} opt_events The event or events array.
+ * @return {Array.<string>} events array for the event filter.
+ * @private
+ */
+window.accountchooser.rpc.makeEventArray_ = function(
+    opt_events) {
+  var events = [];
+  if (!opt_events) {
+    // Make a copy of ALL_EVENTS array.
+    events = window.accountchooser.rpc.ALL_EVENTS.slice(0);
+  } else {
+    if (window.accountchooser.util.isArray(opt_events)) {
+      for (var i = 0; i < opt_events.length; i++) {
+        if (window.accountchooser.util.indexOf(opt_events[i],
+            window.accountchooser.rpc.ALL_EVENTS) > -1) {
+          events.push(opt_events[i]);
+        } else {
+          window.accountchooser.util.log(
+              'Unrecognized event type: ' + opt_events[i]);
+        }
+      }
+    } else if (window.accountchooser.util.indexOf(
+        opt_events, window.accountchooser.rpc.ALL_EVENTS) > -1) {
+      events.push(opt_events);
+    } else {
+      window.accountchooser.util.log(
+          'Unrecognized event type: ' + opt_events);
+    }
+  }
+  return events;
+};
+
+/**
+ * Mapping from rpcObject to event types. In other words, when client receive
+ * a RpcObject from server, the event type it will fire.
+ * @param {RpcObject} rpcObject The RpcObject the client received from server.
+ * @return {string} the event type.
+ * @private
+ */
+window.accountchooser.rpc.getEventType_ = function(rpcObject) {
+  var event = null;
+  if (rpcObject instanceof
+      window.accountchooser.rpc.RequestAckNotification) {
+    event = window.accountchooser.rpc.EVENT_ACK;
+  } else if (rpcObject instanceof
+      window.accountchooser.rpc.CdsReadyNotification) {
+    event = window.accountchooser.rpc.EVENT_CDS_READY;
+  } else if (rpcObject instanceof
+      window.accountchooser.rpc.Response) {
+    event = window.accountchooser.rpc.EVENT_DONE;
+  } else if (rpcObject instanceof
+      window.accountchooser.rpc.EmptyResponseNotification) {
+    event = window.accountchooser.rpc.EVENT_EMPTY_RESPONSE;
+  }
+  return event;
+};
+
+/**
+ * Adds a listener with some options filters.
+ * @param {function} listener The event listener.
+ * @param {string|Array.<string>} opt_events The event filter. If not set,
+ *     allows all events; if a string, only allow that type of event;
+ *     if an string array, allow all events in the array.
+ * @param {boolean} opt_oneTime If true, remove the listener immediately it is
+ *     invoked the very first time.
+ * @param {string} opt_service The service filter. If set, only invoked when
+ *     the method of the response is same to the service set.
+ */
+window.accountchooser.rpc.addResponseListener = function(
+    listener, opt_events, opt_oneTime, opt_service) {
+  var events = window.accountchooser.rpc.makeEventArray_(
+      opt_events);
+  var l = {
+    listener: listener,
+    events: events,
+    oneTime: !!opt_oneTime,
+    service: opt_service
+  };
+  window.accountchooser.rpc.listeners_.push(l);
+};
+
+/**
+ * Removes a listener.
+ * @param {function} listener The listener to be removed.
+ */
+window.accountchooser.rpc.removeResponseListener = function(
+    listener) {
+  var i = 0;
+  while (i < window.accountchooser.rpc.listeners_.length) {
+    if (window.accountchooser.rpc.listeners_[i].listener ==
+      listener) {
+      window.accountchooser.rpc.listeners_.splice(i, 1);
+    } else {
+      i++;
+    }
+  }
+};
+
+/**
+ * Removes all the listeners.
+ */
+window.accountchooser.rpc.clearResponseListeners = function() {
+  window.accountchooser.rpc.listeners_ = [];
+};
+
+/**
+ * Fires event to listeners.
+ * @param {RpcObject} rpcObject The RpcObject the client received from server.
+ */
+window.accountchooser.rpc.fireResponseEvent = function(
+    rpcObject) {
+  var event = window.accountchooser.rpc.getEventType_(rpcObject);
+  if (!event) {
+    return;
+  }
+  var i = 0;
+  while (i < window.accountchooser.rpc.listeners_.length) {
+    var listener = window.accountchooser.rpc.listeners_[i];
+    if (window.accountchooser.util.indexOf(event,
+        listener.events) < 0) {
+      i++;
+      continue;
+    }
+    if (listener.service) {
+      if (rpcObject instanceof
+          window.accountchooser.rpc.RequestAckNotification &&
+          rpcObject.getRequestId() != listener.service) {
+        i++;
+        continue;
+      } else if (rpcObject instanceof
+          window.accountchooser.rpc.Response &&
+          rpcObject.getId() != listener.service) {
+        i++;
+        continue;
+      }
+    }
+    listener.listener(rpcObject);
+    if (listener.oneTime) {
+      window.accountchooser.rpc.listeners_.splice(i, 1);
+    } else {
+      i++;
+    }
+  }
+};
+
+
+/**
+ * @class CdsClient is a wrapper for CDS client.
+ * @param {Object} config The configuration of the client.
+ * @constructor
+ */
+window.accountchooser.CdsClient = function(config) {
+  // Check if the browser is supported or not.
+  window.accountchooser.util.checkSNISupported();
+  window.accountchooser.param.notEmpty(config, 'config');
+  // Merge customized client configuration with the default.
+  var defaultConfig = {
+    cdsServer: {
+      domain: window.accountchooser.rpc.DEFAULT_CDS_DOMAIN,
+      iframe: window.accountchooser.rpc.DEFAULT_CDS_IFRAME_PATH,
+      popup: window.accountchooser.rpc.DEFAULT_CDS_POPUP_PATH,
+      redirect:
+          window.accountchooser.rpc.DEFAULT_CDS_REDIRECT_PATH
+    },
+    popupWidth: window.accountchooser.rpc.DEFAULT_POPUP_WIDTH,
+    popupHeight: window.accountchooser.rpc.DEFAULT_POPUP_HEIGHT,
+    clientCallbackUrl: window.location.href
+  };
+  config = window.accountchooser.util.extend(true, {},
+      defaultConfig, config);
+  // Build the absolute URLs for CDS server.
+  var cdsServer = config.cdsServer;
+  cdsServer.iframe = cdsServer.domain + cdsServer.iframe;
+  cdsServer.popup = cdsServer.domain + cdsServer.popup;
+  cdsServer.redirect = cdsServer.domain + cdsServer.redirect;
+  this.config_ = config;
+  this.cdsOptions_ = {
+    clientCallbackUrl: this.config_.clientCallbackUrl,
+    positiveCallbackUrl: this.config_.positiveCallbackUrl,
+    negativeCallbackUrl: this.config_.negativeCallbackUrl,
+    keepPopup: !!this.config_.keepPopup,
+    showAll: !!this.config_.showAll,
+    providers: this.config_.providers,
+    language: this.config_.language,
+    ui: this.config_.ui
+  };
+};
+
+/**
+ * Constructs a CdsClient, and initializes it before return.
+ * @param {Object} config The configuration of the client.
+ * <pre>
+ * {
+ *   popupMode: true/false,  // Default is false, that is, redirect mode.
+ *   popupWindow: popup,     // Popup window object. Used in popup mode.
+ *   cdsServer: {            // Optional CDS server config.
+ *     domain: '',           // CDS domain.
+ *     iframe: '',           // Path for iframe page. e.g., '/iframe.html'
+ *     popup: '',            // Path for popup page. e.g., '/popup.html'
+ *     redirect: ''          // Path for redirect page. e.g., '/redirect.html'
+ *   },
+ *   popupWidth: '',         // Width of the popup window. Used in popup mode.
+ *   popupHeight: '',        // Height of the popup window. Used in popup mode.
+ *   clientCallbackUrl: '',  // Address returned from CDS. Used in redirect
+ *                           // mode. Default is the current page Url.
+ *   positiveCallbackUrl: '',// If specified and user performs positive action,
+ *                           // such as confirm adding/updating account, this
+ *                           // one is used instead of clientCallbackUrl and no
+ *                           // need to read the response from HTML5 storage.
+ *   negativeCallbackUrl: '',// If specified and user performs negative action,
+ *                           // such as cancel adding/updating account, this
+ *                           // one is used instead of clientCallbackUrl and no
+ *                           // need to read the response from HTML5 storage.
+ *   keepPopup: true/false,  // Used in popup mode. Default is false, that is,
+ *                           // the popup window will be closed automatically.
+ *   showAll: true/false,    // Default is false, that is, CDS will only show
+ *                           // accounts with an email.
+ *   providers: [],          // IDPs list. If it is undefined/null or an empty
+ *                           // array, IDP info is stripped. If it's not empty,
+ *                           // accounts with those IDPs are listed on the top.
+ *   callbacks: {},          // A set of callback functions, e.g.,
+ *                           // {store: storeCallback, select: selectCallback}
+ *   ui: {                   // Customized UI settings.
+ *     favicon: '',          // URL of the favicon.
+ *     title: '',            // The window title.
+ *     branding: ''          // URL of the branding content.
+ *   }
+ * }
+ * ...
+ * </pre>
+ * @return {CdsClient} The created CdsClient object.
+ */
+window.accountchooser.CdsClient.init = function(config) {
+  var wrapper = new window.accountchooser.CdsClient(config);
+  wrapper.init();
+  return wrapper;
+};
+
+/**
+ * Initializes the CdsClient object with the configuration. In full page
+ * redirect mode the returned service result will be checked, and invoked if
+ * any.
+ * @return {CdsClient} The CdsClient itself.
+ */
+window.accountchooser.CdsClient.prototype.init = function() {
+  if (this.config_.popupMode) {
+    window.accountchooser.rpc.addResponseListener(
+        window.accountchooser.rpc.onCdsReady_,
+        window.accountchooser.rpc.EVENT_CDS_READY);
+  }
+  this.registerListeners_(this.config_.oneTimeCallbacks, true);
+  this.registerListeners_(this.config_.callbacks, false);
+  window.accountchooser.rpc.initClient({
+    popupMode: this.config_.popupMode,
+    popupWindow: this.config_.popupWindow,
+    iframeUrl: this.config_.cdsServer.iframe,
+    cdsDomain: this.config_.cdsServer.domain
+  });
+  return this;
+};
+
+/**
+ * Sets the popup window used by CdsClient.
+ * @param {Window} popupWindow The popup window object.
+ */
+window.accountchooser.CdsClient.prototype.setPopupWindow =
+    function(popupWindow) {
+  window.accountchooser.rpc.setPopupWindow(popupWindow);
+};
+
+/**
+ * Gets the popup window used by CdsClient.
+ * @return {Window} popupWindow The popup window object.
+ */
+window.accountchooser.CdsClient.prototype.getPopupWindow =
+    function() {
+  return window.accountchooser.rpc.getPopupWindow();
+};
+
+/**
+ * Closes the popup window if it is not closed already.
+ */
+window.accountchooser.CdsClient.prototype.closePopupWindow =
+    function() {
+  this.config_.popupWindow = null;
+  if (window.accountchooser.rpc.client_.popupWindow) {
+    if (!window.accountchooser.rpc.client_.popupWindow.closed) {
+      window.accountchooser.rpc.client_.popupWindow.close();
+    }
+    window.accountchooser.rpc.client_.popupWindow = null;
+  }
+};
+
+/**
+ * Changes the popup mode after CdsClient has initialized.
+ * @param {boolean} popupMode The new popupMode value.
+ */
+window.accountchooser.CdsClient.prototype.changePopupModeTo =
+    function(popupMode) {
+  if (this.config_.popupMode == popupMode) {
+    return;
+  }
+  var oldPopupMode = this.config_.popupMode;
+  this.config_.popupMode = popupMode;
+  if (oldPopupMode) {
+    window.accountchooser.rpc.removeResponseListener(
+        window.accountchooser.rpc.onCdsReady_);
+  } else {
+    window.accountchooser.rpc.addResponseListener(
+        window.accountchooser.rpc.onCdsReady_,
+        window.accountchooser.rpc.EVENT_CDS_READY);
+  }
+  window.accountchooser.rpc.setPopupMode(popupMode);
+};
+
+/**
+ * Adds listeners.
+ * @param {Object} callbacks The listeners object, with the property name is
+ *     the method name of the Response; and the property value is the callback
+ *     function.
+ * @param {boolean} oneTime Whether the callbacks are one time.
+ * @private
+ */
+window.accountchooser.CdsClient.prototype.registerListeners_ =
+    function(callbacks, oneTime) {
+  if (callbacks) {
+    for (var service in callbacks) {
+      var callback = callbacks[service];
+      if (callback) {
+        window.accountchooser.param.notEmptyFunction(callback,
+            (oneTime ? 'oneTimeCallbacks.' : 'callbacks.') + service);
+        var event;
+        if (service ==
+            window.accountchooser.rpc.EMPTY_RESPONSE_CALLBACK) {
+          event =
+              window.accountchooser.rpc.EVENT_EMPTY_RESPONSE;
+        } else {
+          event = window.accountchooser.rpc.EVENT_DONE;
+        }
+        var cb = this.wrapCallback_(callback);
+        window.accountchooser.rpc.addResponseListener(cb, event,
+            oneTime, service);
+      }
+    }
+  }
+};
+
+/**
+ * Opens a popup window, and render the CDS page in it.
+ * @return {window} The created popup window object.
+ * @private
+ */
+window.accountchooser.CdsClient.prototype.openPopupWindow_ =
+    function() {
+  window.accountchooser.rpc.client_.cdsReady = false;
+  var popupWindow =
+      window.accountchooser.rpc.client_.popupWindow;
+  if (!popupWindow || popupWindow.closed) {
+    popupWindow = window.accountchooser.util.showPopup(
+        this.config_.popupWidth, this.config_.popupHeight,
+        this.config_.cdsServer.popup);
+  } else {
+    popupWindow.focus();
+    popupWindow.window.location.href = this.config_.cdsServer.popup;
+  }
+  window.accountchooser.rpc.client_.popupWindow = popupWindow;
+  return popupWindow;
+};
+
+/**
+ * Makes preparation for the RPC call. If in popup mode, make sure the popup
+ * window is shown. If in redirect mode, registers a listener so that the page
+ * is redirected after the request is saved.
+ * @param {string} requestId The id of the request to be sent.
+ * @private
+ */
+window.accountchooser.CdsClient.prototype.prepareCall_ =
+    function(requestId) {
+  if (this.config_.popupMode) {
+    this.openPopupWindow_();
+  } else {
+    var url = this.config_.cdsServer.redirect;
+    url += '#' + window.accountchooser.rpc.getCurrentDomain_();
+    var goToCds = function() {
+      window.location.href = url;
+    };
+    window.accountchooser.rpc.addResponseListener(goToCds,
+        window.accountchooser.rpc.EVENT_ACK, true, requestId);
+  }
+};
+
+/**
+ * Creates a wrapper callback which translates the Response into a pair of
+ * result and error so that the caller would not be aware of the underlying
+ * Response object.
+ * @param {function(Object=, Object=)} callback The real callback function
+ *     provieded by the caller.
+ * @return {function(window.accountchooser.rpc.RpcObject)}
+ *     the callback wrapper.
+ * @private
+ */
+window.accountchooser.CdsClient.prototype.wrapCallback_ =
+    function(callback) {
+  var cb = function(response) {
+    if (response instanceof window.accountchooser.rpc.Response) {
+      callback(response.getResult(), response.getError());
+    } else {
+      // In case the RpcObject is not a Response, i.e., the
+      // EmptyResponseNotification, there's no result and error to return. we
+      // should discard it so that the caller won't be aware of our underlying
+      // RPC communcation.
+      callback();
+    }
+  };
+  return cb;
+};
+
+/**
+ * Creates a function as the callback of the look-ahead checking. The callback
+ * will be called when the look-ahead checking is done. If the checking result
+ * meets the critiria, the original request is discarded and the result provided
+ * is returned immediately. Otherwise the request is sent as usual.
+ * @param {window.accountchooser.rpc.Request} request
+ *     The original request.
+ * @param {boolean|function(boolean): boolean} bypassOn Indicates whether to
+ *     bypass the request or not.
+ * @param {*} bypassResult The result sent when bypassing.
+ * @return {function(boolean, Object)} the callback for the look-ahead query.
+ * @private
+ */
+window.accountchooser.CdsClient.prototype.
+    createLookAheadQueryCallback_ = function(request, bypassOn, bypassResult) {
+  var self = this;
+  var callback = function(result, error) {
+    var bypass = typeof bypassOn === 'function' ? bypassOn(result) : !!bypassOn;
+    if (!error && bypass) {
+      window.accountchooser.rpc.fireResponseEvent(
+          new window.accountchooser.rpc.Response(
+              request.getId(), bypassResult));
+    } else {
+      self.callCds_(request);
+    }
+  };
+  return callback;
+};
+
+/**
+ * Actually sends the request to the CDS.
+ * @param {window.accountchooser.rpc.Request} request
+ *     The original request.
+ * @private
+ */
+window.accountchooser.CdsClient.prototype.callCds_ = function(
+    request) {
+  this.prepareCall_(request.getId());
+  window.accountchooser.rpc.callCds(request);
+};
+
+/**
+ * Starts the store service on CDS.
+ * @param {Array.<Object>} accounts The local accounts list, which can be
+ *     shown to end user for selection.
+ * @param {Object=} opt_cdsOptions Optional options for CDS. These options will
+ *     be merged with global ones (set by CdsClient.init(config)) and passed to
+ *     CDS. These are one-time and won't change global options. Options
+ *     supported are listed as below:
+ * <pre>
+ * {
+ *   clientCallbackUrl: '',  // Address returned from CDS.
+ *   positiveCallbackUrl: '',// If specified and user performs positive action,
+ *                           // this is used instead of clientCallbackUrl.
+ *   negativeCallbackUrl: '',// If specified and user performs negative action,
+ *                           // this is used instead of clientCallbackUrl.
+ *   keepPopup: true/false,  // Whether to keep the popup window or not.
+ * }
+ * ...
+ * </pre>
+ */
+window.accountchooser.CdsClient.prototype.store = function(
+    accounts, opt_cdsOptions) {
+  window.accountchooser.param.notEmpty(accounts, 'accounts');
+
+  var service = 'store';
+  var options = opt_cdsOptions ?
+      window.accountchooser.util.extend(false, {},
+          this.cdsOptions_, opt_cdsOptions) :
+      this.cdsOptions_;
+  var store = new window.accountchooser.rpc.StoreRequest(
+      service, accounts, options);
+  this.callCds_(store);
+};
+
+/**
+ * Starts the select service on CDS.
+ * @param {Array.<Object>} localAccounts The local accounts list, which can be
+ *     shown to end user for selection.
+ * @param {Object=} opt_cdsOptions Optional options for CDS. These options will
+ *     be merged with global ones (set by CdsClient.init(config)) and passed to
+ *     CDS. These are one-time and won't change global options. Options
+ *     supported are listed as below:
+ * <pre>
+ * {
+ *   clientCallbackUrl: '',  // Address returned from CDS.
+ *   keepPopup: true/false,  // Whether to keep the popup window or not.
+ *   showAll: true/false,    // Whether to show accounts without an email.
+ *   providers: [],          // IDPs list.
+ * }
+ * ...
+ * </pre>
+ */
+window.accountchooser.CdsClient.prototype.select = function(
+    localAccounts, opt_cdsOptions) {
+  var service = 'select';
+  var options = opt_cdsOptions ?
+      window.accountchooser.util.extend(false, {},
+          this.cdsOptions_, opt_cdsOptions) :
+      this.cdsOptions_;
+  var select = new window.accountchooser.rpc.SelectRequest(
+      service, localAccounts, options);
+  this.callCds_(select);
+};
+
+/**
+ * Starts the update service on CDS.
+ * @param {Object} account The account to store.
+ * @param {Object=} opt_cdsOptions Optional options for CDS. These options will
+ *     be merged with global ones (set by CdsClient.init(config)) and passed to
+ *     CDS. These are one-time and won't change global options. Options
+ *     supported are listed as below:
+ * <pre>
+ * {
+ *   clientCallbackUrl: '',  // Address returned from CDS.
+ *   positiveCallbackUrl: '',// If specified and user performs positive action,
+ *                           // this is used instead of clientCallbackUrl.
+ *   negativeCallbackUrl: '',// If specified and user performs negative action,
+ *                           // this is used instead of clientCallbackUrl.
+ *   keepPopup: true/false,  // Whether to keep the popup window or not.
+ * }
+ * ...
+ * </pre>
+ */
+window.accountchooser.CdsClient.prototype.update = function(
+    account, opt_cdsOptions) {
+  window.accountchooser.param.notEmpty(account, 'account');
+
+  var service = 'update';
+  var options = opt_cdsOptions ?
+      window.accountchooser.util.extend(false, {},
+          this.cdsOptions_, opt_cdsOptions) :
+      this.cdsOptions_;
+  var update = new window.accountchooser.rpc.UpdateRequest(
+      service, account, options);
+  this.callCds_(update);
+};
+
+/**
+ * Sends the query to CDS to get the result.
+ * @param {string} query The query sent to CDS.
+ * @param {Object} account the account associated with this query.
+ * @param {functio(window.accountchooser.rpc.Response)} callback
+ *     The callback function which is called to pass the result response.
+ * @param {Object=} opt_cdsOptions Optional options for CDS. These options will
+ *     be merged with global ones (set by CdsClient.init(config)) and passed to
+ *     CDS. These are one-time and won't change global options.
+ * @private
+ */
+window.accountchooser.CdsClient.prototype.query_ = function(
+    query, account, callback, opt_cdsOptions) {
+  window.accountchooser.param.notEmptyFunction(callback,
+      'callback');
+  // iframe is not used in popup mode so there's no way to inquiry.
+  if (this.config_.popupMode) {
+    var error = {
+      code: -32601,
+      message: 'Method not found',
+      data: 'Query request is not supported in popup mode.'
+    };
+    callback(undefined, error);
+    return;
+  }
+  var service = 'query_' + query + '_' + new Date().getTime();
+  var cb = this.wrapCallback_(callback);
+  window.accountchooser.rpc.addResponseListener(cb,
+      window.accountchooser.rpc.EVENT_DONE, true, service);
+  var options = opt_cdsOptions ?
+      window.accountchooser.util.extend(false, {},
+          this.cdsOptions_, opt_cdsOptions) :
+      this.cdsOptions_;
+  var request = new window.accountchooser.rpc.QueryRequest(
+      service, query, account, options);
+  window.accountchooser.rpc.callCds(request);
+};
+
+/**
+ * Checks whether the CDS is disabled or not.
+ * @param {function(boolean, Object=)} callback The callback function which is
+ *     called to pass the result or error. The first parameter is the checking
+ *     result and the second is the error if it occurs.
+ */
+window.accountchooser.CdsClient.prototype.checkCdsDisabled =
+    function(callback) {
+  this.query_(window.accountchooser.rpc.Queries.CDS_DISABLED,
+      null, callback);
+};
+
+/**
+ * Checks whether the CDS is empty.
+ * @param {function(boolean, Object=)} callback The callback function which is
+ *     called to pass the result or error. The first parameter is the checking
+ *     result and the second is the error if it occurs.
+ */
+window.accountchooser.CdsClient.prototype.checkCdsEmpty =
+    function(callback) {
+  this.query_(window.accountchooser.rpc.Queries.CDS_EMPTY, null,
+      callback);
+};
+
+/**
+ * Checks whether the CDS has this account in its storage.
+ * @param {Object} account the account associated with this query.
+ * @param {function(boolean, Object=)} callback The callback function which is
+ *     called to pass the result or error. The first parameter is the checking
+ *     result and the second is the error if it occurs.
+ */
+window.accountchooser.CdsClient.prototype.checkAccountExist =
+    function(account, callback) {
+  this.query_(window.accountchooser.rpc.Queries.ACCOUNT_EXIST,
+      account, callback);
+};
+
+/**
+ * Checks whether the account is in CDS and should be updated. This is only a
+ * hint, site can still call update service if this checking says no.
+ * @param {Object} account the account associated with this query.
+ * @param {function(boolean, Object=)} callback The callback function which is
+ *     called to pass the result or error. The first parameter is the checking
+ *     result and the second is the error if it occurs.
+ */
+window.accountchooser.CdsClient.prototype.checkShouldUpdate =
+    function(account, callback) {
+  this.query_(window.accountchooser.rpc.Queries.SHOULD_UPDATE,
+      account, callback);
+};
+

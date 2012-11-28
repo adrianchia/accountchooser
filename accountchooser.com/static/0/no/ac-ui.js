@@ -13,89 +13,929 @@
  * limitations under the License.
  */
 
-(function(){var a=void 0,f=!0,h=null,j=!1,k=window,l=jQuery;function n(b,c){return b.execute=c}function aa(b,c){return b.language=c}
-var p="replace",q="attr",r="html",t="location",u="close",ba="displayName",ca="hide",v="empty",da="label",w="images",x="addClass",y="page",z="click",A="param",B="length",C="title",D="prototype",E="labels",G="call",H="appendTo",I="append",ea="",fa=" (",ga='")',ha="&lang=",ia="', ignored!",ja=")",ka=".widget-error",la=".widget-error p",oa=".widget-footer a.widget-account-add",pa=".widget-footer a.widget-button-skip",qa=".widget-footer a.widget-keyhole-button",ra="/favicon.ico",J="<a>",sa="<br>",ta="<center>",
-L="<div>",ua="<h1>",va="<h2>",M="<img>",wa="<input type=",xa="<input type=button>",ya="<input type=checkbox>",za="<label>",N="<li>",Aa="<nobr>",O="<ol>",P="<p>",Q="<span>",Ba="<strong>",Ca="<table>",R="<td>",Da="<tr>",Ea=">",Fa="?",Ga="?lang=",Ha="Bekreft opplysningene som skal vises p\u00e5 kontovelgeren din.",Ia="Empty request received, ignored.",Ja="Error request type: expect type is {",Ka="Invalid Request",La="Legg til en konto",Ma="Lei av \u00e5 logge deg p\u00e5 s\u00e5 ofte? Legg til kontoen din her. Nye apper (f.eks. nettbutikker) kan la deg registrere deg ved bare \u00e5 klikke p\u00e5 kontoen eller angi passordet for kontoen.",
-Na="Method not found",Oa="Noen sider kommer til \u00e5 be om passordet ditt, mens andre logger deg p\u00e5 automatisk n\u00e5r du klikker p\u00e5 kontonavnet.",Pa="N\u00e5r du legger til en konto p\u00e5 denne enheten, trenger du ikke \u00e5 skrive inn e-postadressen din hver gang du bes om \u00e5 logge deg p\u00e5 en side. Du kan bare velge den rette kontoen fra en liste.",Qa="Om kontovelgeren",Ra="Oppdater kontoen",Sa="Parameter must be a Request type.",Ta="Service is disabled. Method is not available.",
-Ua="Unimplemented 'execute' method!",Va="Unrecognized config parameter '",Wa="_blank",Xa="account",Ya="account.email",Za="accountchooserpageurl",$a="alt",ab="anytabheader",bb="apiversion",cb="arrowUrl",db="backgroundImage",eb="border",fb="both",gb="busyIcon",hb="busyLabel",ib="callbackurl",S="caption",jb="cdsclientcallbackurl",kb="cdsemptyresponsehandler",lb="cellpadding",mb="cellspacing",nb="checked",ob="checkusernameformat",pb="cl",qb="clear",rb="clientCallbackUrl",sb="companyname",tb="container",
-ub="defaultPhotoUrl",vb="developerkey",wb="display",xb="dropdownmenu",yb="email",zb="federatedsignupurl",Ab="forgoturl",Bb="gitclient",U="handler",Cb="homeurl",V="href",Db="http://",Eb="idp",Fb="idpFilter",Gb="idpId",Hb="idpconfig",Ib="idps",Jb="index",Kb="infoHtml",Lb="inputClass",W="javascript: void(0)",Mb="keyholeUrl",Nb="label",Ob="labelHtml",Pb="language",Qb="legacy",Rb="li",Sb="li:eq(",Tb="linkHtml",Ub="linkUrl",Vb="localtabheader",Wb="loginurl",Xb="logouthandler",Yb="logouturl",Zb="menuArray",
-$b="mode",ac="nascarIdpList",bc="negativeCallbackUrl",cc="none",dc="object",ec="onAccountClicked",fc="onAddAccountClicked",gc="onCloseIconClicked",hc="onShareCancelClicked",ic="onShareConfirmedClicked",jc="onUpdateCancelClicked",kc="onUpdateConfirmedClicked",lc="opt_closeIcon",mc="opt_handler",nc="parent",oc="password",pc="photoUrl",qc="positiveCallbackUrl",rc="readonly",sc="realm",tc="removable",uc="removeHandler",vc="removeTitle",wc="resource",xc="returntourl",yc="selectable",zc="showAll",Ac="showaccountsmenu",
-Bc="signupurl",Cc="sitedisplaynameid",Dc="siteemailid",Ec="sitelogourl",Fc="sitepasswordid",Gc="sitephotourlid",X="src",Hc="storeaccount",Ic="string",Jc="styleClass",Kc="supportlegacyusername",Lc="target",Mc="text",Y="title",Nc="tryfederatedfirst",Oc="uiconfig",Pc="url or handler",Qc='url("',Rc="usecacheduserstatus",Sc="usecds",Tc="usecontextparam",Uc="usefullpageredirect",Vc="usernameregex",Wc="userstatusurl",Xc="widget-account",Yc="widget-account-add",Zc="widget-account-email",$c="widget-account-idp",
-ad="widget-account-name",bd="widget-account-photo",cd="widget-account-remove",dd="widget-account-select",ed="widget-accounts widget-main",fd="widget-button",gd="widget-button-left",hd="widget-button-link",id="widget-button-middle",jd="widget-button-right",kd="widget-button-skip",ld="widget-checkbox",md="widget-checkbox-text",nd="widget-choice-link",od="widget-close-icon",pd="widget-email-only",qd="widget-empty-request widget-main",rd="widget-error",sd="widget-footer",td="widget-header",ud="widget-header-bar",
-vd="widget-header-with-sub",wd="widget-idp",xd="widget-idp-icon",yd="widget-idp-link",zd="widget-input-button",Ad="widget-keyhole-button",Bd="widget-link",Cd="widget-loading",Dd="widget-main",Ed="widget-message",Fd="widget-nascar-list",Gd="widget-navbar-arrow",Hd="widget-navbar-menu",Id="widget-navbar-menuitem",Jd="widget-panel-chooser",Kd="widget-selectable-account",Ld="width",Md="wizard-idp",Nd="}.",Z;k.accountchooser=k.accountchooser||{};k.cds=k.accountchooser;
-k.accountchooser.images=l.extend(k.accountchooser[w]||{},{noPhoto:"static/image/generic_avatar.png",manHome:"static/image/man-personal.jpg",manWork:"static/image/man-professional.jpg",womanHome:"static/image/woman-personal.jpg",womanWork:"static/image/woman-professional.jpg"});
-k.accountchooser.labels=l.extend(k.accountchooser[E]||{},{shareAccountPage:{title:La,titleMultiple:"Legg til kontoer",confirm:"Husk denne kontoen",confirmMultiple:"Husk disse kontoene",cancel:"Hopp over dette"},updateAccountPage:{title:Ra,confirm:Ra,cancel:"Avbryt"},selectAccountPage:{title:"Logg deg p\u00e5",addAccount:La},manageAccountPage:{title:"Administrer kontoer",deleteReminder:"Kontoen ble fjernet. Det er mulig at du fortsatt er p\u00e5logget denne kontoen p\u00e5 enkelte nettsteder, eller at disse nettstedene fortsatt husker at du brukte den."},
-manageContainer:{header:"Administrer kontovelgeren din",description:Ha},selectContainer:{header:"Velg kontoen du vil logge deg p\u00e5"},storeContainer:{header:"Legg til kontoen din p\u00e5 denne enheten",headerMultiple:"Legg til kontoene dine p\u00e5 denne enheten",description:Ma,descriptionMultiple:Ma,benefits:[Pa,Oa]},updateContainer:{header:"Oppdater kontodetaljene dine",description:Ha},aboutContainer:{title:Qa,header:Qa,sec1Par1:"Nettsteder erstatter tradisjonelle p\u00e5loggingsfelt med kontovelgeren for \u00e5 gj\u00f8re nettstedet sikrere og enklere \u00e5 bruke. N\u00e5r du pr\u00f8ver \u00e5 logge deg p\u00e5 et slikt nettsted, f\u00e5r du se en liste med kontoene du vanligvis bruker p\u00e5 denne datamaskinen.",
-subHeader1:"Brukere: Slik fungerer det",sec2Par1:Pa,sec2Par2:Oa,subHeader2:"Nettstedseiere: Finn ut hvordan du oppgraderer nettstedet ditt",sec3Par1:"Oppgradering av nettstedet ditt til bruk av kontovelgeren har flere fordeler:",sec3Par1List1:"\u00d8k tallene for p\u00e5logging og registrering p\u00e5 nettstedet ditt",sec3Par1List2:"Gj\u00f8r det enklere for nettstedet \u00e5 st\u00f8tte identitetsleverand\u00f8rer i fremtiden",sec3Par1List3:"Det krever bare noen f\u00e5, minimale endringer p\u00e5 nettstedet ditt",
-deployButton:'<a href="http://accountchooser.net/owners">Finn ut hvordan du aktiverer kontovelgeren</a>',accountManHome:{email:"john.garcia@gmail.com",displayName:"John Garcia",photoUrl:k.accountchooser[w].manHome},accountManWork:{email:"jgarcia@summitmedgroup.com",displayName:"John Garcia",photoUrl:k.accountchooser[w].manWork},accountWomanHome:{email:"sara_corlett@yahoo.com",displayName:"Sara Corlett",photoUrl:k.accountchooser[w].womanHome},accountWomanWork:{email:"corlett@alertblue.com",displayName:"Mrs. Corlett",
-photoUrl:k.accountchooser[w].womanWork}},footerContainer:{copyright:"Copyright 2012 OpenID Foundation.",learnMore:Qa,learnMoreLink:"/learnmore.html"}});k.accountchooser=k.accountchooser||{};k.accountchooser.config=k.accountchooser.config||{};k.accountchooser.config.popup={};k.accountchooser.config.popup.width=520;k.accountchooser.config.popup.height=550;k.accountchooser.config.popup.HTML='<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8">\n    <title>%%title%%</title>\n    <style type="text/css">\n      html,\n      body {\n        background: #f6f6f6;\n        text-align: center;\n        margin: 0;\n        padding: 0;\n      }\n      #message span {\n        display: inline-block;\n        margin: 20% 0 0;\n        padding: 20px;\n        font-weight: 300;\n        font-size: 16px;\n        text-align: center;\n        background: #fff;\n        border: 1px solid #ddd;\n        border-radius: 4px;\n        -moz-border-radius: 4px;\n        -webkit-border-radius: 4px;\n      }\n    </style>\n  </head>\n  <body>\n    <div id="message">\n      <span>%%message%%</span>\n    </div>\n  </body>\n</html>\n';
-k.accountchooser.config.setConfig=function(b){if(b)for(var c in b){var d=b[c];switch(c.toLowerCase()){case Bb:k.accountchooser.config.setWidgetGitClient_(d,c);break;case bb:k.accountchooser.config.setApiVersion_(d,c);break;case vb:k.accountchooser.config.setDeveloperKey_(d,c);break;case Kc:k.accountchooser.config.setSupportLegacyUsername_(d,c);break;case ob:k.accountchooser.config.setCheckUsernameFormat_(d,c);break;case Vc:k.accountchooser.config.setUsernameRegex_(d,c);break;case Tc:k.accountchooser.config.setUseContextParam_(d,
-c);break;case Pb:k.accountchooser.config.setLanguage_(d,c);break;case xc:case ib:k.accountchooser.config.setCallbackUrl_(d,c);break;case sc:k.accountchooser.config.setRealm_(d,c);break;case sb:k.accountchooser.config.setCompanyName_(d,c);break;case Ld:k.accountchooser.config.setWidgetWidth(d,c);break;case Wb:k.accountchooser.config.setWidgetLoginUrl(d,c);break;case Wc:k.accountchooser.config.setWidgetUserStatusUrl(d,c);break;case Bc:k.accountchooser.config.setWidgetSignupUrl(d,c);break;case zb:k.accountchooser.config.setWidgetFederatedSignupUrl(d,
-c);break;case Cb:k.accountchooser.config.setWidgetHomeUrl(d,c);break;case Ab:k.accountchooser.config.setWidgetForgotUrl(d,c);break;case Za:k.accountchooser.config.setWidgetAccountChooserPageUrl(d,c);break;case Yb:k.accountchooser.config.setWidgetLogoutUrl(d,c);break;case Xb:k.accountchooser.config.setWidgetLogoutHandler(d,c);break;case Ib:k.accountchooser.config.setWidgetIdps(d,c);break;case Hb:k.accountchooser.config.setWidgetIdpConfig(d,c);break;case Vb:k.accountchooser.config.setWidgetLocalTabHeader(d,
-c);break;case ab:k.accountchooser.config.setWidgetAnyTabHeader(d,c);break;case Nc:k.accountchooser.config.setWidgetTryFederatedFirst(d,c);break;case Rc:k.accountchooser.config.setWidgetUseCachedUserStatus(d,c);break;case Ac:k.accountchooser.config.setWidgetShowAccountsMenu(d,c);break;case xb:k.accountchooser.config.setWidgetDrowdownMenu(d,c);break;case Ec:k.accountchooser.config.setWidgetSiteLogoUrl(d,c);break;case Uc:k.accountchooser.config.setWidgetUseFullPageRedirect(d,c);break;case Sc:k.accountchooser.config.setWidgetUseCds(d,
-c);break;case kb:k.accountchooser.config.setCdsEmptyResponseHandler(d,c);break;case jb:k.accountchooser.config.setCdsClientCallbackUrl(d,c);break;case Oc:k.accountchooser.config.setCdsUiConfig(d,c);break;case Dc:k.accountchooser.config.setSiteEmailId(d,c);break;case Fc:k.accountchooser.config.setSitePasswordId(d,c);break;case Cc:k.accountchooser.config.setSiteDisplayNameId(d,c);break;case Gc:k.accountchooser.config.setSitePhotoUrlId(d,c);break;case $b:k.accountchooser.config.setMode(d,c);break;case Hc:k.accountchooser.config.setStoredAccount(d,
-c);break;default:k.accountchooser.config.logUnrecognizedConfig_(c)}}};k.accountchooser.config.logUnrecognizedConfig_=function(b){k.accountchooser.util&&k.accountchooser.util.log&&k.accountchooser.util.log(Va+b+ia)};k.accountchooser.config.setApiVersion_=function(b,c){k.gapi&&k.gapi.client?(k.accountchooser[A].notEmpty(b,c),k.accountchooser.config.apiVersion=b):k.googleapis?(k.accountchooser[A].notEmpty(b,c),k.accountchooser.config.apiVersion=b,k.googleapis.setVersions({identitytoolkit:b})):k.accountchooser.config.logUnrecognizedConfig_(c)};
-k.accountchooser.config.setDeveloperKey_=function(b,c){k.gapi&&k.gapi.client&&k.gapi.client.setApiKey?(k.accountchooser[A].notEmpty(b,c),k.gapi.client.setApiKey(b)):k.googleapis?(k.accountchooser[A].notEmpty(b,c),k.googleapis.setDeveloperKey(b)):k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setSupportLegacyUsername_=function(b){k.accountchooser.config.supportLegacyUsername=!!b};
-k.accountchooser.config.setCheckUsernameFormat_=function(b){k.accountchooser.config.disableUsernameFormatCheck=!b};k.accountchooser.config.setUsernameRegex_=function(b){k.accountchooser.config.usernameRegex=b};k.accountchooser.config.setUseContextParam_=function(b){k.accountchooser.config.useContextParam=!!b};k.accountchooser.config.setLanguage_=function(b){aa(k.accountchooser.config,b)};
-k.accountchooser.config.setCallbackUrl_=function(b,c){k.accountchooser[A].notEmpty(b,c);k.accountchooser.config.continueUrl=b};k.accountchooser.config.setRealm_=function(b){k.accountchooser.config.realm=b};k.accountchooser.config.setCompanyName_=function(b){k.accountchooser[E]&&k.accountchooser.config.replaceCompanyName_(k.accountchooser[E],b)};
-k.accountchooser.config.replaceCompanyName_=function(b,c){for(var d in b){var e=b[d];typeof e==Ic?b[d]=e[p](/\%\%companyName\%\%/g,c):typeof e==dc&&k.accountchooser.config.replaceCompanyName_(e,c)}};k.accountchooser.config.setWidgetGitClient_=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetWidth=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetLoginUrl=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};
-k.accountchooser.config.setWidgetSignupUrl=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetFederatedSignupUrl=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetUserStatusUrl=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetForgotUrl=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetHomeUrl=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};
-k.accountchooser.config.setWidgetIdps=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetIdpConfig=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetLocalTabHeader=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetAnyTabHeader=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetTryFederatedFirst=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};
-k.accountchooser.config.setWidgetUseCachedUserStatus=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetShowAccountsMenu=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetLogoutUrl=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetLogoutHandler=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};
-k.accountchooser.config.setWidgetDrowdownMenu=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetSiteLogoUrl=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetUseFullPageRedirect=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setWidgetUseCds=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};
-k.accountchooser.config.setCdsEmptyResponseHandler=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setCdsClientCallbackUrl=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setCdsUiConfig=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setSiteEmailId=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setSitePasswordId=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};
-k.accountchooser.config.setSiteDisplayNameId=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setSitePhotoUrlId=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setMode=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.config.setStoredAccount=function(b,c){k.accountchooser.config.logUnrecognizedConfig_(c)};k.accountchooser.setConfig=function(b){k.accountchooser.config.setConfig(b)};
-k.accountchooser.Page=k.accountchooser.Page||function(){};Z=k.accountchooser.Page[D];Z.render=function(b,c,d){k.accountchooser[A].notNull(b,tb);k.accountchooser[A].notNull(c,wc);this.container_=b;this.resource_=c;this.showCloseIcon_=!!d};Z.getContainer=function(){return this.container_};Z.getResource=function(){return this.resource_};Z.isShowCloseIcon=function(){return this.showCloseIcon_};Z.createTable=function(b){var c=l(Ca)[q](mb,0)[q](lb,0)[q](eb,0);b&&c[x](b);return c};
-Z.createButton=function(b,c,d){k.accountchooser[A].notEmpty(b,S);k.accountchooser[A].notEmpty(c,U);b=l(xa).val(b)[x](zd);d&&b[x](d);var e=this;b[z](function(){e[c][G](e)});return b};Z.createLinkButton=function(b,c,d){k.accountchooser[A].notEmpty(b,S);k.accountchooser[A].notEmpty(c,U);b=l(J)[x](Bd)[r](b);d&&b[x](d);var e=this;b[z](function(){e[c][G](e);return j});return b};
-Z.createRenderedButton=function(b,c,d){k.accountchooser[A].notEmpty(b,S);k.accountchooser[A].notEmpty(c,U);b=l(J)[r](b)[x](hd);var e=this.createTable(fd);d&&e[x](d);d=l(Da)[H](e);l(R)[x](gd)[H](d);l(R)[x](id)[I](b)[H](d);l(R)[x](jd)[H](d);var g=this;l(e)[z](function(){g[c][G](g);return j});return e};Z.createTextBox=function(b,c,d){k.accountchooser[A].notEmpty(b,Lb);c=l(wa+(c?oc:Mc)+Ea);c[x](b);if(d){var e=this;c.keypress(function(b){e[d][G](e,b)})}return c};
-Z.createCheckbox=function(b,c,d){k.accountchooser[A].notNull(b,Ob);c=l(ya)[q](nb,!!c);b=l(za)[x](md)[I](c)[I](b);b=l(L)[x](ld)[I](b);d&&b[x](d);return b};Z.createChoiceLink=function(b,c){k.accountchooser[A].notEmpty(b,S);k.accountchooser[A].notEmpty(c,U);var d=l(L)[x](nd);this.createLinkButton(b,c)[H](d);return d};
-Z.createInfoLinkSection=function(b,c,d,e){k.accountchooser[A].notEmpty(b,Kb);k.accountchooser[A].notEmpty(c,Tb);k.accountchooser[A].notEmpty(d,U);k.accountchooser[A].notEmpty(e,Jc);c=l(J)[r](c);b=l(L)[x](e)[I](b)[I](c);var g=this;c[z](function(){g[d][G](g);return j});return b};Z.createInfoLink=function(b,c,d,e,g){k.accountchooser[A].notEmpty(c,Tb);k.accountchooser[A].notEmpty(d,Ub);k.accountchooser[A].notEmpty(e,Jc);c=l(J)[r](c)[q](V,d)[q](Lc,g||Wa);e=l(L)[x](e);b&&e[I](b);e[I](c);return e};
-Z.createNascarLink_=function(b,c,d){k.accountchooser[A].notEmpty(b,Eb);k.accountchooser[A].notEmpty(c,Gb);k.accountchooser[A].notEmpty(d,U);var e=l(L)[x](wd),g=l(J)[q](V,W)[H](e),m=this.createTable(yd)[H](g),m=l(Da)[H](m);m[I](l(R)[I](l(M)[q](X,b.image)[x](xd)));m[I](l(R)[I](b[da]));var s=this;g[z](function(){s[d][G](s,c);return j});return e};
-Z.createNascarList=function(b,c,d){k.accountchooser[A].notEmpty(b,Ib);k.accountchooser[A].notEmptyArray(c,ac);k.accountchooser[A].notEmpty(d,U);for(var e=l(L)[x](Fd),g=0;g<c[B];g++){var m=c[g];this.createNascarLink_(b[m],m,d)[H](e)}return e};Z.createNascarSection=function(b,c,d,e){k.accountchooser[A].notNull(b,Nb);k.accountchooser[A].notEmpty(c,Ib);k.accountchooser[A].notEmptyArray(d,ac);k.accountchooser[A].notEmpty(e,U);b=l(P)[I](b);this.createNascarList(c,d,e)[H](b);return b};
-Z.createHeader=function(b,c,d,e,g){k.accountchooser[A].notNull(b,Y);var m=l(L)[x](ud);this.header=l(L)[r](b)[x](td)[H](m);if(c){k.accountchooser[A].notEmpty(d,lc);k.accountchooser[A].notEmpty(e,mc);b=l(M)[q](X,d)[x](od)[H](m);g&&b[q](Y,g);var s=this;b[z](function(){s[e][G](s)})}m[I](l(L).css(qb,fb));return m};
-Z.appendLabelledTextBox=function(b,c,d,e,g){k.accountchooser[A].notNull(b,nc);k.accountchooser[A].notNull(c,Nb);k.accountchooser[A].notEmpty(d,Lb);c&&b[I](c)[I](sa);b[I](this.createTextBox(d,e,g))};Z.appendErrorDiv=function(b){k.accountchooser[A].notNull(b,nc);return l(L)[x](rd)[H](b)};Z.appendMessageDiv=function(b){k.accountchooser[A].notNull(b,nc);return l(L)[x](Ed)[H](b)[ca]()};Z.appendClearDiv=function(b){k.accountchooser[A].notNull(b,nc);l(L)[x](pb)[H](b)};
-Z.putCenter=function(b,c){var d=l(ta);b&&d[I](b);c&&d[H](c);return d};Z.createIconButton=function(b,c,d,e){var g=l(L)[x](Md);e&&g[x](e);e=l(J)[q](V,W);e[I](l(M)[q](X,b));var m=this;g[z](function(){m[c][G](m,d);return j});e[H](g);return g};
-Z.createNascarLink_=function(b,c,d){k.accountchooser[A].notEmpty(b,Eb);k.accountchooser[A].notEmpty(c,Gb);k.accountchooser[A].notEmpty(d,U);var e=l(N).css(db,Qc+b.image+ga)[x](wd),g=this;l(J)[q](V,W)[I](l(Q)[r](b[da]))[H](e)[z](function(){g[d][G](g,c);return j});return e};Z.createNascarList=function(b,c,d){k.accountchooser[A].notEmpty(b,Ib);k.accountchooser[A].notEmptyArray(c,ac);k.accountchooser[A].notEmpty(d,U);for(var e=l(O),g=0;g<c[B];g++){var m=c[g];this.createNascarLink_(b[m],m,d)[H](e)}return e};
-Z.createNascarSection=function(b,c,d,e){k.accountchooser[A].notEmpty(c,Ib);k.accountchooser[A].notEmptyArray(d,ac);k.accountchooser[A].notEmpty(e,U);b=l(L)[x](Fd)[I](l(va)[r](b));this.createNascarList(c,d,e)[H](b);return b};Z.createHeader=function(b,c,d,e,g,m){k.accountchooser[A].notNull(b,Y);b=l(L)[x](td)[I](l(ua)[r](b));m&&b[x](m);if(c){k.accountchooser[A].notEmpty(e,mc);c=l(Q)[x](od)[H](b);g&&c[q](Y,g);var s=this;c[z](function(){s[e][G](s)})}return b};
-Z.createAccountBox=function(b,c,d,e,g,m,s,F,ma){k.accountchooser[A].notEmpty(b,yb);k.accountchooser[A].notNull(c,Qb);k.accountchooser[A].notEmpty(e,pc);k.accountchooser[A].notEmpty(g,U);k.accountchooser[A].notEmpty(s,uc);k.accountchooser[A].notEmpty(F,vc);var K=l(N)[x](Xc);l(M)[q](X,e)[x](bd)[H](K);var T=l(P)[H](K);d?T[I](l(Ba)[x](ad)[r](d)):T[x](pd);T[I](l(Q)[x](Zc)[r](b));F=l(J)[x](cd)[q](Y,F)[q](V,W)[H](K);F[I](l(M)[q](X,m));var na=this;K[z](function(){na[g][G](na,{email:b,displayName:d,legacy:!!c,
-photoUrl:e,providerId:ma});return j});F[z](function(){na[s][G](na,{email:b,displayName:d,legacy:!!c,photoUrl:e,providerId:ma});return j});return K};Z.createPopupIndicator=function(b,c,d){k.accountchooser[A].notEmpty(b,gb);k.accountchooser[A].notEmpty(c,hb);k.accountchooser[A].notEmpty(d,U);var e=l(L)[x](Dd),g=l(L)[x](Cd)[H](e);g[I](l(M)[q](X,b));g[I](l(P)[r](c));var m=this;e[z](function(){m[d][G](m);return j});return e};
-Z.createLegacyAccountSignInBox=function(b,c,d,e){k.accountchooser[A].notEmpty(b,yb);k.accountchooser[A].notEmpty(d,pc);var g=l(N)[x](Xc);e&&g[x](e);l(M)[q](X,d)[x](bd)[H](g);d=l(P)[H](g);c?d[I](l(Ba)[x](ad)[r](c)):d[x](pd);d[I](l(Q)[x](Zc)[r](b));return g};
-Z.createKeyholeButton=function(b,c,d,e){k.accountchooser[A].notEmpty(b,Mb);k.accountchooser[A].notEmpty(c,S);k.accountchooser[A].notEmpty(d,U);var g=l(J)[q](V,W)[x](Ad);e&&g[x](e);l(M)[q](X,b)[H](g);g[I](c);var m=this;g[z](function(){m[d][G](m);return j});return g};Z.createRenderedButton=function(b,c,d){k.accountchooser[A].notEmpty(b,S);k.accountchooser[A].notEmpty(c,U);var e=l(J)[q](V,W)[x](Ad);d&&e[x](d);e[I](b);var g=this;e[z](function(){g[c][G](g);return j});return e};
-Z.appendErrorDiv=function(b){k.accountchooser[A].notNull(b,nc);return l(L)[x](rd)[I](l(P))[H](b)};
-Z.createAccountBox_=function(b,c,d,e){k.accountchooser[A].notNull(b,Xa);k.accountchooser[A].notEmpty(b.email,Ya);k.accountchooser[A].notEmpty(c,ub);k.accountchooser[A].notEmpty(d,$b);var g=b.email;b.providerId&&(g+=fa+b.providerId+ja);var g=l(N)[q](Y,g),m;/^https?:\/\//i.test(b.photoUrl)&&(m=b.photoUrl);var s=l(M)[q](X,m||c)[x](bd)[H](g);s.error(function(){s[q](X,c)});m=l(P)[H](g);b[ba]?m[I](l(Ba)[x](ad).text(b[ba])):m[x](pd);var F=l(Q)[x](Zc).text(b.email)[H](m);if(b.providerId){var ma=l(Q)[x]($c).text(b.providerId)[H](m);
-m=Db+b.providerId+ra;var K=l(M)[q](X,m)[q](Y,b.providerId)[q]($a,b.providerId);K.load(function(){ma[ca]();F.prepend(K)})}d==tc?(l(Q)[x](cd)[H](g),g[x](Kd)):d==yc&&(l(Q)[x](dd)[H](g),g[x](Kd));if(e){var T=this;g[z](function(){T[e][G](T,b);return j})}return g};Z.createSelectableAccountBox=function(b,c,d){k.accountchooser[A].notEmpty(d,U);return this.createAccountBox_(b,c,yc,d)};Z.createRemovableAccountBox=function(b,c,d){k.accountchooser[A].notEmpty(d,U);return this.createAccountBox_(b,c,tc,d)};
-Z.createAccountBox=function(b,c){return this.createAccountBox_(b,c,rc)};Z.createLearnMoreLink=function(b,c,d){d&&(c=0>c.indexOf(Fa)?c+(Ga+d):c+(ha+d));return l(J)[q](V,c)[q](Lc,Wa)[r](b)};Z.createHeader=function(b,c,d,e,g,m,s){k.accountchooser[A].notNull(b,Y);b=l(L)[x](td)[I](l(ua)[r](b));c&&(l(va)[r](c)[H](b),b[x](vd));s&&b[x](s);if(d){k.accountchooser[A].notEmpty(g,mc);c=l(Q)[x](od)[H](b);m&&c[q](Y,m);var F=this;c[z](function(){F[g][G](F)})}return b};
-Z.clearError=function(){l(ka,this.container_)[ca]();this.getErrorElement()[v]()};Z.isShowingError=function(){return l(ka,this.container_).css(wb)!=cc};Z.setError=function(b){l(ka,this.container_).show();this.getErrorElement()[r](b)};Z.getErrorElement=function(){return l(la,this.container_)};Z.getAccountElements=function(){return l(Rb,this.container_)};Z.getAccountElement=function(b){k.accountchooser[A].notNull(b,Jb);return l(Sb+b+ja,this.container_)};Z.getConfirmElement=function(){return l(qa,this.container_)};
-Z.getCancelElement=function(){return l(pa,this.container_)};Z.getAddAccountElement=function(){return l(oa,this.container_)};Z.createSigninBar=function(b,c,d,e){k.accountchooser[A].notEmpty(b,pc);k.accountchooser[A].notEmpty(c,Nb);k.accountchooser[A].notEmpty(d,U);return this.createKeyholeButton(b,c,d,e)};
-Z.createNavBar=function(b,c,d,e,g){k.accountchooser[A].notEmpty(b,pc);k.accountchooser[A].notEmpty(c,Nb);k.accountchooser[A].notEmpty(d,U);k.accountchooser[A].notEmpty(e,cb);var m=l(J)[q](V,W)[x](Ad);g&&m[x](g);l(M)[q](X,b)[H](m);m[I](l(Q)[r](c));l(M)[x](Gd)[q](X,e)[H](m);var s=this;m[z](function(){s[d][G](s);return j});return m};
-Z.createDropMenu=function(b){k.accountchooser[A].notEmpty(b,Zb);for(var c=l(O)[x](Hd),d=0;d<b[B];d++){var e=b[d];e&&(e[da]&&(e.url||e.handler))&&c[I](this.createMenuItem_(e[da],e.url,e.handler,e.opt_styleClass))}return c};Z.createMenuItem_=function(b,c,d,e){k.accountchooser[A].notEmpty(b,Nb);k.accountchooser[A].notEmpty(c||d,Pc);var g=l(N)[x](Id);e&&g[x](e);var m=this;l(J)[I](l(Aa)[r](b))[H](g)[z](function(){l.isFunction(d)?d[G](m):d?m[d][G](m):k[t].href=c;return j});return g};
-k.accountchooser.page=k.accountchooser[y]||{};k.accountchooser[y].EmptyRequestPage=function(){};k.accountchooser[y].EmptyRequestPage.inheritsFrom(k.accountchooser.Page);k.accountchooser[y].EmptyRequestPage[D].render=function(b,c,d){this.clientDomain_=c;this.parentClass.render[G](this,b,d||k.accountchooser[E].emptyRequestPage,j);this.render_()};
-k.accountchooser[y].EmptyRequestPage[D].render_=function(){this.createHeader(this.resource_[C],this.showCloseIcon_,this.resource_.closeIcon,gc,this.resource_[u])[H](this.container_);var b=l(L)[x](qd)[H](this.container_);this.appendErrorDiv(b)[r](this.resource_.msg);b=l(L)[H](b);this.clientDomain_?b[r](this.resource_.actionWithDomain[p](/\%\%domain\%\%/g,this.clientDomain_)):b[r](this.resource_.action);b=l(L)[x](sd)[H](this.container_);l(J)[q](V,this.resource_.acSiteUrl)[q](Lc,Wa)[r](this.resource_.acSiteText)[H](b)};
-k.accountchooser[y].ShareAccountPage=function(){};k.accountchooser[y].ShareAccountPage.inheritsFrom(k.accountchooser.Page);k.accountchooser[y].ShareAccountPage[D].render=function(b,c,d){this.accounts_=c;c=d;c||(c=k.accountchooser[E].shareAccountPage);this.parentClass.render[G](this,b,c,j);this.render_()};
-k.accountchooser[y].ShareAccountPage[D].render_=function(){this.createHeader(1>=this.accounts_[B]?this.resource_[C]:this.resource_.titleMultiple,h,this.showCloseIcon_,this.resource_.closeIcon,gc,this.resource_[u])[H](this.container_);var b=l(L)[x](ed)[H](this.container_),c=k.accountchooser[w].noPhoto;if(this.accounts_[B])for(var b=l(O)[H](b),d=0;d<this.accounts_[B];d++){var e=this.accounts_[d];e&&this.createAccountBox(e,c)[H](b)}c=l(L)[x](sd)[H](this.container_);this.createRenderedButton(1>=this.accounts_[B]?
-this.resource_.confirm:this.resource_.confirmMultiple,ic)[H](c);this.createLinkButton(this.resource_.cancel,hc,kd)[H](c)};k.accountchooser[y].ShareAccountPage[D].onShareConfirmedClicked=function(){};k.accountchooser[y].ShareAccountPage[D].onShareCancelClicked=function(){};k.accountchooser[y].SelectAccountPage=function(){};k.accountchooser[y].SelectAccountPage.inheritsFrom(k.accountchooser.Page);
-k.accountchooser[y].SelectAccountPage[D].render=function(b,c,d,e,g,m,s){this.localAccounts_=c||[];this.cdsAccounts_=d||[];c=s;c||(c=k.accountchooser[E].selectAccountPage);this.parentClass.render[G](this,b,c,j);this.showAllInfo=!!e;this.siteDomain=g||ea;aa(this,m);this.render_()};
-k.accountchooser[y].SelectAccountPage[D].render_=function(){this.createHeader(this.resource_[C],this.siteDomain,this.showCloseIcon_,this.resource_.closeIcon,gc,this.resource_[u])[H](this.container_);var b=l(L)[x](ed)[H](this.container_),c=k.accountchooser[w].noPhoto;if(this.localAccounts_[B])for(var d=l(O)[H](b),e=0;e<this.localAccounts_[B];e++){var g=this.localAccounts_[e];g&&g.email&&this.createSelectableAccountBox(g,c,ec)[H](d)}if(this.cdsAccounts_[B]){d=l(O)[H](b);for(e=0;e<this.cdsAccounts_[B];e++)(g=
-this.cdsAccounts_[e])&&g.email&&this.createSelectableAccountBox(g,c,ec)[H](d)}b=l(L)[x](sd)[H](this.container_);this.createLinkButton(this.resource_.addAccount,fc,Yc)[H](b)};k.accountchooser[y].SelectAccountPage[D].onAccountClicked=function(){};k.accountchooser[y].SelectAccountPage[D].onAddAccountClicked=function(){};k.accountchooser[y].UpdateAccountPage=function(){};k.accountchooser[y].UpdateAccountPage.inheritsFrom(k.accountchooser.Page);
-k.accountchooser[y].UpdateAccountPage[D].render=function(b,c,d,e){this.account_=c;c=e;c||(c=k.accountchooser[E].updateAccountPage);this.parentClass.render[G](this,b,c,j);aa(this,d);this.render_()};
-k.accountchooser[y].UpdateAccountPage[D].render_=function(){this.createHeader(this.resource_[C],h,this.showCloseIcon_,this.resource_.closeIcon,gc,this.resource_[u])[H](this.container_);var b=l(L)[x](ed)[H](this.container_),b=l(O)[H](b);this.createAccountBox(this.account_,k.accountchooser[w].noPhoto)[H](b);b=l(L)[x](sd)[H](this.container_);this.createRenderedButton(this.resource_.confirm,kc)[H](b);this.createLinkButton(this.resource_.cancel,jc,kd)[H](b)};
-k.accountchooser[y].UpdateAccountPage[D].onUpdateConfirmedClicked=function(){};k.accountchooser[y].UpdateAccountPage[D].onUpdateCancelClicked=function(){};k.accountchooser[y].ManageAccountPage=function(){};k.accountchooser[y].ManageAccountPage.inheritsFrom(k.accountchooser.Page);k.accountchooser[y].ManageAccountPage[D].render=function(b,c,d,e){this.accounts_=c||[];this.parentClass.render[G](this,b,e||k.accountchooser[E].manageAccountPage,j);aa(this,d);this.render_()};
-k.accountchooser[y].ManageAccountPage[D].render_=function(){this.createHeader(this.resource_[C],h,this.showCloseIcon_,this.resource_.closeIcon,gc,this.resource_[u])[H](this.container_);var b=l(L)[x](ed)[H](this.container_);this.appendErrorDiv(b)[ca]();var c=k.accountchooser[w].noPhoto;if(this.accounts_[B])for(var b=l(O)[H](b),d=0;d<this.accounts_[B];++d){var e=this.accounts_[d];e&&e.email&&this.createRemovableAccountBox(e,c,ec)[H](b)}};k.accountchooser[y].ManageAccountPage[D].onAccountClicked=function(){};
-k.accountchooser.Service=function(){};Z=k.accountchooser.Service[D];Z.setCdsConfig=function(b){this.cdsConfig_=b};Z.setContainer=function(b){this.container_=b};Z.checkRequestType_=function(b,c){var d=h;!this.request_ instanceof k.accountchooser.rpc.Request?d={code:-32600,message:Ka,data:Sa}:!this.request_ instanceof b&&(d={code:-32600,message:Ka,data:Ja+b+Nd});return d?(this.sendErrorResponse_(d,c),j):f};
-Z.executeRequest=function(b,c){b?(this.request_=b,this.clientDomain_=c,k.accountchooser.util.browserconfig.isDisabled()&&!(this instanceof k.accountchooser.ManageService)&&!(this instanceof k.accountchooser.AboutService)?this.sendDisabledErrorResponse_():this.execute()):k.accountchooser.util.log(Ia)};n(Z,function(){this.sendErrorResponse_({code:-32601,message:Na,data:Ua})});Z.sendResponse_=function(b,c){k.accountchooser.rpc.callClient(b);c||this.goToClient()};
-Z.sendErrorResponse_=function(b,c){var d=new k.accountchooser.rpc.Response(this.request_.getId(),a,b);this.sendResponse_(d,c)};Z.sendDisabledErrorResponse_=function(b){this.sendErrorResponse_({code:-32601,message:Na,data:Ta},b)};Z.sendDoneResponse_=function(b,c){var d=new k.accountchooser.rpc.Response(this.request_.getId(),b);this.sendResponse_(d,c)};
-Z.sendStoreResponse=function(b,c){var d=this.getClientConfigValue(qc),e=this.getClientConfigValue(bc);b&&d?k[t][p](d):!b&&e?k[t][p](e):this.sendDoneResponse_({stored:b},c)};Z.sendSelectResponse=function(b,c,d){this.sendDoneResponse_({account:b,idpAssertion:c},d)};Z.sendAddAccountResponse=function(b){this.sendDoneResponse_({addAccount:f},b)};
-Z.sendUpdateResponse=function(b,c){var d=this.getClientConfigValue(qc),e=this.getClientConfigValue(bc);b&&d?k[t][p](d):!b&&e?k[t][p](e):this.sendDoneResponse_({updated:b},c)};Z.goToClient=function(){var b=this.request_;this.clientDomain_=this.request_=h;this.cdsConfig_.popupMode?b.params_.clientConfig.keepPopup||k[u]():k.location=b.params_.clientConfig.clientCallbackUrl};Z.getClientConfigValue=function(b){return b&&this.request_&&this.request_.params_&&this.request_.params_.clientConfig&&this.request_.params_.clientConfig[b]};
-k.accountchooser.ServiceType={MANAGE:"manage",SELECT:"select",STORE:"store",UPDATE:"update",ABOUT:"about"};k.accountchooser.ManageService=function(){};k.accountchooser.ManageService.inheritsFrom(k.accountchooser.Service);n(k.accountchooser.ManageService[D],function(){if(this.checkRequestType_(k.accountchooser.rpc.ManageRequest)){var b=k.accountchooser.util.accountstorage.readAccounts();this.showManageAccountPage_(b)}});
-k.accountchooser.ManageService[D].showManageAccountPage_=function(b){this.container_[v]();this.page_=new k.accountchooser[y].ManageAccountPage;var c=this;this.page_.onAccountClicked=function(b){k.accountchooser.util.accountstorage.removeAccount(b);b=k.accountchooser.util.accountstorage.readAccounts();c.showManageAccountPage_(b);c.page_.setError(k.accountchooser[E].manageAccountPage.deleteReminder)};this.page_.render(this.container_,b,a,a,j)};k.accountchooser.StoreService=function(){};k.accountchooser.StoreService.inheritsFrom(k.accountchooser.Service);
-n(k.accountchooser.StoreService[D],function(){if(this.checkRequestType_(k.accountchooser.rpc.StoreRequest)){var b=k.accountchooser.util.accountstorage.readAccounts(),c=k.accountchooser.util.sanitizeAccounts(this.request_.params_.accounts||[],k.accountchooser.util.accountSanitizer);this.accounts_=[];for(var d=0,e=c[B];d<e;d++){for(var g=c[d],m=j,s=0;s<b[B];s++)if(k.accountchooser.util.accountstorage.matchAccount(b[s],g)){m=f;break}m||this.accounts_.push(g)}0==this.accounts_[B]?this.sendStoreResponse(f):
-this.showShareAccountPage_()}});k.accountchooser.StoreService[D].showShareAccountPage_=function(){this.container_[v]()[x](Jd);var b=this;this.page_=new k.accountchooser[y].ShareAccountPage;this.page_.onShareConfirmedClicked=function(){for(var c=0;c<b.accounts_[B];c++)k.accountchooser.util.accountstorage.addAccount(b.accounts_[c]);b.sendStoreResponse(f)};this.page_.onShareCancelClicked=function(){b.sendStoreResponse(j)};this.page_.render(this.container_,this.accounts_,a,j)};
-k.accountchooser.SelectService=function(){};k.accountchooser.SelectService.inheritsFrom(k.accountchooser.Service);Z=k.accountchooser.SelectService[D];
-n(Z,function(){if(this.checkRequestType_(k.accountchooser.rpc.SelectRequest)){var b=this.getClientConfigValue(zc);this.filter={withEmail:!b,idpList:this.getClientConfigValue(Fb)};var c=k.accountchooser.util.accountstorage.readAccounts(this.filter)||[],d=k.accountchooser.util.sanitizeAccounts(this.request_.params_.localAccounts||[],k.accountchooser.util.accountSanitizer),d=this.removeDuplicatedAccounts_(d,c);if(!d[B]&&!c[B])this.sendAddAccountResponse();else{var e=this.getClientConfigValue(Pb);this.showSelectAccountPage_(d,
-c,b,e)}}});Z.getAssertion_=function(b){var c=k.accountchooser.rpc.isSupportedIdp(b);if(c){var d=this,e=new k.accountchooser.rpc.IdpAuthRequest(b,{clientCallbackUrl:this.getClientConfigValue(rb)});k.accountchooser.rpc.callIdp(c,e,function(c){c&&c.getResult()?d.sendSelectResponse(b,c.getResult().idpAssertion):d.sendSelectResponse(b)},function(){d.sendSelectResponse(b)})}else this.sendSelectResponse(b)};
-Z.showSelectAccountPage_=function(b,c,d,e){this.container_[v]()[x](Jd);var g=this;this.page_=new k.accountchooser[y].SelectAccountPage;this.page_.onAccountClicked=function(b){k.accountchooser.util.accountstorage.addAccount(b);g.getAssertion_(b)};this.page_.onAddAccountClicked=function(){g.sendAddAccountResponse()};var m=this.request_.params_.clientConfig.clientCallbackUrl&&k.accountchooser.util.getDomainFromUrl(this.request_.params_.clientConfig.clientCallbackUrl);this.page_.render(this.container_,
-b,c,d,m,e,a,j)};Z.removeAccountFromList_=function(b,c){for(var d=0;d<c[B];d++)if(k.accountchooser.util.accountstorage.matchAccount(c[d],b)){c.splice(d,1);break}};Z.removeDuplicatedAccounts_=function(b,c){var d=[];if(b&&b[B])for(var e=0;e<b[B];e++){for(var g=b[e],m=j,s=0;s<c[B];s++)if(k.accountchooser.util.accountstorage.matchAccount(c[s],g)){m=f;break}m||d.push(g)}return d};k.accountchooser.UpdateService=function(){};k.accountchooser.UpdateService.inheritsFrom(k.accountchooser.Service);
-n(k.accountchooser.UpdateService[D],function(){if(this.checkRequestType_(k.accountchooser.rpc.UpdateRequest)){for(var b=k.accountchooser.util.sanitizeAccount(this.request_.params_.account,k.accountchooser.util.accountSanitizer),c=k.accountchooser.util.accountstorage.readAccounts()||[],d=j,e=0;e<c[B];e++){var g=c[e];if(k.accountchooser.util.accountstorage.matchAccount(b,g)){k.accountchooser.util.accountstorage.checkCompatible(b,g)&&(b.displayName=b[ba]||g[ba],b.photoUrl=b.photoUrl||g.photoUrl);d=f;
-break}}d?(c=this.getClientConfigValue(Pb),this.showUpdateAccountPage_(b,c)):this.sendUpdateResponse(j)}});
-k.accountchooser.UpdateService[D].showUpdateAccountPage_=function(b,c){this.container_[v]()[x](Jd);var d=this;this.page_=new k.accountchooser[y].UpdateAccountPage;this.page_.onUpdateConfirmedClicked=function(){k.accountchooser.util.accountstorage.refreshAccount(b);d.sendUpdateResponse(f)};this.page_.onUpdateCancelClicked=function(){d.sendUpdateResponse(j)};this.page_.render(this.container_,b,c,a,j)};k.accountchooser.AboutService=function(){};k.accountchooser.AboutService.inheritsFrom(k.accountchooser.Service);
-n(k.accountchooser.AboutService[D],function(){});})()
+(function(){window.accountchooser = window.accountchooser || {};
+window.cds = window.accountchooser;
+var MSG_CONTAINER_ABOUT_DEPLOY_BUTTON = function(beginLink, endLink) {
+  return beginLink + ("Finn ut hvordan du aktiverer kontovelgeren" + endLink)
+};
+window.accountchooser.images = jQuery.extend(window.accountchooser.images || {}, {noPhoto:"static/image/generic_avatar.png", manHome:"static/image/man-personal.jpg", manWork:"static/image/man-professional.jpg", womanHome:"static/image/woman-personal.jpg", womanWork:"static/image/woman-professional.jpg"});
+window.accountchooser.labels = jQuery.extend(window.accountchooser.labels || {}, {shareAccountPage:{title:"Legg til en konto", titleMultiple:"Legg til kontoer", confirm:"Husk denne kontoen", confirmMultiple:"Husk disse kontoene", cancel:"Hopp over dette"}, updateAccountPage:{title:"Oppdater kontoen", confirm:"Oppdater kontoen", cancel:"Avbryt"}, selectAccountPage:{title:"Logg deg p\u00e5", seeMoreAccounts:"Se mer", notUsable:"Kan ikke brukes med dette nettstedet", addAccount:"Legg til en konto"}, 
+manageAccountPage:{title:"Administrer kontoer", deleteReminder:"Kontoen ble fjernet. Det er mulig at du fortsatt er p\u00e5logget denne kontoen p\u00e5 enkelte nettsteder, eller at disse nettstedene fortsatt husker at du brukte den."}, manageContainer:{header:"Dine kontoer", description:"Klikk p\u00e5 en hvilken som helst konto for \u00e5 slette den fra Kontovelger"}, selectContainer:{header:"Velg kontoen du vil logge deg p\u00e5"}, storeContainer:{header:"Legg til kontoen din p\u00e5 denne enheten", 
+headerMultiple:"Legg til kontoene dine p\u00e5 denne enheten", description:"Lei av \u00e5 logge deg p\u00e5 s\u00e5 ofte? Legg til kontoen din her. Nye apper (f.eks. nettbutikker) kan la deg registrere deg ved bare \u00e5 klikke p\u00e5 kontoen eller angi passordet for kontoen.", descriptionMultiple:"Lei av \u00e5 logge deg p\u00e5 s\u00e5 ofte? Legg til kontoen din her. Nye apper (f.eks. nettbutikker) kan la deg registrere deg ved bare \u00e5 klikke p\u00e5 kontoen eller angi passordet for kontoen.", 
+benefits:["N\u00e5r du legger til en konto p\u00e5 denne enheten, trenger du ikke \u00e5 skrive inn e-postadressen din hver gang du bes om \u00e5 logge deg p\u00e5 en side. Du kan bare velge den rette kontoen fra en liste.", "Noen sider kommer til \u00e5 be om passordet ditt, mens andre logger deg p\u00e5 automatisk n\u00e5r du klikker p\u00e5 kontonavnet."]}, updateContainer:{header:"Oppdater kontodetaljene dine", description:"Bekreft opplysningene som skal vises p\u00e5 kontovelgeren din."}, aboutContainer:{title:"Om kontovelgeren", 
+header:"Om kontovelgeren", sec1Par1:"Nettsteder erstatter tradisjonelle p\u00e5loggingsfelt med kontovelgeren for \u00e5 gj\u00f8re nettstedet sikrere og enklere \u00e5 bruke. N\u00e5r du pr\u00f8ver \u00e5 logge deg p\u00e5 et slikt nettsted, f\u00e5r du se en liste med kontoene du vanligvis bruker p\u00e5 denne datamaskinen.", subHeader1:"Brukere: Slik fungerer det", sec2Par1:"N\u00e5r du legger til en konto p\u00e5 denne enheten, trenger du ikke \u00e5 skrive inn e-postadressen din hver gang du bes om \u00e5 logge deg p\u00e5 en side. Du kan bare velge den rette kontoen fra en liste.", 
+sec2Par2:"Noen sider kommer til \u00e5 be om passordet ditt, mens andre logger deg p\u00e5 automatisk n\u00e5r du klikker p\u00e5 kontonavnet.", subHeader2:"Nettstedseiere: Finn ut hvordan du oppgraderer nettstedet ditt", sec3Par1:"Oppgradering av nettstedet ditt til bruk av kontovelgeren har flere fordeler:", sec3Par1List1:"\u00d8k tallene for p\u00e5logging og registrering p\u00e5 nettstedet ditt", sec3Par1List2:"Gj\u00f8r det enklere for nettstedet \u00e5 st\u00f8tte identitetsleverand\u00f8rer i fremtiden", 
+sec3Par1List3:"Det krever bare noen f\u00e5, minimale endringer p\u00e5 nettstedet ditt", deployButton:MSG_CONTAINER_ABOUT_DEPLOY_BUTTON('<a href="http://accountchooser.net/owners">', "</a>"), accountManHome:{email:"john.garcia@gmail.com", displayName:"John Garcia", photoUrl:window.accountchooser.images.manHome}, accountManWork:{email:"jgarcia@summitmedgroup.com", displayName:"John Garcia", photoUrl:window.accountchooser.images.manWork}, accountWomanHome:{email:"sara_corlett@yahoo.com", displayName:"Sara Corlett", 
+photoUrl:window.accountchooser.images.womanHome}, accountWomanWork:{email:"corlett@alertblue.com", displayName:"Mrs. Corlett", photoUrl:window.accountchooser.images.womanWork}}, footerContainer:{copyright:"Copyright 2012 OpenID Foundation.", learnMore:"Om kontovelgeren", learnMoreLink:"/learnmore.html"}});
+window.accountchooser = window.accountchooser || {};
+window.accountchooser.config = window.accountchooser.config || {};
+window.accountchooser.config.popup = {};
+window.accountchooser.config.popup.width = 520;
+window.accountchooser.config.popup.height = 550;
+window.accountchooser.config.popup.HTML = '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8">\n    <title>%%title%%</title>\n    <style type="text/css">\n      html,\n      body {\n        background: #f6f6f6;\n        text-align: center;\n        margin: 0;\n        padding: 0;\n      }\n      #message span {\n        display: inline-block;\n        margin: 20% 0 0;\n        padding: 20px;\n        font-weight: 300;\n        font-size: 16px;\n        text-align: center;\n        background: #fff;\n        border: 1px solid #ddd;\n        border-radius: 4px;\n        -moz-border-radius: 4px;\n        -webkit-border-radius: 4px;\n      }\n    </style>\n  </head>\n  <body>\n    <div id="message">\n      <span>%%message%%</span>\n    </div>\n  </body>\n</html>\n';
+window.accountchooser.Page = window.accountchooser.Page || function() {
+};
+window.accountchooser.Page.prototype.render = function(container, resource, opt_showCloseIcon) {
+  window.accountchooser.param.notNull(container, "container");
+  window.accountchooser.param.notNull(resource, "resource");
+  this.container_ = container;
+  this.resource_ = resource;
+  this.showCloseIcon_ = !!opt_showCloseIcon
+};
+window.accountchooser.Page.prototype.getContainer = function() {
+  return this.container_
+};
+window.accountchooser.Page.prototype.getResource = function() {
+  return this.resource_
+};
+window.accountchooser.Page.prototype.isShowCloseIcon = function() {
+  return this.showCloseIcon_
+};
+window.accountchooser.Page.prototype.createTable = function(opt_styleClass) {
+  var table = jQuery("<table>").attr("cellspacing", 0).attr("cellpadding", 0).attr("border", 0);
+  opt_styleClass && table.addClass(opt_styleClass);
+  return table
+};
+window.accountchooser.Page.prototype.createButton = function(caption, handler, opt_styleClass) {
+  window.accountchooser.param.notEmpty(caption, "caption");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var btn = jQuery("<input type=button>").val(caption).addClass("widget-input-button");
+  opt_styleClass && btn.addClass(opt_styleClass);
+  var self = this;
+  btn.click(function() {
+    self[handler].call(self)
+  });
+  return btn
+};
+window.accountchooser.Page.prototype.createLinkButton = function(caption, handler, opt_styleClass) {
+  window.accountchooser.param.notEmpty(caption, "caption");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var btn = jQuery("<a>").addClass("widget-link").html(caption);
+  opt_styleClass && btn.addClass(opt_styleClass);
+  var self = this;
+  btn.click(function() {
+    self[handler].call(self);
+    return!1
+  });
+  return btn
+};
+window.accountchooser.Page.prototype.createRenderedButton = function(caption, handler, opt_styleClass) {
+  window.accountchooser.param.notEmpty(caption, "caption");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var link = jQuery("<a>").html(caption).addClass("widget-button-link");
+  var table = this.createTable("widget-button");
+  opt_styleClass && table.addClass(opt_styleClass);
+  var btnLine = jQuery("<tr>").appendTo(table);
+  jQuery("<td>").addClass("widget-button-left").appendTo(btnLine);
+  jQuery("<td>").addClass("widget-button-middle").append(link).appendTo(btnLine);
+  jQuery("<td>").addClass("widget-button-right").appendTo(btnLine);
+  var self = this;
+  jQuery(table).click(function() {
+    self[handler].call(self);
+    return!1
+  });
+  return table
+};
+window.accountchooser.Page.prototype.createTextBox = function(inputClass, isPassword, opt_handler) {
+  window.accountchooser.param.notEmpty(inputClass, "inputClass");
+  var type = isPassword ? "password" : "text";
+  var textBox = jQuery("<input type=" + type + ">");
+  textBox.addClass(inputClass);
+  if(opt_handler) {
+    var self = this;
+    textBox.keypress(function(origianlEvent) {
+      self[opt_handler].call(self, origianlEvent)
+    })
+  }
+  return textBox
+};
+window.accountchooser.Page.prototype.createCheckbox = function(labelHtml, checked, opt_styleClass) {
+  window.accountchooser.param.notNull(labelHtml, "labelHtml");
+  var checkBox = jQuery("<input type=checkbox>").attr("checked", !!checked);
+  var label = jQuery("<label>").addClass("widget-checkbox-text").append(checkBox).append(labelHtml);
+  var div = jQuery("<div>").addClass("widget-checkbox").append(label);
+  opt_styleClass && div.addClass(opt_styleClass);
+  return div
+};
+window.accountchooser.Page.prototype.createChoiceLink = function(caption, handler) {
+  window.accountchooser.param.notEmpty(caption, "caption");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var div = jQuery("<div>").addClass("widget-choice-link");
+  this.createLinkButton(caption, handler).appendTo(div);
+  return div
+};
+window.accountchooser.Page.prototype.createInfoLinkSection = function(infoHtml, linkHtml, handler, styleClass) {
+  window.accountchooser.param.notEmpty(infoHtml, "infoHtml");
+  window.accountchooser.param.notEmpty(linkHtml, "linkHtml");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  window.accountchooser.param.notEmpty(styleClass, "styleClass");
+  var link = jQuery("<a>").html(linkHtml);
+  var div = jQuery("<div>").addClass(styleClass).append(infoHtml).append(link);
+  var self = this;
+  link.click(function() {
+    self[handler].call(self);
+    return!1
+  });
+  return div
+};
+window.accountchooser.Page.prototype.createInfoLink = function(infoHtml, linkHtml, linkUrl, styleClass, opt_target) {
+  window.accountchooser.param.notEmpty(linkHtml, "linkHtml");
+  window.accountchooser.param.notEmpty(linkUrl, "linkUrl");
+  window.accountchooser.param.notEmpty(styleClass, "styleClass");
+  var link = jQuery("<a>").html(linkHtml).attr("href", linkUrl).attr("target", opt_target || "_blank");
+  var div = jQuery("<div>").addClass(styleClass);
+  infoHtml && div.append(infoHtml);
+  div.append(link);
+  return div
+};
+window.accountchooser.Page.prototype.createNascarLink_ = function(idp, idpId, handler) {
+  window.accountchooser.param.notEmpty(idp, "idp");
+  window.accountchooser.param.notEmpty(idpId, "idpId");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var idpDiv = jQuery("<div>").addClass("widget-idp");
+  var idpLink = jQuery("<a>").attr("href", "javascript: void(0)").appendTo(idpDiv);
+  var table = this.createTable("widget-idp-link").appendTo(idpLink);
+  var idpTableLine = jQuery("<tr>").appendTo(table);
+  idpTableLine.append(jQuery("<td>").append(jQuery("<img>").attr("src", idp.image).addClass("widget-idp-icon")));
+  idpTableLine.append(jQuery("<td>").append(idp.label));
+  var self = this;
+  idpLink.click(function() {
+    self[handler].call(self, idpId);
+    return!1
+  });
+  return idpDiv
+};
+window.accountchooser.Page.prototype.createNascarList = function(idps, nascarIdpList, handler) {
+  window.accountchooser.param.notEmpty(idps, "idps");
+  window.accountchooser.param.notEmptyArray(nascarIdpList, "nascarIdpList");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var nascar = jQuery("<div>").addClass("widget-nascar-list");
+  for(var i = 0;i < nascarIdpList.length;i++) {
+    var idpId = nascarIdpList[i];
+    this.createNascarLink_(idps[idpId], idpId, handler).appendTo(nascar)
+  }
+  return nascar
+};
+window.accountchooser.Page.prototype.createNascarSection = function(label, idps, nascarIdpList, handler) {
+  window.accountchooser.param.notNull(label, "label");
+  window.accountchooser.param.notEmpty(idps, "idps");
+  window.accountchooser.param.notEmptyArray(nascarIdpList, "nascarIdpList");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var nascarSection = jQuery("<p>").append(label);
+  this.createNascarList(idps, nascarIdpList, handler).appendTo(nascarSection);
+  return nascarSection
+};
+window.accountchooser.Page.prototype.createHeader = function(title, opt_showCloseIcon, opt_closeIcon, opt_handler, opt_closeTitle) {
+  window.accountchooser.param.notNull(title, "title");
+  var headerBar = jQuery("<div>").addClass("widget-header-bar");
+  this.header = jQuery("<div>").html(title).addClass("widget-header").appendTo(headerBar);
+  if(opt_showCloseIcon) {
+    window.accountchooser.param.notEmpty(opt_closeIcon, "opt_closeIcon");
+    window.accountchooser.param.notEmpty(opt_handler, "opt_handler");
+    var closeIcon = jQuery("<img>").attr("src", opt_closeIcon).addClass("widget-close-icon").appendTo(headerBar);
+    opt_closeTitle && closeIcon.attr("title", opt_closeTitle);
+    var self = this;
+    closeIcon.click(function() {
+      self[opt_handler].call(self)
+    })
+  }
+  headerBar.append(jQuery("<div>").css("clear", "both"));
+  return headerBar
+};
+window.accountchooser.Page.prototype.appendLabelledTextBox = function(parent, label, inputClass, isPassword, opt_handler) {
+  window.accountchooser.param.notNull(parent, "parent");
+  window.accountchooser.param.notNull(label, "label");
+  window.accountchooser.param.notEmpty(inputClass, "inputClass");
+  label && parent.append(label).append("<br>");
+  parent.append(this.createTextBox(inputClass, isPassword, opt_handler))
+};
+window.accountchooser.Page.prototype.appendErrorDiv = function(parent) {
+  window.accountchooser.param.notNull(parent, "parent");
+  var errorDiv = jQuery("<div>").addClass("widget-error").appendTo(parent);
+  return errorDiv
+};
+window.accountchooser.Page.prototype.appendMessageDiv = function(parent) {
+  window.accountchooser.param.notNull(parent, "parent");
+  var message = jQuery("<div>").addClass("widget-message").appendTo(parent).hide();
+  return message
+};
+window.accountchooser.Page.prototype.appendClearDiv = function(parent) {
+  window.accountchooser.param.notNull(parent, "parent");
+  jQuery("<div>").addClass("cl").appendTo(parent)
+};
+window.accountchooser.Page.prototype.putCenter = function(opt_child, opt_parent) {
+  var center = jQuery("<center>");
+  opt_child && center.append(opt_child);
+  opt_parent && center.appendTo(opt_parent);
+  return center
+};
+window.accountchooser.Page.prototype.createIconButton = function(icon, handler, opt_param, opt_styleClass) {
+  var buttonDiv = jQuery("<div>").addClass("wizard-idp");
+  opt_styleClass && buttonDiv.addClass(opt_styleClass);
+  var buttonLink = jQuery("<a>").attr("href", "javascript: void(0)");
+  buttonLink.append(jQuery("<img>").attr("src", icon));
+  var self = this;
+  buttonDiv.click(function() {
+    self[handler].call(self, opt_param);
+    return!1
+  });
+  buttonLink.appendTo(buttonDiv);
+  return buttonDiv
+};
+window.accountchooser.Page.prototype.createNascarLink_ = function(idp, idpId, handler) {
+  window.accountchooser.param.notEmpty(idp, "idp");
+  window.accountchooser.param.notEmpty(idpId, "idpId");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var li = jQuery("<li>").css("backgroundImage", 'url("' + idp.image + '")').addClass("widget-idp");
+  var idpLink = jQuery("<a>").attr("href", "javascript: void(0)").append(jQuery("<span>").html(idp.label)).appendTo(li);
+  var self = this;
+  idpLink.click(function() {
+    self[handler].call(self, idpId);
+    return!1
+  });
+  return li
+};
+window.accountchooser.Page.prototype.createNascarList = function(idps, nascarIdpList, handler) {
+  window.accountchooser.param.notEmpty(idps, "idps");
+  window.accountchooser.param.notEmptyArray(nascarIdpList, "nascarIdpList");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var nascar = jQuery("<ol>");
+  for(var i = 0;i < nascarIdpList.length;i++) {
+    var idpId = nascarIdpList[i];
+    this.createNascarLink_(idps[idpId], idpId, handler).appendTo(nascar)
+  }
+  return nascar
+};
+window.accountchooser.Page.prototype.createNascarSection = function(label, idps, nascarIdpList, handler) {
+  window.accountchooser.param.notEmpty(idps, "idps");
+  window.accountchooser.param.notEmptyArray(nascarIdpList, "nascarIdpList");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var nascarSection = jQuery("<div>").addClass("widget-nascar-list").append(jQuery("<h2>").html(label));
+  this.createNascarList(idps, nascarIdpList, handler).appendTo(nascarSection);
+  return nascarSection
+};
+window.accountchooser.Page.prototype.createHeader = function(title, opt_showCloseIcon, opt_closeIcon, opt_handler, opt_closeTitle, opt_styleClass) {
+  window.accountchooser.param.notNull(title, "title");
+  var headerBar = jQuery("<div>").addClass("widget-header").append(jQuery("<h1>").html(title));
+  opt_styleClass && headerBar.addClass(opt_styleClass);
+  if(opt_showCloseIcon) {
+    window.accountchooser.param.notEmpty(opt_handler, "opt_handler");
+    var closeIcon = jQuery("<span>").addClass("widget-close-icon").appendTo(headerBar);
+    opt_closeTitle && closeIcon.attr("title", opt_closeTitle);
+    var self = this;
+    closeIcon.click(function() {
+      self[opt_handler].call(self)
+    })
+  }
+  return headerBar
+};
+window.accountchooser.Page.prototype.createAccountBox = function(email, legacy, displayName, photoUrl, handler, removeIconUrl, removeHandler, removeTitle, opt_providerId) {
+  window.accountchooser.param.notEmpty(email, "email");
+  window.accountchooser.param.notNull(legacy, "legacy");
+  window.accountchooser.param.notEmpty(photoUrl, "photoUrl");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  window.accountchooser.param.notEmpty(removeHandler, "removeHandler");
+  window.accountchooser.param.notEmpty(removeTitle, "removeTitle");
+  var li = jQuery("<li>").addClass("widget-account");
+  jQuery("<img>").attr("src", photoUrl).addClass("widget-account-photo").appendTo(li);
+  var account = jQuery("<p>").appendTo(li);
+  displayName ? account.append(jQuery("<strong>").addClass("widget-account-name").html(displayName)) : account.addClass("widget-email-only");
+  account.append(jQuery("<span>").addClass("widget-account-email").html(email));
+  var removeLink = jQuery("<a>").addClass("widget-account-remove").attr("title", removeTitle).attr("href", "javascript: void(0)").appendTo(li);
+  removeLink.append(jQuery("<img>").attr("src", removeIconUrl));
+  var self = this;
+  li.click(function() {
+    self[handler].call(self, {email:email, displayName:displayName, legacy:!!legacy, photoUrl:photoUrl, providerId:opt_providerId});
+    return!1
+  });
+  removeLink.click(function() {
+    self[removeHandler].call(self, {email:email, displayName:displayName, legacy:!!legacy, photoUrl:photoUrl, providerId:opt_providerId});
+    return!1
+  });
+  return li
+};
+window.accountchooser.Page.prototype.createPopupIndicator = function(busyIcon, busyLabel, handler) {
+  window.accountchooser.param.notEmpty(busyIcon, "busyIcon");
+  window.accountchooser.param.notEmpty(busyLabel, "busyLabel");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var main = jQuery("<div>").addClass("widget-main");
+  var loading = jQuery("<div>").addClass("widget-loading").appendTo(main);
+  loading.append(jQuery("<img>").attr("src", busyIcon));
+  loading.append(jQuery("<p>").html(busyLabel));
+  var self = this;
+  main.click(function() {
+    self[handler].call(self);
+    return!1
+  });
+  return main
+};
+window.accountchooser.Page.prototype.createLegacyAccountSignInBox = function(email, displayName, photoUrl, opt_styleClass) {
+  window.accountchooser.param.notEmpty(email, "email");
+  window.accountchooser.param.notEmpty(photoUrl, "photoUrl");
+  var li = jQuery("<li>").addClass("widget-account");
+  opt_styleClass && li.addClass(opt_styleClass);
+  jQuery("<img>").attr("src", photoUrl).addClass("widget-account-photo").appendTo(li);
+  var account = jQuery("<p>").appendTo(li);
+  displayName ? account.append(jQuery("<strong>").addClass("widget-account-name").html(displayName)) : account.addClass("widget-email-only");
+  account.append(jQuery("<span>").addClass("widget-account-email").html(email));
+  return li
+};
+window.accountchooser.Page.prototype.createKeyholeButton = function(keyholeUrl, caption, handler, opt_styleClass) {
+  window.accountchooser.param.notEmpty(keyholeUrl, "keyholeUrl");
+  window.accountchooser.param.notEmpty(caption, "caption");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var button = jQuery("<a>").attr("href", "javascript: void(0)").addClass("widget-keyhole-button");
+  opt_styleClass && button.addClass(opt_styleClass);
+  jQuery("<img>").attr("src", keyholeUrl).appendTo(button);
+  button.append(caption);
+  var self = this;
+  button.click(function() {
+    self[handler].call(self);
+    return!1
+  });
+  return button
+};
+window.accountchooser.Page.prototype.createRenderedButton = function(caption, handler, opt_styleClass) {
+  window.accountchooser.param.notEmpty(caption, "caption");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  var button = jQuery("<a>").attr("href", "javascript: void(0)").addClass("widget-keyhole-button");
+  opt_styleClass && button.addClass(opt_styleClass);
+  button.append(caption);
+  var self = this;
+  button.click(function() {
+    self[handler].call(self);
+    return!1
+  });
+  return button
+};
+window.accountchooser.Page.prototype.appendErrorDiv = function(parent) {
+  window.accountchooser.param.notNull(parent, "parent");
+  var errorDiv = jQuery("<div>").addClass("widget-error").append(jQuery("<p>")).appendTo(parent);
+  return errorDiv
+};
+window.accountchooser.Page.prototype.createAccountBox_ = function(account, defaultPhotoUrl, mode, opt_handler) {
+  window.accountchooser.param.notNull(account, "account");
+  window.accountchooser.param.notEmpty(account.email, "account.email");
+  window.accountchooser.param.notEmpty(defaultPhotoUrl, "defaultPhotoUrl");
+  window.accountchooser.param.notEmpty(mode, "mode");
+  var title = account.email;
+  account.providerId && (title += " (" + account.providerId + ")");
+  var li = jQuery("<li>").attr("title", title);
+  var photoUrl;
+  /^https?:\/\//i.test(account.photoUrl) && (photoUrl = account.photoUrl);
+  var img = jQuery("<img>").attr("src", photoUrl || defaultPhotoUrl).addClass("widget-account-photo").appendTo(li);
+  img.error(function() {
+    img.attr("src", defaultPhotoUrl)
+  });
+  var accountInfo = jQuery("<p>").appendTo(li);
+  account.displayName ? accountInfo.append(jQuery("<strong>").addClass("widget-account-name").text(account.displayName)) : accountInfo.addClass("widget-email-only");
+  var emailLine = jQuery("<span>").addClass("widget-account-email").text(account.email).appendTo(accountInfo);
+  if(account.providerId) {
+    var idpLine = jQuery("<span>").addClass("widget-account-idp").text(account.providerId).appendTo(accountInfo);
+    var faviconUrl = "http://" + account.providerId + "/favicon.ico";
+    var favicon = jQuery("<img>").attr("src", faviconUrl).attr("title", account.providerId).attr("alt", account.providerId);
+    favicon.load(function() {
+      idpLine.hide();
+      emailLine.prepend(favicon)
+    })
+  }
+  "removable" == mode ? (jQuery("<span>").addClass("widget-account-remove").appendTo(li), li.addClass("widget-selectable-account")) : "selectable" == mode ? (jQuery("<span>").addClass("widget-account-select").appendTo(li), li.addClass("widget-selectable-account")) : "disabled" == mode && li.addClass("widget-disabled-account");
+  if(opt_handler && "disabled" != mode) {
+    var self = this;
+    li.click(function() {
+      self[opt_handler].call(self, account);
+      return!1
+    })
+  }
+  return li
+};
+window.accountchooser.Page.prototype.createSelectableAccountBox = function(account, defaultPhotoUrl, handler) {
+  window.accountchooser.param.notEmpty(handler, "handler");
+  return this.createAccountBox_(account, defaultPhotoUrl, "selectable", handler)
+};
+window.accountchooser.Page.prototype.createRemovableAccountBox = function(account, defaultPhotoUrl, handler) {
+  window.accountchooser.param.notEmpty(handler, "handler");
+  return this.createAccountBox_(account, defaultPhotoUrl, "removable", handler)
+};
+window.accountchooser.Page.prototype.createDisabledAccountBox = function(account, defaultPhotoUrl) {
+  return this.createAccountBox_(account, defaultPhotoUrl, "disabled")
+};
+window.accountchooser.Page.prototype.createAccountBox = function(account, defaultPhotoUrl) {
+  return this.createAccountBox_(account, defaultPhotoUrl, "readonly")
+};
+window.accountchooser.Page.prototype.createLearnMoreLink = function(text, url, opt_Language) {
+  opt_Language && (url = 0 > url.indexOf("?") ? url + ("?lang=" + opt_Language) : url + ("&lang=" + opt_Language));
+  return jQuery("<a>").attr("href", url).attr("target", "_blank").html(text)
+};
+window.accountchooser.Page.prototype.createHeader = function(title, opt_subTitle, opt_showCloseIcon, opt_closeIcon, opt_handler, opt_closeTitle, opt_styleClass) {
+  window.accountchooser.param.notNull(title, "title");
+  var headerBar = jQuery("<div>").addClass("widget-header").append(jQuery("<h1>").html(title));
+  opt_subTitle && (jQuery("<h2>").html(opt_subTitle).appendTo(headerBar), headerBar.addClass("widget-header-with-sub"));
+  opt_styleClass && headerBar.addClass(opt_styleClass);
+  if(opt_showCloseIcon) {
+    window.accountchooser.param.notEmpty(opt_handler, "opt_handler");
+    var closeIcon = jQuery("<span>").addClass("widget-close-icon").appendTo(headerBar);
+    opt_closeTitle && closeIcon.attr("title", opt_closeTitle);
+    var self = this;
+    closeIcon.click(function() {
+      self[opt_handler].call(self)
+    })
+  }
+  return headerBar
+};
+window.accountchooser.Page.prototype.clearError = function() {
+  jQuery(".widget-error", this.container_).hide();
+  this.getErrorElement().empty()
+};
+window.accountchooser.Page.prototype.isShowingError = function() {
+  return"none" != jQuery(".widget-error", this.container_).css("display")
+};
+window.accountchooser.Page.prototype.setError = function(errorHtml) {
+  jQuery(".widget-error", this.container_).show();
+  this.getErrorElement().html(errorHtml)
+};
+window.accountchooser.Page.prototype.getErrorElement = function() {
+  return jQuery(".widget-error p", this.container_)
+};
+window.accountchooser.Page.prototype.getAccountElements = function() {
+  return jQuery("li", this.container_)
+};
+window.accountchooser.Page.prototype.getAccountElement = function(index) {
+  window.accountchooser.param.notNull(index, "index");
+  return jQuery("li:eq(" + index + ")", this.container_)
+};
+window.accountchooser.Page.prototype.getConfirmElement = function() {
+  return jQuery(".widget-footer a.widget-keyhole-button", this.container_)
+};
+window.accountchooser.Page.prototype.getCancelElement = function() {
+  return jQuery(".widget-footer a.widget-button-skip", this.container_)
+};
+window.accountchooser.Page.prototype.getAddAccountElement = function() {
+  return jQuery(".widget-footer a.widget-account-add", this.container_)
+};
+window.accountchooser.Page.prototype.createSigninBar = function(photoUrl, label, handler, opt_styleClass) {
+  window.accountchooser.param.notEmpty(photoUrl, "photoUrl");
+  window.accountchooser.param.notEmpty(label, "label");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  return this.createKeyholeButton(photoUrl, label, handler, opt_styleClass)
+};
+window.accountchooser.Page.prototype.createNavBar = function(photoUrl, label, handler, arrowUrl, opt_styleClass) {
+  window.accountchooser.param.notEmpty(photoUrl, "photoUrl");
+  window.accountchooser.param.notEmpty(label, "label");
+  window.accountchooser.param.notEmpty(handler, "handler");
+  window.accountchooser.param.notEmpty(arrowUrl, "arrowUrl");
+  var button = jQuery("<a>").attr("href", "javascript: void(0)").addClass("widget-keyhole-button");
+  opt_styleClass && button.addClass(opt_styleClass);
+  jQuery("<img>").attr("src", photoUrl).appendTo(button);
+  button.append(jQuery("<span>").html(label));
+  jQuery("<img>").addClass("widget-navbar-arrow").attr("src", arrowUrl).appendTo(button);
+  var self = this;
+  button.click(function() {
+    self[handler].call(self);
+    return!1
+  });
+  return button
+};
+window.accountchooser.Page.prototype.createDropMenu = function(menuArray) {
+  window.accountchooser.param.notEmpty(menuArray, "menuArray");
+  var menu = jQuery("<ol>").addClass("widget-navbar-menu");
+  for(var i = 0;i < menuArray.length;i++) {
+    var item = menuArray[i];
+    item && (item.label && (item.url || item.handler)) && menu.append(this.createMenuItem_(item.label, item.url, item.handler, item.opt_styleClass))
+  }
+  return menu
+};
+window.accountchooser.Page.prototype.createMenuItem_ = function(label, url, handler, opt_styleClass) {
+  window.accountchooser.param.notEmpty(label, "label");
+  window.accountchooser.param.notEmpty(url || handler, "url or handler");
+  var item = jQuery("<li>").addClass("widget-navbar-menuitem");
+  opt_styleClass && item.addClass(opt_styleClass);
+  var link = jQuery("<a>").append(jQuery("<nobr>").html(label)).appendTo(item);
+  var self = this;
+  link.click(function() {
+    jQuery.isFunction(handler) ? handler.call(self) : handler ? self[handler].call(self) : window.location.href = url;
+    return!1
+  });
+  return item
+};
+window.accountchooser.page = window.accountchooser.page || {};
+window.accountchooser.page.EmptyRequestPage = function() {
+};
+window.accountchooser.page.EmptyRequestPage.inheritsFrom(window.accountchooser.Page);
+window.accountchooser.page.EmptyRequestPage.prototype.render = function(container, opt_clientDomain, opt_resource) {
+  this.clientDomain_ = opt_clientDomain;
+  var resource = opt_resource || window.accountchooser.labels.emptyRequestPage;
+  this.parentClass.render.call(this, container, resource, !1);
+  this.render_()
+};
+window.accountchooser.page.EmptyRequestPage.prototype.render_ = function() {
+  this.createHeader(this.resource_.title, this.showCloseIcon_, this.resource_.closeIcon, "onCloseIconClicked", this.resource_.close).appendTo(this.container_);
+  var main = jQuery("<div>").addClass("widget-empty-request widget-main").appendTo(this.container_);
+  this.appendErrorDiv(main).html(this.resource_.msg);
+  var action = jQuery("<div>").appendTo(main);
+  this.clientDomain_ ? action.html(this.resource_.actionWithDomain.replace(/\%\%domain\%\%/g, this.clientDomain_)) : action.html(this.resource_.action);
+  var footer = jQuery("<div>").addClass("widget-footer").appendTo(this.container_);
+  jQuery("<a>").attr("href", this.resource_.acSiteUrl).attr("target", "_blank").html(this.resource_.acSiteText).appendTo(footer)
+};
+window.accountchooser.page.ShareAccountPage = function() {
+};
+window.accountchooser.page.ShareAccountPage.inheritsFrom(window.accountchooser.Page);
+window.accountchooser.page.ShareAccountPage.prototype.render = function(container, accounts, opt_resource) {
+  this.accounts_ = accounts;
+  var resource = opt_resource;
+  resource || (resource = window.accountchooser.labels.shareAccountPage);
+  this.parentClass.render.call(this, container, resource, !1);
+  this.render_()
+};
+window.accountchooser.page.ShareAccountPage.prototype.render_ = function() {
+  var title = 1 >= this.accounts_.length ? this.resource_.title : this.resource_.titleMultiple;
+  this.createHeader(title, null, this.showCloseIcon_, this.resource_.closeIcon, "onCloseIconClicked", this.resource_.close).appendTo(this.container_);
+  var main = jQuery("<div>").addClass("widget-accounts widget-main").appendTo(this.container_);
+  var defaultPhotoUrl = window.accountchooser.images.noPhoto;
+  if(this.accounts_.length) {
+    var accounts = jQuery("<ol>").appendTo(main);
+    for(var index = 0;index < this.accounts_.length;index++) {
+      var account = this.accounts_[index];
+      account && this.createAccountBox(account, defaultPhotoUrl).appendTo(accounts)
+    }
+  }
+  var footer = jQuery("<div>").addClass("widget-footer").appendTo(this.container_);
+  var confirm = 1 >= this.accounts_.length ? this.resource_.confirm : this.resource_.confirmMultiple;
+  this.createRenderedButton(confirm, "onShareConfirmedClicked").appendTo(footer);
+  this.createLinkButton(this.resource_.cancel, "onShareCancelClicked", "widget-button-skip").appendTo(footer)
+};
+window.accountchooser.page.ShareAccountPage.prototype.onShareConfirmedClicked = function() {
+};
+window.accountchooser.page.ShareAccountPage.prototype.onShareCancelClicked = function() {
+};
+window.accountchooser.page.SelectAccountPage = function() {
+};
+window.accountchooser.page.SelectAccountPage.inheritsFrom(window.accountchooser.Page);
+window.accountchooser.page.SelectAccountPage.prototype.render = function(container, accounts, opt_otherAccounts, opt_domain, opt_resource) {
+  this.accounts_ = accounts || [];
+  this.otherAccounts_ = opt_otherAccounts || [];
+  var resource = opt_resource;
+  resource || (resource = window.accountchooser.labels.selectAccountPage);
+  this.parentClass.render.call(this, container, resource, !1);
+  this.siteDomain_ = opt_domain || "";
+  this.render_()
+};
+window.accountchooser.page.SelectAccountPage.prototype.render_ = function() {
+  this.createHeader(this.resource_.title, this.siteDomain_, this.showCloseIcon_, this.resource_.closeIcon, "onCloseIconClicked", this.resource_.close).appendTo(this.container_);
+  var main = jQuery("<div>").addClass("widget-accounts widget-main").appendTo(this.container_);
+  var defaultPhotoUrl = window.accountchooser.images.noPhoto;
+  var accounts = jQuery("<ol>").appendTo(main);
+  for(var i = 0;i < this.accounts_.length;i++) {
+    var account = this.accounts_[i];
+    account && account.email && this.createSelectableAccountBox(account, defaultPhotoUrl, "onAccountClicked").appendTo(accounts)
+  }
+  if(this.otherAccounts_.length) {
+    var moreLink = jQuery("<div>").addClass("widget-more-accounts-button").appendTo(main);
+    jQuery("<a>").attr("href", "javascript:void(0);").text(this.resource_.seeMoreAccounts).appendTo(moreLink);
+    jQuery("<span>").addClass("widget-more-accounts-indicator").appendTo(moreLink);
+    var moreAccounts = jQuery("<div>").addClass("widget-more-accounts").appendTo(main).hide();
+    jQuery("<h2>").text(this.resource_.notUsable).appendTo(moreAccounts);
+    accounts = jQuery("<ol>").appendTo(moreAccounts);
+    for(i = 0;i < this.otherAccounts_.length;i++) {
+      account = this.otherAccounts_[i], account && account.email && this.createDisabledAccountBox(account, defaultPhotoUrl).appendTo(accounts)
+    }
+    moreLink.click(function() {
+      jQuery(moreLink).toggleClass("widget-more-accounts-expanded");
+      moreAccounts.toggle()
+    })
+  }
+  var footer = jQuery("<div>").addClass("widget-footer").appendTo(this.container_);
+  this.createLinkButton(this.resource_.addAccount, "onAddAccountClicked", "widget-account-add").appendTo(footer)
+};
+window.accountchooser.page.SelectAccountPage.prototype.onAccountClicked = function() {
+};
+window.accountchooser.page.SelectAccountPage.prototype.onAddAccountClicked = function() {
+};
+window.accountchooser.Page.prototype.getAccountElements = function() {
+  return jQuery("li:visible", this.container_)
+};
+window.accountchooser.Page.prototype.getAccountElement = function(index) {
+  window.accountchooser.param.notNull(index, "index");
+  return jQuery("li:visible:eq(" + index + ")", this.container_)
+};
+window.accountchooser.Page.prototype.getHiddenAccountElements = function() {
+  return jQuery("li:hidden", this.container_)
+};
+window.accountchooser.Page.prototype.getHiddenAccountElement = function(index) {
+  window.accountchooser.param.notNull(index, "index");
+  return jQuery("li:hidden:eq(" + index + ")", this.container_)
+};
+window.accountchooser.Page.prototype.getSeeMoreAccountsElement = function() {
+  return jQuery(".widget-more-accounts-button", this.container_)
+};
+window.accountchooser.page.UpdateAccountPage = function() {
+};
+window.accountchooser.page.UpdateAccountPage.inheritsFrom(window.accountchooser.Page);
+window.accountchooser.page.UpdateAccountPage.prototype.render = function(container, account, opt_language, opt_resource) {
+  this.account_ = account;
+  var resource = opt_resource;
+  resource || (resource = window.accountchooser.labels.updateAccountPage);
+  this.parentClass.render.call(this, container, resource, !1);
+  this.language = opt_language;
+  this.render_()
+};
+window.accountchooser.page.UpdateAccountPage.prototype.render_ = function() {
+  this.createHeader(this.resource_.title, null, this.showCloseIcon_, this.resource_.closeIcon, "onCloseIconClicked", this.resource_.close).appendTo(this.container_);
+  var main = jQuery("<div>").addClass("widget-accounts widget-main").appendTo(this.container_);
+  var updateAccount = jQuery("<ol>").appendTo(main);
+  var defaultPhotoUrl = window.accountchooser.images.noPhoto;
+  this.createAccountBox(this.account_, defaultPhotoUrl).appendTo(updateAccount);
+  var footer = jQuery("<div>").addClass("widget-footer").appendTo(this.container_);
+  this.createRenderedButton(this.resource_.confirm, "onUpdateConfirmedClicked").appendTo(footer);
+  this.createLinkButton(this.resource_.cancel, "onUpdateCancelClicked", "widget-button-skip").appendTo(footer)
+};
+window.accountchooser.page.UpdateAccountPage.prototype.onUpdateConfirmedClicked = function() {
+};
+window.accountchooser.page.UpdateAccountPage.prototype.onUpdateCancelClicked = function() {
+};
+window.accountchooser.page.ManageAccountPage = function() {
+};
+window.accountchooser.page.ManageAccountPage.inheritsFrom(window.accountchooser.Page);
+window.accountchooser.page.ManageAccountPage.prototype.render = function(container, opt_accounts, opt_language, opt_resource) {
+  this.accounts_ = opt_accounts || [];
+  var resource = opt_resource || window.accountchooser.labels.manageAccountPage;
+  this.parentClass.render.call(this, container, resource, !1);
+  this.language = opt_language;
+  this.render_()
+};
+window.accountchooser.page.ManageAccountPage.prototype.render_ = function() {
+  this.createHeader(this.resource_.title, null, this.showCloseIcon_, this.resource_.closeIcon, "onCloseIconClicked", this.resource_.close).appendTo(this.container_);
+  var main = jQuery("<div>").addClass("widget-accounts widget-main").appendTo(this.container_);
+  this.appendErrorDiv(main).hide();
+  var defaultPhotoUrl = window.accountchooser.images.noPhoto;
+  if(this.accounts_.length) {
+    var accounts = jQuery("<ol>").appendTo(main);
+    for(var i = 0;i < this.accounts_.length;++i) {
+      var account = this.accounts_[i];
+      account && account.email && this.createRemovableAccountBox(account, defaultPhotoUrl, "onAccountClicked").appendTo(accounts)
+    }
+  }
+};
+window.accountchooser.page.ManageAccountPage.prototype.onAccountClicked = function() {
+};
+window.accountchooser.Service = function() {
+};
+window.accountchooser.Service.prototype.setCdsConfig = function(cdsConfig) {
+  this.cdsConfig_ = cdsConfig
+};
+window.accountchooser.Service.prototype.setContainer = function(container) {
+  this.container_ = container
+};
+window.accountchooser.Service.prototype.checkRequestType_ = function(expectType, opt_notToClient) {
+  var error = null;
+  !this.request_ instanceof window.accountchooser.rpc.Request ? error = {code:-32600, message:"Invalid Request", data:"Parameter must be a Request type."} : !this.request_ instanceof expectType && (error = {code:-32600, message:"Invalid Request", data:"Error request type: expect type is {" + expectType + "}."});
+  return error ? (this.sendErrorResponse_(error, opt_notToClient), !1) : !0
+};
+window.accountchooser.Service.prototype.executeRequest = function(request, clientDomain) {
+  request ? (this.request_ = request, this.clientDomain_ = clientDomain, window.accountchooser.util.browserconfig.isDisabled() && !(this instanceof window.accountchooser.ManageService) && !(this instanceof window.accountchooser.AboutService) ? this.sendDisabledErrorResponse_() : this.execute()) : window.accountchooser.util.log("Empty request received, ignored.")
+};
+window.accountchooser.Service.prototype.execute = function() {
+  var error = {code:-32601, message:"Method not found", data:"Unimplemented 'execute' method!"};
+  this.sendErrorResponse_(error)
+};
+window.accountchooser.Service.prototype.sendResponse_ = function(response, opt_notToClient) {
+  window.accountchooser.rpc.callClient(response);
+  opt_notToClient || this.goToClient()
+};
+window.accountchooser.Service.prototype.sendErrorResponse_ = function(error, opt_notToClient) {
+  var response = new window.accountchooser.rpc.Response(this.request_.getId(), void 0, error);
+  this.sendResponse_(response, opt_notToClient)
+};
+window.accountchooser.Service.prototype.sendDisabledErrorResponse_ = function(opt_notToClient) {
+  var error = {code:-32601, message:"Method not found", data:"Service is disabled. Method is not available."};
+  this.sendErrorResponse_(error, opt_notToClient)
+};
+window.accountchooser.Service.prototype.sendDoneResponse_ = function(result, opt_notToClient) {
+  var response = new window.accountchooser.rpc.Response(this.request_.getId(), result);
+  this.sendResponse_(response, opt_notToClient)
+};
+window.accountchooser.Service.prototype.sendStoreResponse = function(stored, opt_notToClient) {
+  var positiveCallbackUrl = this.getClientConfigValue("positiveCallbackUrl");
+  var negativeCallbackUrl = this.getClientConfigValue("negativeCallbackUrl");
+  stored && positiveCallbackUrl ? window.location.replace(positiveCallbackUrl) : !stored && negativeCallbackUrl ? window.location.replace(negativeCallbackUrl) : this.sendDoneResponse_({stored:stored}, opt_notToClient)
+};
+window.accountchooser.Service.prototype.sendSelectResponse = function(account, opt_idpAssertion, opt_notToClient) {
+  this.sendDoneResponse_({account:account, idpAssertion:opt_idpAssertion}, opt_notToClient)
+};
+window.accountchooser.Service.prototype.sendAddAccountResponse = function(opt_notToClient) {
+  this.sendDoneResponse_({addAccount:!0}, opt_notToClient)
+};
+window.accountchooser.Service.prototype.sendUpdateResponse = function(updated, opt_notToClient) {
+  var positiveCallbackUrl = this.getClientConfigValue("positiveCallbackUrl");
+  var negativeCallbackUrl = this.getClientConfigValue("negativeCallbackUrl");
+  updated && positiveCallbackUrl ? window.location.replace(positiveCallbackUrl) : !updated && negativeCallbackUrl ? window.location.replace(negativeCallbackUrl) : this.sendDoneResponse_({updated:updated}, opt_notToClient)
+};
+window.accountchooser.Service.prototype.goToClient = function() {
+  var request = this.request_;
+  this.request_ = null;
+  this.clientDomain_ = null;
+  this.cdsConfig_.popupMode ? request.params_.clientConfig.keepPopup || window.close() : window.location = request.params_.clientConfig.clientCallbackUrl
+};
+window.accountchooser.Service.prototype.getClientConfigValue = function(config) {
+  return config && this.request_ && this.request_.params_ && this.request_.params_.clientConfig && this.request_.params_.clientConfig[config]
+};
+window.accountchooser.ServiceType = {MANAGE:"manage", SELECT:"select", STORE:"store", UPDATE:"update", ABOUT:"about"};
+window.accountchooser.ManageService = function() {
+};
+window.accountchooser.ManageService.inheritsFrom(window.accountchooser.Service);
+window.accountchooser.ManageService.prototype.execute = function() {
+  if(this.checkRequestType_(window.accountchooser.rpc.ManageRequest)) {
+    var accounts = window.accountchooser.util.accountstorage.readAccounts();
+    this.showManageAccountPage_(accounts)
+  }
+};
+window.accountchooser.ManageService.prototype.showManageAccountPage_ = function(accounts$$0) {
+  this.container_.empty();
+  this.page_ = new window.accountchooser.page.ManageAccountPage;
+  var self = this;
+  this.page_.onAccountClicked = function(account) {
+    window.accountchooser.util.accountstorage.removeAccount(account);
+    var accounts = window.accountchooser.util.accountstorage.readAccounts();
+    self.showManageAccountPage_(accounts);
+    self.page_.setError(window.accountchooser.labels.manageAccountPage.deleteReminder)
+  };
+  this.page_.render(this.container_, accounts$$0, void 0, void 0, !1)
+};
+window.accountchooser.StoreService = function() {
+};
+window.accountchooser.StoreService.inheritsFrom(window.accountchooser.Service);
+window.accountchooser.StoreService.prototype.execute = function() {
+  if(this.checkRequestType_(window.accountchooser.rpc.StoreRequest)) {
+    var cdsAccounts = window.accountchooser.util.accountstorage.readAccounts();
+    var accounts = window.accountchooser.util.sanitizeAccounts(this.request_.params_.accounts || [], window.accountchooser.util.accountSanitizer);
+    this.accounts_ = [];
+    var i = 0;
+    for(var length = accounts.length;i < length;i++) {
+      var account = accounts[i];
+      var stored = !1;
+      for(var j = 0;j < cdsAccounts.length;j++) {
+        if(window.accountchooser.util.accountstorage.matchAccount(cdsAccounts[j], account)) {
+          stored = !0;
+          break
+        }
+      }
+      stored || this.accounts_.push(account)
+    }
+    0 == this.accounts_.length ? this.sendStoreResponse(!0) : this.showShareAccountPage_()
+  }
+};
+window.accountchooser.StoreService.prototype.showShareAccountPage_ = function() {
+  this.container_.empty().addClass("widget-panel-chooser");
+  var self = this;
+  this.page_ = new window.accountchooser.page.ShareAccountPage;
+  this.page_.onShareConfirmedClicked = function() {
+    for(var i = 0;i < self.accounts_.length;i++) {
+      window.accountchooser.util.accountstorage.addAccount(self.accounts_[i])
+    }
+    self.sendStoreResponse(!0)
+  };
+  this.page_.onShareCancelClicked = function() {
+    self.sendStoreResponse(!1)
+  };
+  this.page_.render(this.container_, this.accounts_, void 0, !1)
+};
+window.accountchooser.SelectService = function() {
+};
+window.accountchooser.SelectService.inheritsFrom(window.accountchooser.Service);
+window.accountchooser.SelectService.prototype.execute = function() {
+  if(this.checkRequestType_(window.accountchooser.rpc.SelectRequest)) {
+    var showAll = this.getClientConfigValue("showAll");
+    this.filter = {withEmail:!showAll, idpList:this.getClientConfigValue("idpFilter")};
+    var cdsAccounts = window.accountchooser.util.accountstorage.readAccounts(this.filter) || [];
+    var localAccounts = window.accountchooser.util.sanitizeAccounts(this.request_.params_.localAccounts || [], window.accountchooser.util.accountSanitizer);
+    var accounts = this.removeDuplicatedAccount_(localAccounts.concat(cdsAccounts));
+    var result = this.filterAccountByProviders_(accounts, this.getClientConfigValue("providers") || []);
+    var qualified = result.qualified;
+    var rest = result.rest;
+    this.getClientConfigValue("showAll") || (qualified = this.removeUsernameOnlyAccount_(qualified), rest = this.removeUsernameOnlyAccount_(rest));
+    qualified.length ? (this.getClientConfigValue("language"), this.showSelectAccountPage_(qualified, rest)) : this.sendAddAccountResponse()
+  }
+};
+window.accountchooser.SelectService.prototype.getAssertion_ = function(account) {
+  var idp = window.accountchooser.rpc.isSupportedIdp(account);
+  if(idp) {
+    var self = this;
+    var callback = function(response) {
+      response && response.getResult() ? self.sendSelectResponse(account, response.getResult().idpAssertion) : self.sendSelectResponse(account)
+    };
+    var timeout = function() {
+      self.sendSelectResponse(account)
+    };
+    var request = new window.accountchooser.rpc.IdpAuthRequest(account, {clientCallbackUrl:this.getClientConfigValue("clientCallbackUrl")});
+    window.accountchooser.rpc.callIdp(idp, request, callback, timeout)
+  }else {
+    this.sendSelectResponse(account)
+  }
+};
+window.accountchooser.SelectService.prototype.showSelectAccountPage_ = function(accounts, otherAccounts) {
+  this.container_.empty().addClass("widget-panel-chooser");
+  var self = this;
+  this.page_ = new window.accountchooser.page.SelectAccountPage;
+  this.page_.onAccountClicked = function(account) {
+    account.synthesized || window.accountchooser.util.accountstorage.addAccount(account);
+    delete account.synthesized;
+    self.getAssertion_(account)
+  };
+  this.page_.onAddAccountClicked = function() {
+    self.sendAddAccountResponse()
+  };
+  var callbackDomain = this.request_.params_.clientConfig.clientCallbackUrl && window.accountchooser.util.getDomainFromUrl(this.request_.params_.clientConfig.clientCallbackUrl);
+  this.page_.render(this.container_, accounts, otherAccounts, callbackDomain, void 0, !1)
+};
+window.accountchooser.SelectService.prototype.removeDuplicatedAccount_ = function(accounts) {
+  var result = [];
+  var i = 0;
+  for(var length = accounts.length;i < length;i++) {
+    0 > window.accountchooser.util.accountstorage.inAccountList(accounts[i], result) && result.push(accounts[i])
+  }
+  return result
+};
+window.accountchooser.SelectService.prototype.removeUsernameOnlyAccount_ = function(accounts) {
+  var result = [];
+  var i = 0;
+  for(var length = accounts.length;i < length;i++) {
+    var account = accounts[i];
+    (window.accountchooser.util.isValidEmail(account.email) || account.providerId) && result.push(account)
+  }
+  return result
+};
+window.accountchooser.SelectService.prototype.filterAccountByProviders_ = function(accounts, providers) {
+  var qualified = [];
+  var rest = [];
+  var qualifiedEmail = {};
+  var i = 0;
+  for(var length = accounts.length;i < length;i++) {
+    var account = accounts[i];
+    !account.providerId || 0 <= window.accountchooser.util.indexOf(account.providerId, providers) ? (qualified.push(account), qualifiedEmail[account.email] = !0) : rest.push(account)
+  }
+  qualified = qualified.concat(this.synthesizeAccounts_(rest, qualifiedEmail));
+  return{qualified:qualified, rest:rest}
+};
+window.accountchooser.SelectService.prototype.synthesizeAccounts_ = function(accounts, excluded) {
+  var result = [];
+  var emailIndex = {};
+  var i = 0;
+  for(var length = accounts.length;i < length;i++) {
+    var email = accounts[i].email;
+    if(!excluded[email]) {
+      var index = emailIndex[email];
+      if("undefined" == typeof index) {
+        var account = jQuery.extend({synthesized:!0}, accounts[i]);
+        delete account.providerId;
+        result.push(account);
+        emailIndex[email] = result.length - 1
+      }else {
+        account = result[index], account.displayName = account.displayName || accounts[i].displayName, account.photoUrl = account.photoUrl || accounts[i].photoUrl
+      }
+    }
+  }
+  return result
+};
+window.accountchooser.UpdateService = function() {
+};
+window.accountchooser.UpdateService.inheritsFrom(window.accountchooser.Service);
+window.accountchooser.UpdateService.prototype.execute = function() {
+  if(this.checkRequestType_(window.accountchooser.rpc.UpdateRequest)) {
+    var account = window.accountchooser.util.sanitizeAccount(this.request_.params_.account, window.accountchooser.util.accountSanitizer);
+    var cdsAccounts = window.accountchooser.util.accountstorage.readAccounts() || [];
+    var found = !1;
+    for(var i = 0;i < cdsAccounts.length;i++) {
+      var other = cdsAccounts[i];
+      if(window.accountchooser.util.accountstorage.matchAccount(account, other)) {
+        window.accountchooser.util.accountstorage.checkCompatible(account, other) && (account.displayName = account.displayName || other.displayName, account.photoUrl = account.photoUrl || other.photoUrl);
+        found = !0;
+        break
+      }
+    }
+    if(found) {
+      var language = this.getClientConfigValue("language");
+      this.showUpdateAccountPage_(account, language)
+    }else {
+      this.sendUpdateResponse(!1)
+    }
+  }
+};
+window.accountchooser.UpdateService.prototype.showUpdateAccountPage_ = function(account, opt_language) {
+  this.container_.empty().addClass("widget-panel-chooser");
+  var self = this;
+  this.page_ = new window.accountchooser.page.UpdateAccountPage;
+  this.page_.onUpdateConfirmedClicked = function() {
+    window.accountchooser.util.accountstorage.refreshAccount(account);
+    self.sendUpdateResponse(!0)
+  };
+  this.page_.onUpdateCancelClicked = function() {
+    self.sendUpdateResponse(!1)
+  };
+  this.page_.render(this.container_, account, opt_language, void 0, !1)
+};
+window.accountchooser.AboutService = function() {
+};
+window.accountchooser.AboutService.inheritsFrom(window.accountchooser.Service);
+window.accountchooser.AboutService.prototype.execute = function() {
+};
+})()

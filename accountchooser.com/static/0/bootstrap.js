@@ -13,131 +13,4658 @@
  * limitations under the License.
  */
 
-(function(){function b(a){throw a;}var g=void 0,j=!0,k=null,l=!1,n=window,p=document,q=JSON,r=jQuery,aa=navigator;function ba(a,c){return a.toJSON=c}
-var ca="origin",s="exec",t="replace",u="data",da="extend",v="sessionStorage",w="trim",x="createElement",y="setAttribute",ea="attachEvent",z="getTime",fa="getElementsByTagName",A="documentElement",B="toString",C="html",ga="toJSON",D="queue",ha="setTimeout",E="split",ia="inArray",F="location",ja="localStorage",ka="removeItem",G="options",H="displayName",la="isArray",ma="postMessage",I="push",na="show",J="Request",K="stringify",oa="load",L="indexOf",M="param",pa="name",qa="parse",N="length",O="language",
-P="prototype",Q="labels",ra="clientWidth",R="document",T="body",sa="removeChild",U="call",ta="clientHeight",V="toLowerCase",W="",ua=" <span>",va=" from ",wa=" rtl",xa='", must be under domain "',ya='".',za='"]',Aa="\"]', not exist.",Ba="\"]'.",Ca="#",Da="#ac-language",Ea="#ac-market",Fa="#copyright",Ga="#learnmore",Ha="#manage_marketing_box > h1",Ia="#manage_marketing_box > p",Ja="#sample-accountchooser",Ka="#select_marketing_box",La="#select_marketing_box > h1",Ma="#store_marketing_box",Na="#store_marketing_box > h1",
-Oa="#store_marketing_box > p",Pa="#update_marketing_box",Qa="#update_marketing_box > h1",Ra="#update_marketing_box > p",Sa="&",Ta="&lang=",Ua="'",Va="' found!",Wa="' has't initialized yet.",Xa="', uuid='",Ya="'.",Za="': no valid iframeUrl.",$a="(^|;) ?",ab="*",bb="-9999px",cb=".",db="//",eb="/learnmore.html",fb="1px",gb="2.0",hb=":",ib="; expires=",jb="; path=/",kb="</span>",lb="<iframe />",mb="=",nb="=([^;]*)(;|$)",ob="=; expires=",X="?",pb="?lang=",qb="@",sb="Caja process stoped due to timeout.",
-tb="CallClient failed: cannot find client window.",ub="Clear CDS browser config.",vb="Error request format: ",wb="Failed to clear from DOM storage: ",xb="Failed to clear from cookie: ",yb="Failed to find callback for response: ",zb="Failed to find widget with uuid '",Ab="Failed to get client domain in URL hash.",Bb="Failed to init IDP iframe for '",Cb="Failed to parse request: ",Db="Failed to read from DOM storage: ",Eb="Failed to read from cookie: ",Fb="Failed to write to DOM storage: ",Gb="Failed to write to cookie: ",
-Hb="GET",Ib="Get CDS browser config: ",Jb="Guest code rendered successfully.",Kb="Ignore expired JSON-RPC object: [",Lb="Ignore invalid JSON-RPC object: [",Mb='Illegal clientCallbackUrl "',Nb='Illegal negativeCallbackUrl "',Ob='Illegal positiveCallbackUrl "',Pb="Illegal request: ",Qb="Illegal state error: IDP domain '",Rb="Invalid JSON-RPC object: not a JSON object.",Sb="Invalid JSON-RPC request: 'jsonrpc' field should be '2.0'.",Tb="Invalid value for 'options.emailMapIdp.[\"",Ub="Invalid value for 'options.emailMapIdp[\"",
-Vb="MSIE",Wb="No RPC handler for '",Xb="No content returned in the HTML file.",Yb="Parameter %%param%% cannot be an empty array.",Zb="Parameter %%param%% cannot be empty.",$b="Parameter %%param%% cannot be null.",ac="Parameter %%param%% is not a function.",bc="Parameter %%param%% is not an array.",cc="Read saved accounts from storage: ",dc="Received message: ",ec="Register handler for postMessage failed.",fc="Save accounts to storage: ",gc="Send message: ",hc="Set CDS browser config: ",ic="Successfully parsing request: ",
-jc="Timeout when initializing Caja.",kc="Timeout when loading caja.js.",lc="Timeout when loading raw HTML.",mc="Unimplementated! Child object must provide an impelementation.",nc="Unimplementated! Child object must provide an implementation.",oc="Unrecognized request: ",pc="Unsupported IDP '",qc="Unsupported IDP domain '",rc='[id^="',sc="[object Array]",tc="[object Function]",uc="]",vc="_",wc="about",xc="absolute",yc="ac-market",zc="account",Ac="accounts",Bc="ar",Cc="body",Dc="cajole",Ec="callback",
-Fc="change",Gc="chooserAccounts",Hc="class",Ic="complete",Jc="cookieName",Kc="disabled",Lc="domStorageKey",Mc="domain",Nc="en",Oc="form",Pc="handler",Qc="head",Rc="height",Sc="hidden",Tc="href",Uc="html",Vc="http://",Wc="https://ssl.gstatic.com/caja/",Y="id",Xc="idpConfig",Yc="iframeUrl",Zc="image/x-icon",$c="img",ad="input",bd="iw",cd="jsUrl",dd="lang=",ed="left",fd="link",gd="loaded",hd="localStorage",id="ltr",jd="manage",kd="message",ld="msg_",md="name",nd="object",od="ol.benefit-list > li > p",
-pd="onmessage",qd="opt_cookieName",rd="opt_domStorageKey || opt_cookieName",sd="parentClass",td="position",ud="post",vd="query",wd="rel",xd="request",yd="requestId",zd="rpcObject",Ad="rtl",Bd="sanitize",Cd="script",Dd="semaphore value decrease to ",Ed="serviceMeta",Fd="serviceMeta.name",Gd="serviceName",Hd="sessionStorage",Id="shortcut icon",Jd="src",Kd="string",Ld="stylesheet",Md="targetWindow",Nd="text/css",Od="text/html",Pd="text/javascript",Qd="timeout",Rd="timeoutCallback",Sd="type",Td="value",
-Ud="width",Vd="window",Wd="window.notifyWidget: type='",Z;n.accountchooser=n.accountchooser||{};n.cds=n.accountchooser;n.accountchooser.util=n.accountchooser.util||{};n.accountchooser.util.log=function(a){try{n.console&&n.console.log&&n.console.log(a)}catch(c){}};n.accountchooser.util.uuidCounter_=(new Date)[z]();n.accountchooser.util.generateUuid=function(a){return a&&a.uuid?a.uuid:++n.accountchooser.util.uuidCounter_};
-n.accountchooser.util.createForm_=function(a,c,d){a||b("The targetUrl cannot be null.");var e=n[R][x](Oc);e.method=ud;e.action=a;if(c)for(var f in c)a=n[R][x](ad),a[y](Sd,Sc),a[y](md,f),c[f]===k||c[f]===g?a[y](Td,W):a[y](Td,c[f]),e.appendChild(a);d&&(e.target=d);n[R][T].appendChild(e);return e};n.accountchooser.util.postTo=function(a,c,d){a=n.accountchooser.util.createForm_(a,c,d);a.submit();n[R][T][sa](a)};
-n.accountchooser.util.parseUrlParams=function(a){var c={};a=a.slice(a[L](X)+1)[E](Sa);for(var d=0;d<a[N];d++){var e=a[d][E](mb);c[e[0]]=2==e[N]?decodeURIComponent(e[1]):g}return c};n.accountchooser.util.formRedirect=function(a,c){var d=a.substring(0,a[L](X)),e=n.accountchooser.util.parseUrlParams(a);n.accountchooser.util.postTo(d,e,c)};n.accountchooser.util.isBrowserSupported=function(){var a=999;-1!=aa.appVersion[L](Vb)&&(a=parseFloat(aa.appVersion[E](Vb)[1]));return 7<a};
-n.accountchooser.util.makeUrl=function(a,c){var d=[],e;for(e in c)d[I](c[e]?e+mb+c[e]:e);return a+X+d.join(Sa)};n.accountchooser.util.isArray=function(a){return"undefined"!==typeof r?r[la](a):Object[P][B][U](a)===sc};n.accountchooser.util.isFunction=function(a){return"undefined"!==typeof r?r.isFunction(a):Object[P][B][U](a)===tc};n.accountchooser.util.indexOf=function(a,c){if(c){if("undefined"!==typeof r)return r[ia](a,c);if(c[L])return c[L](a);for(var d=c[N],e=0;e<d;e++)if(e in c&&c[e]===a)return e}return-1};
-n.accountchooser.util.windowWidth=function(a){if("undefined"!==typeof r)return r(a).width();var c=0;a.innerWidth?c=a.innerWidth:a[R]&&a[R][A]&&a[R][A][ra]?c=a[R][A][ra]:a[R]&&(a[R][T]&&a[R][T][ra])&&(c=a[R][T][ra]);return c};n.accountchooser.util.windowHeight=function(a){if("undefined"!==typeof r)return r(a).height();var c=0;a.innerHeight?c=a.innerHeight:a[R]&&a[R][A]&&a[R][A][ta]?c=a[R][A][ta]:a[R]&&(a[R][T]&&a[R][T][ta])&&(c=a[R][T][ta]);return c};
-n.accountchooser.util.trim=function(a){return"undefined"!==typeof r?r[w](a):a==k?W:String[P][w]?String[P][w][U](a):a[t](/^[\s\xa0]+/,W)[t](/[\s\xa0]+$/,W)};
-n.accountchooser.util.extend=function(a,c,d){if(3>arguments[N])return c||{};if("undefined"!==typeof r){var e=Array[P].slice[U](arguments,a?0:1);return r[da].apply(r,e)}if(typeof c!==nd||c==k)c={};for(var e=2,f=arguments[N];e<f;e++){var h=arguments[e];if(h!=k)for(var m in h)h[m]===g||c===h[m]||(a&&typeof h[m]==nd?(n.accountchooser.util[la](h[m])&&!n.accountchooser.util[la](c[m])&&(c[m]=[]),c[m]=n.accountchooser.util[da](j,c[m],h[m])):c[m]=h[m])}return c};n.accountchooser.param={};
-n.accountchooser[M].notNull=function(a,c){(a===g||a===k)&&n.accountchooser[M].throwError_($b,c)};n.accountchooser[M].notEmpty=function(a,c){a||n.accountchooser[M].throwError_(Zb,c)};n.accountchooser[M].notEmptyArray=function(a,c){a||n.accountchooser[M].throwError_(Zb,c);n.accountchooser.util[la](a)||n.accountchooser[M].throwError_(bc,c);a[N]||n.accountchooser[M].throwError_(Yb,c)};
-n.accountchooser[M].notEmptyFunction=function(a,c){a||n.accountchooser[M].throwError_(Zb,c);n.accountchooser.util.isFunction(a)||n.accountchooser[M].throwError_(ac,c)};n.accountchooser[M].throwError_=function(a,c){try{console&&console.trace&&console.trace()}catch(d){}b(a[t](/\%\%param\%\%/g,c?" '"+c+Ua:W))};Function[P].inheritsFrom=function(a){n.accountchooser[M].notEmptyFunction(a,sd);this.prototype=new a;this[P].constructor=this;this[P].parentClass=a[P]};
-n.accountchooser.util.VALID_EMAIL_REGEX_=/^[a-z0-9]+(\.?[-+\w]+)*@([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+$/i;n.accountchooser.util.VALID_DOMAIN_REGEX_=/^([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+$/i;n.accountchooser.util.isValidEmail=function(a){return a&&k!=n.accountchooser.util.VALID_EMAIL_REGEX_[s](a)};n.accountchooser.util.isValidDomain=function(a){return a&&k!=n.accountchooser.util.VALID_DOMAIN_REGEX_[s](a)};
-n.accountchooser.util.getEmailDomain=function(a){if((a=n.accountchooser.util[w](a))&&n.accountchooser.util.isValidEmail(a))return a[E](qb)[1][V]()};n.accountchooser.util.getEmailUsername=function(a){if((a=n.accountchooser.util[w](a))&&n.accountchooser.util.isValidEmail(a))return a[E](qb)[0][V]()};n.accountchooser.util.isDomainInNascar=function(a){if(a){var c=n.accountchooser.config.idps,d;for(d in c){var e=c[d];if(e&&e.domain==a)return d}}};n.accountchooser.util.USERNAME_REGEX=/^\w+(\.\w+)*$/;
-n.accountchooser.util.isValidUsername=function(a){return n.accountchooser.config?n.accountchooser.config.disableUsernameFormatCheck?!!a:n.accountchooser.config.usernameRegex?!!a&&k!=n.accountchooser.config.usernameRegex[s](a):!!a&&k!=n.accountchooser.util.USERNAME_REGEX[s](a):!!a&&k!=n.accountchooser.util.USERNAME_REGEX[s](a)};n.accountchooser.util.DOMAIN_REGEX_=/:\/\/(.[^\/?]+)/;n.accountchooser.util.VALID_URL_DOMAIN_REGEX_=/^([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+(\:\d+)?$/i;
-n.accountchooser.util.getDomainFromUrl=function(a){try{return a.match(n.accountchooser.util.DOMAIN_REGEX_)[1]}catch(c){}};n.accountchooser.util.isValidUrlDomain=function(a){return a?n.accountchooser.util.VALID_URL_DOMAIN_REGEX_.test(a):l};n.accountchooser.util.MOBILE_REGEX_=/iphone|ipad|ipod|android|blackberry|mini|iemobile|windows\sce|palm/i;n.accountchooser.util.isMobileAgent=function(a){return a&&n.accountchooser.util.MOBILE_REGEX_.test(a[V]())};
-n.accountchooser.util.SUPPORTED_LANGUAGE_=[Nc,"en_gb","fr","it","de","es","zh_cn","zh_tw","ja","ko","nl","pl","pt","ru","th","tr","bg","ca","hr","cs","da","fil","fi","el","hi","hu",Y,"lv","lt","no","pt_pt","ro","sr","sk","sl","sv","uk","vi",Bc,bd];
-n.accountchooser.util.ALTERNATIVE_CODES_MAP_={en_us:Nc,zh:"zh_cn",zh_hans:"zh_cn",zh_hans_cn:"zh_cn",zh_hant:"zh_tw",zh_hant_tw:"zh_tw",nl_nl:"nl",fr_fr:"fr",de_de:"de",it_it:"it",ja_jp:"ja",ko_kr:"ko",pl_pl:"pl",pt_br:"pt",ru_ru:"ru",es_es:"es",th_th:"th",tr_tr:"tr",bg_bg:"bg",ca_es:"ca",hr_hr:"hr",cs_cz:"cs",da_dk:"da",fil_ph:"fil",tl:"fil",fi_fi:"fi",el_gr:"el",hi_in:"hi",hu_hu:"hu",id_id:Y,lv_lv:"lv",lt_lt:"lt",no_no:"no",nb:"no",nb_no:"no",ro_ro:"ro",sr_cyrl_rs:"sr",sk_sk:"sk",sl_si:"sl",sv_se:"sv",
-uk_ua:"uk",vi_vn:"vi"};n.accountchooser.util.findLanguageCode=function(a){a=a&&a[t](/-/g,vc)[V]();for(var c;a;){if(-1<r[ia](a,n.accountchooser.util.SUPPORTED_LANGUAGE_)){c=a;break}else if(n.accountchooser.util.ALTERNATIVE_CODES_MAP_[a]){c=n.accountchooser.util.ALTERNATIVE_CODES_MAP_[a];break}a=a[E](vc);a.pop();a=a.join(vc)}return c};n.accountchooser.util.isRightToLeft=function(a){a=n.accountchooser.util.findLanguageCode(a);return a==Bc||a==bd};
-n.accountchooser.util.getNamespacedObjectByString=function(a){for(var c=a[E](cb),d=0,e=c[N],f=n;d<e;++d)f=0==d&&c[0]==Vd?n:f[c[d]],n.accountchooser[M].notNull(f,a);return f};n.accountchooser.util.REGISTRY_KEY_PREFIX_="widget_";n.accountchooser.util.widgets_={};n.accountchooser.util.registerWidget=function(a,c){n.accountchooser.util.widgets_[n.accountchooser.util.REGISTRY_KEY_PREFIX_+a]=c};
-n.accountchooser.util.unregisterWidget=function(a){delete n.accountchooser.util.widgets_[n.accountchooser.util.REGISTRY_KEY_PREFIX_+a]};n.accountchooser.util.getWidget_=function(a){var c;if(a){var d=n.accountchooser.util.REGISTRY_KEY_PREFIX_+a;c=n.accountchooser.util.widgets_[d]}else for(d in n.accountchooser.util.widgets_){c=n.accountchooser.util.widgets_[d];break}return c};
-n.accountchooser.util.notifyWidget=function(a,c,d){n.accountchooser.util.log(Wd+a+Xa+d+Ua);var e=n.accountchooser.util.getWidget_(d);if(e){var f=r[da]({},c);n[ha](function(){e.handleNotification(a,f)},200)}else n.accountchooser.util.log(zb+d+Ya)};n.accountchooser.util.Storage=function(a,c,d){n.accountchooser[M].notEmpty(a||c,rd);n.accountchooser.util.Storage.isDomStorageSupported(d)||n.accountchooser[M].notEmpty(c,qd);this.domStorageKey_=a;this.cookieName_=c;this.perSession_=d};
-n.accountchooser.util.Storage.isDomStorageSupported=function(a){try{return a?Hd in n&&n[v]!=k:hd in n&&n[ja]!=k}catch(c){return l}};Z=n.accountchooser.util.Storage[P];Z.read=function(){if(n.accountchooser.util.Storage.isDomStorageSupported(this.perSession_)&&this.isDomStorageAllowed_())return this.readFromDomStorage_();if(this.isCookieStorageAllowed_())return this.readFromCookie_()};
-Z.write=function(a){n.accountchooser.util.Storage.isDomStorageSupported(this.perSession_)&&this.isDomStorageAllowed_()?this.writeToDomStorage_(a):this.isCookieStorageAllowed_()&&this.writeToCookie_(a)};Z.clear=function(){n.accountchooser.util.Storage.isDomStorageSupported(this.perSession_)&&this.isDomStorageAllowed_()&&this.clearFromDomStorage_();this.isCookieStorageAllowed_()&&this.clearFromCookie_()};Z.isDomStorageAllowed_=function(){return!!this.domStorageKey_};Z.isCookieStorageAllowed_=function(){return!!this.cookieName_};
-Z.readFromDomStorage_=function(){n.accountchooser[M].notEmpty(this.domStorageKey_,Lc);var a=this.perSession_?n[v]:n[ja];try{var c=a.getItem(this.domStorageKey_);if(c)return q[qa](c)}catch(d){n.accountchooser.util.log(Db+d)}};Z.writeToDomStorage_=function(a){n.accountchooser[M].notEmpty(this.domStorageKey_,Lc);var c=this.perSession_?n[v]:n[ja];try{var d=q[K](a);c.setItem(this.domStorageKey_,d)}catch(e){n.accountchooser.util.log(Fb+e)}};
-Z.clearFromDomStorage_=function(){n.accountchooser[M].notEmpty(this.domStorageKey_,Lc);var a=this.perSession_?n[v]:n[ja];try{a[ka](this.domStorageKey_)}catch(c){n.accountchooser.util.log(wb+c)}};Z.readFromCookie_=function(){n.accountchooser[M].notEmpty(this.cookieName_,Jc);var a=p.cookie.match($a+this.cookieName_+nb);if(a&&(a=n.accountchooser.util[w](a[2])))try{return q[qa](unescape(a))}catch(c){n.accountchooser.util.log(Eb+c)}};
-Z.writeToCookie_=function(a){n.accountchooser[M].notEmpty(this.cookieName_,Jc);try{var c=new Date,d=c.getFullYear()+10,e=c.getMonth(),f=c.getDate(),h=new Date(d,e,f),m=this.perSession_?0:h.toGMTString();p.cookie=this.cookieName_+mb+escape(q[K](a))+ib+m+jb}catch(S){n.accountchooser.util.log(Gb+S)}};
-Z.clearFromCookie_=function(){n.accountchooser[M].notEmpty(this.cookieName_,Jc);try{var a=new Date;a.setTime(a[z]()-1);p.cookie=this.cookieName_+ob+a.toGMTString()+jb}catch(c){n.accountchooser.util.log(xb+c)}};n.accountchooser.util.accountstorage={};n.accountchooser.util.accountstorage.ACCOUNTS_=Gc;n.accountchooser.util.accountstorage.AC_COOKIE_NAME_="__goog__ac__";n.accountchooser.util.accountstorage.storage_=new n.accountchooser.util.Storage(n.accountchooser.util.accountstorage.ACCOUNTS_,n.accountchooser.util.accountstorage.AC_COOKIE_NAME_);
-n.accountchooser.util.accountstorage.read_=function(){var a=n.accountchooser.util.accountstorage.storage_.read();n.accountchooser.util.log(cc+q[K](a));return a};n.accountchooser.util.accountstorage.write_=function(a){n.accountchooser.util.log(fc+q[K](a));n.accountchooser.util.accountstorage.storage_.write(a)};n.accountchooser.util.accountstorage.readAccounts=function(){var a=n.accountchooser.util.accountstorage.read_();if(!a||!n.accountchooser.util[la](a))a=[];return a};
-n.accountchooser.util.accountstorage.addAccount=function(a){if(!a||!a.email)return l;for(var c=l,d=n.accountchooser.util.accountstorage.readAccounts(),e,f=0;f<d[N];f++)if(n.accountchooser.util.accountstorage.matchAccount_(d[f],a.email,a.providerId)){e=d[f];d.splice(f,1);c=j;break}e&&(!a[H]&&e[H]&&(a.displayName=e[H]),!a.photoUrl&&e.photoUrl&&(a.photoUrl=e.photoUrl));d.unshift(a);n.accountchooser.util.accountstorage.write_(d);return!c};
-n.accountchooser.util.accountstorage.removeAccount=function(a){if(!a||!a.email)return l;for(var c=l,d=n.accountchooser.util.accountstorage.readAccounts(),e=0;e<d[N];e++)if(n.accountchooser.util.accountstorage.matchAccount_(d[e],a.email,a.providerId)){d.splice(e,1);c=j;break}n.accountchooser.util.accountstorage.write_(d);return c};n.accountchooser.util.accountstorage.clearAccounts=function(){n.accountchooser.util.accountstorage.storage_.clear()};
-n.accountchooser.util.accountstorage.updateAccount=function(a,c,d){if(a)for(var e=n.accountchooser.util.accountstorage.readAccounts(),f=0;f<e[N];f++)if(n.accountchooser.util.accountstorage.matchAccount_(e[f],a,d)){c(e[f]);n.accountchooser.util.accountstorage.write_(e);break}};
-n.accountchooser.util.accountstorage.refreshAccount=function(a){a&&a.email&&n.accountchooser.util.accountstorage.updateAccount(a.email,function(c){a[H]&&(c.displayName=a[H]);a.photoUrl&&(c.photoUrl=a.photoUrl);a.legacy!=g&&(c.legacy=a.legacy)},a.providerId)};
-n.accountchooser.util.accountstorage.fetchAccount=function(a,c){if(a)for(var d=n.accountchooser.util.accountstorage.readAccounts(),e=0;e<d[N];e++)if(n.accountchooser.util.accountstorage.matchAccount_(d[e],a,c)){var f=d[e];d.splice(e,1);d.unshift(f);n.accountchooser.util.accountstorage.write_(d);return f}};n.accountchooser.util.accountstorage.matchAccount_=function(a,c,d){return a.email!=c?l:a.providerId&&d&&a.providerId==d||!a.providerId&&!d?j:l};
-n.accountchooser.util.accountstorage.matchAccount=function(a,c){return n.accountchooser.util.accountstorage.matchAccount_(a,c.email,c.providerId)};n.accountchooser.util.accountstorage.checkCompatible=function(a,c){if(!n.accountchooser.util.accountstorage.matchAccount(a,c))return l;var d=a[H]||c[H],e=a.photoUrl||c.photoUrl;return(!a[H]||a[H]==d)&&(!a.photoUrl||a.photoUrl==e)&&(!c[H]||c[H]==d)&&(!c.photoUrl||c.photoUrl==e)};n.accountchooser.updateSavedAccount=function(a){n.accountchooser.util.accountstorage.addAccount(a)};
-n.accountchooser.removeSavedAccount=function(a){return n.accountchooser.util.accountstorage.removeAccount(a)};n.accountchooser.clearSavedAccounts=function(){n.accountchooser.util.accountstorage.clearAccounts()};n.accountchooser.util.accountstorage.ACCOUNTS_=Gc;n.accountchooser.util.accountstorage.storage_=new n.accountchooser.util.Storage(n.accountchooser.util.accountstorage.ACCOUNTS_);n.accountchooser.util.accountstorage.NO_IDP_="NO_IDP";
-n.accountchooser.util.accountstorage.readAccounts=function(a){var c=n.accountchooser.util.accountstorage.read_();if(!c||!n.accountchooser.util[la](c))c=[];if(!a)return c;var d=[];if(a.withEmail){var e=function(a){return n.accountchooser.util.isValidEmail(a.email)};d[I](e)}a.idpList&&0!=a.idpList[N]&&(e=function(c){return 0<=n.accountchooser.util[L](c.providerId||n.accountchooser.util.accountstorage.NO_IDP_,a.idpList)},d[I](e));a.emailDomainList&&0!=a.emailDomainList[N]&&(e=function(c){return(c=n.accountchooser.util.getEmailDomain(c.email))?
-0<=n.accountchooser.util[L](c,a.emailDomainList):j},d[I](e));for(e=0;e<d[N];e++)c=n.accountchooser.util.accountstorage.filter_(c,d[e]);return c};n.accountchooser.util.accountstorage.filter_=function(a,c){for(var d=[],e=0;e<a[N];e++)c(a[e])&&d[I](a[e]);return d};n.accountchooser.util.browserconfig={};n.accountchooser.util.browserconfig.SETTINGS_KEY_="cdsSettings";n.accountchooser.util.browserconfig.COOKIE_NAME_="__cds__settings__";
-n.accountchooser.util.browserconfig.storage_=new n.accountchooser.util.Storage(n.accountchooser.util.browserconfig.SETTINGS_KEY_,n.accountchooser.util.browserconfig.COOKIE_NAME_);n.accountchooser.util.browserconfig.getAll=function(){var a=n.accountchooser.util.browserconfig.storage_.read()||{};n.accountchooser.util.log(Ib+q[K](a));return a};n.accountchooser.util.browserconfig.setAll=function(a){n.accountchooser.util.log(hc+q[K](a));n.accountchooser.util.browserconfig.storage_.write(a)};
-n.accountchooser.util.browserconfig.clearAll=function(){n.accountchooser.util.log(ub);n.accountchooser.util.browserconfig.storage_.clear()};n.accountchooser.util.browserconfig.get=function(a){return n.accountchooser.util.browserconfig.getAll()[a]};n.accountchooser.util.browserconfig.set=function(a,c){var d=n.accountchooser.util.browserconfig.getAll();d[a]=c;n.accountchooser.util.browserconfig.setAll(d)};
-n.accountchooser.util.browserconfig.clear=function(a){var c=n.accountchooser.util.browserconfig.getAll();delete c[a];n.accountchooser.util.browserconfig.setAll(c)};n.accountchooser.util.browserconfig.isDisabled=function(){return!!n.accountchooser.util.browserconfig.get(Kc)};n.accountchooser.util.browserconfig.setDisabled=function(a){n.accountchooser.util.browserconfig.set(Kc,!!a)};n.accountchooser.loader=n.accountchooser.loader||{};n.accountchooser.loader.Loader=function(){};
-n.accountchooser.loader.Loader[P].load=function(a,c,d,e){var f=this;this.load_(a,d,function(){c?f.load_(c,d,e):e&&e()})};
-n.accountchooser.loader.Loader[P].load_=function(a,c,d){var e=p[fa](Qc)[0]||p[A],f=this.createResourceElement(a);this.finished_=l;var h=this;f.onload=f.onreadystatechange=function(){if(!h.finished_&&(!this.readyState||this.readyState===gd||this.readyState===Ic))h.finished_=j,f.onload=f.onreadystatechange=k,c&&c()};f.onerror=function(){h.finished_=j;e[sa](f);d&&d()};e.insertBefore(f,e.firstChild)};n.accountchooser.loader.Loader[P].createResourceElement=function(){b("Unimplemented! Child object must provide an implementation.")};
-n.accountchooser.loader.JsLoader=function(){};n.accountchooser.loader.JsLoader.inheritsFrom(n.accountchooser.loader.Loader);n.accountchooser.loader.JsLoader[P].createResourceElement=function(a){var c=p[x](Cd);c[y](Sd,Pd);c[y](Jd,a);return c};n.accountchooser.loader.CssLoader=function(){};n.accountchooser.loader.CssLoader.inheritsFrom(n.accountchooser.loader.Loader);
-n.accountchooser.loader.CssLoader[P].createResourceElement=function(a){var c=p[x](fd);c[y](Sd,Nd);c[y](wd,Ld);c[y](Tc,a);var d=p[x]($c);d[y](Jd,a);var e=this;d.onerror=function(){if(!e.finished_)c.onload()};return c};n.accountchooser.util.Semaphore=function(a,c){n.accountchooser[M].notEmptyFunction(a,Pc);0>c&&b("Semaphore value cannot be negative.");this.handler_=a;this.value_=c||0;this.started_=l};Z=n.accountchooser.util.Semaphore[P];Z.getValue=function(){return this.value_};
-Z.increase=function(){this.started_&&b("Cannot increase Semaphore value after calling start().");this.value_++};Z.start=function(){0>=this.value_&&b("Semaphore value must bigger than 0.");this.started_=j};Z.isStarted=function(){return this.started_};Z.decrease=function(){this.started_||b("Cannot decrease Semaphore value before calling start().");0<this.value_&&(this.value_--,n.accountchooser.util.log(Dd+this.value_),0==this.value_&&this.handler_())};
-n.accountchooser.util.AccountPropertyKey={EMAIL:"email",DISPLAY_NAME:"displayName",PHOTO_URL:"photoUrl",PROVIDER_ID:"providerId"};n.accountchooser.util.sanitizeAccount=function(a,c,d){var e={},f=n.accountchooser.util.AccountPropertyKey,h;for(h in a){var m=a[h];switch(h){case f.EMAIL:case f.DISPLAY_NAME:case f.PHOTO_URL:case f.PROVIDER_ID:(m=c?c(h,m):m)&&(e[h]=m);break;default:d||b('Unrecognized key "'+h+'" for account')}}e[f.EMAIL]||b("No valid email field for the account");return e};
-n.accountchooser.util.sanitizeAccounts=function(a,c,d){for(var e=[],f=0,h=a[N];f<h;f++){var m=n.accountchooser.util.sanitizeAccount(a[f],c,d);e[I](m)}return e};n.accountchooser.util.accountSanitizer=function(a,c){if(a==n.accountchooser.util.AccountPropertyKey.PHOTO_URL){if(/^https?:\/\//i.test(c))return c}else return html.sanitizeWithPolicy(c,function(){})};n.accountchooser.caja=n.accountchooser.caja||{};
-n.accountchooser.caja.loadHtml=function(a,c,d,e){r.ajax({type:Hb,url:a,dataType:Uc,success:d,timeout:c,error:function(a,c,d){e&&e(c,d)}})};n.accountchooser.caja.loadJs_=function(a,c,d){(new n.accountchooser.loader.JsLoader)[oa](a,g,c,d)};n.accountchooser.caja.loadedUrls_={};n.accountchooser.caja.loadedCallback_=function(a){if(a&&(a=n.accountchooser.caja.loadedUrls_[a])){a.loaded=j;for(var c=0;c<a.callbacks[N];c++){var d=a.callbacks[c];d&&d()}a.callbacks=[];a.error=l;a.errorCallbacks=[]}};
-n.accountchooser.caja.errorCallback_=function(a,c,d){if(a&&(a=n.accountchooser.caja.loadedUrls_[a])){a.loaded=j;a.error=j;for(var e=0;e<a.errorCallbacks[N];e++){var f=a.errorCallbacks[e];f&&f(c,d)}a.errorCallbacks=[];a.callbacks=[]}};
-n.accountchooser.caja.loadJs=function(a,c,d){n.accountchooser[M].notEmpty(a,cd);var e=n.accountchooser.caja.loadedUrls_[a];e?e.loaded?e.error?d&&d():c():(e.callbacks[I](c),d&&e.errorCallbacks[I](d)):(n.accountchooser.caja.loadedUrls_[a]={loaded:l,callbacks:[c]},n.accountchooser.caja.loadJs_(a,function(){n.accountchooser.caja.loadedCallback_(a)},function(){n.accountchooser.caja.errorCallback_(a)}))};n.accountchooser.caja=n.accountchooser.caja||{};n.accountchooser.caja.cajaUrl="https://ssl.gstatic.com/caja/4891/caja.js";
-n.accountchooser.caja.htmlSanitizerUrl="https://ssl.gstatic.com/caja/4891/html-css-sanitizer-minified.js";n.accountchooser.caja.CAJA_TIMEOUT=5E3;n.accountchooser.caja.WHITELIST_IDS=["AC_LANGUAGE_LIST"];n.accountchooser.caja=n.accountchooser.caja||{};
-n.accountchooser.caja.sanitizeHtml=function(a,c,d){function e(a){0>m-(new Date)[z]()?d&&d(Qd):(a=html_sanitize(a,h,f),c(a))}function f(a){if(0<=r[ia](a,n.accountchooser.caja.WHITELIST_IDS))return a}function h(a){return a}var m=(new Date)[z]()+n.accountchooser.caja.CAJA_TIMEOUT;n.accountchooser.caja.loadJs(n.accountchooser.caja.htmlSanitizerUrl,function(){var c=m-(new Date)[z]();50>c?d&&d(Qd):n.accountchooser.caja.loadHtml(a,c,e,d)})};
-n.accountchooser.caja.cajoleHtml=function(a,c,d,e){function f(){if(S)n.accountchooser.util.log(kc);else{var a=Yd-(new Date)[z]();50>a?n.accountchooser.util.log(kc):n.accountchooser.caja.loadHtml(c,a,function(a){n[ha](function(){S?n.accountchooser.util.log(lc):a?(n.accountchooser.caja.cajaInitialized||(n.accountchooser.caja.cajaInitialized=j,caja.initialize({cajaServer:Wc,forceES5Mode:j})),n[ha](function(){S?n.accountchooser.util.log(jc):caja[oa](m,h,function(c){c.code(g,Od,a).run(function(){S||n.clearTimeout(Zd);
-rb=j;d&&d();n.accountchooser.util.log(Jb)})})},10)):n.accountchooser.util.log(Xb)},10)})}}var h={rewrite:function(a){return a}},m=p.getElementById(a),S=l,rb=l,Zd=n[ha](function(){n.accountchooser.util.log(sb);S=j;!rb&&e&&e()},n.accountchooser.caja.CAJA_TIMEOUT),Yd=(new Date)[z]()+n.accountchooser.caja.CAJA_TIMEOUT;n.accountchooser.caja.loadJs(n.accountchooser.caja.cajaUrl,function(){n[ha](f,10)})};n.accountchooser.rpc=n.accountchooser.rpc||{};n.accountchooser.rpc.RpcObject=function(){};
-n.accountchooser.rpc.RpcObject[P].setTimestamp=function(a){this.timestamp_=a||(new Date)[z]()};ba(n.accountchooser.rpc.RpcObject[P],function(){var a={jsonrpc:gb};this.timestamp_!=k&&(a.timestamp=this.timestamp_);return a});n.accountchooser.rpc.RpcObject[P].toString=function(){return q[K](this[ga]())};n.accountchooser.rpc.AbstractRequest=function(a,c){this.method_=a;this.params_=c};n.accountchooser.rpc.AbstractRequest.inheritsFrom(n.accountchooser.rpc.RpcObject);Z=n.accountchooser.rpc.AbstractRequest[P];
-Z.setMethod=function(a){this.method_=a};Z.getMethod=function(){return this.method_};Z.setParameters=function(a){this.params_=a};Z.getParameters=function(){return this.params_};ba(Z,function(){var a=n.accountchooser.rpc.RpcObject[P][ga][U](this);this.method_!=k&&(a.method=this.method_);this.params_!=k&&(a.params=this.params_);return a});n.accountchooser.rpc.Notification=function(a,c){this.method_=a;this.params_=c};n.accountchooser.rpc.Notification.inheritsFrom(n.accountchooser.rpc.AbstractRequest);
-n.accountchooser.rpc.Request=function(a,c,d){this.method_=a;this.params_=c;this.id_=d};n.accountchooser.rpc[J].inheritsFrom(n.accountchooser.rpc.AbstractRequest);n.accountchooser.rpc[J][P].setId=function(a){this.id_=a};n.accountchooser.rpc[J][P].getId=function(){return this.id_};ba(n.accountchooser.rpc[J][P],function(){var a=n.accountchooser.rpc.AbstractRequest[P][ga][U](this);this.id_!=k&&(a.id=this.id_);return a});
-n.accountchooser.rpc.Response=function(a,c,d){n.accountchooser[M].notEmpty(a,Y);this.id_=a;this.result_=c;this.error_=d};n.accountchooser.rpc.Response.inheritsFrom(n.accountchooser.rpc.RpcObject);Z=n.accountchooser.rpc.Response[P];Z.getResult=function(){return this.result_};Z.setResult=function(a){this.result_=a};Z.getError=function(){return this.error_};Z.setError=function(a){this.error_=a};Z.setId=function(a){this.id_=a};Z.getId=function(){return this.id_};
-ba(Z,function(){var a=n.accountchooser.rpc.RpcObject[P][ga][U](this);a.id=this.id_;this.result_!=k?a.result=this.result_:this.error_!=k&&(a.error=this.error_);return a});n.accountchooser.rpc.RequestAckNotification=function(a){n.accountchooser[M].notEmpty(a,yd);this.method_=n.accountchooser.rpc.RequestAckNotification.METHOD;this.params_={requestId:a}};n.accountchooser.rpc.RequestAckNotification.inheritsFrom(n.accountchooser.rpc.Notification);n.accountchooser.rpc.RequestAckNotification.METHOD="requestAckNotification";
-n.accountchooser.rpc.RequestAckNotification[P].setRequestId=function(a){this.params_.requestId=a};n.accountchooser.rpc.RequestAckNotification[P].getRequestId=function(){return this.params_.requestId};n.accountchooser.rpc.CdsReadyNotification=function(){this.method_=n.accountchooser.rpc.CdsReadyNotification.METHOD};n.accountchooser.rpc.CdsReadyNotification.inheritsFrom(n.accountchooser.rpc.Notification);n.accountchooser.rpc.CdsReadyNotification.METHOD="cdsReadyNotification";
-n.accountchooser.rpc.ClientReadyNotification=function(){this.method_=n.accountchooser.rpc.ClientReadyNotification.METHOD};n.accountchooser.rpc.ClientReadyNotification.inheritsFrom(n.accountchooser.rpc.Notification);n.accountchooser.rpc.ClientReadyNotification.METHOD="clientReadyNotification";n.accountchooser.rpc.EmptyResponseNotification=function(){this.method_=n.accountchooser.rpc.EmptyResponseNotification.METHOD};n.accountchooser.rpc.EmptyResponseNotification.inheritsFrom(n.accountchooser.rpc.Notification);
-n.accountchooser.rpc.EmptyResponseNotification.METHOD="emptyResponseNotification";n.accountchooser.rpc.StoreRequest=function(a,c,d){n.accountchooser[M].notEmpty(a,Y);n.accountchooser[M].notEmptyArray(c,Ac);c&&(c=n.accountchooser.util.sanitizeAccounts(c));this.method_=n.accountchooser.rpc.StoreRequest.METHOD;this.params_={accounts:c,clientConfig:d};this.id_=a};n.accountchooser.rpc.StoreRequest.inheritsFrom(n.accountchooser.rpc[J]);n.accountchooser.rpc.StoreRequest.METHOD="store";
-n.accountchooser.rpc.SelectRequest=function(a,c,d){n.accountchooser[M].notEmpty(a,Y);c&&(c=n.accountchooser.util.sanitizeAccounts(c));this.method_=n.accountchooser.rpc.SelectRequest.METHOD;this.params_={localAccounts:c,clientConfig:d};this.id_=a};n.accountchooser.rpc.SelectRequest.inheritsFrom(n.accountchooser.rpc[J]);n.accountchooser.rpc.SelectRequest.METHOD="select";
-n.accountchooser.rpc.UpdateRequest=function(a,c,d){n.accountchooser[M].notEmpty(a,Y);n.accountchooser[M].notEmpty(c,zc);c&&(c=n.accountchooser.util.sanitizeAccount(c));this.method_=n.accountchooser.rpc.UpdateRequest.METHOD;this.params_={account:c,clientConfig:d};this.id_=a};n.accountchooser.rpc.UpdateRequest.inheritsFrom(n.accountchooser.rpc[J]);n.accountchooser.rpc.UpdateRequest.METHOD="update";
-n.accountchooser.rpc.ManageRequest=function(a,c){n.accountchooser[M].notEmpty(a,Y);this.method_=n.accountchooser.rpc.ManageRequest.METHOD;this.params_={clientConfig:c};this.id_=a};n.accountchooser.rpc.ManageRequest.inheritsFrom(n.accountchooser.rpc[J]);n.accountchooser.rpc.ManageRequest.METHOD=jd;n.accountchooser.rpc.AboutRequest=function(a,c){n.accountchooser[M].notEmpty(a,Y);this.method_=n.accountchooser.rpc.AboutRequest.METHOD;this.params_={clientConfig:c};this.id_=a};n.accountchooser.rpc.AboutRequest.inheritsFrom(n.accountchooser.rpc[J]);
-n.accountchooser.rpc.AboutRequest.METHOD=wc;n.accountchooser.rpc.QueryRequest=function(a,c,d,e){n.accountchooser[M].notEmpty(a,Y);n.accountchooser[M].notEmpty(c,vd);d&&(d=n.accountchooser.util.sanitizeAccount(d));this.method_=n.accountchooser.rpc.QueryRequest.METHOD;this.params_={query:c,account:d,clientConfig:e};this.id_=a};n.accountchooser.rpc.QueryRequest.inheritsFrom(n.accountchooser.rpc[J]);n.accountchooser.rpc.QueryRequest.METHOD=vd;
-n.accountchooser.rpc.Queries={CDS_DISABLED:"cdsDisabled",CDS_EMPTY:"cdsEmpty",ACCOUNT_EXIST:"accountExist",SHOULD_UPDATE:"shouldUpdate"};n.accountchooser.rpc.IdpReadyNotification=function(){this.method_=n.accountchooser.rpc.IdpReadyNotification.METHOD};n.accountchooser.rpc.IdpReadyNotification.inheritsFrom(n.accountchooser.rpc.Notification);n.accountchooser.rpc.IdpReadyNotification.METHOD="idpReadyNotification";
-n.accountchooser.rpc.IdpAuthRequest=function(a,c){n.accountchooser[M].notEmpty(a,zc);this.method_=n.accountchooser.rpc.IdpAuthRequest.METHOD;this.params_={account:a,clientConfig:c};this.id_=n.accountchooser.rpc.IdpAuthRequest.DEFAULT_ID+hb+a.email};n.accountchooser.rpc.IdpAuthRequest.inheritsFrom(n.accountchooser.rpc[J]);n.accountchooser.rpc.IdpAuthRequest.METHOD="idpAuth";n.accountchooser.rpc.IdpAuthRequest.DEFAULT_ID="idpAuth";
-n.accountchooser.rpc.parseRpcObject=function(a){var c=k;if(a){try{var d=q[qa](a)}catch(e){return n.accountchooser.util.log(Rb),c}if(!d||d.jsonrpc!=gb)n.accountchooser.util.log(Sb);else if(d.method){var f=d.method[V]();f==n.accountchooser.rpc.StoreRequest.METHOD[V]()?d.id&&(d.params&&d.params.accounts)&&(c=new n.accountchooser.rpc.StoreRequest(d.id,d.params.accounts,d.params.clientConfig)):f==n.accountchooser.rpc.SelectRequest.METHOD[V]()?d.id&&(c=new n.accountchooser.rpc.SelectRequest(d.id,d.params.localAccounts,
-d.params.clientConfig)):f==n.accountchooser.rpc.UpdateRequest.METHOD[V]()?d.id&&(d.params&&d.params.account)&&(c=new n.accountchooser.rpc.UpdateRequest(d.id,d.params.account,d.params.clientConfig)):f==n.accountchooser.rpc.ManageRequest.METHOD[V]()?d.id&&(c=new n.accountchooser.rpc.ManageRequest(d.id,d.params.clientConfig)):f==n.accountchooser.rpc.AboutRequest.METHOD[V]()?d.id&&(c=new n.accountchooser.rpc.AboutRequest(d.id,d.params.clientConfig)):f==n.accountchooser.rpc.IdpReadyNotification.METHOD[V]()&&
-(c=new n.accountchooser.rpc.IdpReadyNotification)}else typeof d.id===Kd&&0<=d.id[L](n.accountchooser.rpc.IdpAuthRequest.DEFAULT_ID)&&(c=new n.accountchooser.rpc.Response(d.id,d.result,d.error))}c?n.accountchooser.util.log(ic+a):n.accountchooser.util.log(Cb+a);return c};n.accountchooser.rpc.DEFAULT_CDS_DOMAIN="https://www.accountchooser.com";n.accountchooser.rpc.DEFAULT_CDS_IFRAME_PATH="/iframe.html";n.accountchooser.rpc.DEFAULT_CDS_POPUP_PATH="/popup.html";
-n.accountchooser.rpc.DEFAULT_CDS_REDIRECT_PATH="/redirect.html";n.accountchooser.rpc.DEFAULT_POPUP_WIDTH=520;n.accountchooser.rpc.DEFAULT_POPUP_HEIGHT=550;n.accountchooser.rpc.EMPTY_RESPONSE_CALLBACK="empty";n.accountchooser.rpc.IDP_TIMEOUT=3E3;n.accountchooser.rpc.RPC_TIMEOUT=3E5;n.accountchooser.rpc.services_={};n.accountchooser.rpc.register=function(a,c){n.accountchooser[M].notEmpty(a,Gd);n.accountchooser[M].notNull(c,Pc);n.accountchooser.rpc.services_[a]=c};
-n.accountchooser.rpc.call=function(a,c,d){n.accountchooser[M].notEmpty(a,Md);c=c[B]();n.accountchooser.util.log(gc+c);a[ma](c,d||ab)};n.accountchooser.rpc.init_=function(a){n.addEventListener?n.addEventListener(kd,a,l):n[ea]?n[ea](pd,a):n[R][ea]?n[R][ea](pd,a):n.accountchooser.util.log(ec)};n.accountchooser.rpc.SAVED_IN_RPC_PREFIX_="IN_RPC_";n.accountchooser.rpc.SAVED_OUT_RPC_PREFIX_="OUT_RPC_";
-n.accountchooser.rpc.readSavedRpcObjects=function(a,c){var d;d=c?n.accountchooser.rpc.SAVED_IN_RPC_PREFIX_:n.accountchooser.rpc.SAVED_OUT_RPC_PREFIX_;d+=a[t](/^https?:\/\//,W);var e=[],f=n[v].getItem(d);if(f){n[v][ka](d);var h=n.JSON[qa](f)||[],f=(new Date)[z]();if(h[N]){h=h[h[N]-1];try{var m=q[qa](h);m&&m.timestamp&&f-m.timestamp<n.accountchooser.rpc.RPC_TIMEOUT?(e[I](h),c&&n[v].setItem(d,n.JSON[K](e))):n.accountchooser.util.log(Kb+h+uc)}catch(S){n.accountchooser.util.log(Lb+h+uc)}}}return e};
-n.accountchooser.rpc.saveRpcObject=function(a,c,d){a=a[t](/^https?:\/\//,W);n[v][ka](n.accountchooser.rpc.SAVED_IN_RPC_PREFIX_+a);n[v][ka](n.accountchooser.rpc.SAVED_OUT_RPC_PREFIX_+a);d=d?n.accountchooser.rpc.SAVED_IN_RPC_PREFIX_:n.accountchooser.rpc.SAVED_OUT_RPC_PREFIX_;d+=a;a=[];c.setTimestamp();a[I](c[B]());c=n.JSON[K](a);n[v].setItem(d,c)};n.accountchooser.rpc.idps={};n.accountchooser.rpc.idpsIndexedByDomain={};n.accountchooser.rpc.emailMapIdp={};
-n.accountchooser.rpc.timer_={running:l,id:0,callback:k};n.accountchooser.rpc.clearTimeoutCallback_=function(){if(n.accountchooser.rpc.timer_.running){try{n.clearTimeout(n.accountchooser.rpc.timer_.id)}catch(a){}n.accountchooser.rpc.timer_.running=l;n.accountchooser.rpc.timer_.id=0;n.accountchooser.rpc.timer_.callback=k}};
-n.accountchooser.rpc.setTimeoutCallback_=function(a){n.accountchooser[M].notEmptyFunction(a,Rd);n.accountchooser.rpc.clearTimeoutCallback_();n.accountchooser.rpc.timer_.callback=a;n.accountchooser.rpc.timer_.id=n[ha](function(){n.accountchooser.rpc.timer_.callback&&n.accountchooser.rpc.timer_.callback[U](n);n.accountchooser.rpc.timer_.running=l;n.accountchooser.rpc.timer_.id=0;n.accountchooser.rpc.timer_.callback=k},n.accountchooser.rpc.IDP_TIMEOUT);n.accountchooser.rpc.timer_.running=j};
-n.accountchooser.rpc.initIdpIFrame_=function(a){!a||!n.accountchooser.rpc.idps[a]?n.accountchooser.util.log(pc+a+Ya):n.accountchooser.rpc.idps[a].iframeUrl?n.accountchooser.rpc.initIdpIFrameByConfig_(n.accountchooser.rpc.idps[a]):n.accountchooser.util.log(Bb+a+Za)};n.accountchooser.rpc.initIdpIFrameByConfig_=function(a){if(a&&!a.iframe){var c=r(lb).css(td,xc).css(Ud,fb).css(Rc,fb).css(ed,bb).appendTo(Cc);a.iframe=c;c.attr(Jd,a.iframeUrl)}};
-n.accountchooser.rpc.onIdpReady_=function(a){if(!a||!n.accountchooser.rpc.idpsIndexedByDomain[a])n.accountchooser.util.log(qc+a+Ya);else{var c=n.accountchooser.rpc.idpsIndexedByDomain[a];if(c.iframe){a=c.iframe[0].contentWindow;if(c[D]&&c[D][N]){for(var d=0;d<c[D][N];d++)n.accountchooser.rpc[U](a,c[D][d]);c.queue=[]}c.idpReady=j}else n.accountchooser.util.log(Qb+a+Wa)}};
-n.accountchooser.rpc.callIdp=function(a,c,d,e){a&&n.accountchooser.rpc.idps[a]&&n.accountchooser.rpc.callIdpByConfig(n.accountchooser.rpc.idps[a],c,d,e)};n.accountchooser.rpc.callIdpByDomain=function(a,c,d,e){a&&n.accountchooser.rpc.idpsIndexedByDomain[a]&&n.accountchooser.rpc.callIdpByConfig(n.accountchooser.rpc.idpsIndexedByDomain[a],c,d,e)};
-n.accountchooser.rpc.callIdpByConfig=function(a,c,d,e){n.accountchooser[M].notEmpty(a,Xc);n.accountchooser[M].notEmpty(c,xd);n.accountchooser[M].notEmptyFunction(d,Ec);n.accountchooser[M].notEmptyFunction(e,Qd);n.accountchooser.rpc.setTimeoutCallback_(e);n.accountchooser.rpc.addIdpCallback_(a,c,d);if(a.idpReady)n.accountchooser.rpc[U](a.iframe[0].contentWindow,c);else a[D]||(a.queue=[]),a[D][I](c),a.iframe||n.accountchooser.rpc.initIdpIFrameByConfig_(a)};
-n.accountchooser.rpc.callIdpByConfig.callbacks_={};n.accountchooser.rpc.addIdpCallback_=function(a,c,d){n.accountchooser.rpc.callIdpByConfig.callbacks_[a.domain+hb+c.id_]={callback:d,idpConfig:a}};n.accountchooser.rpc.getIdpCallback_=function(a,c){var d=a+hb+c.id_,e=n.accountchooser.rpc.callIdpByConfig.callbacks_[d];if(e)return delete n.accountchooser.rpc.callIdpByConfig.callbacks_[d],e.callback};
-n.accountchooser.rpc.isSupportedIdp=function(a){if(a&&(a=a.providerId||n.accountchooser.util.getEmailDomain(a.email)))if((a=n.accountchooser.rpc.emailMapIdp[a])&&n.accountchooser.rpc.idps[a])return a;return l};n.accountchooser.rpc.EMPTY_SAVED_RPC="EMPTY_SAVED_RPC";n.accountchooser.rpc.INVALID_CLIENT_DOMAIN="INVALID_CLIENT_DOMAIN";n.accountchooser.rpc.popupMode=l;n.accountchooser.rpc.clientWindow=k;
-n.accountchooser.rpc.getDomainInHash_=function(){if(n[F].hash){var a=n[F].hash;a&&a[0]==Ca&&(a=a.substring(1));return a}};n.accountchooser.rpc.triggerSavedRpcs_=function(){if(!n.accountchooser.rpc.popupMode){var a=n.accountchooser.rpc.readSavedRpcObjects(n.accountchooser.rpc.clientDomain_,j);if(a&&a[N])for(var c=0;c<a[N];c++)n.accountchooser.rpc.process_({data:a[c],origin:n.accountchooser.rpc.clientDomain_},j);else b(n.accountchooser.rpc.EMPTY_SAVED_RPC)}};
-n.accountchooser.rpc.sendCdsReadyNotification_=function(){if(n.accountchooser.rpc.popupMode){var a=new n.accountchooser.rpc.CdsReadyNotification;n.accountchooser.rpc.clientWindow[ma](a[B](),ab)}};
-n.accountchooser.rpc.process_=function(a,c){n.accountchooser.util.log(dc+a[u]+va+a[ca]);var d=a[ca][t](/^https?:\/\//,W),e=n.accountchooser.rpc.parseRpcObject(a[u]);if(e)if(e instanceof n.accountchooser.rpc.ManageRequest&&!c)n.accountchooser.util.log(Pb+a[u]);else if(e instanceof n.accountchooser.rpc.IdpReadyNotification)n.accountchooser.rpc.onIdpReady_(d);else if(e instanceof n.accountchooser.rpc.Response)n.accountchooser.rpc.clearTimeoutCallback_(),(d=n.accountchooser.rpc.getIdpCallback_(d,e))?
-d[U](n,e,a[ca],d.context):n.accountchooser.util.log(yb+a[u]);else if(e instanceof n.accountchooser.rpc[J]){if(n.accountchooser.rpc.checkCallbackDomain_(e,d))if(d=n.accountchooser.rpc.services_.serviceLoader){if(e instanceof n.accountchooser.rpc[J]&&!c){var f=new n.accountchooser.rpc.RequestAckNotification(e.id_);n.parent[ma](f[B](),a[ca])}d(e,a[ca])}else n.accountchooser.util.log(Wb+e.method_+Va)}else n.accountchooser.util.log(oc+a[u]);else n.accountchooser.util.log(vb+a[u])};
-n.accountchooser.rpc.checkCallbackDomain_=function(a,c){var d=a.params_.clientConfig.clientCallbackUrl&&n.accountchooser.util.getDomainFromUrl(a.params_.clientConfig.clientCallbackUrl);return d&&d!==c?(n.accountchooser.util.log(Mb+a.params_.clientConfig.clientCallbackUrl+xa+c+ya),l):(d=a.params_.clientConfig.positiveCallbackUrl&&n.accountchooser.util.getDomainFromUrl(a.params_.clientConfig.positiveCallbackUrl))&&d!==c?(n.accountchooser.util.log(Ob+a.params_.clientConfig.positiveCallbackUrl+xa+c+ya),
-l):(d=a.params_.clientConfig.negativeCallbackUrl&&n.accountchooser.util.getDomainFromUrl(a.params_.clientConfig.negativeCallbackUrl))&&d!==c?(n.accountchooser.util.log(Nb+a.params_.clientConfig.negativeCallbackUrl+xa+c+ya),l):j};
-n.accountchooser.rpc.initIdp_=function(a,c){var d=[];if(a)for(var e in a){n.accountchooser[M].notEmpty(a[e].iframeUrl,Yc);var f=a[e].iframeUrl,h=n.accountchooser.util.getDomainFromUrl(f);n.accountchooser[M].notEmpty(h,Mc);f={id:e,domain:h,iframe:k,iframeUrl:f,queue:[],idpReady:l};n.accountchooser.rpc.idps[e]=f;n.accountchooser.rpc.idpsIndexedByDomain[h]=f;a[e].preload&&d[I](e)}if(c)for(var m in c)(e=c[m])?n.accountchooser.rpc.idps[e]?n.accountchooser.rpc.emailMapIdp[m]=e:n.accountchooser.util.log(Tb+
-m+Aa):n.accountchooser.util.log(Ub+m+Ba);return d};
-n.accountchooser.rpc.initCds=function(a){var c;if(a){if(a.rpcs)for(var d in a.rpcs)n.accountchooser.rpc.register(d,a.rpcs[d]);c=n.accountchooser.rpc.initIdp_(a.idps,a.emailMapIdp)}a&&a.popupMode?(n.accountchooser.rpc.popupMode=j,n.accountchooser.rpc.clientWindow=n.opener):(n.accountchooser.rpc.popupMode=l,d=n.accountchooser.rpc.getDomainInHash_(),d||(n.accountchooser.util.log(Ab),b(n.accountchooser.rpc.INVALID_CLIENT_DOMAIN)),n.accountchooser.rpc.clientDomain_=d);n.accountchooser.rpc.init_(n.accountchooser.rpc.process_);
-n.accountchooser.rpc.popupMode&&n.accountchooser.rpc.sendCdsReadyNotification_();if(c&&c[N])for(d=0;d<c[N];d++)n.accountchooser.rpc.initIdpIFrame_(c[d]);a&&!a.popupMode&&n.accountchooser.rpc.triggerSavedRpcs_()};
-n.accountchooser.rpc.callClient=function(a){n.accountchooser[M].notEmpty(a,zd);n.accountchooser.util.log(gc+a[B]());n.accountchooser.rpc.popupMode?n.accountchooser.rpc.clientWindow[ma](a[B](),ab):n.accountchooser.rpc.clientDomain_?n.accountchooser.rpc.saveRpcObject(n.accountchooser.rpc.clientDomain_,a,l):n.accountchooser.util.log(tb)};n.accountchooser.UiLoader=function(){};Z=n.accountchooser.UiLoader[P];Z.findServiceByLanguage_=function(a,c,d){return!a?k:d&&a[d]&&a[d][c]?a[d][c]:a[c]};
-Z.findService_=function(a,c,d,e){var f=k;c&&(a=a.method_,d&&c.mobile&&(f=this.findServiceByLanguage_(c.mobile,a,e)),f||(f=this.findServiceByLanguage_(c.web,a,e)));return f};Z.loadServiceFromWeb=function(){b(nc)};Z.isServiceLoaded=function(){return l};Z.setServiceLoaded=function(){};
-Z.loadService=function(a,c,d){var e=n.accountchooser.util.isMobileAgent(aa.userAgent),f=a&&a.params_&&a.params_.clientConfig&&a.params_.clientConfig[O];a=this.findService_(a,c,e,f);n.accountchooser[M].notEmpty(a,Ed);n.accountchooser[M].notEmpty(a[pa],Fd);var h=r[da]({},a,{mobile:!!e,language:f});if(this.isServiceLoaded(h))e=n.accountchooser.util.getNamespacedObjectByString(h[pa]),n.accountchooser[M].notEmpty(e,h[pa]),d(e);else{var m=this;this.loadServiceFromWeb(h,function(){m.setServiceLoaded(h);
-var a=n.accountchooser.util.getNamespacedObjectByString(h[pa]);n.accountchooser[M].notEmpty(a,h[pa]);d(a)})}};n.accountchooser.UrlUiLoader=function(){};n.accountchooser.UrlUiLoader.inheritsFrom(n.accountchooser.UiLoader);Z=n.accountchooser.UrlUiLoader[P];Z.getJsFileUrl=function(){b(nc)};Z.getCssFileUrl=function(){b(mc)};Z.isFileLoaded=function(){b(mc)};Z.removeOldCss=function(){b(mc)};Z.removeOldJs=function(){b(mc)};
-Z.loadServiceFromWeb=function(a,c){function d(){var d=e.getJsFileUrl(a);e.isFileLoaded(d)?c():(new n.accountchooser.loader.JsLoader)[oa](d,k,function(){e.removeOldJs();c()})}var e=this,f=this.getCssFileUrl(a);this.isFileLoaded(f)?d():(new n.accountchooser.loader.CssLoader)[oa](f,k,function(){e.removeOldCss();d()})};
-n.accountchooser.UrlTemplateUiLoader=function(a,c,d){this.jsUrlTemplate_=a;this.cssUrlTemplate_=c;this.defaultLanguage_=n.accountchooser.util.findLanguageCode(d)||Nc;this.cssUrl_=this.jsUrl_=k};n.accountchooser.UrlTemplateUiLoader.inheritsFrom(n.accountchooser.UrlUiLoader);Z=n.accountchooser.UrlTemplateUiLoader[P];Z.getJsFileUrl=function(a){var c=this.getLanguage_(a[O]);return this.jsUrlTemplate_[t](/\{baseFilename\}/,a.baseFilename)[t](/\{language\}/,c)};
-Z.getCssFileUrl=function(a){return this.cssUrlTemplate_[t](/\{baseFilename\}/,a.cssBaseFilename)};Z.isFileLoaded=function(a){return!!this.findTag_(a)};Z.isServiceLoaded=function(a){return this.isFileLoaded(this.getJsFileUrl(a))&&this.isFileLoaded(this.getCssFileUrl(a))};Z.setServiceLoaded=function(a){this.jsUrl_=this.getJsFileUrl(a);this.cssUrl_=this.getCssFileUrl(a)};
-Z.loadServiceFromWeb=function(a,c){var d=this;n.accountchooser.UrlUiLoader[P].loadServiceFromWeb[U](d,a,function(){c();var e=p[fa](Cc)[0]||p[T],f=e.getAttribute(Hc)||W;d.isRightToLeft_(a)?(e.dir=Ad,f+=wa):(e.dir=id,f=f[t](/rtl/g,W));e[y](Hc,f)})};Z.removeOldTag_=function(a){(a=this.findTag_(a))&&a.parentNode[sa](a)};Z.removeOldCss=function(){this.removeOldTag_(this.cssUrl_)};Z.removeOldJs=function(){this.removeOldTag_(this.jsUrl_)};
-Z.findTag_=function(a){if(a)for(var c=(p[fa](Qc)[0]||p[A]).childNodes,d=0,e=c[N];d<e;d++){var f=c.item(d),h=f.nodeName[V]();if(h==Cd&&f.getAttribute(Jd)==a||h==fd&&f.getAttribute(Tc)==a)return f}};Z.getLanguage_=function(a){a=a||n.navigator[O];return a=n.accountchooser.util.findLanguageCode(a)||this.defaultLanguage_};Z.isRightToLeft_=function(a){a=this.getLanguage_(a[O]);return n.accountchooser.util.isRightToLeft(a)};n.accountchooser.AjaxUiLoader=function(){this.loadedPackages_=[]};n.accountchooser.AjaxUiLoader.inheritsFrom(n.accountchooser.UiLoader);
-n.accountchooser.AjaxUiLoader[P].stringify=function(a){return a.module+hb+a.version+hb+a.packageName+hb+a[O]};n.accountchooser.AjaxUiLoader[P].loadServiceFromWeb=function(a,c){google[oa](a.module,a.version,{packages:[a.packageName],language:a[O]||n.navigator[O],callback:c})};n.accountchooser.AjaxUiLoader[P].isServiceLoaded=function(a){a=this[K](a);return-1<r[ia](a,this.loadedPackages_)};n.accountchooser.AjaxUiLoader[P].setServiceLoaded=function(a){a=this[K](a);0>r[ia](a,this.loadedPackages_)&&this.loadedPackages_[I](a)};
-n.accountchooser.UiHandler=function(){};n.accountchooser.UiHandler.VALID_URL_REGEX_=/^http(s)?:\/\/(localhost|([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+)(\:\d+)?(\/([^?#]*))?(\?([^#]*))?$/i;Z=n.accountchooser.UiHandler[P];
-Z.show=function(a){this.setUp_(a);this.showTitle_();this.showFavIcon_();switch(this.serviceType_){case n.accountchooser.ServiceType.MANAGE:this.showManageContent_();break;case n.accountchooser.ServiceType.SELECT:this.showSelectContent_();break;case n.accountchooser.ServiceType.STORE:this.showStoreContent_();break;case n.accountchooser.ServiceType.UPDATE:this.showUpdateContent_();break;case n.accountchooser.ServiceType.ABOUT:this.showAboutContent_()}this.showFooterContent_();this.initLanguageSelector_();
-r(Cc).hide()[na]()};Z.setUp_=function(a){a=a||{};this.title_=a.title;this.favicon_=a.favicon;this.branding_=a.branding;this.cajaMethod_=a.cajaMethod;this.language_=a[O]||Nc;this.accounts_=a.accounts||[];this.domain_=a.domain;this.serviceType_=a.serviceType;this.onLanguageChanged_=a.onLanguageChanged};Z.showTitle_=function(){this.title_&&(p.title=this.title_)};
-Z.showFavIcon_=function(){if(this.favicon_&&n.accountchooser.UiHandler.VALID_URL_REGEX_[s](this.favicon_)){for(var a=p[fa](Qc)[0],c=a[fa](fd),d=0;d<c[N];d++){var e=c[d];e.type==Zc&&e.rel==Id&&a[sa](e)}e=p[x](fd);e.type=Zc;e.rel=Id;e.href=this.favicon_;a.appendChild(e)}};
-Z.showBrandingContent_=function(){function a(a){var c=r(Ea);a&&c[C](a);c[na]()}if(this.branding_&&n.accountchooser.UiHandler.VALID_URL_REGEX_[s](this.branding_)){var c=this.branding_,c=-1==c[L](X)?c+X:c+Sa,c=c+(dd+this.language_);this.cajaMethod_==Dc?n.accountchooser.caja.cajoleHtml(yc,c,a):n.accountchooser.caja.sanitizeHtml(c,a)}};Z.showSampleAccountChooser_=function(){var a=new n.accountchooser.page.SelectAccountPage,c=r(Ja).empty();a.render(c,g,this.accounts_,g,this.domain_)};
-Z.showManageContent_=function(){r(Ha)[C](n.accountchooser[Q].manageContainer.header);r(Ia)[C](n.accountchooser[Q].manageContainer.description)};Z.showSelectContent_=function(){var a=n.accountchooser[Q].selectContainer.header+ua+this.domain_+kb;r(La)[C](a);this.showBrandingContent_();r(Ka)[na]()};
-Z.showStoreContent_=function(){var a=this.accounts_&&1<this.accounts_[N],c=n.accountchooser[Q].storeContainer.header,d=n.accountchooser[Q].storeContainer.headerMultiple;r(Na)[C](a?d:c);c=n.accountchooser[Q].storeContainer.description;d=n.accountchooser[Q].storeContainer.descriptionMultiple;r(Oa)[C](a?d:c);var e=n.accountchooser[Q].storeContainer.benefits;r(od).each(function(a,c){a<e[N]&&r(c)[C](e[a])});this.showSampleAccountChooser_();r(Ma)[na]()};
-Z.showUpdateContent_=function(){r(Qa)[C](n.accountchooser[Q].updateContainer.header);r(Ra)[C](n.accountchooser[Q].updateContainer.description);r(Pa)[na]()};Z.showAboutContent_=function(){this.title_=n.accountchooser[Q].aboutContainer.title;this.showTitle_();this.showAboutContainerMessages_(ld);this.accounts_=this.getAboutContainerSampleAccounts_();this.showSampleAccountChooser_()};
-Z.showAboutContainerMessages_=function(a){var c=n.accountchooser[Q].aboutContainer,d=r(rc+a+za);if(d&&c)for(var e=0;e<d[N];e++){var f=r(d[e]),h=f.attr(Y)[t](a,W);c[h]&&f[C](c[h])}};n.accountchooser.UiHandler.MAX_SAMPLE_ACCOUNTS_COUNT_=2;n.accountchooser.UiHandler.MIN_SAMPLE_ACCOUNTS_COUNT_=2;
-n.accountchooser.UiHandler[P].getAboutContainerSampleAccounts_=function(){var a=n.accountchooser.util.accountstorage.readAccounts(),c=n.accountchooser.UiHandler.MAX_SAMPLE_ACCOUNTS_COUNT_,d=n.accountchooser.UiHandler.MIN_SAMPLE_ACCOUNTS_COUNT_,e=n.accountchooser[Q].aboutContainer;return a[N]>c?a.slice(0,c):a[N]<d?[e.accountWomanHome,e.accountWomanWork]:a};
-n.accountchooser.UiHandler[P].showFooterContent_=function(){r(Fa)[C](n.accountchooser[Q].footerContainer.copyright);var a=n.accountchooser[Q].footerContainer.learnMoreLink;this.language_&&this.language_!=Nc&&(a=0<=a[L](X)?a+(Ta+this.language_):a+(pb+this.language_));var c=n.accountchooser[Q].footerContainer.learnMore;r(Ga)[C](c).attr(Tc,a)};
-n.accountchooser.UiHandler[P].initLanguageSelector_=function(){var a=r(Da);a.unbind(Fc);a.val(this.language_);var c=this;a.change(function(){var d=a.val();if(d!=c.language_&&c.onLanguageChanged_)c.onLanguageChanged_(d)})};
-var Xd=r,$d={options:{popupMode:l,manageMode:l,aboutMode:l,uiLoader:k,idps:{},emailMapIdp:{},uiHandler:new n.accountchooser.UiHandler,enableCajole:l},loadService_:function(a,c){var d=this;this[G].uiLoader.loadService(a,this[G].services,function(e){d.executeService_(e,a,c)})},executeService_:function(a,c,d){a=new a;a.setContainer(this.element);a.setCdsConfig(this.cdsConfig);a.executeRequest[U](a,c);this.showCustomizedUI_(c,d)},showCustomizedUI_:function(a,c){if(this[G].uiHandler){var d={};if(a&&a.params_&&
-a.params_.clientConfig){d=a.params_.clientConfig.ui||d;d.language=n.accountchooser.util.findLanguageCode(a.params_.clientConfig[O]);!this[G].enableCajole&&Dc==d.cajaMethod&&(d.cajaMethod=Bd);d.serviceType=a.method_;d.accounts=n.accountchooser.util.sanitizeAccounts(a.params_.accounts||[],n.accountchooser.util.accountSanitizer);var e=this;d.onLanguageChanged=function(d){a.params_.clientConfig.language=n.accountchooser.util.findLanguageCode(d);e.loadService_(a,c)}}d.language=d[O]||Nc;d.domain=c[t](/^https?:\/\//,
-W);this[G].uiHandler[na](d)}},_create:function(){Xd(this.element).empty();this.cdsConfig={popupMode:this[G].popupMode,idps:this[G].idps,emailMapIdp:this[G].emailMapIdp};this.cdsConfig.rpcs={serviceLoader:Xd.proxy(this.loadService_,this)};try{n.accountchooser.rpc.initCds(this.cdsConfig)}catch(a){!this[G].manageMode&&!this[G].aboutMode&&(a==n.accountchooser.rpc.EMPTY_SAVED_RPC||a==n.accountchooser.rpc.INVALID_CLIENT_DOMAIN)?this.redirectEmptyRequest():!this[G].manageMode&&!this[G].aboutMode&&b(a)}this[G].manageMode?
-this.showManagePage():this[G].aboutMode&&this.showAboutPage()},redirectEmptyRequest:function(){var a=n.accountchooser.rpc.getDomainInHash_();n[F].href=a&&n.accountchooser.util.isValidUrlDomain(a)?Vc+a:n[F].protocol+db+n[F].host},showManagePage:function(){var a=n.accountchooser.util.browserconfig.isDisabled(),c=n.accountchooser.util.accountstorage.readAccounts();a||!c[N]?this.showLearnMorePage_():this.sendFakeRequest_(n.accountchooser.rpc.ManageRequest,jd)},showAboutPage:function(){this.sendFakeRequest_(n.accountchooser.rpc.AboutRequest,
-wc)},sendFakeRequest_:function(a,c){var d={language:n.accountchooser.util.parseUrlParams(n[F].href).lang,clientCallbackUrl:n[F].href},d={data:(new a(c,d))[B](),origin:n[F].host};n.accountchooser.rpc.process_(d,j)},showLearnMorePage_:function(){var a=n.accountchooser.util.parseUrlParams(n[F].href).lang,c=eb;a&&(c=0<=c[L](X)?c+(Ta+a):c+(pb+a));n[F][t](c)},destroy:function(){Xd(this.element).empty();Xd.Widget[P].destroy[U](this)}};Xd.widget("ui.cds",$d);})()
+window.accountchooser = window.accountchooser || {};
+
+
+/**
+ * Namespace alias for CDS.
+ * @deprecated This namespace alias is for backward compatability only. It'll be
+ * removed in the future. Do not use it.
+ */
+window.cds = window.accountchooser;
+
+
+/**
+ * Namespace for utility functions.
+ */
+window.accountchooser.util =
+    window.accountchooser.util || {};
+
+/**
+ * Logs a message to the console of the browser for debugging.
+ * @param {string} message The message to log.
+ */
+window.accountchooser.util.log = function(message) {
+  try {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  } catch (ex) {
+    // Ignore if cannot log to console.
+  }
+};
+
+/**
+ * UUID allows multiple instances on the same page.
+ * @type {number}
+ * @private
+ */
+window.accountchooser.util.uuidCounter_ = new Date().getTime();
+
+/**
+ * Computes a UUID for this widget. If a UUID is set on the options, use it.
+ * Otherwise generates one.
+ * @param {Object} options The options object of this widget.
+ * @return {number | string} The uuid of this widget.
+ */
+window.accountchooser.util.generateUuid = function(options) {
+  var newUuid;
+  if (options && options.uuid) {
+    newUuid = options.uuid;
+  } else {
+    newUuid = ++window.accountchooser.util.uuidCounter_;
+  }
+  return newUuid;
+};
+
+/**
+ * Creates a form to submit the {@code parameters} to the {@code targetUrl}.
+ * @param {string} targetUrl The URL to which the form will submit.
+ * @param {{key1: value1, key2: value2, ...}} parameters The parameters in the
+ *     form.
+ * @param {string=} opt_targetWinName The name of the target window which the
+ *     form is submitted to. If targetWinName is an empty string or not
+ *     present, the current window is used.
+ * @return {Element} The created DOM element.
+ * @private
+ */
+window.accountchooser.util.createForm_ = function(targetUrl,
+    parameters, opt_targetWinName) {
+  if (!targetUrl) {
+    throw 'The targetUrl cannot be null.';
+  }
+  var myForm = window.document.createElement('form');
+  myForm.method = 'post';
+  myForm.action = targetUrl;
+  if (parameters) {
+    for (var k in parameters) {
+      var myInput = window.document.createElement('input');
+      myInput.setAttribute('type', 'hidden');
+      myInput.setAttribute('name', k);
+      if (parameters[k] === null || parameters[k] === undefined) {
+        myInput.setAttribute('value', '');
+      } else {
+        myInput.setAttribute('value', parameters[k]);
+      }
+      myForm.appendChild(myInput);
+    }
+  }
+  if (opt_targetWinName) {
+    myForm.target = opt_targetWinName;
+  }
+  window.document.body.appendChild(myForm);
+  return myForm;
+};
+
+/**
+ * Creates a form with {@code parameters} and submit it to {@code targetUrl}.
+ * @param {string} targetUrl The URL to which the form will submit.
+ * @param {{key1: value1, key2: value2, ...}} parameters The parameters in the
+ *     form.
+ * @param {string=} opt_targetWinName The name of the target window which the
+ *     form is submitted to. If targetWinName is an empty string or not
+ *     present, the current window is used.
+ */
+window.accountchooser.util.postTo = function(targetUrl,
+    parameters, opt_targetWinName) {
+  var myForm = window.accountchooser.util.createForm_(targetUrl,
+      parameters, opt_targetWinName);
+  myForm.submit();
+  window.document.body.removeChild(myForm);
+};
+
+/**
+ * Returns the URL params. e.g. To get the value of the "foo" param in the
+ * URL the code can be: var foo = parseUrlParams()['foo'];
+ * @param {string} url The URL to parse.
+ * @return {Object} The URL params array.
+ */
+window.accountchooser.util.parseUrlParams = function(url) {
+  var params = {};
+  var segments = url.slice(url.indexOf('?') + 1).split('&');
+  for (var i = 0; i < segments.length; i++) {
+    var pair = segments[i].split('=');
+    if (pair.length == 2) {
+      params[pair[0]] = decodeURIComponent(pair[1]);
+    } else {
+      params[pair[0]] = undefined;
+    }
+  }
+  return params;
+};
+
+/**
+ * Sends the request to the given URL with POST method instead of GET method.
+ * A hidden form is used to post the request.
+ * @param {string} targetUrl The URL to post.
+ * @param {string=} opt_targetWinName The name of the target window which the
+ *     form is submitted to. If targetWinName is an empty string or not
+ *     present, the current window is used.
+ */
+window.accountchooser.util.formRedirect = function(targetUrl,
+    opt_targetWinName) {
+  var url = targetUrl.substring(0, targetUrl.indexOf('?'));
+  var params =
+      window.accountchooser.util.parseUrlParams(targetUrl);
+  window.accountchooser.util.postTo(url, params,
+      opt_targetWinName);
+};
+
+/**
+ * Checks whether the user's browser is supported.
+ * @return {boolean} {@code true} if the browser is supported.
+ */
+window.accountchooser.util.isBrowserSupported = function() {
+  var version = 999;
+  if (navigator.appVersion.indexOf('MSIE') != -1) {
+    version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+  }
+  return version > 7;
+};
+
+/**
+ * Makes a URL from the base URL and the parameters
+ * @param {string} url The base URL.
+ * @param {Object.<string, number|string|boolean>} params The URL parameters. The
+ *     name of the parameter should be a string and the value should be a
+ *     number, string or boolean.
+ * @return {string} The new URI with the parameters.
+ */
+window.accountchooser.util.makeUrl = function(url, params) {
+  var query = [];
+  for (var i in params) {
+    query.push(params[i] ? i + '=' + params[i] : i);
+  }
+  return url + '?' + query.join('&');
+};
+
+// Utility functions which are to substitute for jQuery ones.
+/**
+ * Checks whether the value is an array or not. Try to use jQuery.isArray if
+ * possible.
+ * @param {*} value The value to be checked.
+ * @return {boolean} True if it's an array, false otherwise.
+ */
+window.accountchooser.util.isArray = function(value) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery.isArray(value);
+  } else {
+    return Object.prototype.toString.call(value) === '[object Array]';
+  }
+};
+
+/**
+ * Checks whether the value is a function or not. Try to use jQuery.isFunction
+ * if possible.
+ * @param {*} value The value to be checked.
+ * @return {boolean} True if it's a function, false otherwise.
+ */
+window.accountchooser.util.isFunction = function(value) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery.isFunction(value);
+  } else {
+    return Object.prototype.toString.call(value) === '[object Function]';
+  }
+};
+
+/**
+ * Checks whether the elements is in the array/array-like object and returns the
+ * index of it. Try to use jQuery.inArray if possible.
+ * @param {*} element The element to be checked.
+ * @param {Array.<*>|{length: number}} array The array to be searched.
+ * @return {number} The index of the element in the array. If the element is not
+ *     in the array, -1 is returned.
+ */
+window.accountchooser.util.indexOf = function(element, array) {
+  if (array) {
+    if (typeof jQuery !== 'undefined') {
+      return jQuery.inArray(element, array);
+    }
+    if (array.indexOf) {
+      return array.indexOf(element);
+    }
+    var length = array.length;
+    for (var i = 0; i < length; i++) {
+      if (i in array && array[i] === element) {
+        return i;
+      }
+    }
+  }
+  return -1;
+};
+
+/**
+ * Gets the width of the window.
+ * @param {Element} window The window element.
+ * @return {number} The width of the window.
+ */
+window.accountchooser.util.windowWidth = function(window) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery(window).width();
+  }
+  var width = 0;
+  if (window.innerWidth) {
+    width = window.innerWidth;
+  } else if (window.document && window.document.documentElement &&
+      window.document.documentElement.clientWidth) {
+    width = window.document.documentElement.clientWidth;
+  } else if (window.document && window.document.body &&
+      window.document.body.clientWidth) {
+    width = window.document.body.clientWidth;
+  }
+  return width;
+};
+
+/**
+ * Gets the height of the window.
+ * @param {Element} window The window element.
+ * @return {number} The height of the window.
+ */
+window.accountchooser.util.windowHeight = function(window) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery(window).height();
+  }
+  var height = 0;
+  if (window.innerHeight) {
+    height = window.innerHeight;
+  } else if (window.document && window.document.documentElement &&
+      window.document.documentElement.clientHeight) {
+    height = window.document.documentElement.clientHeight;
+  } else if (window.document && window.document.body &&
+      window.document.body.clientHeight) {
+    height = window.document.body.clientHeight;
+  }
+  return height;
+};
+
+/**
+ * Trims the leading and trailing space characters. Try to use jQuery.trim if
+ * possible.
+ * @param {string} str The string to be trimmed.
+ * @return {string} The trimmed string.
+ */
+window.accountchooser.util.trim = function(str) {
+  if (typeof jQuery !== 'undefined') {
+    return jQuery.trim(str);
+  }
+  if (str == null) {
+    return '';
+  } else if (String.prototype.trim) {
+    return String.prototype.trim.call(str);
+  } else {
+    return str.replace(/^[\s\xa0]+/, '').replace(/[\s\xa0]+$/, '');
+  }
+};
+
+/**
+ * Merges several objects into the first object. Try to use jQuery.extend if
+ * possible.
+ * @param {boolean} deep Whether to performe deep copy or not.
+ * @param {Object} target The object to receive the properties from other ones.
+ * @param {...Object} var_objects A set of objects to merge in.
+ * @return {Object} The merged object.
+ */
+window.accountchooser.util.extend = function(deep, target,
+    var_objects) {
+  // If no target provided, return {}. If no other objects to merge in, return
+  // target unmodifed..
+  if (arguments.length < 3) {
+    return target || {};
+  }
+  if (typeof jQuery !== 'undefined') {
+    // If deep == false, don't pass it to jQuery.extend since it'll be treated
+    // as the target.
+    var args = Array.prototype.slice.call(arguments, deep ? 0 : 1);
+    return jQuery.extend.apply(jQuery, args);
+  }
+  if (typeof target !== 'object' || target == null) {
+    target = {};
+  }
+  for (var i = 2, num = arguments.length; i < num; i++) {
+    var obj = arguments[i];
+    if (obj == null) {
+      continue;
+    }
+    for (var name in obj) {
+      // Skip undefined properties and itself.
+      if (obj[name] === undefined || target === obj[name]) {
+        continue;
+      }
+      if (deep && typeof obj[name] == 'object') {
+        // Make sure target property is array if the source property is array.
+        if (window.accountchooser.util.isArray(obj[name]) &&
+            !window.accountchooser.util.isArray(target[name])) {
+          target[name] = [];
+        }
+        target[name] = window.accountchooser.util.extend(true,
+            target[name], obj[name]);
+      } else {
+        target[name] = obj[name];
+      }
+    }
+  }
+  return target;
+};
+
+
+/**
+ * @namespcae Parameter validators.
+ */
+window.accountchooser.param = {};
+
+/**
+ * Checks a parameter value is not null or undefined.
+ * @param {*} value The value of a parameter.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ */
+window.accountchooser.param.notNull = function(value,
+    opt_paramName) {
+  if (value === undefined || value === null) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be null.', opt_paramName);
+  }
+};
+
+/**
+ * Checks a parameter value is not empty. That is, the value must evaluate to
+ * true.
+ * @param {*} value The value of a parameter.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ */
+window.accountchooser.param.notEmpty = function(value,
+    opt_paramName) {
+  if (!value) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be empty.', opt_paramName);
+  }
+};
+
+/**
+ * Checks a parameter value must be a non-empty array.
+ * @param {*} value The value of a parameter.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ */
+window.accountchooser.param.notEmptyArray = function(value,
+    opt_paramName) {
+  if (!value) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be empty.', opt_paramName);
+  }
+  if (!window.accountchooser.util.isArray(value)) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% is not an array.', opt_paramName);
+  }
+  if (!value.length) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be an empty array.', opt_paramName);
+  }
+};
+
+/**
+ * Checks a parameter value must be a non-empty array.
+ * @param {*} value The value of a parameter.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ */
+window.accountchooser.param.notEmptyFunction = function(value,
+    opt_paramName) {
+  if (!value) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% cannot be empty.', opt_paramName);
+  }
+  if (!window.accountchooser.util.isFunction(value)) {
+    window.accountchooser.param.throwError_(
+        'Parameter %%param%% is not a function.', opt_paramName);
+  }
+};
+
+/**
+ * Throws an error to indicate a failed parameter validation.
+ * @param {string} message The error message.
+ * @param {string=} opt_paramName An optional name of the parameter.
+ * @private
+ */
+window.accountchooser.param.throwError_ = function(message,
+    opt_paramName) {
+  try {
+    if (console && console.trace) {
+      console.trace();
+    }
+  } catch (e) {
+  }
+  var param = opt_paramName ? ' \'' + opt_paramName + '\'' : '';
+  throw message.replace(/\%\%param\%\%/g, param);
+};
+
+
+/**
+ * A class can extends parent class.
+ * @param {Function} parentClass The parent class to be extended.
+ */
+Function.prototype.inheritsFrom = function(parentClass) {
+  window.accountchooser.param.notEmptyFunction(parentClass,
+      'parentClass');
+
+  this.prototype = new parentClass;
+  this.prototype.constructor = this;
+  this.prototype.parentClass = parentClass.prototype;
+};
+
+
+/**
+ * The regular expression for a vaild email address.
+ * @type {RegExp}
+ * @private
+ */
+window.accountchooser.util.VALID_EMAIL_REGEX_ =
+    /^[a-z0-9]+(\.?[-+\w]+)*@([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+$/i;
+
+/**
+ * The regular expression for a vaild domain.
+ * @type {RegExp}
+ * @private
+ */
+window.accountchooser.util.VALID_DOMAIN_REGEX_ =
+    /^([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+$/i;
+
+/**
+ * Checks if the given parameter is a valid email address format.
+ * @param {string} email The input email to be checked.
+ * @return {boolean} True if the email format is valid.
+ */
+window.accountchooser.util.isValidEmail = function(email) {
+  return email && (null !=
+    window.accountchooser.util.VALID_EMAIL_REGEX_.exec(email));
+};
+
+/**
+ * Checks if the given parameter is a valid email domain format. For email
+ * domain, port number is not allowed.
+ * TODO(guibinkong): Should rename to isValidEmailDomain().
+ * @param {string} domain The input email to be checked.
+ * @return {boolean} True if the domain format is valid.
+ */
+window.accountchooser.util.isValidDomain = function(domain) {
+  return domain && (null !=
+    window.accountchooser.util.VALID_DOMAIN_REGEX_.exec(domain));
+};
+
+/**
+ * Returns the domain part of an email in lower case.
+ * @param {string} email The email to be parsed.
+ * @return {string} The domain of the email parameter.
+ */
+window.accountchooser.util.getEmailDomain = function(email) {
+  email = window.accountchooser.util.trim(email);
+  if (email && window.accountchooser.util.isValidEmail(email)) {
+    return email.split('@')[1].toLowerCase();
+  }
+};
+
+/**
+ * Returns the user name part of an email in lower case.
+ * @param {string} email The email to be parsed.
+ * @return {string} The user name of the email parameter.
+ */
+window.accountchooser.util.getEmailUsername = function(email) {
+  email = window.accountchooser.util.trim(email);
+  if (email && window.accountchooser.util.isValidEmail(email)) {
+    return email.split('@')[0].toLowerCase();
+  }
+};
+
+/**
+ * Returns the IDP name for a domain if it is in NASCAR list.
+ * @param {string} domain The domain to be checked.
+ * @return {string} The IDP id, or <code>undefined</code> if not found.
+ */
+window.accountchooser.util.isDomainInNascar = function(domain) {
+  if (domain) {
+    var idps = window.accountchooser.config.idps;
+    for (var idpId in idps) {
+      var idp = idps[idpId];
+      if (idp && (idp.domain == domain)) {
+        return idpId;
+      }
+    }
+  }
+};
+
+
+/**
+ * The regular expression for a vaild username.
+ * @type {RegExp}
+ * @private
+ */
+window.accountchooser.util.USERNAME_REGEX = /^\w+(\.\w+)*$/;
+
+/**
+ * Checks if the given parameter is a valid user name.
+ * @param {string} username The input user name to be checked.
+ * @return {boolean} True if the format is valid.
+ */
+window.accountchooser.util.isValidUsername = function(username) {
+  if (!window.accountchooser.config) {
+    return !!username && (null !=
+      window.accountchooser.util.USERNAME_REGEX.exec(username));
+  } else if(!window.accountchooser.config.
+      disableUsernameFormatCheck) {
+    if(window.accountchooser.config.usernameRegex) {
+      return !!username && (null != window.accountchooser.config.
+          usernameRegex.exec(username));
+    } else  {
+      return !!username && (null != window.accountchooser.util.
+          USERNAME_REGEX.exec(username));
+    }
+  } else {
+    return !!username;
+  }
+};
+
+
+/**
+ * The regular expression for a domain part.
+ * @type {RegExp}
+ * @private
+ */
+window.accountchooser.util.DOMAIN_REGEX_ = /:\/\/(.[^\/?]+)/;
+
+/**
+ * The regular expression for a valid domain.
+ * @type {RegExp}
+ * @private
+ */
+window.accountchooser.util.VALID_URL_DOMAIN_REGEX_ =
+  /^([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+(\:\d+)?$/i;
+
+/**
+ * Parses the domain part from a URL.
+ * @param {string} url The input URL to be parsed.
+ * @return {string} The domain in the URL.
+ */
+window.accountchooser.util.getDomainFromUrl = function(url) {
+  try {
+    var domain =
+        url.match(window.accountchooser.util.DOMAIN_REGEX_)[1];
+    return domain;
+  } catch (e) {
+  }
+};
+
+/**
+ * Checks whether a string is a valid URL domain. URL domain can have port
+ * number in it.
+ * @param {string} domain The domain to check.
+ * @return {boolean} true is valid.
+ */
+window.accountchooser.util.isValidUrlDomain = function(domain) {
+  if (domain) {
+    return window.accountchooser.util.VALID_URL_DOMAIN_REGEX_.
+        test(domain);
+  }
+  return false;
+};
+
+
+/**
+ * Regex for mobile agent.
+ * @private
+ */
+window.accountchooser.util.MOBILE_REGEX_ =
+    /iphone|ipad|ipod|android|blackberry|mini|iemobile|windows\sce|palm/i;
+
+/**
+ * Whether an agent is a mobile user agent.
+ * @param {string} agent the user agent string.
+ * @return {boolean} Whether an agent is a mobile user agent.
+ */
+window.accountchooser.util.isMobileAgent = function(agent) {
+  return agent && window.accountchooser.util.MOBILE_REGEX_.test(
+      agent.toLowerCase());
+};
+
+
+/**
+ * List of supported language which is denoted by its normalized code.
+ * @private
+ */
+window.accountchooser.util.SUPPORTED_LANGUAGE_ = [
+    'en', 'en_gb', 'fr', 'it', 'de', 'es', 'zh_cn', 'zh_tw', 'ja', 'ko', 'nl',
+    'pl', 'pt', 'ru', 'th', 'tr', 'bg', 'ca', 'hr', 'cs', 'da', 'fil', 'fi',
+    'el', 'hi', 'hu', 'id', 'lv', 'lt', 'no', 'pt_pt', 'ro', 'sr', 'sk', 'sl',
+    'sv', 'uk', 'vi', 'ar', 'iw'];
+/**
+ * Language codes map which maps the alternative code to the normolized code in
+ * the list of supported language.
+ * @private
+ */
+window.accountchooser.util.ALTERNATIVE_CODES_MAP_ = {
+  'en_us': 'en', 'zh': 'zh_cn', 'zh_hans': 'zh_cn', 'zh_hans_cn': 'zh_cn',
+  'zh_hant': 'zh_tw', 'zh_hant_tw': 'zh_tw', 'nl_nl': 'nl', 'fr_fr': 'fr',
+  'de_de': 'de', 'it_it': 'it', 'ja_jp': 'ja', 'ko_kr': 'ko', 'pl_pl': 'pl',
+  'pt_br': 'pt', 'ru_ru': 'ru', 'es_es': 'es', 'th_th': 'th', 'tr_tr': 'tr',
+  'bg_bg': 'bg', 'ca_es': 'ca', 'hr_hr': 'hr', 'cs_cz': 'cs', 'da_dk': 'da',
+  'fil_ph': 'fil', 'tl': 'fil', 'fi_fi': 'fi', 'el_gr': 'el', 'hi_in': 'hi',
+  'hu_hu': 'hu', 'id_id': 'id', 'lv_lv': 'lv', 'lt_lt': 'lt', 'no_no': 'no',
+  'nb': 'no', 'nb_no': 'no', 'ro_ro': 'ro', 'sr_cyrl_rs': 'sr', 'sk_sk': 'sk',
+  'sl_si': 'sl', 'sv_se': 'sv', 'uk_ua': 'uk', 'vi_vn': 'vi'};
+
+/**
+ * Finds the normalized code in the supported language list for a given one. If
+ * there's no exactly matched one, try to match the higer level. i.e., 'zh-HK'
+ * will get 'zh' as result, which is eventually mapped to 'zh_cn'. If no code is
+ * found, {@code undefined} is returned.
+ * @param {string} language The language code.
+ * @return {string|undefined} The normalized language code.
+ */
+window.accountchooser.util.findLanguageCode = function(
+    language) {
+  // Normalize language code
+  var lang = language && language.replace(/-/g, '_').toLowerCase();
+  var code;
+  while (lang) {
+    if (jQuery.inArray(lang,
+        window.accountchooser.util.SUPPORTED_LANGUAGE_) > -1) {
+      code = lang;
+      break;
+    } else if (window.accountchooser.util.
+        ALTERNATIVE_CODES_MAP_[lang]) {
+      code = window.accountchooser.util.
+          ALTERNATIVE_CODES_MAP_[lang];
+      break;
+    }
+    var parts = lang.split('_');
+    parts.pop();
+    lang = parts.join('_');
+  }
+  return code;
+};
+
+/**
+ * Finds the language is right-to-left or not.
+ * @param {string} language The language code.
+ * @return {@code true} if the language is rtl, otherwise {@code false}.
+ */
+window.accountchooser.util.isRightToLeft = function(language) {
+  var lang =
+      window.accountchooser.util.findLanguageCode(language);
+  // Arabic or Hebrew
+  return lang == 'ar' || lang == 'iw';
+};
+
+
+/**
+ * Gets the target namespaced object by its name string. For example, you can
+ * get the target function by 'window.cds.StoreServices' or 'cds.StoreServices'.
+ * @param {string} name a dot-separated name string.
+ * @return {object} target object.
+ */
+window.accountchooser.util.getNamespacedObjectByString =
+    function(name) {
+  var parts = name.split('.');
+  for (var i = 0, len = parts.length, obj = window; i < len; ++i) {
+    if (i == 0 && parts[0] == 'window') {
+      obj = window;
+    } else {
+      obj = obj[parts[i]];
+    }
+    window.accountchooser.param.notNull(obj, name);
+  }
+  return obj;
+};
+
+
+/**
+ * The prefix for the registry key.
+ * @type {string}
+ * @private
+ */
+window.accountchooser.util.REGISTRY_KEY_PREFIX_ = 'widget_';
+
+/**
+ * Holds all the login widget instances in the page.
+ * @type {Object}
+ * @private
+ */
+window.accountchooser.util.widgets_ = {};
+
+/**
+ * Registers the widget instance to the window by its uuid.
+ * @param {number|string} uuid The uuid of the widget.
+ * @param {Object} ref The instance of the widget.
+ */
+window.accountchooser.util.registerWidget = function(uuid, ref) {
+  var id =
+      window.accountchooser.util.REGISTRY_KEY_PREFIX_ + uuid;
+  window.accountchooser.util.widgets_[id] = ref;
+};
+
+/**
+ * Removes a widget instance from the window by its uuid.
+ * @param {number|string} uuid The uuid of the widget.
+ */
+window.accountchooser.util.unregisterWidget = function(uuid) {
+  var id =
+      window.accountchooser.util.REGISTRY_KEY_PREFIX_ + uuid;
+  delete window.accountchooser.util.widgets_[id];
+};
+
+/**
+ * Gets the widget instance by its uuid. This parameter opt_uuid is optional if
+ * only one widget instance in the page.
+ * @param {number|string} opt_uuid The uuid of the widget.
+ * @return {Object} The widget instance.
+ * @private
+ */
+window.accountchooser.util.getWidget_ = function(opt_uuid) {
+  var widget;
+  if (opt_uuid) {
+    var id = window.accountchooser.util.REGISTRY_KEY_PREFIX_ +
+        opt_uuid;
+    widget = window.accountchooser.util.widgets_[id];
+  } else {
+    for (var id in window.accountchooser.util.widgets_) {
+      widget = window.accountchooser.util.widgets_[id];
+      break;
+    }
+  }
+  return widget;
+};
+
+/**
+ * Defines a general way to send notification to a widget .
+ * @param {string} type The type of the notification.
+ * @param {object} params The parameters with the notification.
+ * @param {number|string} opt_uuid The uuid of the widget to notify. This
+ *    parameter is optional if only one widget instance in the page.
+ */
+window.accountchooser.util.notifyWidget = function(type, params,
+    opt_uuid) {
+  window.accountchooser.util.log('window.notifyWidget: type=\'' +
+      type + "\', uuid=\'" + opt_uuid + "\'");
+  var widget = window.accountchooser.util.getWidget_(opt_uuid);
+  if (!widget) {
+    window.accountchooser.util
+        .log('Failed to find widget with uuid \'' + opt_uuid + "\'.");
+  } else {
+    // Fix bug on IE8: Clone a local copy for the remote parameter object.
+    var clonedParams = jQuery.extend({}, params);
+    var doNotification = function() {
+      widget.handleNotification(type, clonedParams);
+    };
+    window.setTimeout(doNotification, 200);
+  }
+};
+
+
+/**
+ * @class Local data storage class. The storage takes HTML5 DOM storage as the
+ * primary storage if the browser supports it and the domStorage key is
+ * provided. Otherwise, the cookie is used as the underlying storage if the
+ * cookie name is provided.
+ * @param {string=} opt_domStorageKey The key under which the data is stored in
+ *     HTML5 DOM storage.
+ * @param {string=} opt_cookieName The name of the cookie which the data is
+ *     saved into.
+ * @param {boolean=} opt_perSession Whether the storage is per session or not.
+ * @constructor
+ */
+window.accountchooser.util.Storage = function(opt_domStorageKey,
+    opt_cookieName, opt_perSession) {
+  window.accountchooser.param.notEmpty(
+      opt_domStorageKey || opt_cookieName,
+      'opt_domStorageKey || opt_cookieName');
+  if (!window.accountchooser.util.Storage.
+      isDomStorageSupported(opt_perSession)) {
+    window.accountchooser.param.notEmpty(opt_cookieName,
+        'opt_cookieName');
+  }
+  this.domStorageKey_ = opt_domStorageKey;
+  this.cookieName_ = opt_cookieName;
+  this.perSession_ = opt_perSession;
+};
+
+/**
+ * Checks whether the browser supports HTML5 DOM storage or not.
+ * @param {boolean=} opt_perSession Whether the storage is per session or not.
+ * @return {boolean} {@code true} if HTML5 DOM storage is supported.
+ */
+window.accountchooser.util.Storage.isDomStorageSupported =
+    function(opt_perSession) {
+  try {
+    if (opt_perSession) {
+      return 'sessionStorage' in window && window['sessionStorage'] != null;
+    } else {
+      return 'localStorage' in window && window['localStorage'] != null;
+    }
+  } catch (e) {
+    return false;
+  }
+};
+
+/**
+ * Reads data from storage.
+ * @return {*} The previously saved data.
+ */
+window.accountchooser.util.Storage.prototype.read = function() {
+  if (window.accountchooser.util.Storage.
+      isDomStorageSupported(this.perSession_) && this.isDomStorageAllowed_()) {
+    return this.readFromDomStorage_();
+  } else if (this.isCookieStorageAllowed_()) {
+    return this.readFromCookie_();
+  }
+};
+
+/**
+ * Writes data to storage.
+ * @param {*} data The data to be stored.
+ */
+window.accountchooser.util.Storage.prototype.write = function(
+    data) {
+  if (window.accountchooser.util.Storage.
+      isDomStorageSupported(this.perSession_) && this.isDomStorageAllowed_()) {
+    this.writeToDomStorage_(data);
+  } else if (this.isCookieStorageAllowed_()) {
+    this.writeToCookie_(data);
+  }
+};
+
+/**
+ * Clears data from storage.
+ */
+window.accountchooser.util.Storage.prototype.clear = function() {
+  if (window.accountchooser.util.Storage.
+      isDomStorageSupported(this.perSession_) && this.isDomStorageAllowed_()) {
+    this.clearFromDomStorage_();
+  }
+  if (this.isCookieStorageAllowed_()) {
+    this.clearFromCookie_();
+  }
+};
+
+/**
+ * Checks whether the storage is allowed to use HTML5 DOM storage or not.
+ * @return {boolean} {@code true} if HTML5 DOM storage is allowed to use.
+ * @private
+ */
+window.accountchooser.util.Storage.prototype.
+   isDomStorageAllowed_ = function() {
+  return !!this.domStorageKey_;
+};
+
+/**
+ * Checkes whether the storage is allowed to use cookie or not.
+ * @return {boolean} {@code true} if cookie is allowed to use.
+ * @private
+ */
+window.accountchooser.util.Storage.prototype.
+    isCookieStorageAllowed_ = function() {
+  return !!this.cookieName_;
+};
+
+/**
+ * Reads data from the HTML5 DOM Storage.
+ * @return {*} The data previously saved into the HTML5 DOM storage.
+ * @private
+ */
+window.accountchooser.util.Storage.prototype.
+    readFromDomStorage_ = function() {
+  window.accountchooser.param.notEmpty(this.domStorageKey_,
+      'domStorageKey');
+  var storage = this.perSession_ ? window.sessionStorage : window.localStorage;
+  try {
+    var data = storage.getItem(this.domStorageKey_);
+    if (data) {
+      return JSON.parse(data);
+    }
+  } catch (e) {
+    window.accountchooser.util.log(
+        'Failed to read from DOM storage: ' + e);
+  }
+};
+
+/**
+ * Writes data to the HTML5 DOM storage.
+ * @param {*} data The data to be stored into the HTML5 DOM storage.
+ * @private
+ */
+window.accountchooser.util.Storage.prototype.
+    writeToDomStorage_ = function(data) {
+  window.accountchooser.param.notEmpty(this.domStorageKey_,
+      'domStorageKey');
+  var storage = this.perSession_ ? window.sessionStorage : window.localStorage;
+  try {
+    var jsonData = JSON.stringify(data);
+    storage.setItem(this.domStorageKey_, jsonData);
+  } catch (e) {
+    window.accountchooser.util.log(
+        'Failed to write to DOM storage: ' + e);
+  }
+};
+
+/**
+ * Clears saved data from the HTML5 DOM storage.
+ * @private
+ */
+window.accountchooser.util.Storage.prototype.
+    clearFromDomStorage_ = function() {
+  window.accountchooser.param.notEmpty(this.domStorageKey_,
+      'domStorageKey');
+  var storage = this.perSession_ ? window.sessionStorage : window.localStorage;
+  try {
+    storage.removeItem(this.domStorageKey_);
+  } catch (e) {
+    window.accountchooser.util.log(
+        'Failed to clear from DOM storage: ' + e);
+  }
+};
+
+/**
+ * Reads data from cookie.
+ * @return {*} The data previously saved into cookie.
+ * @private
+ */
+window.accountchooser.util.Storage.prototype.readFromCookie_ =
+    function() {
+  window.accountchooser.param.notEmpty(this.cookieName_,
+      'cookieName');
+  var cookieRegex = '(^|;) ?' + this.cookieName_ + '=([^;]*)(;|$)';
+  var cookieValues = document.cookie.match(cookieRegex);
+  if (cookieValues) {
+    var data = window.accountchooser.util.trim(cookieValues[2]);
+    if (data) {
+      try {
+        return JSON.parse(unescape(data));
+      } catch (e) {
+        window.accountchooser.util.log(
+            'Failed to read from cookie: ' + e);
+      }
+    }
+  }
+};
+
+/**
+ * Writes data to cookie.
+ * @param {*} data The data to be stored into cookie.
+ * @private
+ */
+window.accountchooser.util.Storage.prototype.writeToCookie_ =
+    function(data) {
+  window.accountchooser.param.notEmpty(this.cookieName_,
+      'cookieName');
+  try {
+    var currentDate = new Date();
+    var year = currentDate.getFullYear() + 10;
+    var month = currentDate.getMonth();
+    var day = currentDate.getDate();
+    var cookieDate = new Date(year, month, day);
+    var expires = this.perSession_ ? 0 : cookieDate.toGMTString();
+    document.cookie = this.cookieName_ + '=' + escape(JSON.stringify(data)) +
+        '; expires=' + expires + '; path=/';
+  } catch (e) {
+    window.accountchooser.util.log(
+        'Failed to write to cookie: ' + e);
+  }
+};
+
+/**
+ * Clears saved data from cookie.
+ * @private
+ */
+window.accountchooser.util.Storage.prototype.clearFromCookie_ =
+    function() {
+  window.accountchooser.param.notEmpty(this.cookieName_,
+      'cookieName');
+  try {
+    var cookieDate = new Date();
+    cookieDate.setTime(cookieDate.getTime() - 1);
+    document.cookie = this.cookieName_ + '=; expires=' +
+        cookieDate.toGMTString() + '; path=/';
+  } catch (e) {
+    window.accountchooser.util.log(
+        'Failed to clear from cookie: ' + e);
+  }
+};
+
+
+/**
+ * Name space for chooser storage.
+ */
+window.accountchooser.util.accountstorage = {};
+
+/**
+ * The key for cached users in the local storage.
+ * @type {string}
+ * @const
+ * @private
+ */
+window.accountchooser.util.accountstorage.ACCOUNTS_ =
+    'chooserAccounts';
+
+/**
+ * The Cookie name for cached users.
+ * @type {string}
+ * @const
+ * @private
+ */
+window.accountchooser.util.accountstorage.AC_COOKIE_NAME_ =
+    '__goog__ac__';
+
+/**
+ * The underlying storage instance.
+ * @private
+ */
+window.accountchooser.util.accountstorage.storage_ =
+    new window.accountchooser.util.Storage(
+        window.accountchooser.util.accountstorage.ACCOUNTS_,
+        window.accountchooser.util.accountstorage.
+        AC_COOKIE_NAME_);
+
+/**
+ * Reads account entries from storage.
+ * @return {Array.<Object>} An array of account entries objects.
+ * @private
+ */
+window.accountchooser.util.accountstorage.read_ =
+    function() {
+  var savedAccounts =
+      window.accountchooser.util.accountstorage.storage_.read();
+  window.accountchooser.util.log(
+      'Read saved accounts from storage: ' + JSON.stringify(savedAccounts));
+  return savedAccounts;
+};
+
+/**
+ * Writes account entries to storage.
+ * @param {Array.<Object>} accounts The array of account entries objects.
+ * @private
+ */
+window.accountchooser.util.accountstorage.write_ =
+    function(accounts) {
+  window.accountchooser.util.log(
+      'Save accounts to storage: ' + JSON.stringify(accounts));
+  window.accountchooser.util.accountstorage.storage_.write(
+      accounts);
+};
+
+/**
+ * Reads the saved account entries from underling storage.
+ * @return {Array.<Object>} The saved account entries.
+ */
+window.accountchooser.util.accountstorage.readAccounts =
+    function() {
+  var accounts =
+      window.accountchooser.util.accountstorage.read_();
+  if (!accounts ||
+      !window.accountchooser.util.isArray(accounts)) {
+    accounts = [];
+  }
+  return accounts;
+};
+
+/**
+ * Saves an account entry to the underling storage. If the email of target
+ * account exists in the saved entries, will move that entry to the first, and
+ * update corresponding attributes.
+ * @param {Object} account The account object to be saved.
+ * @return {boolean} Returns false if the account already exists, or is not
+ *     saved.
+ */
+window.accountchooser.util.accountstorage.addAccount =
+    function(account) {
+  if (!account || !account.email) {
+    return false;
+  }
+  var found = false;
+  var accounts =
+      window.accountchooser.util.accountstorage.readAccounts();
+  var oldAccount;
+  for (var i = 0; i < accounts.length; i++) {
+    if (window.accountchooser.util.accountstorage.
+        matchAccount_(accounts[i], account.email, account.providerId)) {
+      oldAccount = accounts[i];
+      accounts.splice(i, 1);
+      found = true;
+      break;
+    }
+  }
+  if (oldAccount) {
+    if (!account.displayName && oldAccount.displayName) {
+      account.displayName = oldAccount.displayName;
+    }
+    if (!account.photoUrl && oldAccount.photoUrl) {
+      account.photoUrl = oldAccount.photoUrl;
+    }
+  }
+  accounts.unshift(account);
+  window.accountchooser.util.accountstorage.write_(accounts);
+  return !found;
+};
+
+/**
+ * Removes an account entry from the underling storage.
+ * @param {Object} account The account object to be removed.
+ * @return {boolean} Returns true if the account is removed successfully.
+ */
+window.accountchooser.util.accountstorage.removeAccount =
+    function(account) {
+  if (!account || !account.email) {
+    return false;
+  }
+  var found = false;
+  var accounts =
+      window.accountchooser.util.accountstorage.readAccounts();
+  for (var i = 0; i < accounts.length; i++) {
+    if (window.accountchooser.util.accountstorage.
+         matchAccount_(accounts[i], account.email, account.providerId)) {
+      accounts.splice(i, 1);
+      found = true;
+      break;
+    }
+  }
+  window.accountchooser.util.accountstorage.write_(accounts);
+  return found;
+};
+
+/**
+ * Removes all account entries in underling storage.
+ */
+window.accountchooser.util.accountstorage.clearAccounts =
+    function() {
+  window.accountchooser.util.accountstorage.storage_.clear();
+};
+
+/**
+ * Updates an account entry in underling storage. This method will find the
+ * account entry, then trigger the callback function if found, then save the
+ * updated entry.
+ * @param {string} email The email for the entry to be updated.
+ * @param {function(!Object)} func The callback function to update the entry.
+ * @param {string=} opt_providerId The provider ID of this account.
+ */
+window.accountchooser.util.accountstorage.updateAccount =
+    function(email, func, opt_providerId) {
+  if (!email) {
+    return;
+  }
+  var accounts =
+    window.accountchooser.util.accountstorage.readAccounts();
+  for (var i = 0; i < accounts.length; i++) {
+    if (window.accountchooser.util.accountstorage.
+          matchAccount_(accounts[i], email, opt_providerId)) {
+      var account = accounts[i];
+      func(account);
+      window.accountchooser.util.accountstorage.write_(accounts);
+      break;
+    }
+  }
+};
+
+/**
+ * Refreshes the attribute values of the account entry in underling storage. If
+ * no matching email found, the method WON'T add a new entry.
+ * @param {Object} newProfile The new account information.
+ */
+window.accountchooser.util.accountstorage.refreshAccount =
+    function(newProfile) {
+  if (!newProfile || !newProfile.email) {
+    return;
+  }
+  var refresh = function(account) {
+    if (newProfile.displayName) {
+      account.displayName = newProfile.displayName;
+    }
+    if (newProfile.photoUrl) {
+      account.photoUrl = newProfile.photoUrl;
+    }
+    if (newProfile.legacy != undefined) {
+      account.legacy = newProfile.legacy;
+    }
+  };
+  window.accountchooser.util.accountstorage.updateAccount(
+      newProfile.email, refresh, newProfile.providerId);
+};
+
+/**
+ * Fetches an account entry in underling storage.
+ * @param {string} email The email of the account.
+ * @param {string=} opt_providerId The provider ID of this account.
+ * @return {(Object|undefined)} The account entry, or {@code undefined} if not
+ *     found.
+ */
+window.accountchooser.util.accountstorage.fetchAccount =
+    function(email, opt_providerId) {
+  if (email) {
+    var accounts =
+      window.accountchooser.util.accountstorage.readAccounts();
+    for (var i = 0; i < accounts.length; i++) {
+      if (window.accountchooser.util.accountstorage.
+          matchAccount_(accounts[i], email, opt_providerId)) {
+        var account = accounts[i];
+        accounts.splice(i, 1);
+        accounts.unshift(account);
+        window.accountchooser.util.accountstorage.write_(
+            accounts);
+        return account;
+      }
+    }
+  }
+};
+
+/**
+ * Checks whether an account entry matches the <email, providerId>.
+ * @param {Object} account The account object in the storage.
+ * @param {string} email The email to be found.
+ * @param {string|undefined} opt_providerId The providerId to be found.
+ * @return {boolean} true if both email and providerId match.
+ * @private
+ */
+window.accountchooser.util.accountstorage.matchAccount_ =
+    function(account, email, opt_providerId) {
+  if (account.email != email) {
+    return false;
+  }
+  if (account.providerId && opt_providerId &&
+      account.providerId == opt_providerId) {
+    return true;
+  }
+  if (!account.providerId && !opt_providerId) {
+    return true;
+  }
+  return false;
+};
+
+/**
+ * Checkes whether two accounts match each other.
+ * @param {Object} account1 The first account.
+ * @param {Object} account2 The second account.
+ * @return {boolean} {@code true} if they match.
+ */
+window.accountchooser.util.accountstorage.matchAccount =
+    function(account1, account2) {
+  return window.accountchooser.util.accountstorage.matchAccount_(
+      account1, account2.email, account2.providerId);
+};
+
+/**
+ * Checks whether two accounts are compatible. If two accounts are compatible,
+ * they have the same email and providerId. Also their displayNames and
+ * photoUrls don't conflict.
+ * @param {Object} account1 The first account.
+ * @param {Object} account2 The second account.
+ * @return {boolean} {@code true} if they are compatible.
+ */
+window.accountchooser.util.accountstorage.checkCompatible =
+    function(account1, account2) {
+  if (!window.accountchooser.util.accountstorage.matchAccount(
+      account1, account2)) {
+    return false;
+  }
+  var merged = {
+    displayName: account1.displayName || account2.displayName,
+    photoUrl: account1.photoUrl || account2.photoUrl
+  };
+  return (
+      (!account1.displayName || account1.displayName == merged.displayName) &&
+      (!account1.photoUrl || account1.photoUrl == merged.photoUrl) &&
+      (!account2.displayName || account2.displayName == merged.displayName) &&
+      (!account2.photoUrl || account2.photoUrl == merged.photoUrl));
+};
+
+/**
+ * Gets the index of the account in the list.
+ * @param {Object} account the account to be checked.
+ * @param {Array.<Object>} accounts the account list.
+ * @return {number} the index of the account in the list. If it's not in the
+ *     list, -1 is returned.
+ */
+window.accountchooser.util.accountstorage.inAccountList =
+    function(account, accounts) {
+  for (var i = 0, length = accounts.length; i < length; i++) {
+    if (window.accountchooser.util.accountstorage.matchAccount(
+        account, accounts[i])) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+/**
+ * Updates an account entry in underling storage. This method will find the
+ * account entry, then triggers the callback function if found, then save the
+ * updated entry.
+ * @param {function(!Object)} account The new account information.
+ */
+window.accountchooser.updateSavedAccount = function(account) {
+  window.accountchooser.util.accountstorage.addAccount(account);
+};
+
+/**
+ * Removes an account entry from the underling storage.
+ * @param {Object} account The account object to be removed.
+ * @return {boolean} Returns true if an exist account is removed successfully.
+ *     Returns false if no change to underling storage.
+ */
+window.accountchooser.removeSavedAccount = function(account) {
+  return window.accountchooser.util.accountstorage.removeAccount(
+      account);
+};
+
+/**
+ * Removes all account entries in underling storage.
+ */
+window.accountchooser.clearSavedAccounts = function() {
+  window.accountchooser.util.accountstorage.clearAccounts();
+};
+
+
+/**
+ * The key for cached users in the local storage.
+ * @type {string}
+ * @const
+ * @private
+ */
+window.accountchooser.util.accountstorage.ACCOUNTS_ =
+    'chooserAccounts';
+
+/**
+ * The underlying storage instance.
+ * @private
+ */
+window.accountchooser.util.accountstorage.storage_ =
+    new window.accountchooser.util.Storage(
+        window.accountchooser.util.accountstorage.ACCOUNTS_);
+
+/**
+ * The special provider ID for accounts without a providerId field.
+ * @private
+ * @const
+ */
+window.accountchooser.util.accountstorage.NO_IDP_ = 'NO_IDP';
+
+/**
+ * Reads the saved account entries from underling storage and returns the
+ * filtered result.
+ * @param {?Object=} opt_Filter Optional filter object.
+ * <pre>
+ * {
+ *   withEmail: true/false,  // Show email account only. Default is false.
+ *   idpList: [],            // IDPs whitelist.
+ *   emailDomainList: [],    // Email Domain whitelist.
+ * }
+ * ...
+ * </pre>
+ * @return {Array.<Object>} The filtered account entries.
+ */
+window.accountchooser.util.accountstorage.readAccounts =
+    function(opt_Filter) {
+  var accounts =
+      window.accountchooser.util.accountstorage.read_();
+  if (!accounts ||
+      !window.accountchooser.util.isArray(accounts)) {
+    accounts = [];
+  }
+  if (!opt_Filter) {
+    return accounts;
+  }
+  var filters = [];
+  if (opt_Filter.withEmail) {
+    var filter = function(account) {
+      return window.accountchooser.util.isValidEmail(
+          account.email);
+    }
+    filters.push(filter);
+  }
+  if (opt_Filter.idpList && opt_Filter.idpList.length != 0) {
+    var filter = function(account) {
+      var idp = account.providerId ||
+          window.accountchooser.util.accountstorage.NO_IDP_;
+      return window.accountchooser.util.indexOf(idp,
+          opt_Filter.idpList) >= 0;
+    }
+    filters.push(filter);
+  }
+  if (opt_Filter.emailDomainList && opt_Filter.emailDomainList.length != 0) {
+    var filter = function(account) {
+      var domain = window.accountchooser.util.getEmailDomain(
+          account.email);
+      if (domain) {
+        return window.accountchooser.util.indexOf(domain,
+            opt_Filter.emailDomainList) >= 0;
+      }
+      return true;
+    }
+    filters.push(filter);
+  }
+  for (var i = 0; i < filters.length; i++) {
+    accounts = window.accountchooser.util.accountstorage.
+        filter_(accounts, filters[i]);
+  }
+  return accounts;
+};
+
+/**
+ * Filters accounts by the filter function.
+ * @param {Array.<Object>} accounts Account entries to be filtered.
+ * @param {function(Object): boolean} func Filter function.
+ * @return {Array.<Object>} The filtered account entries.
+ * @private
+ */
+window.accountchooser.util.accountstorage.filter_ = function(
+    accounts, func) {
+  var result = [];
+  for (var i = 0; i < accounts.length; i++) {
+    if (func(accounts[i])) {
+      result.push(accounts[i]);
+    }
+  }
+  return result;
+};
+
+
+/**
+ * Name space for browser-specific configuration.
+ */
+window.accountchooser.util.browserconfig = {};
+
+/**
+ * The key for browser-specific configuration stored in the local storage.
+ * @type {string}
+ * @const
+ * @private
+ */
+window.accountchooser.util.browserconfig.SETTINGS_KEY_ =
+    'cdsSettings';
+
+/**
+ * The Cookie name for browser-specific configuration.
+ * @type {string}
+ * @const
+ * @private
+ */
+window.accountchooser.util.browserconfig.COOKIE_NAME_ =
+    '__cds__settings__';
+
+/**
+ * The underlying storage instance.
+ * @private
+ */
+window.accountchooser.util.browserconfig.storage_ =
+    new window.accountchooser.util.Storage(
+        window.accountchooser.util.browserconfig.SETTINGS_KEY_,
+        window.accountchooser.util.browserconfig.COOKIE_NAME_);
+
+/**
+ * Gets all configuration.
+ * @return {Object} The configuration object.
+ */
+window.accountchooser.util.browserconfig.getAll = function() {
+  var config = window.accountchooser.util.browserconfig.storage_.
+      read() || {};
+  window.accountchooser.util.log(
+      'Get CDS browser config: ' + JSON.stringify(config));
+  return config;
+};
+
+/**
+ * Sets all configuration.
+ * @param {Object} config The configuration object.
+ */
+window.accountchooser.util.browserconfig.setAll = function(
+    config) {
+  window.accountchooser.util.log(
+      'Set CDS browser config: ' + JSON.stringify(config));
+  window.accountchooser.util.browserconfig.storage_.
+      write(config);
+};
+
+/**
+ * Clears all configuration.
+ */
+window.accountchooser.util.browserconfig.clearAll = function() {
+  window.accountchooser.util.log('Clear CDS browser config.');
+  window.accountchooser.util.browserconfig.storage_.clear();
+};
+
+/**
+ * Gets a configuration value.
+ * @param {string} key The key of the configuration.
+ * @return {*} The configuration value.
+ */
+window.accountchooser.util.browserconfig.get = function(key) {
+  var config = window.accountchooser.util.browserconfig.getAll();
+  return config[key];
+};
+
+/**
+ * Sets a configuration value.
+ * @param {string} key The key of the configuration.
+ * @param {*} value The configuration value.
+ */
+window.accountchooser.util.browserconfig.set = function(key,
+    value) {
+  var config = window.accountchooser.util.browserconfig.getAll();
+  config[key] = value;
+  window.accountchooser.util.browserconfig.setAll(config);
+};
+
+/**
+ * Clears a configuration.
+ * @param {string} key The key of the configuration.
+ */
+window.accountchooser.util.browserconfig.clear = function(key) {
+  var config = window.accountchooser.util.browserconfig.getAll();
+  delete config[key];
+  window.accountchooser.util.browserconfig.setAll(config);
+};
+
+/**
+ * Checks whether the CDS is disabled.
+ * @return {boolean} {@code true} if the CDS is disabled.
+ */
+window.accountchooser.util.browserconfig.isDisabled =
+    function() {
+  return !!window.accountchooser.util.browserconfig.get(
+      'disabled');
+};
+
+/**
+ * Sets whether the CDS is disabled.
+ * @param {boolean} disabled Whether the CDS is disabled.
+ */
+window.accountchooser.util.browserconfig.setDisabled = function(
+    disabled) {
+  window.accountchooser.util.browserconfig.set('disabled',
+      !!disabled);
+};
+
+
+/** Namespace for loader. */
+window.accountchooser.loader =
+    window.accountchooser.loader || {};
+
+/**
+ * @class Common class for all dynamic loader.
+ * @constructor
+ */
+window.accountchooser.loader.Loader = function() {
+};
+
+/**
+ * Loads the resource. If the resource is not available and the default resource
+ * is provided, then the default is loaded.
+ * @param {string} resourceUri The resource URI to be loaded.
+ * @param {string=} opt_defaultResourceUri The default resource URI.
+ * @param {function()=} opt_onSuccess The callback function which will be called
+ *     when the resouce is loaded.
+ * @param {function()=} opt_onError The callback function which will be called
+ *     when an error occurs.
+ */
+window.accountchooser.loader.Loader.prototype.load = function(
+    resourceUri, opt_defaultResourceUri, opt_onSuccess, opt_onError) {
+  var self = this;
+  var onError = function() {
+    if (opt_defaultResourceUri) {
+      self.load_(opt_defaultResourceUri, opt_onSuccess, opt_onError);
+    } else if (opt_onError) {
+      opt_onError();
+    }
+  };
+  this.load_(resourceUri, opt_onSuccess, onError);
+};
+
+/**
+ * Actually loads the resouce.
+ * @param {string} resourceUri The resource URI to be loaded.
+ * @param {function()=} opt_onSuccess The callback function which will be called
+ *     when the resouce is loaded.
+ * @param {function()=} opt_onError The callback function which will be called
+ *     when loading fails.
+ * @private
+ */
+window.accountchooser.loader.Loader.prototype.load_ = function(
+    resourceUri, opt_onSuccess, opt_onError) {
+  var head = document.getElementsByTagName('head')[0] ||
+      document.documentElement;
+  var element = this.createResourceElement(resourceUri);
+  this.finished_ = false;
+  var self = this;
+  element.onload = element.onreadystatechange = function() {
+    if (!self.finished_ && (!this.readyState ||
+        this.readyState === 'loaded' || this.readyState === 'complete')) {
+      self.finished_ = true;
+      element.onload = element.onreadystatechange = null;
+      if (opt_onSuccess) {
+        opt_onSuccess();
+      }
+    }
+  };
+  element.onerror = function() {
+    self.finished_ = true;
+    head.removeChild(element);
+    if (opt_onError) {
+      opt_onError();
+    }
+  };
+  head.insertBefore(element, head.firstChild);
+};
+
+/**
+ * Creates a resource element.
+ * @param {string} resourceUri The resource URI to be loaded.
+ * @return {!Element} The resource element.
+ */
+window.accountchooser.loader.Loader.prototype.
+    createResourceElement = function(resourceUri) {
+  throw 'Unimplemented! Child object must provide an implementation.';
+};
+
+
+/**
+ * @class Javascript dynamic loader class.
+ * @constructor
+ * @extends {window.accountchooser.loader.Loader}
+ */
+window.accountchooser.loader.JsLoader = function() {
+};
+window.accountchooser.loader.JsLoader.inheritsFrom(
+    window.accountchooser.loader.Loader);
+
+/**
+ * Creates a resource element.
+ * @param {string} resourceUri The resource URI to be loaded.
+ * @return {!Element} The resource element.
+ */
+window.accountchooser.loader.JsLoader.prototype.
+    createResourceElement = function(resourceUri) {
+  var element = document.createElement('script');
+  element.setAttribute('type', 'text/javascript');
+  element.setAttribute('src', resourceUri);
+  return element;
+};
+
+
+/**
+ * @class CSS dynamic loader class.
+ * @constructor
+ * @extends {window.accountchooser.loader.Loader}
+ */
+window.accountchooser.loader.CssLoader = function() {
+};
+window.accountchooser.loader.CssLoader.inheritsFrom(
+    window.accountchooser.loader.Loader);
+
+/**
+ * Creates a resource element.
+ * @param {string} resourceUri The resource URI to be loaded.
+ * @return {!Element} The resource element.
+ */
+window.accountchooser.loader.CssLoader.prototype.
+    createResourceElement = function(resourceUri) {
+  var element = document.createElement('link');
+  element.setAttribute('type', 'text/css');
+  element.setAttribute('rel', 'stylesheet');
+  element.setAttribute('href', resourceUri);
+
+  // Hack for old firefox (i.e., firefox 3.6) which doesn't fire onload event
+  // when the stylesheet is loaded.
+  var img = document.createElement('img');
+  img.setAttribute('src', resourceUri);
+  var self = this;
+  img.onerror = function() {
+    if (!self.finished_) {
+      element.onload();
+    }
+  };
+  return element;
+};
+
+
+/**
+ * @class The Semaphore class monitors a value and trigger the handler when
+ * the value becomes to 0.
+ * @param {function} handler The function to trigger when the semaphore value
+ *     becomes to 0.
+ * @param {number=} opt_value The initial value, must be positive integer or
+ *     zero. If not set, default value would be 0.
+ * @constructor
+ */
+window.accountchooser.util.Semaphore = function(handler,
+    opt_value) {
+  window.accountchooser.param.notEmptyFunction(handler,
+      'handler');
+  if (opt_value < 0) {
+    throw 'Semaphore value cannot be negative.';
+  }
+  this.handler_ = handler;
+  this.value_ = opt_value || 0;
+  this.started_ = false;
+};
+
+/**
+ * Returns the current value of the semaphore.
+ * @return {number} The current value of the semaphore.
+ */
+window.accountchooser.util.Semaphore.prototype.getValue =
+    function() {
+  return this.value_;
+};
+
+/**
+ * Increases the semaphore value by 1. Must be called before start().
+ */
+window.accountchooser.util.Semaphore.prototype.increase =
+    function() {
+  if (this.started_) {
+    throw 'Cannot increase Semaphore value after calling start().';
+  }
+  this.value_++;
+};
+
+/**
+ * Starts to monitor the semaphore value, which must be bigger than 0.
+ */
+window.accountchooser.util.Semaphore.prototype.start =
+    function() {
+  if (this.value_ <= 0) {
+    throw 'Semaphore value must bigger than 0.';
+  }
+  this.started_ = true;
+};
+
+/**
+ * Checks whether the start() method is called on this semaphore.
+ * @return {boolean} True if start() method is called, false otherwise.
+ */
+window.accountchooser.util.Semaphore.prototype.isStarted =
+    function() {
+  return this.started_;
+};
+
+/**
+ * Decreases the semaphore value by 1. Must be called after start().
+ */
+window.accountchooser.util.Semaphore.prototype.decrease =
+    function() {
+  if (!this.started_) {
+    throw 'Cannot decrease Semaphore value before calling start().';
+  }
+  if (this.value_ > 0) {
+    this.value_--;
+    window.accountchooser.util.log(
+        'semaphore value decrease to ' + this.value_);
+    if (this.value_ == 0) {
+      this.handler_();
+    }
+  }
+};
+
+/**
+ * Enums for valid property keys of an account.
+ * @enum {string}
+ */
+window.accountchooser.util.AccountPropertyKey = {
+  EMAIL: 'email',
+  DISPLAY_NAME: 'displayName',
+  PHOTO_URL: 'photoUrl',
+  PROVIDER_ID: 'providerId'
+};
+
+/**
+ * Sanitizes account info so that only the valid key/value pairs are kept. If
+ * the sanitizer is not provided, this function only checks the account property
+ * keys so that it can fail fast if the sanitizer is not available.
+ * @param {Object} account The account to be sanitized..
+ * @param {function(string, string): string=} opt_sanitizer The sanitizer.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Object} The sanitized account.
+ */
+window.accountchooser.util.sanitizeAccount = function(account,
+    opt_sanitizer, opt_silent) {
+  var result = {};
+  var AccountPropertyKey =
+      window.accountchooser.util.AccountPropertyKey;
+  for (var key in account) {
+    var value = account[key];
+    switch (key) {
+      case AccountPropertyKey.EMAIL:
+      case AccountPropertyKey.DISPLAY_NAME:
+      case AccountPropertyKey.PHOTO_URL:
+      case AccountPropertyKey.PROVIDER_ID:
+        value = opt_sanitizer ? opt_sanitizer(key, value) : value;
+        if (value) {
+          result[key] = value;
+        }
+        break;
+      default:
+        if (!opt_silent) {
+          throw 'Unrecognized key "' + key + '" for account';
+        }
+    }
+  }
+  if (!result[AccountPropertyKey.EMAIL]) {
+    throw 'No valid email field for the account';
+  }
+  return result;
+};
+
+/**
+ * Sanitizes a list of accounts. If the sanitizer is not provided, this function
+ * only checks the account property keys so that it can fail fast if the
+ * sanitizer is not available.
+ * @param {Array.<Object>} accounts The accounts to be sanitized..
+ * @param {function(string, string): string=} opt_sanitizer The sanitizer.
+ * @param {boolean=} opt_silent Whether silently discard invalid key/values or
+ *     throw an error.
+ * @return {Array.<Object>} The sanitized accounts.
+ */
+window.accountchooser.util.sanitizeAccounts = function(accounts,
+    opt_sanitizer, opt_silent) {
+  var result = [];
+  for (var i = 0, length = accounts.length; i < length; i++) {
+    var account = window.accountchooser.util.sanitizeAccount(
+        accounts[i], opt_sanitizer, opt_silent);
+    result.push(account);
+  }
+  return result;
+};
+
+/**
+ * Default sanitize function for account sanitizing. It uses caja
+ * html-css-sanitizer to sanitize email/providerId/displayName fields and
+ * rejects any photoUrl whose scheme is not http or https.
+ * @param {string} key the key of the property to be sanitized.
+ * @param {string} value the value of the property ot be sanitized.
+ * @return {string|undefined} the sanitized value.
+ */
+window.accountchooser.util.accountSanitizer = function(
+    key, value) {
+  if (key ==
+      window.accountchooser.util.AccountPropertyKey.PHOTO_URL) {
+    if (/^https?:\/\//i.test(value)) {
+      return value;
+    }
+  } else {
+    // Use caja html-css-sanitizer to sanitize the value. All HTML tags are
+    // removed.
+    return html.sanitizeWithPolicy(value, function() {});
+  }
+};
+
+
+/**
+ * Name space for Caja.
+ */
+window.accountchooser.caja =
+    window.accountchooser.caja || {};
+
+/**
+ * Loads raw HTML as a String.
+ * @param {string} htmlUrl The URL of the HTML file.
+ * @param {number} timeout The timeout to load the file, in milliseconds.
+ * @param {function} callback Callback when the file is loaded successfully.
+ * @param {function=} opt_errorCallback Callback when an error occurs.
+ */
+window.accountchooser.caja.loadHtml = function(htmlUrl,
+    timeout, callback, opt_errorCallback) {
+  jQuery.ajax({
+    type: 'GET',
+    url: htmlUrl,
+    dataType: 'html',
+    success: callback,
+    timeout: timeout,
+    error: function(jqXHR, textStatus, errorThrown) {
+      if (opt_errorCallback) {
+        opt_errorCallback(textStatus, errorThrown);
+      }
+    }
+  });
+};
+
+/**
+ * Really loads a JS file from web.
+ * @param {string} jsUrl The URL of the JS file.
+ * @param {function} callback Callback when the file is loaded successfully.
+ * @param {function=} opt_errorCallback Callback when an error occurs.
+ * @private
+ */
+window.accountchooser.caja.loadJs_ = function(jsUrl, callback,
+    opt_errorCallback) {
+  var loader = new window.accountchooser.loader.JsLoader();
+  loader.load(jsUrl, undefined, callback, opt_errorCallback);
+};
+
+/**
+ * Loaded URLs registry. The key of each entry is a URL, the value of it is:
+ * {
+ *   loaded: false,
+ *   callbacks: [],
+ *   error: false,
+ *   errorCallbacks: []
+ * }
+ * @private
+ */
+window.accountchooser.caja.loadedUrls_ = {};
+
+/**
+ * The callback function when the resource is loaded successfully.
+ * @param {string} url The URL of the resource.
+ * @private
+ */
+window.accountchooser.caja.loadedCallback_ = function(url) {
+  if (url) {
+    var config = window.accountchooser.caja.loadedUrls_[url];
+    if (config) {
+      config.loaded = true;
+      for (var i = 0; i < config.callbacks.length; i++) {
+        var callback = config.callbacks[i];
+        if (callback) {
+          callback();
+        }
+      }
+      config.callbacks = [];
+      config.error = false;
+      config.errorCallbacks = [];
+    }
+  }
+};
+
+/**
+ * The callback function when some error occurs.
+ * @param {string} url The URL of the resource.
+ * @param {string=} textStatus A string for the error from underline system.
+ * @param {object=} errorThrown A exception from underline system.
+ * @private
+ */
+window.accountchooser.caja.errorCallback_ = function(url,
+    textStatus, errorThrown) {
+  if (url) {
+    var config = window.accountchooser.caja.loadedUrls_[url];
+    if (config) {
+      config.loaded = true;
+      config.error = true;
+      for (var i = 0; i < config.errorCallbacks.length; i++) {
+        var callback = config.errorCallbacks[i];
+        if (callback) {
+          callback(textStatus, errorThrown);
+        }
+      }
+      config.errorCallbacks = [];
+      config.callbacks = [];
+    }
+  }
+};
+
+/**
+ * Loads a JS file. The method allow multiple pending request to the same JS.
+ * In that case, only 1 request is sent. Also if the JS file is already loaded,
+ * the callback (or opt_errorCallback) will be invoked directly.
+ * @param {string} jsUrl The URL of the JS file.
+ * @param {function} callback Callback when the file is loaded successfully.
+ * @param {function=} opt_errorCallback Callback when an error occurs.
+ */
+window.accountchooser.caja.loadJs = function(jsUrl, callback,
+    opt_errorCallback) {
+  window.accountchooser.param.notEmpty(jsUrl, 'jsUrl');
+  var config = window.accountchooser.caja.loadedUrls_[jsUrl];
+  if (!config) {
+    window.accountchooser.caja.loadedUrls_[jsUrl] = {
+      loaded: false,
+      callbacks: [callback]
+    };
+    window.accountchooser.caja.loadJs_(jsUrl, function() {
+      window.accountchooser.caja.loadedCallback_(jsUrl);
+    }, function() {
+      window.accountchooser.caja.errorCallback_(jsUrl);
+    });
+  } else if (!config.loaded) {
+    config.callbacks.push(callback);
+    if (opt_errorCallback) {
+      config.errorCallbacks.push(opt_errorCallback);
+    }
+  } else if (config.error) {
+    if (opt_errorCallback) {
+      opt_errorCallback();
+    }
+  } else {
+    callback();
+  }
+};
+
+/**
+ *
+ */
+
+/**
+ */
+window.accountchooser.caja =
+    window.accountchooser.caja || {};
+
+/**
+ */
+window.accountchooser.caja.cajaUrl =
+  'https://ssl.gstatic.com/caja/4891/caja.js';
+
+/**
+ */
+window.accountchooser.caja.htmlSanitizerUrl =
+  'https://ssl.gstatic.com/caja/4891/html-css-sanitizer-minified.js';
+
+/**
+ */
+window.accountchooser.caja.CAJA_TIMEOUT = 5000;
+
+/**
+ */
+window.accountchooser.caja.WHITELIST_IDS = ['AC_LANGUAGE_LIST'];
+
+
+
+/**
+ * Name space for Caja.
+ */
+window.accountchooser.caja =
+    window.accountchooser.caja || {};
+
+/**
+ * Sanitizes a HTML file, and return the sanitized HTML as a string.
+ * @param {string} htmlUrl The URL of the HTML file.
+ * @param {function} callback Callback when the file is loaded successfully.
+ * @param {function=} opt_errorCallback Callback when some error occurs.
+ */
+window.accountchooser.caja.sanitizeHtml = function(htmlUrl,
+    callback, opt_errorCallback) {
+  var urlRewriter = function(url) {
+    return url;
+  };
+  var idRewriter = function(id) {
+    if (jQuery.inArray(id,
+        window.accountchooser.caja.WHITELIST_IDS) >= 0) {
+      return id;
+    }
+  };
+  var expectedTimeoutTime = new Date().getTime() +
+      window.accountchooser.caja.CAJA_TIMEOUT;
+
+  // Step 3: sanitize raw HTML
+  var sanitize = function(rawHtml) {
+    var time = expectedTimeoutTime - new Date().getTime();
+    if (time < 0) {
+      // send timeout error
+      if (opt_errorCallback) {
+        opt_errorCallback('timeout');
+      }
+    } else {
+      var sanitizedHtml = html_sanitize(rawHtml, urlRewriter, idRewriter);
+      callback(sanitizedHtml);
+    }
+  };
+  // Step 2: load raw HTML
+  var loadRawHtml = function() {
+    var time = expectedTimeoutTime - new Date().getTime();
+    if (time < 50) {
+      // send timeout error
+      if (opt_errorCallback) {
+        opt_errorCallback('timeout');
+      }
+    } else {
+      window.accountchooser.caja.loadHtml(htmlUrl, time,
+          sanitize, opt_errorCallback);
+    }
+  };
+  // Step 1: load html-sanitizer-minified.js
+  window.accountchooser.caja.loadJs(
+      window.accountchooser.caja.htmlSanitizerUrl,
+      loadRawHtml);
+};
+
+/**
+ * Cajole a HTML file, and put the cajoled HTML into a target element.
+ * @param {element} guestElementId The parent of the cajoled HTML.
+ * @param {string} htmlUrl The URL of the HTML file.
+ * @param {function=} opt_doneCallback Callback when the file is loaded
+ *     successfully.
+ * @param {function=} opt_timeoutCallback Callback when some error occurs.
+ */
+window.accountchooser.caja.cajoleHtml = function(
+    guestElementId, htmlUrl, opt_doneCallback, opt_timeoutCallback) {
+  var uriPolicy = {
+    rewrite: function(uri) {
+      return uri;
+    }
+  };
+  var element = document.getElementById(guestElementId);
+  var timeout = false;
+  var done = false;
+  var timeoutId = window.setTimeout(function() {
+    window.accountchooser.util.log(
+        'Caja process stoped due to timeout.');
+    timeout = true;
+    if (!done && opt_timeoutCallback) {
+      opt_timeoutCallback();
+    }
+  }, window.accountchooser.caja.CAJA_TIMEOUT);
+
+  var expectedTimeoutTime = new Date().getTime() +
+      window.accountchooser.caja.CAJA_TIMEOUT;
+  // Step 4: cajole and render HTML.
+  var cajole = function(rawHtml) {
+    if (timeout) {
+      window.accountchooser.util.log(
+          'Timeout when initializing Caja.');
+      return;
+    }
+    caja.load(element, uriPolicy, function(frame) {
+      frame.code(undefined, 'text/html', rawHtml).run(function() {
+        if (!timeout) {
+          window.clearTimeout(timeoutId);
+        }
+        done = true;
+        if (opt_doneCallback) {
+          opt_doneCallback();
+        }
+        window.accountchooser.util.log(
+            'Guest code rendered successfully.');
+      });
+    });
+  };
+  // Step 3: initialize Caja.
+  var init = function(rawHtml) {
+    if (timeout) {
+      window.accountchooser.util.log(
+          'Timeout when loading raw HTML.');
+      return;
+    }
+    if (!rawHtml) {
+      window.accountchooser.util.log(
+          'No content returned in the HTML file.');
+      return;
+    }
+    if (!window.accountchooser.caja.cajaInitialized) {
+      window.accountchooser.caja.cajaInitialized = true;
+      caja.initialize({
+        cajaServer: 'https://ssl.gstatic.com/caja/',
+        forceES5Mode: true
+      });
+    }
+    window.setTimeout(function() {
+      cajole(rawHtml);
+    }, 10);
+  };
+  // Step 2: load raw HTML.
+  var loadRawHtml = function() {
+    if (timeout) {
+      window.accountchooser.util.log(
+          'Timeout when loading caja.js.');
+      return;
+    }
+    var time = expectedTimeoutTime - new Date().getTime();
+    if (time < 50) {
+      window.accountchooser.util.log(
+          'Timeout when loading caja.js.');
+      return;
+    }
+    window.accountchooser.caja.loadHtml(htmlUrl, time,
+        function(rawHtml) {
+      window.setTimeout(function() {
+        init(rawHtml);
+      }, 10);
+    });
+  };
+  // Step 1: load caja.js
+  window.accountchooser.caja.loadJs(
+      window.accountchooser.caja.cajaUrl, function() {
+        window.setTimeout(loadRawHtml, 10);
+      });
+};
+
+
+/**
+ * Name space for AJAX CDS RPC.
+ */
+window.accountchooser.rpc =
+    window.accountchooser.rpc || {};
+
+/**
+ * @class Base class for all RPC objects (Request, Response, and Notification).
+ * @constructor
+ */
+window.accountchooser.rpc.RpcObject = function() {};
+
+/**
+ * Sets the timestamp for the RpcObject. If the timestamp is not provided, the
+ * current time is used.
+ * @param {number} opt_timestamp The timestamp for this RpcObject.
+ */
+window.accountchooser.rpc.RpcObject.prototype.setTimestamp =
+    function(opt_timestamp) {
+  this.timestamp_ = opt_timestamp || new Date().getTime();
+};
+
+/**
+ * Transfers the RPC object to a normal object and sets the storage timestamp.
+ * @return {string} The normal object represents the RPC object.
+ */
+window.accountchooser.rpc.RpcObject.prototype.toJSON =
+    function() {
+  var json = {jsonrpc: '2.0'};
+  if (this.timestamp_ != null) {
+    json.timestamp = this.timestamp_;
+  }
+  return json;
+};
+
+/**
+ * Returns the JSON String format of the RPC object.
+ * @return {string} The JSON String format.
+ */
+window.accountchooser.rpc.RpcObject.prototype.toString =
+    function() {
+  return JSON.stringify(this.toJSON());
+};
+
+/**
+ * @class Base class for Request and Notification.
+ * @param {string} method The name of the method to be invoked.
+ * @param {object} params The parameter values to be used during the invocation
+ *     of the method.
+ * @constructor
+ */
+window.accountchooser.rpc.AbstractRequest = function(method,
+    params) {
+  this.method_ = method;
+  this.params_ = params;
+};
+window.accountchooser.rpc.AbstractRequest.inheritsFrom(
+    window.accountchooser.rpc.RpcObject);
+
+/**
+ * Sets the name of the method to be invoked.
+ * @param {string} method The name of the method to be invoked.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.setMethod =
+    function(method) {
+  this.method_ = method;
+};
+
+/**
+ * Returns the name of the method to be invoked.
+ * @return {string} The name of the method to be invoked.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.getMethod =
+    function() {
+  return this.method_;
+};
+
+/**
+ * Sets the parameter values to be used during the invocation of the method.
+ * @param {object} params The parameter values to be used during the invocation
+ *     of the method.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.
+    setParameters = function(params) {
+  this.params_ = params;
+};
+
+/**
+ * Returns the parameter values to be used during the invocation of the method.
+ * @return {object} The parameter values to be used during the invocation of
+ *     the method.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.
+    getParameters = function() {
+  return this.params_;
+};
+
+/**
+ * Transfers the RPC object to a normal object.
+ * @return {string} The normal object represents the RPC object.
+ */
+window.accountchooser.rpc.AbstractRequest.prototype.toJSON =
+    function() {
+  var json = window.accountchooser.rpc.RpcObject.prototype.
+      toJSON.call(this);
+  if (this.method_ != null) {
+    json.method = this.method_;
+  }
+  if (this.params_ != null) {
+    json.params = this.params_;
+  }
+  return json;
+};
+
+/**
+ * @class Defines the Notification class. Notification is a request that
+ * without response returned.
+ * @param {string} method The name of the method to be invoked.
+ * @param {object} params The parameter values to be used during the invocation
+ *     of the method.
+ * @constructor
+ */
+window.accountchooser.rpc.Notification = function(method,
+    params) {
+  this.method_ = method;
+  this.params_ = params;
+};
+window.accountchooser.rpc.Notification.inheritsFrom(
+    window.accountchooser.rpc.AbstractRequest);
+
+/**
+ * @class Defines the Request class. Request is a wrapper for a RPC request.
+ * There must be a Response returned from the Server after handling the Request.
+ * @param {string} method The name of the method to be invoked.
+ * @param {object} params The parameter values to be used during the invocation
+ *     of the method.
+ * @param {string} id The id of the request.
+ * @constructor
+ */
+window.accountchooser.rpc.Request = function(method, params,
+    id) {
+  this.method_ = method;
+  this.params_ = params;
+  this.id_ = id;
+};
+window.accountchooser.rpc.Request.inheritsFrom(
+    window.accountchooser.rpc.AbstractRequest);
+
+/**
+ * Sets the request id.
+ * @param {string} id the id of the request.
+ */
+window.accountchooser.rpc.Request.prototype.setId = function(
+    id) {
+  this.id_ = id;
+};
+
+/**
+ * Returns the request id.
+ * @return {string} the id of the request.
+ */
+window.accountchooser.rpc.Request.prototype.getId = function() {
+  return this.id_;
+};
+
+/**
+ * Transfers the RPC object to a normal object.
+ * @return {string} The normal object represents the RPC object.
+ */
+window.accountchooser.rpc.Request.prototype.toJSON = function() {
+  var json = window.accountchooser.rpc.AbstractRequest.prototype.
+      toJSON.call(this);
+  if (this.id_ != null) {
+    json.id = this.id_;
+  }
+  return json;
+};
+
+/**
+ * @class Defines the Response class. After a Request is processed by the
+ * server, a Response is returned as the result. The parameters opt_result and
+ * opt_error cannot exist together, and exact one parameter should be provided.
+ * @param {string} id The id of the request object.
+ * @param {object|string|boolean|number} opt_result The result of the RPC
+ *     request. Its value is determined by the method invoked on the Server.
+ * @param {object} opt_error the error information.
+ * @constructor
+ */
+window.accountchooser.rpc.Response = function(id, opt_result,
+    opt_error) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  this.id_ = id;
+  this.result_ = opt_result;
+  this.error_ = opt_error;
+};
+window.accountchooser.rpc.Response.inheritsFrom(
+    window.accountchooser.rpc.RpcObject);
+
+/**
+ * Returns the result of the Response.
+ * @return {object|string|Boolean|number} the result of the Response.
+ */
+window.accountchooser.rpc.Response.prototype.getResult =
+    function() {
+  return this.result_;
+};
+
+/**
+ * Sets the result of the Response.
+ * @param {object|string|Boolean|number} result the result of the Response.
+ */
+window.accountchooser.rpc.Response.prototype.setResult =
+    function(result) {
+  this.result_ = result;
+};
+
+/**
+ * Returns the error of the Response.
+ * @return {object} the error of the Response.
+ */
+window.accountchooser.rpc.Response.prototype.getError =
+    function() {
+  return this.error_;
+};
+
+/**
+ * Sets the error of the Response.
+ * @param {object} error the error of the Response.
+ */
+window.accountchooser.rpc.Response.prototype.setError =
+    function(error) {
+  this.error_ = error;
+};
+
+/**
+ * Sets the request id.
+ * @param {string} id the id of the request.
+ */
+window.accountchooser.rpc.Response.prototype.setId =
+    function(id) {
+  this.id_ = id;
+};
+
+/**
+ * Returns the request id.
+ * @return {string} the id of the request.
+ */
+window.accountchooser.rpc.Response.prototype.getId = function() {
+  return this.id_;
+};
+
+/**
+ * Transfers the RPC object to a normal object.
+ * @return {string} The normal object represents the RPC object.
+ */
+window.accountchooser.rpc.Response.prototype.toJSON =
+    function() {
+  var json = window.accountchooser.rpc.RpcObject.prototype.
+      toJSON.call(this);
+  json.id = this.id_;
+  if (this.result_ != null) {
+    json.result = this.result_;
+  } else if (this.error_ != null) {
+    json.error = this.error_;
+  }
+  return json;
+};
+
+
+/**
+ * @class Defines the RequestAckNotification class. RequestAckNotification is a
+ * Notification to indicate that a Request is received by CDS.
+ * @param {string} requestId The id of the Request.
+ * @constructor
+ */
+window.accountchooser.rpc.RequestAckNotification = function(
+    requestId) {
+  window.accountchooser.param.notEmpty(requestId, 'requestId');
+  this.method_ =
+      window.accountchooser.rpc.RequestAckNotification.METHOD;
+  this.params_ = {requestId: requestId};
+};
+window.accountchooser.rpc.RequestAckNotification.inheritsFrom(
+   window.accountchooser.rpc.Notification);
+
+/** The method name of the RequestAckNotification */
+window.accountchooser.rpc.RequestAckNotification.METHOD =
+    'requestAckNotification';
+
+/**
+ * Sets the id of the Request to be acknowledged.
+ * @param {string} requestId The id of the Requestto be acknowledged.
+ */
+window.accountchooser.rpc.RequestAckNotification.prototype.
+    setRequestId = function(requestId) {
+  this.params_.requestId = requestId;
+};
+
+/**
+ * Returns the id of the Request to be acknowledged.
+ * @return {string} The id of the Request to be acknowledged.
+ */
+window.accountchooser.rpc.RequestAckNotification.prototype.
+    getRequestId = function() {
+  return this.params_.requestId;
+};
+
+/**
+ * @class Defines the CdsReadyNotification class. CdsReadyNotification is a
+ * Notification to indicate that CDS page is loaded and initialized.
+ * @constructor
+ */
+window.accountchooser.rpc.CdsReadyNotification = function() {
+  this.method_ =
+      window.accountchooser.rpc.CdsReadyNotification.METHOD;
+};
+window.accountchooser.rpc.CdsReadyNotification.inheritsFrom(
+   window.accountchooser.rpc.Notification);
+
+/** The method name of the CdsReadyNotification */
+window.accountchooser.rpc.CdsReadyNotification.METHOD =
+    'cdsReadyNotification';
+
+/**
+ * @class Defines the ClientReadyNotification class. ClientReadyNotification is
+ * a Notification to indicate that CDS Client page is loaded and initialized.
+ * @constructor
+ */
+window.accountchooser.rpc.ClientReadyNotification = function() {
+  this.method_ =
+      window.accountchooser.rpc.ClientReadyNotification.METHOD;
+};
+window.accountchooser.rpc.ClientReadyNotification.inheritsFrom(
+   window.accountchooser.rpc.Notification);
+
+/** The method name of the ClientReadyNotification */
+window.accountchooser.rpc.ClientReadyNotification.METHOD =
+    'clientReadyNotification';
+
+/**
+ * @class Defines the EmptyResponseNotification class. EmptyResponseNotification
+ * is a Notification to indicate that there's no saved Response for the Client.
+ * @constructor
+ */
+window.accountchooser.rpc.EmptyResponseNotification =
+    function() {
+  this.method_ =
+      window.accountchooser.rpc.EmptyResponseNotification.METHOD;
+};
+window.accountchooser.rpc.EmptyResponseNotification.inheritsFrom(
+    window.accountchooser.rpc.Notification);
+
+/** The method name of the EmptyResponseNotification */
+window.accountchooser.rpc.EmptyResponseNotification.METHOD =
+    'emptyResponseNotification';
+
+/**
+ * @class Defines the StoreRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Array.<Object>} accounts the list of accounta to be stored to CDS.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.StoreRequest = function(id, accounts,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  window.accountchooser.param.notEmptyArray (accounts,
+      'accounts');
+  if (accounts) {
+    accounts = window.accountchooser.util.sanitizeAccounts(
+        accounts);
+  }
+  this.method_ = window.accountchooser.rpc.StoreRequest.METHOD;
+  this.params_ = {
+    accounts: accounts,
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.StoreRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the StoreRequest */
+window.accountchooser.rpc.StoreRequest.METHOD = 'store';
+
+/**
+ * @class Defines the SelectRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Array.<Object>} localAccounts the list of local account to be
+ *     shown in the CDS.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.SelectRequest = function(id,
+    localAccounts, clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  if (localAccounts) {
+    localAccounts = window.accountchooser.util.sanitizeAccounts(
+        localAccounts);
+  }
+  this.method_ = window.accountchooser.rpc.SelectRequest.METHOD;
+  this.params_ = {
+    localAccounts: localAccounts,
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.SelectRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the SelectRequest */
+window.accountchooser.rpc.SelectRequest.METHOD = 'select';
+
+/**
+ * @class Defines the UpdateRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Object} account the account to be updated in CDS.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.UpdateRequest = function(id, account,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  window.accountchooser.param.notEmpty(account, 'account');
+  if (account) {
+    account = window.accountchooser.util.sanitizeAccount(
+        account);
+  }
+  this.method_ = window.accountchooser.rpc.UpdateRequest.METHOD;
+  this.params_ = {
+    account: account,
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.UpdateRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the UpdateRequest */
+window.accountchooser.rpc.UpdateRequest.METHOD = 'update';
+
+/**
+ * @class Defines the ManageRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.ManageRequest = function(id,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  this.method_ = window.accountchooser.rpc.ManageRequest.METHOD;
+  this.params_ = {
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.ManageRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the ManageRequest */
+window.accountchooser.rpc.ManageRequest.METHOD = 'manage';
+
+/**
+ * @class Defines the AboutRequest class.
+ * @param {string} id the id of the Request.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.AboutRequest = function(id,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  this.method_ = window.accountchooser.rpc.AboutRequest.METHOD;
+  this.params_ = {
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.AboutRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the AboutRequest */
+window.accountchooser.rpc.AboutRequest.METHOD = 'about';
+
+/**
+ * @class Defines the QueryRequest class.
+ * @param {string} id the id of the Request.
+ * @param {string} query the inquiry from the client.
+ * @param {Object} account the account associated with this query.
+ * @param {Object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.QueryRequest = function(id, query,
+    account, clientConfig) {
+  window.accountchooser.param.notEmpty(id, 'id');
+  window.accountchooser.param.notEmpty(query, 'query');
+  if (account) {
+    account = window.accountchooser.util.sanitizeAccount(
+        account);
+  }
+  this.method_ = window.accountchooser.rpc.QueryRequest.METHOD;
+  this.params_ = {
+    query: query,
+    account: account,
+    clientConfig: clientConfig
+  };
+  this.id_ = id;
+};
+window.accountchooser.rpc.QueryRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the UpdateRequest */
+window.accountchooser.rpc.QueryRequest.METHOD = 'query';
+
+/**
+ * Enums for CDS queries.
+ * @enum {string}
+ */
+window.accountchooser.rpc.Queries = {
+  CDS_DISABLED: 'cdsDisabled',
+  CDS_EMPTY: 'cdsEmpty',
+  ACCOUNT_EXIST: 'accountExist',
+  SHOULD_UPDATE: 'shouldUpdate'
+};
+
+
+/**
+ * @class Defines the IdpReadyNotification class. IdpReadyNotification is a
+ * Notification to indicate that IDP IFrame page is loaded and initialized.
+ * @constructor
+ */
+window.accountchooser.rpc.IdpReadyNotification = function() {
+  this.method_ =
+      window.accountchooser.rpc.IdpReadyNotification.METHOD;
+};
+window.accountchooser.rpc.IdpReadyNotification.inheritsFrom(
+   window.accountchooser.rpc.Notification);
+
+/** The method name of the IdpReadyNotification */
+window.accountchooser.rpc.IdpReadyNotification.METHOD =
+    'idpReadyNotification';
+
+/**
+ * @class Defines the IdpAuthRequest class.
+ * @param {object} account the account that user selected in CDS.
+ * @param {object} clientConfig the configuration parameters of current client.
+ * @constructor
+ */
+window.accountchooser.rpc.IdpAuthRequest = function(account,
+    clientConfig) {
+  window.accountchooser.param.notEmpty(account, 'account');
+  this.method_ = window.accountchooser.rpc.IdpAuthRequest.METHOD;
+  this.params_ = {
+    account: account,
+    clientConfig: clientConfig
+  };
+  this.id_ =
+      window.accountchooser.rpc.IdpAuthRequest.DEFAULT_ID + ':' +
+      account.email;
+};
+window.accountchooser.rpc.IdpAuthRequest.inheritsFrom(
+    window.accountchooser.rpc.Request);
+
+/** The method name of the IdpAuthRequest */
+window.accountchooser.rpc.IdpAuthRequest.METHOD = 'idpAuth';
+
+/** The default request id of the IdpAuthRequest */
+window.accountchooser.rpc.IdpAuthRequest.DEFAULT_ID = 'idpAuth';
+
+
+/**
+ * Parses JSON-RPC Object on CDS server side.
+ * <br>Possible RpcObject for CDS server: Request, IdpReadyNotification, or
+ * Response from IDP.
+ * @param {string} json A JSON format string.
+ * @return {RpcObject} A valid RpcObject, of null otherwise.
+ */
+window.accountchooser.rpc.parseRpcObject = function(json) {
+  var result = null;
+  if (json) {
+    try {
+      var request = JSON.parse(json);
+    } catch (e) {
+      window.accountchooser.util.log(
+          'Invalid JSON-RPC object: not a JSON object.');
+      return result;
+    }
+    if (!request || request.jsonrpc != '2.0') {
+      window.accountchooser.util.log(
+          'Invalid JSON-RPC request: \'jsonrpc\' field should be \'2.0\'.');
+    } else if (request.method) {
+      var method = request.method.toLowerCase();
+      if (method == window.accountchooser.rpc.StoreRequest.
+          METHOD.toLowerCase()) {
+        if (request.id && request.params && request.params.accounts) {
+          result = new window.accountchooser.rpc.StoreRequest(
+              request.id, request.params.accounts, request.params.clientConfig);
+        }
+      } else if (method == window.accountchooser.rpc.
+          SelectRequest.METHOD.toLowerCase()) {
+        if (request.id) {
+          result = new window.accountchooser.rpc.SelectRequest(
+              request.id, request.params.localAccounts,
+              request.params.clientConfig);
+        }
+      } else if (method == window.accountchooser.rpc.
+          UpdateRequest.METHOD.toLowerCase()) {
+        if (request.id && request.params && request.params.account) {
+          result = new window.accountchooser.rpc.UpdateRequest(
+              request.id, request.params.account, request.params.clientConfig);
+        }
+      } else if (method == window.accountchooser.rpc.
+          ManageRequest.METHOD.toLowerCase()) {
+        if (request.id) {
+          result = new window.accountchooser.rpc.ManageRequest(
+              request.id, request.params.clientConfig);
+        }
+      } else if (method == window.accountchooser.rpc.
+          AboutRequest.METHOD.toLowerCase()) {
+        if (request.id) {
+          result = new window.accountchooser.rpc.AboutRequest(
+              request.id, request.params.clientConfig);
+        }
+      } else if (method == window.accountchooser.rpc.
+          IdpReadyNotification.METHOD.toLowerCase()) {
+        result = new window.accountchooser.rpc.
+            IdpReadyNotification();
+      }
+    } else if (typeof request.id === 'string' && request.id.indexOf(
+        window.accountchooser.rpc.IdpAuthRequest.DEFAULT_ID) >=
+        0) {
+      result = new window.accountchooser.rpc.Response(
+          request.id, request.result, request.error);
+    }
+  }
+  if (result) {
+    window.accountchooser.util.log(
+        'Successfully parsing request: ' + json);
+  } else {
+    window.accountchooser.util.log(
+        'Failed to parse request: ' + json);
+  }
+  return result;
+};
+
+
+/** default CDS domain  */
+window.accountchooser.rpc.DEFAULT_CDS_DOMAIN =
+    'https://www.accountchooser.com';
+
+/** default CDS iframe URL  */
+window.accountchooser.rpc.DEFAULT_CDS_IFRAME_PATH =
+    '/iframe.html';
+
+/** default CDS popup URL  */
+window.accountchooser.rpc.DEFAULT_CDS_POPUP_PATH = '/popup.html';
+
+/** default CDS redirect URL  */
+window.accountchooser.rpc.DEFAULT_CDS_REDIRECT_PATH =
+    '/redirect.html';
+
+/** default popup width  */
+window.accountchooser.rpc.DEFAULT_POPUP_WIDTH = 520;
+
+/** default popup height  */
+window.accountchooser.rpc.DEFAULT_POPUP_HEIGHT = 550;
+
+/** callback name for empty response */
+window.accountchooser.rpc.EMPTY_RESPONSE_CALLBACK = 'empty';
+
+/** Timeout for IDP assertion, in milliseconds. Default to 3 seconds  */
+window.accountchooser.rpc.IDP_TIMEOUT = 3000;
+
+/** The life time of an RPC object, in milliseconds. Default to 5 minutes. */
+window.accountchooser.rpc.RPC_TIMEOUT = 5 * 60 * 1000;
+
+
+
+/**
+ * The services registered on this page.
+ * @private
+ */
+window.accountchooser.rpc.services_ = {};
+
+/**
+ * Registers an RPC service.
+ * @param {string} serviceName The name of the service.
+ * @param {funtion} handler The handler function when the RPC is called.
+ */
+window.accountchooser.rpc.register = function(serviceName,
+    handler) {
+  window.accountchooser.param.notEmpty(serviceName,
+      'serviceName');
+  window.accountchooser.param.notNull(handler, 'handler');
+  window.accountchooser.rpc.services_[serviceName] = handler;
+};
+
+/**
+ * Calls an RPC service registered in another window.
+ * @param {Window} targetWindow The target window object.
+ * @param {window.accountchooser.rpc.Request} request
+ *     The request to send. When target window receive the request, it will
+ *     invoke the service whose name is same as the method name of the request.
+ * @param {string} opt_domain The domain of the target window.
+ */
+window.accountchooser.rpc.call = function(targetWindow,
+    request, opt_domain) {
+  window.accountchooser.param.notEmpty(targetWindow,
+      'targetWindow');
+  var json = request.toString();
+  window.accountchooser.util.log('Send message: ' + json);
+  targetWindow.postMessage(json, opt_domain || '*');
+};
+
+/**
+ * Initialize the message handler for postMessage, on which RPC services are
+ * based.
+ * @param {function} messageHandler The message handler for postMessage.
+ * @private
+ */
+window.accountchooser.rpc.init_ = function(messageHandler) {
+  if (window.addEventListener) {
+    window.addEventListener('message', messageHandler, false);
+  } else if (window.attachEvent) {
+    window.attachEvent('onmessage', messageHandler);
+  } else if (window.document.attachEvent) {
+    window.document.attachEvent('onmessage', messageHandler);
+  } else {
+    window.accountchooser.util.log(
+        'Register handler for postMessage failed.');
+  }
+};
+
+
+/**
+ * The prefix for saved in-bound (from client to CDS) RPC Objects
+ * @private
+ */
+window.accountchooser.rpc.SAVED_IN_RPC_PREFIX_ = 'IN_RPC_';
+
+/**
+ * The prefix for saved out-bound (from CDS to client) RPC Objects
+ * @private
+ */
+window.accountchooser.rpc.SAVED_OUT_RPC_PREFIX_ = 'OUT_RPC_';
+
+/**
+ * Reads saved RpcObjects from sessionStorage.
+ * @param {string} clientDomain the domain of the client.
+ * @param {boolean} inbound Reads inbound (from client to CDS) or out-bound
+ *     (from CDS to client) RpcObjects.
+ * @return {Array.<string>} An array of strings, each of which is a RpcObject.
+ */
+window.accountchooser.rpc.readSavedRpcObjects = function(
+    clientDomain, inbound) {
+  var key;
+  if (inbound) {
+    key = window.accountchooser.rpc.SAVED_IN_RPC_PREFIX_;
+  } else {
+    key = window.accountchooser.rpc.SAVED_OUT_RPC_PREFIX_;
+  }
+  key += clientDomain.replace(/^https?:\/\//, '');
+  var result = [];
+  var data = window.sessionStorage.getItem(key);
+  if (data) {
+    window.sessionStorage.removeItem(key);
+    var objects = window.JSON.parse(data) || [];
+    var now = new Date().getTime();
+    if (objects.length) {
+      // Only process the latest request.
+      var strRequest = objects[objects.length - 1];
+      try {
+        var rpc = JSON.parse(strRequest);
+        if (rpc && rpc.timestamp && now - rpc.timestamp <
+            window.accountchooser.rpc.RPC_TIMEOUT) {
+          result.push(strRequest);
+          if (inbound) {
+            // Keeps inbound request for CDS page reloading.
+            window.sessionStorage.setItem(key, window.JSON.stringify(result));
+          }
+        } else {
+          window.accountchooser.util.log(
+              'Ignore expired JSON-RPC object: [' + strRequest + ']');
+        }
+      } catch (e) {
+        window.accountchooser.util.log(
+            'Ignore invalid JSON-RPC object: [' + strRequest + ']');
+      }
+    }
+  }
+  return result;
+};
+
+/**
+ * Saves a RpcObject into sessionStorage.
+ * @param {string} clientDomain the domain of the client.
+ * @param {RpcObject} rpcObject the RpcObject to be saved.
+ * @param {boolean} inbound Reads inbound (from client to CDS) or out-bound
+ *     (from CDS to client) RpcObjects.
+ */
+window.accountchooser.rpc.saveRpcObject = function(clientDomain,
+    rpcObject, inbound) {
+  var domain = clientDomain.replace(/^https?:\/\//, '');
+  // Delete the out-dated request/response before saving a new one.
+  window.sessionStorage.removeItem(
+      window.accountchooser.rpc.SAVED_IN_RPC_PREFIX_ + domain);
+  window.sessionStorage.removeItem(
+      window.accountchooser.rpc.SAVED_OUT_RPC_PREFIX_ + domain);
+  // Save the new one.
+  var key;
+  if (inbound) {
+    key = window.accountchooser.rpc.SAVED_IN_RPC_PREFIX_;
+  } else {
+    key = window.accountchooser.rpc.SAVED_OUT_RPC_PREFIX_;
+  }
+  key += domain;
+  // Uses an array for future extensibility, currently at most 1 element.
+  var rpcs = [];
+  rpcObject.setTimestamp();
+  rpcs.push(rpcObject.toString());
+  var jsonData = window.JSON.stringify(rpcs);
+  window.sessionStorage.setItem(key, jsonData);
+};
+
+
+/** A map from IDP id to its status. */
+window.accountchooser.rpc.idps = {};
+
+/** A map from IDP domain name to its status. */
+window.accountchooser.rpc.idpsIndexedByDomain = {};
+
+/** A map from email domain to its IDP. */
+window.accountchooser.rpc.emailMapIdp = {};
+
+/**
+ * Before connect to IDP for an assertion, a timer should be set to invoke the
+ * timeout callback. If returned from IDP timely, the timer should be cleared.
+ * @private
+ */
+window.accountchooser.rpc.timer_ = {
+  running: false,
+  id: 0,
+  callback: null
+};
+
+/**
+ * Clears the timeout callback, if set.
+ * @private
+ */
+window.accountchooser.rpc.clearTimeoutCallback_ = function() {
+  if (window.accountchooser.rpc.timer_.running) {
+    try {
+      window.clearTimeout(
+          window.accountchooser.rpc.timer_.id);
+    } catch (e) {}
+    window.accountchooser.rpc.timer_.running = false;
+    window.accountchooser.rpc.timer_.id = 0;
+    window.accountchooser.rpc.timer_.callback = null;
+  }
+};
+
+/**
+ * Sets a timeout callback.
+ * @param {function} timeoutCallback The callback function to be invoked.
+ * @private
+ */
+window.accountchooser.rpc.setTimeoutCallback_ = function(
+    timeoutCallback) {
+  window.accountchooser.param.notEmptyFunction(timeoutCallback,
+      'timeoutCallback');
+  window.accountchooser.rpc.clearTimeoutCallback_();
+  var cb = function() {
+    if (window.accountchooser.rpc.timer_.callback) {
+      window.accountchooser.rpc.timer_.callback.call(window);
+    }
+    window.accountchooser.rpc.timer_.running = false;
+    window.accountchooser.rpc.timer_.id = 0;
+    window.accountchooser.rpc.timer_.callback = null;
+  };
+  window.accountchooser.rpc.timer_.callback = timeoutCallback;
+  window.accountchooser.rpc.timer_.id = window.setTimeout(
+      cb, window.accountchooser.rpc.IDP_TIMEOUT);
+  window.accountchooser.rpc.timer_.running = true;
+};
+
+/**
+ * Initializes a IDP IFrame.
+ * @param {string} idp the id the IDP.
+ * @private
+ */
+window.accountchooser.rpc.initIdpIFrame_ = function(idp) {
+  if (!idp || !window.accountchooser.rpc.idps[idp]) {
+    window.accountchooser.util.log('Unsupported IDP \'' + idp +
+        '\'.');
+    return;
+  }
+  if (!window.accountchooser.rpc.idps[idp].iframeUrl) {
+    window.accountchooser.util.log(
+        'Failed to init IDP iframe for \'' + idp + '\': no valid iframeUrl.');
+    return;
+  }
+  var idpConfig = window.accountchooser.rpc.idps[idp];
+  window.accountchooser.rpc.initIdpIFrameByConfig_(idpConfig);
+};
+
+/**
+ * Initializes a IDP IFrame.
+ * @param {object} idpConfig the configuration of the IDP.
+ * @private
+ */
+window.accountchooser.rpc.initIdpIFrameByConfig_ =
+    function(idpConfig) {
+  if (!idpConfig) {
+    return;
+  }
+  if (!idpConfig.iframe) {
+    var iframe = jQuery('<iframe />').css('position', 'absolute').
+        css('width', '1px').css('height', '1px').css('left', '-9999px').
+        appendTo('body');
+    idpConfig.iframe = iframe;
+    iframe.attr('src', idpConfig.iframeUrl);
+  }
+};
+
+/**
+ * The event handler for IdpReadyNotification.
+ * @param {string} domain the IDP domain.
+ * @private
+ */
+window.accountchooser.rpc.onIdpReady_ = function(domain) {
+  if (!domain ||
+      !window.accountchooser.rpc.idpsIndexedByDomain[domain]) {
+    window.accountchooser.util.log('Unsupported IDP domain \'' +
+        domain + '\'.');
+    return;
+  }
+  var idpConfig =
+      window.accountchooser.rpc.idpsIndexedByDomain[domain];
+  if (!idpConfig.iframe) {
+    window.accountchooser.util.log(
+        'Illegal state error: IDP domain \'' + domain +
+        '\' has\'t initialized yet.');
+    return;
+  }
+  var w = idpConfig.iframe[0].contentWindow;
+  if (idpConfig.queue && idpConfig.queue.length) {
+    for (var i = 0; i < idpConfig.queue.length; i++) {
+      window.accountchooser.rpc.call(w, idpConfig.queue[i]);
+    }
+    idpConfig.queue = [];
+  }
+  idpConfig.idpReady = true;
+};
+
+/**
+ * Sends a Request to an IDP.
+ * @param {string} idp The id of the IDP.
+ * @param {Request} request The Request to send.
+ * @param {function} callback The callback function to be invoked after returned
+ *     from IDP.
+ * @param {function} timeout The callback function to be invoked if no IDP
+ *     response returned till timeout.
+ */
+window.accountchooser.rpc.callIdp = function(idp, request,
+    callback, timeout) {
+  if (idp && window.accountchooser.rpc.idps[idp]) {
+    var idpConfig = window.accountchooser.rpc.idps[idp];
+    window.accountchooser.rpc.callIdpByConfig(idpConfig, request,
+        callback, timeout);
+  }
+};
+
+/**
+ * Sends a Request to an IDP by its domaion.
+ * @param {string} domain The domain name of the IDP.
+ * @param {Request} request The Request to send.
+ * @param {function} callback The callback function to be invoked after returned
+ *     from IDP.
+ * @param {function} timeout The callback function to be invoked if no IDP
+ *     response returned till timeout.
+ */
+window.accountchooser.rpc.callIdpByDomain = function(domain,
+    request, callback, timeout) {
+  if (domain &&
+      window.accountchooser.rpc.idpsIndexedByDomain[domain]) {
+    var idpConfig =
+        window.accountchooser.rpc.idpsIndexedByDomain[domain];
+    window.accountchooser.rpc.callIdpByConfig(idpConfig, request,
+        callback, timeout);
+  }
+};
+
+/**
+ * Sends a Request to an IDP by its domaion.
+ * @param {object} idpConfig The configuration object of the IDP.
+ * @param {Request} request The Request to send.
+ * @param {function} callback The callback function to be invoked after returned
+ *     from IDP.
+ * @param {function} timeout The callback function to be invoked if no IDP
+ *     response returned till timeout.
+ */
+window.accountchooser.rpc.callIdpByConfig = function(idpConfig,
+    request, callback, timeout) {
+  window.accountchooser.param.notEmpty(idpConfig, 'idpConfig');
+  window.accountchooser.param.notEmpty(request, 'request');
+  window.accountchooser.param.notEmptyFunction(callback,
+      'callback');
+  window.accountchooser.param.notEmptyFunction(timeout,
+      'timeout');
+  window.accountchooser.rpc.setTimeoutCallback_(timeout);
+  window.accountchooser.rpc.addIdpCallback_(idpConfig, request,
+      callback);
+  if (!idpConfig.idpReady) {
+    if (!idpConfig.queue) {
+      idpConfig.queue = [];
+    }
+    idpConfig.queue.push(request);
+    if (!idpConfig.iframe) {
+      window.accountchooser.rpc.initIdpIFrameByConfig_(
+          idpConfig);
+    }
+  } else {
+    var w = idpConfig.iframe[0].contentWindow;
+    window.accountchooser.rpc.call(w, request);
+  }
+};
+
+/**
+ * All the pending callbacks with IDPs
+ * @private
+ */
+window.accountchooser.rpc.callIdpByConfig.callbacks_ = {};
+
+/**
+ * Registers a callback function for a IdpAuthRequest.
+ * @param {Object} idpConfig The configuration object of the IDP.
+ * @param {window.accountchooser.rpc.Request} request
+ *     The request sent to the IDP.
+ * @param {function} callback The callback function to be invoked upon a
+ *     response is returned.
+ * @private
+ */
+window.accountchooser.rpc.addIdpCallback_ = function(idpConfig,
+    request, callback) {
+  window.accountchooser.rpc.callIdpByConfig.
+      callbacks_[idpConfig.domain + ':' + request.getId()] = {
+    callback: callback,
+    idpConfig: idpConfig
+  };
+};
+
+/**
+ * Gets the callback for the response from the IDP.
+ * @param {string} domain The domain of the IDP.
+ * @param {window.accountchooser.rpc.Response} response
+ *     The response returned from the IDP.
+ * @return {function} The callback for the response.
+ * @private
+ */
+window.accountchooser.rpc.getIdpCallback_ = function(domain,
+    response) {
+  var key = domain + ':' + response.getId();
+  var callback =
+      window.accountchooser.rpc.callIdpByConfig.callbacks_[key];
+  if (callback) {
+    delete
+      window.accountchooser.rpc.callIdpByConfig.callbacks_[key];
+    return callback.callback;
+  }
+};
+
+/**
+ * Checks if the CDS-IDP communication is supported for an account's IDP.
+ * @param {object} account The account entry to be checked.
+ * @return {boolean} whether CDS-IDP communication is supported.
+ */
+window.accountchooser.rpc.isSupportedIdp = function(account) {
+  if (account) {
+    var domain = account.providerId ||
+        window.accountchooser.util.getEmailDomain(account.email);
+    if (domain) {
+      var idp = window.accountchooser.rpc.emailMapIdp[domain];
+      if (idp && window.accountchooser.rpc.idps[idp]) {
+        return idp;
+      }
+    }
+  }
+  return false;
+};
+
+
+/** The exception thrown when saved RPC is empty */
+window.accountchooser.rpc.EMPTY_SAVED_RPC = 'EMPTY_SAVED_RPC';
+
+/** The exception thrown when CDS got an invalid domain */
+window.accountchooser.rpc.INVALID_CLIENT_DOMAIN =
+    'INVALID_CLIENT_DOMAIN';
+
+/** whether popup mode is used currently? */
+window.accountchooser.rpc.popupMode = false;
+
+/** the window object for CDS client */
+window.accountchooser.rpc.clientWindow = null;
+
+/**
+ * Parses the domain name for the hash part in the URL.
+ * <br>The hash is used to pass the client domain in redirect mode.
+ * @return {string} The domain name in the hash part in the URL.
+ * @private
+ */
+window.accountchooser.rpc.getDomainInHash_ = function() {
+  if (window.location.hash) {
+    var hash = window.location.hash;
+    if (hash && hash[0] == '#') {
+      hash = hash.substring(1);
+    }
+    return hash;
+  }
+};
+
+/**
+ * Triggers the saved RPC objects after the CDS page is loaded.
+ * <br>In redirect mode, the RPC object is saved before redirecting. Then
+ * after redirected to CDS page, the saved RPC will be triggered again so that
+ * CDS server can handle them.
+ * @throws {string} EMPTY_SAVED_RPC when no saved RPC.
+ * @private
+ */
+window.accountchooser.rpc.triggerSavedRpcs_ = function() {
+  if (window.accountchooser.rpc.popupMode) {
+    return;
+  }
+  var rpcs = window.accountchooser.rpc.readSavedRpcObjects(
+      window.accountchooser.rpc.clientDomain_, true);
+  if (rpcs && rpcs.length) {
+    for (var i = 0; i < rpcs.length; i++) {
+      var rpc = {
+        data: rpcs[i],
+        origin: window.accountchooser.rpc.clientDomain_
+      };
+      window.accountchooser.rpc.process_(rpc, true);
+    }
+  } else {
+    throw window.accountchooser.rpc.EMPTY_SAVED_RPC;
+  }
+};
+
+/**
+ * Sends notification to opener window.
+ * <br>In popup mode, the CDS server will send a CdsReadyNotification to CDS
+ * client after it is ready to accept messages.
+ * <br>Note: when post messge for CdsReadyNotification, '*' is used instead of
+ * a specific client domain. The reason is the popup window doesn't know the
+ * client domain at that time. This shouldn't be a security issue, since no
+ * other data inclued in the notification.
+ * @private
+ */
+window.accountchooser.rpc.sendCdsReadyNotification_ =
+    function() {
+  if (window.accountchooser.rpc.popupMode) {
+    var notification =
+        new window.accountchooser.rpc.CdsReadyNotification();
+    window.accountchooser.rpc.clientWindow.postMessage(
+        notification.toString(), '*');
+  }
+};
+
+/**
+ * Handler for postMessage event.
+ * @param {EventObject} e the message event object.
+ * @param {boolean} fromSaved whether this event is triggered from saved RPCs.
+ * @private
+ */
+window.accountchooser.rpc.process_ = function(e, fromSaved) {
+  window.accountchooser.util.log('Received message: ' + e.data +
+      ' from ' + e.origin);
+  var domain = e.origin.replace(/^https?:\/\//, '');
+  var request = window.accountchooser.rpc.parseRpcObject(e.data);
+  if (!request) {
+    window.accountchooser.util.log(
+        'Error request format: ' + e.data);
+    return;
+  }
+  if (request instanceof
+      window.accountchooser.rpc.ManageRequest && !fromSaved) {
+    window.accountchooser.util.log('Illegal request: ' + e.data);
+    return;
+  }
+  if (request instanceof
+      window.accountchooser.rpc.IdpReadyNotification) {
+    window.accountchooser.rpc.onIdpReady_(domain);
+    return;
+  }
+  if (request instanceof window.accountchooser.rpc.Response) {
+    window.accountchooser.rpc.clearTimeoutCallback_();
+    var callback = window.accountchooser.rpc.getIdpCallback_(
+        domain, request);
+    if (callback) {
+      callback.call(window, request, e.origin, callback.context);
+    } else {
+      window.accountchooser.util.log(
+          'Failed to find callback for response: ' + e.data);
+    }
+    return;
+  }
+  if (!(request instanceof window.accountchooser.rpc.Request)) {
+    window.accountchooser.util.log(
+        'Unrecognized request: ' + e.data);
+    return;
+  }
+  // RPC call from CDS Client
+  // Check callback URL domain first.
+  if (!window.accountchooser.rpc.checkCallbackDomain_(
+      request, domain)) {
+    return;
+  }
+  var handler = window.accountchooser.rpc.
+      services_['serviceLoader'];
+  if (!handler) {
+    window.accountchooser.util.log('No RPC handler for \'' +
+        request.getMethod() + '\' found!');
+    return;
+  }
+  if ((request instanceof window.accountchooser.rpc.Request) &&
+      !fromSaved) {
+    var ack = new window.accountchooser.rpc.
+        RequestAckNotification(request.getId());
+    window.parent.postMessage(ack.toString(), e.origin);
+  }
+  handler(request, e.origin);
+};
+
+/**
+ * Checks whether the callback URL is from the same domain of the calling site.
+ * @param {Request} request The request sent from the calling site.
+ * @param {string} domain The domain of the calling site.
+ * @return {boolean} True if the callback matches the domain. False otherwise.
+ * @private
+ */
+window.accountchooser.rpc.checkCallbackDomain_ = function(
+    request, domain) {
+  var callbackDomain = request.params_.clientConfig.clientCallbackUrl &&
+      window.accountchooser.util.getDomainFromUrl(
+          request.params_.clientConfig.clientCallbackUrl);
+  if (callbackDomain && callbackDomain !== domain) {
+    window.accountchooser.util.log(
+        'Illegal clientCallbackUrl "' +
+        request.params_.clientConfig.clientCallbackUrl +
+        '", must be under domain "' + domain + '".');
+    return false;
+  }
+  var positiveCallbackDomain =
+      request.params_.clientConfig.positiveCallbackUrl &&
+      window.accountchooser.util.getDomainFromUrl(
+          request.params_.clientConfig.positiveCallbackUrl);
+  if (positiveCallbackDomain && positiveCallbackDomain !== domain) {
+    window.accountchooser.util.log(
+        'Illegal positiveCallbackUrl "' +
+        request.params_.clientConfig.positiveCallbackUrl +
+        '", must be under domain "' + domain + '".');
+    return false;
+  }
+  var negativeCallbackDomain =
+      request.params_.clientConfig.negativeCallbackUrl &&
+      window.accountchooser.util.getDomainFromUrl(
+          request.params_.clientConfig.negativeCallbackUrl);
+  if (negativeCallbackDomain && negativeCallbackDomain !== domain) {
+    window.accountchooser.util.log(
+        'Illegal negativeCallbackUrl "' +
+        request.params_.clientConfig.negativeCallbackUrl +
+        '", must be under domain "' + domain + '".');
+    return false;
+  }
+  return true;
+};
+
+/**
+ * Initializes the CDS server's IDP configuration.
+ * @param {Object} idps The IDP configuration.
+ * @param {Object} emailMapIdp The mapping between an email domain and an IDP.
+ * @return {Array.<string>} The list of IDPs which need to be preloaded.
+ * @private
+ */
+window.accountchooser.rpc.initIdp_ = function(idps,
+    emailMapIdp) {
+  var preloadIdps = [];
+  if (idps) {
+    for (var idp in idps) {
+      window.accountchooser.param.notEmpty(idps[idp].iframeUrl,
+          'iframeUrl');
+      var iframeUrl = idps[idp].iframeUrl;
+      var domain = window.accountchooser.util.getDomainFromUrl(
+          iframeUrl);
+      window.accountchooser.param.notEmpty(domain, 'domain');
+      var idpConfig = {
+        id: idp,
+        domain: domain,
+        iframe: null,
+        iframeUrl: iframeUrl,
+        queue: [],
+        idpReady: false
+      };
+      window.accountchooser.rpc.idps[idp] = idpConfig;
+      window.accountchooser.rpc.idpsIndexedByDomain[domain] =
+          idpConfig;
+      if (idps[idp].preload) {
+        preloadIdps.push(idp);
+      }
+    }
+  }
+  if (emailMapIdp) {
+    for (var emailDomain in emailMapIdp) {
+      var idp = emailMapIdp[emailDomain];
+      if (!idp) {
+        window.accountchooser.util.log('Invalid value for' +
+            ' \'options.emailMapIdp["' + emailDomain + '"]\'.');
+        continue;
+      }
+      if (!window.accountchooser.rpc.idps[idp]) {
+        window.accountchooser.util.log('Invalid value for' +
+            ' \'options.emailMapIdp.["' + emailDomain + '"]\', not exist.');
+        continue;
+      }
+      window.accountchooser.rpc.emailMapIdp[emailDomain] = idp;
+    }
+  }
+  return preloadIdps;
+};
+
+/**
+ * Initializes the CDS server with given configuration parameters. See
+ * below example for options:
+ * <pre>
+ * {
+ *   popupMode: true/false,  //default is false, that is, redirect mode.
+ *   idps: {
+ *     idp: {
+ *       iframeUrl: '',      //The URL of the IDP IFrame.
+ *       preload: true/false //default is false
+ *     },
+ *   },
+ *   emailMapIdp: {
+ *     emailDomain: idp
+ *   }
+ * }
+ * </pre>
+ * @param {Object} options configuration parameters of the CDS server.
+ * @throws {string} INVALID_CLIENT_DOMAIN if no valid client domain found
+ *     in URL hash.
+ */
+window.accountchooser.rpc.initCds = function(options) {
+  var preloadIdps;
+  if (options) {
+    if (options.rpcs) {
+      for (var rpc in options.rpcs) {
+        window.accountchooser.rpc.register(rpc,
+            options.rpcs[rpc]);
+      }
+    }
+    preloadIdps = window.accountchooser.rpc.initIdp_(
+        options.idps, options.emailMapIdp);
+  }
+  if (options && options.popupMode) {
+    window.accountchooser.rpc.popupMode = true;
+    window.accountchooser.rpc.clientWindow = window.opener;
+  } else {
+    window.accountchooser.rpc.popupMode = false;
+    var domain = window.accountchooser.rpc.getDomainInHash_();
+    if (!domain) {
+      window.accountchooser.util.log(
+          'Failed to get client domain in URL hash.');
+      throw window.accountchooser.rpc.INVALID_CLIENT_DOMAIN;
+    }
+    window.accountchooser.rpc.clientDomain_ = domain;
+  }
+  window.accountchooser.rpc.init_(
+      window.accountchooser.rpc.process_);
+  if (window.accountchooser.rpc.popupMode) {
+    window.accountchooser.rpc.sendCdsReadyNotification_();
+  }
+  if (preloadIdps && preloadIdps.length) {
+    for (var i = 0; i < preloadIdps.length; i++) {
+      window.accountchooser.rpc.initIdpIFrame_(preloadIdps[i]);
+    }
+  }
+  if (options && !options.popupMode) {
+    window.accountchooser.rpc.triggerSavedRpcs_();
+  }
+};
+
+/**
+ * Sends an RPC object to CDS client.
+ * @param {RpcObject} rpcObject The RPC object.
+ */
+window.accountchooser.rpc.callClient = function(rpcObject) {
+  window.accountchooser.param.notEmpty(rpcObject, 'rpcObject');
+  window.accountchooser.util.log(
+      'Send message: ' + rpcObject.toString());
+  if (window.accountchooser.rpc.popupMode) {
+    window.accountchooser.rpc.clientWindow.postMessage(
+        rpcObject.toString(), '*');
+  } else if (window.accountchooser.rpc.clientDomain_) {
+    window.accountchooser.rpc.saveRpcObject(
+        window.accountchooser.rpc.clientDomain_, rpcObject,
+        false);
+  } else {
+    window.accountchooser.util.log(
+        'CallClient failed: cannot find client window.');
+  }
+};
+
+
+/**
+ * Creates an UI loader.
+ * @constructor
+ */
+window.accountchooser.UiLoader = function() {
+};
+
+/**
+ * Finds a configuration entry according to current method of the request and
+ * expected language. Below is an example for the configuration object:
+ * <pre>
+ * {
+ *   store: {name: 'window.cds.StoreService', ....},
+ *   select: {name: 'window.cds.SelectService', ....},
+ *   zh_cn: {
+ *     store: {name: 'window.cds.StoreService', ....}
+ *   }
+ * }
+ * </pre>
+ * @param {Object} services The configuration object for the service.
+ * @param {string} method The RPC method of the request.
+ * @param {string=} opt_language The expected language.
+ * @return {Object} the configuration entry found.
+ * @private
+ */
+window.accountchooser.UiLoader.prototype.findServiceByLanguage_ =
+    function(services, method, opt_language) {
+  if (!services) {
+    return null;
+  }
+  if (opt_language && services[opt_language] &&
+      services[opt_language][method]) {
+    return services[opt_language][method];
+  }
+  return services[method];
+};
+
+/**
+ * Finds a configuration entry according to current request, from a mobile agent
+ * and expected language. Below is an example for the configuration object:
+ * <pre>
+ * {
+ *   web: {
+ *     store: {name: 'window.cds.StoreService', ....},
+ *     select: {name: 'window.cds.SelectService', ....},
+ *     zh_cn: {
+ *       store: {name: 'window.cds.StoreService', ....}
+ *     }
+ *   },
+ *   mobile: {
+ *     store: {name: 'window.cds.StoreService', ....}
+ *   }
+ * }
+ * </pre>
+ * @param {rpc.Request} request Current request to handle.
+ * @param {Object} services The configuration object for the service.
+ * @param {boolean} opt_mobile Whether the request is from an mobile agent.
+ * @param {string=} opt_language The expected language.
+ * @return {Object} the configuration entry found.
+ * @private
+ */
+window.accountchooser.UiLoader.prototype.findService_ = function(
+    request, services, opt_mobile, opt_language) {
+  var service = null;
+  if (services) {
+    var method = request.getMethod();
+    if (opt_mobile && services.mobile) {
+      service = this.findServiceByLanguage_(services.mobile, method,
+          opt_language);
+    }
+    if (!service) {
+      service = this.findServiceByLanguage_(services.web, method, opt_language);
+    }
+  }
+  return service;
+};
+
+/**
+ * Really loads a service UI resource from the Web. Only called when target
+ * resource is not loaded before.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @param {function} done The callback function after loaded resource.
+ */
+window.accountchooser.UiLoader.prototype.loadServiceFromWeb =
+    function(serviceMeta, done) {
+  throw 'Unimplementated! Child object must provide an implementation.';
+};
+
+/**
+ * Whether the resource has been loaded before.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @return {boolean} Whether the resource has been loaded before.
+ */
+window.accountchooser.UiLoader.prototype.isServiceLoaded =
+    function(serviceMeta) {
+  return false;
+};
+
+/**
+ * Marks the target resource as loaded.
+ * @param {Object} serviceMeta The configuration object for the service.
+ */
+window.accountchooser.UiLoader.prototype.setServiceLoaded =
+    function(serviceMeta) {
+};
+
+/**
+ * Before handle a request, make sure target service UI is loaded, and invoke
+ * the callback function after loaded.
+ * @param {rpc.Request} request Current request to handle.
+ * @param {Object} services The configuration object for the service.
+ * @param {function} callback The function to be invoked after loaded.
+ */
+window.accountchooser.UiLoader.prototype.loadService = function(
+    request, services, callback) {
+  var mobile = window.accountchooser.util.isMobileAgent(
+      navigator.userAgent);
+  var language = request && request.params_ && request.params_.clientConfig &&
+      request.params_.clientConfig.language;
+  var originalMeta = this.findService_(request, services, mobile, language);
+  window.accountchooser.param.notEmpty(originalMeta,
+      'serviceMeta');
+  window.accountchooser.param.notEmpty(originalMeta.name,
+      'serviceMeta.name');
+  var serviceMeta = jQuery.extend({}, originalMeta,
+      {mobile: !!mobile, language: language});
+
+  if (!!this.isServiceLoaded(serviceMeta)) {
+    var constructor = window.accountchooser.util.
+        getNamespacedObjectByString(serviceMeta.name);
+    window.accountchooser.param.notEmpty(constructor,
+        serviceMeta.name);
+    callback(constructor);
+  } else {
+    var self = this;
+    var done = function() {
+      self.setServiceLoaded(serviceMeta);
+      var constructor = window.accountchooser.util.
+          getNamespacedObjectByString(serviceMeta.name);
+      window.accountchooser.param.notEmpty(constructor,
+          serviceMeta.name);
+      callback(constructor);
+    };
+    this.loadServiceFromWeb(serviceMeta, done);
+  }
+};
+
+
+/**
+ * Creates a URL-based UI loader.
+ * @constructor
+ */
+window.accountchooser.UrlUiLoader = function() {
+};
+window.accountchooser.UrlUiLoader.inheritsFrom(
+    window.accountchooser.UiLoader);
+
+/**
+ * Computes a URL for javascript file according to the configuration.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @return {string} The URL string.
+ */
+window.accountchooser.UrlUiLoader.prototype.getJsFileUrl =
+    function(serviceMeta) {
+  throw 'Unimplementated! Child object must provide an implementation.';
+};
+
+/**
+ * Computes a URL for CSS file according to the configuration.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @return {string} The URL string.
+ */
+window.accountchooser.UrlUiLoader.prototype.getCssFileUrl =
+    function(serviceMeta) {
+  throw 'Unimplementated! Child object must provide an impelementation.';
+};
+
+/**
+ * Checkes if the file is loaded.
+ * @param {string} url file URL.
+ * @return {boolean} {@code true} if loaded.
+ */
+window.accountchooser.UrlUiLoader.prototype.isFileLoaded =
+    function(url) {
+  throw 'Unimplementated! Child object must provide an impelementation.';
+};
+
+/**
+ * Removes old CSS link tag specified.
+ */
+window.accountchooser.UrlUiLoader.prototype.removeOldCss =
+    function() {
+  throw 'Unimplementated! Child object must provide an impelementation.';
+};
+
+/**
+ * Removes old javascript script tag specified.
+ */
+window.accountchooser.UrlUiLoader.prototype.removeOldJs =
+    function() {
+  throw 'Unimplementated! Child object must provide an impelementation.';
+};
+
+/**
+ * Really loads a service UI resource from the Web. Only called when target
+ * resource is not loaded before.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @param {function} done The callback function after loaded the resource.
+ */
+window.accountchooser.UrlUiLoader.prototype.loadServiceFromWeb =
+    function(serviceMeta, done) {
+  var self = this;
+  var loadJs = function() {
+    var jsUrl = self.getJsFileUrl(serviceMeta);
+    if (self.isFileLoaded(jsUrl)) {
+      done();
+    } else {
+      var jsLoader = new window.accountchooser.loader.JsLoader();
+      jsLoader.load(jsUrl, null, function() {
+        self.removeOldJs();
+        done();
+      });
+    }
+  }
+  // Load CSS first.
+  var cssUrl = this.getCssFileUrl(serviceMeta);
+  if (this.isFileLoaded(cssUrl)) {
+    loadJs();
+  } else {
+    var cssLoader = new window.accountchooser.loader.CssLoader();
+    cssLoader.load(cssUrl, null, function() {
+      self.removeOldCss();
+      loadJs();
+    });
+  }
+};
+
+
+/**
+ * Creates a URL-template-based UI loader.
+ * @param {string} jsUrlTemplate The URL template for javascript. The place
+ *     holders '{language}' and '{baseFilename}' will be replaced to create
+ *     actually URL.
+ * @param {string} cssUrlTemplate The URL template for CSS. The placeholder
+ *     '{baseFilename}' will be replaced to create actually URL.
+ * @param {string=} opt_defaultLanguage The default language used to fill in the
+ *     URL template if no language is provided. If it's not specified or not
+ *     supproted, the default language is set to 'en'.
+ * @constructor
+ */
+window.accountchooser.UrlTemplateUiLoader = function(
+    jsUrlTemplate, cssUrlTemplate, opt_defaultLanguage) {
+  this.jsUrlTemplate_ = jsUrlTemplate;
+  this.cssUrlTemplate_ = cssUrlTemplate;
+  this.defaultLanguage_ = window.accountchooser.util.
+      findLanguageCode(opt_defaultLanguage) || 'en';
+  this.jsUrl_ = null;
+  this.cssUrl_ = null;
+};
+window.accountchooser.UrlTemplateUiLoader.inheritsFrom(
+    window.accountchooser.UrlUiLoader);
+
+/**
+ * Computes a URL for javascript file according to the configuration.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @return {string} The URL string.
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    getJsFileUrl = function(serviceMeta) {
+  var language = this.getLanguage_(serviceMeta.language);
+  return this.jsUrlTemplate_.
+      replace(/\{baseFilename\}/, serviceMeta.baseFilename).
+      replace(/\{language\}/, language);
+};
+
+/**
+ * Computes a URL for CSS file according to the configuration.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @return {string} The URL string.
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    getCssFileUrl = function(serviceMeta) {
+  var baseFilename = serviceMeta.cssBaseFilename;
+  return this.cssUrlTemplate_.replace(/\{baseFilename\}/, baseFilename);
+};
+
+/**
+ * Checkes if the file is loaded.
+ * @param {string} url file URL.
+ * @return {boolean} {@code true} if loaded.
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    isFileLoaded = function(url) {
+  return !!this.findTag_(url);
+};
+
+/**
+ * Whether the resource has been loaded before.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @return {boolean} Whether the resource has been loaded before.
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    isServiceLoaded = function(serviceMeta) {
+  return this.isFileLoaded(this.getJsFileUrl(serviceMeta)) &&
+      this.isFileLoaded(this.getCssFileUrl(serviceMeta));
+};
+
+/**
+ * Marks the target resource as loaded.
+ * @param {Object} serviceMeta The configuration object for the service.
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    setServiceLoaded = function(serviceMeta) {
+  this.jsUrl_ = this.getJsFileUrl(serviceMeta);
+  this.cssUrl_ = this.getCssFileUrl(serviceMeta);
+};
+
+/**
+ * Really loads a service UI resource from the Web. Only called when target
+ * resource is not loaded before.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @param {function} done The callback function after loaded the resource.
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    loadServiceFromWeb = function(serviceMeta, done) {
+  var self = this;
+  window.accountchooser.UrlUiLoader.prototype.loadServiceFromWeb.
+      call(self, serviceMeta, function() {
+    done();
+    var body = document.getElementsByTagName('body')[0] ||
+        document.body;
+    var className = body.getAttribute('class') || '';
+    if (self.isRightToLeft_(serviceMeta)) {
+      body.dir = 'rtl';
+      className += ' rtl';
+    } else {
+      body.dir = 'ltr';
+      className = className.replace(/rtl/g, '');
+    }
+    body.setAttribute('class', className);
+  });
+};
+
+/**
+ * Removes old script or link tag specified by the URL.
+ * @param {string} url The URL to match.
+ * @private
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    removeOldTag_ = function(url) {
+  var tag = this.findTag_(url);
+  if (tag) {
+    tag.parentNode.removeChild(tag);
+  }
+};
+
+/**
+ * Removes old CSS link tag specified.
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    removeOldCss = function() {
+  this.removeOldTag_(this.cssUrl_);
+};
+
+/**
+ * Removes old javascript script tag specified.
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    removeOldJs = function() {
+  this.removeOldTag_(this.jsUrl_);
+};
+
+/**
+ * Finds the script or link tag which matches the given URL.
+ * @param {string?} url The URL to match.
+ * @return {Element=} The matched DOM element.
+ * @private
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.findTag_ =
+    function(url) {
+  if (url) {
+    var head = document.getElementsByTagName('head')[0] ||
+        document.documentElement;
+    var children = head.childNodes;
+    for (var i = 0, length = children.length; i < length; i++) {
+      var element = children.item(i);
+      var tagName = element.nodeName.toLowerCase();
+      if ((tagName == 'script' && element.getAttribute('src') == url) ||
+          (tagName == 'link' && element.getAttribute('href') == url)) {
+        return element;
+      }
+    }
+  }
+};
+
+/**
+ * Gets the language setting. If no language is specified, use default.
+ * @param {string=} opt_language The optional language.
+ * @return {string} the language code.
+ * @private
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+    getLanguage_ = function(opt_language) {
+  // If the calling site doesn't specify the language, use the user's browser
+  // language instead. NOTE: It is the browser language that is taken into
+  // account other than the user's language preference set in the browser.
+  // There's no easy way to get it.
+  var language = opt_language || window.navigator.language;
+  language =
+      window.accountchooser.util.findLanguageCode(language) ||
+      this.defaultLanguage_;
+  return language;
+};
+
+/**
+ * Check the to be loaded language is RtoL or not.
+ * @param {Object} serviceMeta The configuration object for the service.
+ * @return {boolean} {@code true} if so.
+ * @private
+ */
+window.accountchooser.UrlTemplateUiLoader.prototype.
+   isRightToLeft_ = function(serviceMeta) {
+  var language = this.getLanguage_(serviceMeta.language);
+  return window.accountchooser.util.isRightToLeft(language);
+};
+
+
+/**
+ * Creates a UI loader based on Google AJAX Loader.
+ * @constructor
+ */
+window.accountchooser.AjaxUiLoader = function() {
+  this.loadedPackages_ = [];
+};
+window.accountchooser.AjaxUiLoader.inheritsFrom(
+    window.accountchooser.UiLoader);
+
+/**
+ * Computes a unique String according to the configuration.
+ * @param {object} serviceMeta The configuration object for the service.
+ * @return {string} A unique String for the configuration.
+ */
+window.accountchooser.AjaxUiLoader.prototype.stringify =
+    function(serviceMeta) {
+  return serviceMeta.module + ':' + serviceMeta.version + ':' +
+      serviceMeta.packageName + ':' + serviceMeta.language;
+};
+
+/**
+ * Really loads a service UI resource from Ajax Loader. Only called when target
+ * resource is not loaded before.
+ * @param {object} serviceMeta The configuration object for the service.
+ * @param {function} done The callback function after loaded the resource.
+ */
+window.accountchooser.AjaxUiLoader.prototype.loadServiceFromWeb =
+    function(serviceMeta, done) {
+  google.load(serviceMeta.module, serviceMeta.version, {
+    packages: [serviceMeta.packageName],
+    language: serviceMeta.language || window.navigator.language,
+    callback: done
+  });
+};
+
+/**
+ * Whether the resource has been loaded before.
+ * @param {object} serviceMeta The configuration object for the service.
+ * @return {boolean} Whether the resource has been loaded before.
+ */
+window.accountchooser.AjaxUiLoader.prototype.isServiceLoaded =
+    function(serviceMeta) {
+  var packageString = this.stringify(serviceMeta);
+  return jQuery.inArray(packageString, this.loadedPackages_) > -1;
+};
+
+/**
+ * Marks the target resource as loaded.
+ * @param {object} serviceMeta The configuration object for the service.
+ */
+window.accountchooser.AjaxUiLoader.prototype.setServiceLoaded =
+    function(serviceMeta) {
+  var packageString = this.stringify(serviceMeta);
+  if (jQuery.inArray(packageString, this.loadedPackages_) < 0) {
+    this.loadedPackages_.push(packageString);
+  }
+};
+
+/**
+ * Default CDS container UI handler.
+ * @constructor
+ */
+window.accountchooser.UiHandler = function() {
+};
+
+/**
+ * Simple URL Regex with following rules:<br/>
+ * 1) Only allow HTTP/HTTPS schema.
+ * 2) Must be an absolute URL (starting with 'http' or 'https').
+ * 3) No hash part.
+ * @const
+ * @private
+ */
+window.accountchooser.UiHandler.VALID_URL_REGEX_ =
+    /^http(s)?:\/\/(localhost|([a-z0-9]([-a-z0-9]*[a-z0-9])?\.)+[a-z0-9]+)(\:\d+)?(\/([^?#]*))?(\?([^#]*))?$/i;
+
+/**
+ * Shows the whole container content.
+ * @param {Object=} opt_config The configuration object. For example:
+ * <pre>
+ * {
+ *   title: '',                 // browser tab title.
+ *   favicon: '',               // favicon URL.
+ *   branding: '',              // branding content URL.
+ *   cajaMethod: '',            // caja method.
+ *   language: '',              // current language.
+ *   accounts: [],              // accounts to be stored.
+ *   domain: '',                // site domain.
+ *   serviceType: '',           // current service type.
+ *   onLanguageChanged: null    // callback invoked when language changed.
+ * }
+ * ...
+ * </pre>
+ */
+window.accountchooser.UiHandler.prototype.show = function(
+    opt_config) {
+  this.setUp_(opt_config);
+  this.showTitle_();
+  this.showFavIcon_();
+  switch (this.serviceType_) {
+    case window.accountchooser.ServiceType.MANAGE:
+      this.showManageContent_();
+      break;
+    case window.accountchooser.ServiceType.SELECT:
+      this.showSelectContent_();
+      break;
+    case window.accountchooser.ServiceType.STORE:
+      this.showStoreContent_();
+      break;
+    case window.accountchooser.ServiceType.UPDATE:
+      this.showUpdateContent_();
+      break;
+    case window.accountchooser.ServiceType.ABOUT:
+      this.showAboutContent_();
+      break;
+  }
+  this.showFooterContent_();
+  this.initLanguageSelector_();
+  // IE9 standard mode fix: force to re-render the page.
+  jQuery('body').hide().show();
+};
+
+/**
+ * Sets up the handler's configuration.
+ * @param {Object=} opt_config The configuration object.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.setUp_ = function(
+    opt_config) {
+  var config = opt_config || {};
+  this.title_ = config.title;
+  this.favicon_ = config.favicon;
+  this.branding_ = config.branding;
+  this.cajaMethod_ = config.cajaMethod;
+  this.language_ = config.language || 'en';
+  this.accounts_ = config.accounts || [];
+  this.domain_ = config.domain;
+  this.serviceType_ = config.serviceType;
+  this.onLanguageChanged_ = config.onLanguageChanged;
+};
+
+/**
+ * Shows the title on browser tab if it is provided.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.showTitle_ =
+    function() {
+  if (this.title_) {
+    document.title = this.title_;
+  }
+};
+
+/**
+ * Shows the favicon on browser tab if it is provided.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.showFavIcon_ =
+    function() {
+  if (this.favicon_ &&
+      window.accountchooser.UiHandler.VALID_URL_REGEX_.exec(
+          this.favicon_)) {
+    var head = document.getElementsByTagName('head')[0];
+    var links = head.getElementsByTagName('link');
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      if (link.type == 'image/x-icon' && link.rel == 'shortcut icon') {
+        head.removeChild(link);
+      }
+    }
+    var link = document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = this.favicon_;
+    head.appendChild(link);
+  }
+};
+
+/**
+ * Shows the branding content if it is provided.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.showBrandingContent_ =
+    function() {
+  var brandingElementId = 'ac-market';
+  var display = function(opt_html) {
+    var element = jQuery('#' + brandingElementId);
+    if (opt_html) {
+      element.html(opt_html);
+    }
+    element.show();
+  };
+
+  if (this.branding_ &&
+      window.accountchooser.UiHandler.VALID_URL_REGEX_.exec(
+          this.branding_)) {
+    var url = this.branding_;
+    if (url.indexOf('?') == -1) {
+      url += '?';
+    } else {
+      url += '&';
+    }
+    url += 'lang=' + this.language_;
+    if (this.cajaMethod_ == 'cajole') {
+      window.accountchooser.caja.cajoleHtml(brandingElementId,
+          url, display);
+    } else {
+      window.accountchooser.caja.sanitizeHtml(url, display);
+    }
+  }
+};
+
+/**
+ * Shows the sample account chooser.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.
+    showSampleAccountChooser_ = function() {
+  var page = new window.accountchooser.page.SelectAccountPage();
+  var sample = jQuery('#sample-accountchooser').empty();
+  page.render(sample, this.accounts_, undefined, this.domain_);
+};
+
+/**
+ * Shows container content for manage service page.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.showManageContent_ =
+    function() {
+  jQuery('#manage_marketing_box > h1').html(
+      window.accountchooser.labels.manageContainer.header);
+  jQuery('#manage_marketing_box > p').html(
+      window.accountchooser.labels.manageContainer.description);
+};
+
+/**
+ * Shows container content for select service page.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.showSelectContent_ =
+    function() {
+  var header =
+      window.accountchooser.labels.selectContainer.header +
+      ' <span>' + this.domain_ + '</span>';
+  jQuery('#select_marketing_box > h1').html(header);
+  this.showBrandingContent_();
+  jQuery('#select_marketing_box').show();
+};
+
+/**
+ * Shows container content for store service page.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.showStoreContent_ =
+    function() {
+  var multiple = this.accounts_ && this.accounts_.length > 1;
+  var header =
+      window.accountchooser.labels.storeContainer.header;
+  var headerMultiple = window.accountchooser.labels.
+      storeContainer.headerMultiple;
+  jQuery('#store_marketing_box > h1').html(multiple ? headerMultiple : header);
+  var description =
+      window.accountchooser.labels.storeContainer.description;
+  var descriptionMultiple = window.accountchooser.labels.
+      storeContainer.descriptionMultiple;
+  jQuery('#store_marketing_box > p').html(
+      multiple ? descriptionMultiple : description);
+  var benefits =
+      window.accountchooser.labels.storeContainer.benefits;
+  jQuery('ol.benefit-list > li > p').each(function(i, element) {
+    if (i < benefits.length) {
+      jQuery(element).html(benefits[i]);
+    }
+  });
+  this.showSampleAccountChooser_();
+  jQuery('#store_marketing_box').show();
+};
+
+/**
+ * Shows container content for update service page.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.showUpdateContent_ =
+    function() {
+  jQuery('#update_marketing_box > h1').html(
+      window.accountchooser.labels.updateContainer.header);
+  jQuery('#update_marketing_box > p').html(
+      window.accountchooser.labels.updateContainer.description);
+  jQuery('#update_marketing_box').show();
+};
+
+/**
+ * Shows container content for learn more page.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.showAboutContent_ =
+    function() {
+  this.title_ =
+      window.accountchooser.labels.aboutContainer.title;
+  this.showTitle_();
+  this.showAboutContainerMessages_('msg_');
+  this.accounts_ = this.getAboutContainerSampleAccounts_();
+  this.showSampleAccountChooser_();
+};
+
+/**
+ * Shows the messages in corresponding html elements for learn more page.
+ * @param {string} idPrefix the prefix of the container element's id.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.
+    showAboutContainerMessages_ = function(idPrefix) {
+  var res = window.accountchooser.labels.aboutContainer;
+  // Finds all elements whose id start with the prefix.
+  var elements = jQuery('[id^="' + idPrefix + '"]');
+  if (!elements || !res) {
+    return;
+  }
+  for (var i = 0; i < elements.length; i++) {
+    var element = jQuery(elements[i]);
+    // The resource name is element's id without the prefix.
+    var resourceName = element.attr('id').replace(idPrefix, '');
+    if (res[resourceName]) {
+      element.html(res[resourceName]);
+    }
+  }
+};
+
+/**
+ * Maximum number of the accounts shown on the learn more page's sample widget.
+ * @type {number}
+ * @private
+ * @const
+ */
+window.accountchooser.UiHandler.MAX_SAMPLE_ACCOUNTS_COUNT_ = 2;
+
+/**
+ * Minimum number of the accounts shown on the learn more page's sample widget.
+ * @private
+ * @const
+ */
+window.accountchooser.UiHandler.MIN_SAMPLE_ACCOUNTS_COUNT_ = 2;
+
+/**
+ * Gets the accounts stored in CDS for demonstrating on learn more page. If the
+ * number of stored accounts is greater than MAX_SAMPLE_ACCOUNTS_COUNT, only
+ * MAX_SAMPLE_ACCOUNTS_COUNT accounts returned. If the number of stored accounts
+ * is less than MIN_SAMPLE_ACCOUNTS_COUNT_, a default pre-defined account lists
+ * is returned.
+ * @return {Array.<Object>} a list of accounts for demonstrating on learn more
+ *     page.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.
+    getAboutContainerSampleAccounts_ = function() {
+  var accounts =
+      window.accountchooser.util.accountstorage.readAccounts();
+  var max =
+      window.accountchooser.UiHandler.MAX_SAMPLE_ACCOUNTS_COUNT_;
+  var min =
+      window.accountchooser.UiHandler.MIN_SAMPLE_ACCOUNTS_COUNT_;
+  var res = window.accountchooser.labels.aboutContainer;
+  if (accounts.length > max) {
+    return accounts.slice(0, max);
+  } else if (accounts.length < min) {
+    return [res.accountWomanHome, res.accountWomanWork];
+  } else {
+    return accounts;
+  }
+};
+
+/**
+ * Shows page footer content.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.showFooterContent_ =
+    function() {
+  jQuery('#copyright').html(
+      window.accountchooser.labels.footerContainer.copyright);
+  var learnMoreLink =
+      window.accountchooser.labels.footerContainer.learnMoreLink;
+  if (this.language_ && this.language_ != 'en') {
+    if (learnMoreLink.indexOf('?') >= 0) {
+      learnMoreLink += '&lang=' + this.language_;
+    } else {
+      learnMoreLink += '?lang=' + this.language_;
+    }
+  }
+  var learnMoreText =
+      window.accountchooser.labels.footerContainer.learnMore;
+  jQuery('#learnmore').html(learnMoreText).attr('href', learnMoreLink);
+};
+
+/**
+ * Initialize the language selector.
+ * @private
+ */
+window.accountchooser.UiHandler.prototype.initLanguageSelector_ =
+    function() {
+  var selector = jQuery('#ac-language');
+  selector.unbind('change');
+  selector.val(this.language_);
+  var self = this;
+  selector.change(function() {
+    var lang = selector.val();
+    if (lang != self.language_ && self.onLanguageChanged_) {
+      self.onLanguageChanged_(lang);
+    }
+  });
+};
+
+
+(function(jQuery) {
+  var LEARN_MORE_LINK = '/learnmore.html';
+
+  var widget = {
+    /**
+     * Widget options defined by jQuery.
+     */
+    options: {
+      popupMode: false,
+      manageMode: false,
+      aboutMode: false,
+      uiLoader: null,
+      idps: {},
+      emailMapIdp: {},
+      uiHandler: new window.accountchooser.UiHandler(),
+      enableCajole: false
+    },
+
+    /**
+     * Dynamically loads a service UI. Actually it will delegate to the UI
+     * loader in options.
+     * @param {rpc.Request} request Current request to be handled.
+     * @param {string} origin The domain that sends the request.
+     */
+    loadService_: function(request, origin) {
+      var self = this;
+      var done = function(constructor) {
+        self.executeService_(constructor, request, origin);
+      };
+      this.options.uiLoader.loadService(request, this.options.services, done);
+    },
+
+    /**
+     * After a service UI is loaded, invoke its method to handle the request.
+     * @param {Function} constructor The constructor for the service.
+     * @param {rpc.Request} request Current request to be handled.
+     * @param {string} origin The domain that sends the request.
+     */
+    executeService_: function(constructor, request, origin) {
+      var serviceImpl = new constructor;
+      serviceImpl.setContainer(this.element);
+      serviceImpl.setCdsConfig(this.cdsConfig);
+      serviceImpl.executeRequest.call(serviceImpl, request);
+
+      this.showCustomizedUI_(request, origin);
+    },
+
+    /**
+     * Displays customized UI.
+     * @param {rpc.Request} request Current request to be handled.
+     * @param {string} origin The domain that sends the request.
+     * @private
+     */
+    showCustomizedUI_: function(request, origin) {
+      if (!this.options.uiHandler) {
+        return;
+      }
+      var ui = {};
+      if (request && request.params_ && request.params_.clientConfig) {
+        ui = request.params_.clientConfig.ui || ui;
+        // Copy the language setting to ui so that uiHandler can use it.
+        ui.language = window.accountchooser.util.
+            findLanguageCode(request.params_.clientConfig.language);
+        // Check whether 'cajole' is allowed.
+        if (!this.options.enableCajole && 'cajole' == ui.cajaMethod) {
+          ui.cajaMethod = 'sanitize';
+        }
+        ui.serviceType = request.getMethod();
+        ui.accounts =
+            window.accountchooser.util.sanitizeAccounts(
+                request.getParameters()['accounts'] || [],
+                window.accountchooser.util.accountSanitizer);
+        var self = this;
+        ui.onLanguageChanged = function(lang) {
+          request.params_.clientConfig.language =
+              window.accountchooser.util.findLanguageCode(lang);
+          self.loadService_(request, origin);
+        }
+      }
+      ui.language = ui.language || 'en';
+      ui.domain = origin.replace(/^https?:\/\//, '');
+      this.options.uiHandler.show(ui);
+    },
+
+    /**
+     * Widget life cycle method defined by jQuery.
+     */
+    _create: function() {
+      jQuery(this.element).empty();
+      this.cdsConfig = {
+        popupMode: this.options.popupMode,
+        idps: this.options.idps,
+        emailMapIdp: this.options.emailMapIdp
+      };
+      this.cdsConfig.rpcs = {
+        serviceLoader: jQuery.proxy(this.loadService_, this)
+      };
+      try {
+        window.accountchooser.rpc.initCds(this.cdsConfig);
+      } catch (e) {
+        if ((!this.options.manageMode && !this.options.aboutMode) && (
+            e == window.accountchooser.rpc.EMPTY_SAVED_RPC ||
+            e == window.accountchooser.rpc.INVALID_CLIENT_DOMAIN
+            )) {
+          this.redirectEmptyRequest();
+        } else if (!this.options.manageMode && !this.options.aboutMode) {
+          // Other exception, re-throw
+          throw e;
+        }
+      }
+      if (this.options.manageMode) {
+        this.showManagePage();
+      } else if (this.options.aboutMode) {
+        this.showAboutPage();
+      }
+    },
+
+    redirectEmptyRequest: function() {
+      var domain = window.accountchooser.rpc.getDomainInHash_();
+      if (domain &&
+          window.accountchooser.util.isValidUrlDomain(domain)) {
+        // Redirect to client domain.
+        window.location.href = 'http://' + domain;
+      } else {
+        // Redirect to to CDS manage account page.
+        window.location.href =
+            window.location.protocol + '//' + window.location.host;
+      }
+    },
+
+    showManagePage: function() {
+      var disable = window.accountchooser.util.browserconfig.
+          isDisabled();
+      var accounts = window.accountchooser.util.accountstorage.
+          readAccounts();
+      if (disable || !accounts.length) {
+        this.showLearnMorePage_();
+      } else {
+        this.sendFakeRequest_(
+            window.accountchooser.rpc.ManageRequest, 'manage');
+      }
+    },
+
+    showAboutPage: function() {
+      this.sendFakeRequest_(
+          window.accountchooser.rpc.AboutRequest, 'about');
+    },
+
+    sendFakeRequest_: function(constructor, id) {
+      var params = window.accountchooser.util.parseUrlParams(
+          window.location.href);
+      var clientConfig = {
+        language: params['lang'],
+        clientCallbackUrl: window.location.href
+      };
+      var request = new constructor(id, clientConfig);
+      var e = {
+        data: request.toString(),
+        origin: window.location.host
+      };
+      window.accountchooser.rpc.process_(e, true);
+    },
+
+    showLearnMorePage_: function() {
+      var lang = window.accountchooser.util.parseUrlParams(
+          window.location.href)['lang'];
+      var url = LEARN_MORE_LINK;
+      if (lang) {
+        if (url.indexOf('?') >= 0) {
+          url += '&lang=' + lang;
+        } else {
+          url += '?lang=' + lang;
+        }
+      }
+      window.location.replace(url);
+    },
+
+    /**
+     * Removes this widget. Widget life cycle method defined by jQuery.
+     */
+    destroy: function() {
+      jQuery(this.element).empty();
+      jQuery.Widget.prototype.destroy.call(this);
+    }
+  };
+
+  jQuery.widget('ui.cds', widget);
+})(jQuery);
+

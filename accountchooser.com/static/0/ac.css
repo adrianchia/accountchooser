@@ -492,6 +492,55 @@ a:hover {
   background: url(../image/account-select-rtl.png) top right no-repeat;
 }
 
+.widget-panel-chooser .widget-accounts .widget-more-accounts {
+  clear: both;
+}
+
+.widget-panel-chooser .widget-accounts .widget-more-accounts h2 {
+  font-size: 14px;
+  line-height: 1;
+  margin: 0 0 10px;
+}
+
+.widget-panel-chooser .widget-accounts .widget-more-accounts-button {
+  display: inline;
+  float: right;
+  font-size: 11px;
+  line-height: 18px;
+  margin: 5px 0px;
+}
+
+.rtl .widget-panel-chooser .widget-accounts .widget-more-accounts-button {
+  float: left;
+}
+
+.widget-panel-chooser .widget-accounts .widget-more-accounts-button .widget-more-accounts-indicator {
+  display: inline-block;
+  height: 7px;
+  width: 7px;
+  background: url(../image/more-accounts-unexpanded.png) top left no-repeat;
+  margin-left: 5px;
+}
+
+.rtl .widget-panel-chooser .widget-accounts .widget-more-accounts-button .widget-more-accounts-indicator {
+  margin-left: 0px;
+  margin-right: 5px;
+}
+
+.widget-panel-chooser .widget-accounts .widget-more-accounts-expanded .widget-more-accounts-indicator {
+  background: url(../image/more-accounts-expanded.png) top left no-repeat;
+}
+
+.widget-panel-chooser .widget-accounts li.widget-disabled-account {
+  background: #eee;
+}
+
+.widget-panel-chooser .widget-accounts li.widget-disabled-account:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 /**
  *
  *  Manage account styles
