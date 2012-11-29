@@ -1745,8 +1745,7 @@ var JQUERY_SRC =
 /**
  * @define {string} The accountchooser client library URL.
  */
-var ACCOUNTCHOOSER_CLIENT_SRC =
-    'https://www.accountchooser.com/client-debug.js';
+var ACCOUNTCHOOSER_CLIENT_SRC = 'https://www.accountchooser.com/client.js';
 
 /**
  * Template for generating CDS helper initialization script.
