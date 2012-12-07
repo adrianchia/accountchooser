@@ -356,6 +356,16 @@ window.accountchooser.util.extend = function(deep, target,
   return target;
 };
 
+/**
+ * Checks the given URL's scheme is valid or not. Only http and https are
+ * considered valid.
+ * @param {string} url The URL to be checked.
+ * @return {boolean} {@code true} if the scheme is valid.
+ */
+window.accountchooser.util.isValidSchemeUrl = function(url) {
+  return /^https?:\/\//i.test(url);
+};
+
 
 /**
  * @namespcae Parameter validators.
@@ -1933,6 +1943,7 @@ window.accountchooser.CdsClient = function(config) {
     language: this.config_.language,
     ui: this.config_.ui
   };
+  this.validateCdsOptions_(this.cdsOptions_);
 };
 
 /**
@@ -2206,6 +2217,28 @@ window.accountchooser.CdsClient.prototype.callCds_ = function(
 };
 
 /**
+ * Validates the options. If any option is invalid, an exception is thrown.
+ * @param {Object} options The CDS options.
+ * @private
+ */
+window.accountchooser.CdsClient.prototype.validateCdsOptions_ =
+    function(options) {
+  var callbackUrls = [
+      options.clientCallbackUrl,
+      options.positiveCallbackUrl,
+      options.negativeCallbackUrl
+  ];
+  for (var i = 0; i < callbackUrls.length; i++) {
+    var callbackUrl = callbackUrls[i];
+    if (callbackUrl &&
+        !window.accountchooser.util.isValidSchemeUrl(
+            callbackUrl)) {
+      throw 'Invalid callbackUrl: "' + callbackUrl + '".';
+    }
+  }
+};
+
+/**
  * Starts the store service on CDS.
  * @param {Array.<Object>} accounts The local accounts list, which can be
  *     shown to end user for selection.
@@ -2234,6 +2267,7 @@ window.accountchooser.CdsClient.prototype.store = function(
       window.accountchooser.util.extend(false, {},
           this.cdsOptions_, opt_cdsOptions) :
       this.cdsOptions_;
+  this.validateCdsOptions_(options);
   var store = new window.accountchooser.rpc.StoreRequest(
       service, accounts, options);
   this.callCds_(store);
@@ -2264,6 +2298,7 @@ window.accountchooser.CdsClient.prototype.select = function(
       window.accountchooser.util.extend(false, {},
           this.cdsOptions_, opt_cdsOptions) :
       this.cdsOptions_;
+  this.validateCdsOptions_(options);
   var select = new window.accountchooser.rpc.SelectRequest(
       service, localAccounts, options);
   this.callCds_(select);
@@ -2297,6 +2332,7 @@ window.accountchooser.CdsClient.prototype.update = function(
       window.accountchooser.util.extend(false, {},
           this.cdsOptions_, opt_cdsOptions) :
       this.cdsOptions_;
+  this.validateCdsOptions_(options);
   var update = new window.accountchooser.rpc.UpdateRequest(
       service, account, options);
   this.callCds_(update);
@@ -2335,6 +2371,7 @@ window.accountchooser.CdsClient.prototype.query_ = function(
       window.accountchooser.util.extend(false, {},
           this.cdsOptions_, opt_cdsOptions) :
       this.cdsOptions_;
+  this.validateCdsOptions_(options);
   var request = new window.accountchooser.rpc.QueryRequest(
       service, query, account, options);
   window.accountchooser.rpc.callCds(request);

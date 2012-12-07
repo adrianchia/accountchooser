@@ -356,6 +356,16 @@ window.accountchooser.util.extend = function(deep, target,
   return target;
 };
 
+/**
+ * Checks the given URL's scheme is valid or not. Only http and https are
+ * considered valid.
+ * @param {string} url The URL to be checked.
+ * @return {boolean} {@code true} if the scheme is valid.
+ */
+window.accountchooser.util.isValidSchemeUrl = function(url) {
+  return /^https?:\/\//i.test(url);
+};
+
 
 /**
  * @namespcae Parameter validators.
@@ -3469,37 +3479,29 @@ window.accountchooser.rpc.process_ = function(e, fromSaved) {
  */
 window.accountchooser.rpc.checkCallbackDomain_ = function(
     request, domain) {
-  var callbackDomain = request.params_.clientConfig.clientCallbackUrl &&
-      window.accountchooser.util.getDomainFromUrl(
-          request.params_.clientConfig.clientCallbackUrl);
-  if (callbackDomain && callbackDomain !== domain) {
-    window.accountchooser.util.log(
-        'Illegal clientCallbackUrl "' +
-        request.params_.clientConfig.clientCallbackUrl +
-        '", must be under domain "' + domain + '".');
-    return false;
-  }
-  var positiveCallbackDomain =
-      request.params_.clientConfig.positiveCallbackUrl &&
-      window.accountchooser.util.getDomainFromUrl(
-          request.params_.clientConfig.positiveCallbackUrl);
-  if (positiveCallbackDomain && positiveCallbackDomain !== domain) {
-    window.accountchooser.util.log(
-        'Illegal positiveCallbackUrl "' +
-        request.params_.clientConfig.positiveCallbackUrl +
-        '", must be under domain "' + domain + '".');
-    return false;
-  }
-  var negativeCallbackDomain =
-      request.params_.clientConfig.negativeCallbackUrl &&
-      window.accountchooser.util.getDomainFromUrl(
-          request.params_.clientConfig.negativeCallbackUrl);
-  if (negativeCallbackDomain && negativeCallbackDomain !== domain) {
-    window.accountchooser.util.log(
-        'Illegal negativeCallbackUrl "' +
-        request.params_.clientConfig.negativeCallbackUrl +
-        '", must be under domain "' + domain + '".');
-    return false;
+  var callbackUrls = [
+      request.params_.clientConfig.clientCallbackUrl,
+      request.params_.clientConfig.positiveCallbackUrl,
+      request.params_.clientConfig.negativeCallbackUrl
+  ];
+  for (var i = 0; i < callbackUrls.length; i++) {
+    var callbackUrl = callbackUrls[i];
+    if (!callbackUrl) {
+      continue;
+    }
+    if (!window.accountchooser.util.isValidSchemeUrl(
+        callbackUrl)) {
+      window.accountchooser.util.log(
+          'Invalid scheme for callbackUrl: "' + callbackUrl + '".');
+      return false;
+    }
+    var callbackDomain = window.accountchooser.util.
+        getDomainFromUrl(callbackUrl);
+    if (callbackDomain != domain) {
+      window.accountchooser.util.log(
+          'Invalid domain for callbackUrl: "' + callbackUrl + '".');
+      return false;
+    }
   }
   return true;
 };

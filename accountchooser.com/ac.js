@@ -408,6 +408,16 @@ window.accountchooser.util.extend = function(deep, target,
   return target;
 };
 
+/**
+ * Checks the given URL's scheme is valid or not. Only http and https are
+ * considered valid.
+ * @param {string} url The URL to be checked.
+ * @return {boolean} {@code true} if the scheme is valid.
+ */
+window.accountchooser.util.isValidSchemeUrl = function(url) {
+  return /^https?:\/\//i.test(url);
+};
+
 
 /**
  * @namespcae Parameter validators.
