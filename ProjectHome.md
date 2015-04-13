@@ -1,0 +1,1 @@
+The open source code for central account chooser.  Learn more at the [working group site](https://sites.google.com/site/oidfacwg/)
